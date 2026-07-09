@@ -1,0 +1,198 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import '../components/blog-detail.css';
+import Footer from '../components/Footer';
+import { getApiUrl } from '../config/api';
+import { useContent } from '../hooks/useContent';
+import { stripHtml } from '../utils/stripHtml';
+import RichText from '../components/RichText';
+import BlockRenderer from '../components/BlockRenderer';
+
+const BlogDetail = () => {
+  const { slug } = useParams();
+  const { content } = useContent('blogsPage');
+  const [blog, setBlog] = useState(null);
+  const [relatedBlogs, setRelatedBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    loadBlog();
+  }, [slug]);
+
+  const loadBlog = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      // First, get all blogs to find the one with matching slug
+      const response = await fetch(getApiUrl('api/blogs'));
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const blogs = await response.json();
+      const foundBlog = blogs.find(b => b.slug === slug);
+
+      if (foundBlog) {
+        setBlog(foundBlog);
+        const others = blogs.filter(b => b.slug !== slug);
+        const sameCategory = others.filter(b => b.category === foundBlog.category);
+        const picks = (sameCategory.length > 0 ? sameCategory : others).slice(0, 2);
+        setRelatedBlogs(picks);
+      } else {
+        setError('Blog not found');
+      }
+    } catch (error) {
+      console.error('Failed to load blog:', error);
+      setError('Failed to load blog');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="blog-detail-page">
+        <div className="blog-not-found">
+          <h1>Loading...</h1>
+          <p>Please wait while we load the blog post.</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !blog) {
+    return (
+      <div className="blog-detail-page">
+        <div className="blog-not-found">
+          <h1>Blog Post Not Found</h1>
+          <p>{error || "The blog post you're looking for doesn't exist."}</p>
+          <Link to="/blogs" className="back-to-blogs">Back to Blogs</Link>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="blog-detail-page">
+      {/* Blog Header */}
+      <section className="blog-header">
+        <div className="blog-header-container">
+          <div className="blog-breadcrumb">
+            <Link to="/blogs" className="breadcrumb-link">Blogs</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span className="breadcrumb-current">{stripHtml(blog.title)}</span>
+          </div>
+
+          <div className="blog-meta">
+            <span className="blog-category">{blog.category}</span>
+            <span className="blog-date">{blog.date}</span>
+            <span className="blog-read-time">{blog.readTime}</span>
+          </div>
+
+          <RichText html={blog.title} as="h1" className="blog-title" />
+          {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
+          <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
+
+          <div className="blog-author-info">
+            <div className="author-details">
+              <span className="author-label">By</span>
+              <span className="author-name">{blog.author}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Image */}
+      {blog.image && (
+        <section className="blog-image-section">
+          <div className="blog-image-container">
+            <img src={blog.image} alt={stripHtml(blog.title)} className="blog-featured-image" />
+          </div>
+        </section>
+      )}
+
+      {/* Blog Content */}
+      <section className="blog-content-section">
+        <div className="blog-content-container">
+          <div className="blog-content">
+            {blog.contentBlocks && blog.contentBlocks.length > 0 ? (
+              <BlockRenderer blocks={blog.contentBlocks} />
+            ) : (
+              <RichText html={blog.content} />
+            )}
+          </div>
+
+          {/* Social Share */}
+          <div className="blog-share">
+            <h3>Share this article</h3>
+            <div className="share-buttons">
+              <button className="share-button twitter" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(stripHtml(blog.title))}&url=${encodeURIComponent(window.location.href)}`)}>
+                <i className="fab fa-twitter"></i>
+                Twitter
+              </button>
+              <button className="share-button linkedin" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
+                <i className="fab fa-linkedin"></i>
+                LinkedIn
+              </button>
+              <button className="share-button facebook" onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`)}>
+                <i className="fab fa-facebook"></i>
+                Facebook
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="blog-cta-section">
+        <div className="blog-cta-container">
+          <h2>{content?.detailCta?.title}</h2>
+          <p>{content?.detailCta?.description}</p>
+          <div className="cta-buttons">
+            <button
+              className="cta-button primary"
+              onClick={() => window.open(content?.detailCta?.whatsappLink, '_blank')}
+            >
+              {content?.detailCta?.primaryButton}
+            </button>
+            <button
+              className="cta-button secondary"
+              onClick={() => window.location.href = '/contact'}
+            >
+              {content?.detailCta?.secondaryButton}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      {relatedBlogs.length > 0 && (
+        <section className="related-posts-section">
+          <div className="related-posts-container">
+            <h2>Related Articles</h2>
+            <div className="related-posts-grid">
+              {relatedBlogs.map((related) => (
+                <Link key={related.id} to={`/blog/${related.slug}`} className="related-post-card">
+                  <div className="related-post-image">
+                    <img src={related.image || '/images/default-blog.jpg'} alt={stripHtml(related.title)} />
+                  </div>
+                  <div className="related-post-content">
+                    <span className="related-post-category">{related.category}</span>
+                    <RichText html={related.title} as="h3" />
+                    <RichText html={related.excerpt} as="p" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <Footer />
+    </div>
+  );
+};
+
+export default BlogDetail;

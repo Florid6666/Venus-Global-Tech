@@ -1,0 +1,26 @@
+# Root level - ignore everything except client and server directories
+node_modules/
+package-lock.json
+.env
+.env.local
+
+# Documentation (keep these)
+# !README.md
+# !ADMIN_QUICK_START.md
+# !ADMIN_SYSTEM_README.md
+# !CONTACT_FORM_SETUP.md
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store

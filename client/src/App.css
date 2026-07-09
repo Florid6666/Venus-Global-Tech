@@ -1,0 +1,247 @@
+/* Global App Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Global button cursor style */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+[role="button"] {
+  cursor: pointer;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Page Transition Animations - Smooth Flip Effect */
+.page-transition {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.page-transition.fadeOut {
+  animation: smoothFlipOut 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.page-transition.fadeIn {
+  animation: smoothFlipIn 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+@keyframes smoothFlipOut {
+  0% {
+    transform: rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+    transform-origin: center center;
+  }
+  30% {
+    transform: rotateY(-45deg) scale(0.98);
+    opacity: 0.8;
+    filter: blur(1px);
+    transform-origin: center center;
+  }
+  70% {
+    transform: rotateY(-90deg) scale(0.96);
+    opacity: 0.4;
+    filter: blur(2px);
+    transform-origin: center center;
+  }
+  100% {
+    transform: rotateY(-120deg) scale(0.94);
+    opacity: 0;
+    filter: blur(3px);
+    transform-origin: center center;
+  }
+}
+
+@keyframes smoothFlipIn {
+  0% {
+    transform: rotateY(120deg) scale(0.94);
+    opacity: 0;
+    filter: blur(3px);
+    transform-origin: center center;
+  }
+  30% {
+    transform: rotateY(90deg) scale(0.96);
+    opacity: 0.4;
+    filter: blur(2px);
+    transform-origin: center center;
+  }
+  70% {
+    transform: rotateY(45deg) scale(0.98);
+    opacity: 0.8;
+    filter: blur(1px);
+    transform-origin: center center;
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+    transform-origin: center center;
+  }
+}
+
+/* Ensure content doesn't show during transition */
+.page-transition.fadeOut > * {
+  pointer-events: none;
+}
+
+/* Optimize rendering performance */
+.page-transition > * {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smooth transition for admin panel (no animation) */
+.App:has(.page-transition) .page-transition {
+  /* Admin routes can skip animation if needed */
+}
+
+/* Mobile optimization - smoother, lighter animation */
+@media (max-width: 768px) {
+  .page-transition {
+    perspective: 1000px;
+  }
+  
+  .page-transition.fadeOut {
+    animation: smoothFlipOutMobile 0.35s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  }
+  
+  .page-transition.fadeIn {
+    animation: smoothFlipInMobile 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  }
+  
+  @keyframes smoothFlipOutMobile {
+    0% {
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+      filter: blur(0px);
+    }
+    50% {
+      transform: rotateY(-60deg) scale(0.97);
+      opacity: 0.5;
+      filter: blur(1px);
+    }
+    100% {
+      transform: rotateY(-90deg) scale(0.95);
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+  
+  @keyframes smoothFlipInMobile {
+    0% {
+      transform: rotateY(90deg) scale(0.95);
+      opacity: 0;
+      filter: blur(2px);
+    }
+    50% {
+      transform: rotateY(60deg) scale(0.97);
+      opacity: 0.5;
+      filter: blur(1px);
+    }
+    100% {
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition.fadeOut,
+  .page-transition.fadeIn {
+    animation: fadeOnly 0.2s ease-in-out forwards;
+  }
+  
+  @keyframes fadeOnly {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Global utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+}

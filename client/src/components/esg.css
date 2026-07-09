@@ -1,0 +1,1538 @@
+/* ESG Page Styles */
+.esg-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.esg-hero {
+  padding: 120px 0;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.esg-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.esg-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.esg-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #22c55e;
+  width: fit-content;
+}
+
+.esg-hero-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: #000000;
+}
+
+.esg-hero-title .title-line {
+  display: block;
+}
+
+.esg-hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+.esg-hero-cta {
+  margin-top: 8px;
+}
+
+.esg-hero-button {
+  padding: 16px 32px;
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.esg-hero-button:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.esg-hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esg-image-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esg-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+/* Benefits Section */
+.esg-benefits {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.esg-benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.esg-benefits-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.esg-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.esg-benefits-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.esg-benefits-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esg-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.esg-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.esg-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.esg-benefit-flip-card:hover .esg-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.esg-benefit-flip-front,
+.esg-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.esg-benefit-flip-front {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.esg-benefit-flip-back {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.esg-benefit-icon {
+  width: 60px;
+  height: 60px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.esg-benefit-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.esg-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.esg-benefit-flip-back .esg-benefit-title {
+  color: #ffffff;
+}
+
+.esg-benefit-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+}
+
+.esg-benefit-flip-back .esg-benefit-description {
+  color: #ffffff;
+}
+
+/* Process Section */
+.esg-process {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.esg-process-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.esg-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.esg-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.esg-process-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.esg-process-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esg-process-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.esg-process-step {
+  flex: 1;
+  max-width: 280px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.esg-process-step:hover {
+  border-color: #22c55e;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15);
+}
+
+.esg-process-step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.esg-process-step-number {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.esg-process-step-icon {
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.esg-process-step-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.esg-process-step-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.esg-process-arrow {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22c55e;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Tools Section */
+.esg-tools {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.esg-tools-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.esg-tools-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.esg-tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.esg-tools-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.esg-tools-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esg-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.esg-tools-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.esg-tools-row:first-child {
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.esg-tools-row:last-child {
+  justify-content: center;
+  max-width: 480px;
+}
+
+.esg-tool-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.esg-tool-icon {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.esg-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.esg-tool-item:hover .esg-tool-icon::before {
+  width: 120px;
+  height: 120px;
+}
+
+.esg-tool-icon i {
+  font-size: 24px;
+  color: #22c55e;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.esg-tool-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.esg-tool-item:hover .esg-tool-icon i,
+.esg-tool-item:hover .esg-tool-name {
+  color: #ffffff;
+}
+
+/* Why Choose ESG Section */
+.esg-why-choose {
+  padding: 0;
+  background: #ffffff;
+}
+
+.esg-why-choose-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.esg-why-choose-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.esg-why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.esg-why-choose-content {
+  background: #1a1a1a;
+  padding: 60px 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.esg-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.esg-why-choose-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.esg-why-choose-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0 0 32px 0;
+}
+
+.esg-why-choose-divider {
+  width: 100%;
+  height: 1px;
+  background: #333333;
+  margin: 32px 0;
+}
+
+.esg-why-choose-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.esg-why-choose-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.esg-why-choose-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.esg-why-choose-benefit-flip-card:hover .esg-why-choose-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.esg-why-choose-benefit-flip-front,
+.esg-why-choose-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.esg-why-choose-benefit-flip-front {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.esg-why-choose-benefit-flip-back {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.esg-why-choose-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.esg-why-choose-benefit-icon i {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.esg-why-choose-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.esg-why-choose-benefit-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* FAQ Section */
+.esg-faq {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.esg-faq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.esg-faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.esg-faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.esg-faq-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.esg-faq-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esg-faq-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.esg-faq-contact {
+  position: sticky;
+  top: 120px;
+}
+
+.esg-faq-contact-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.esg-faq-contact-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.esg-faq-contact-divider {
+  width: 60px;
+  height: 2px;
+  background: #22c55e;
+  margin: 0 auto 24px;
+}
+
+.esg-faq-contact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 32px 0;
+}
+
+.esg-faq-contact-button {
+  padding: 16px 32px;
+  background: #22c55e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.esg-faq-contact-button:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.esg-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.esg-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.esg-faq-item:hover {
+  border-color: #22c55e;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);
+}
+
+.esg-faq-question {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.esg-faq-question h4 {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000000;
+}
+
+.esg-faq-question i {
+  font-size: 16px;
+  color: #22c55e;
+  transition: all 0.3s ease;
+}
+
+.esg-faq-item.active .esg-faq-question i {
+  transform: rotate(45deg);
+}
+
+.esg-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.esg-faq-item.active .esg-faq-answer {
+  max-height: 200px;
+  padding: 0 24px 24px;
+}
+
+.esg-faq-answer p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .esg-hero-container {
+    gap: 60px;
+  }
+  
+  .esg-hero-title {
+    font-size: 48px;
+  }
+}
+
+/* Laptop View - 4-3 Layout */
+@media (min-width: 1025px) {
+  .esg-tools-row:first-child {
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .esg-tools-row:last-child {
+    justify-content: center;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 992px) {
+  .esg-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .esg-hero-title {
+    font-size: 42px;
+  }
+  
+  .esg-image-container {
+    height: 400px;
+  }
+  
+  .esg-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .esg-why-choose-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .esg-why-choose-image {
+    min-height: 400px;
+  }
+  
+  .esg-why-choose-content {
+    padding: 50px 40px;
+  }
+  
+  .esg-why-choose-title {
+    font-size: 36px;
+  }
+  
+  .esg-faq-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .esg-faq-contact {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .esg-hero {
+    padding: 80px 0;
+  }
+  
+  .esg-hero-container {
+    padding: 0 20px;
+  }
+  
+  .esg-hero-title {
+    font-size: 36px;
+  }
+  
+  .esg-hero-description {
+    font-size: 16px;
+  }
+  
+  .esg-benefits,
+  .esg-process,
+  .esg-tools,
+  .esg-faq {
+    padding: 80px 0;
+  }
+  
+  .esg-benefits-container,
+  .esg-process-container,
+  .esg-tools-container,
+  .esg-faq-container {
+    padding: 0 20px;
+  }
+  
+  .esg-benefits-title,
+  .esg-process-title,
+  .esg-tools-title,
+  .esg-faq-title {
+    font-size: 36px;
+  }
+  
+  .esg-benefits-description,
+  .esg-process-description,
+  .esg-tools-description,
+  .esg-faq-description {
+    font-size: 16px;
+  }
+  
+  .esg-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .esg-process-timeline {
+    gap: 30px;
+  }
+  
+  .esg-process-step {
+    flex: 1;
+    max-width: 250px;
+    padding: 24px 20px;
+  }
+  
+  /* Hide arrows on tablet when cards are stacked */
+  .esg-process-arrow {
+    display: none;
+  }
+  
+  .esg-tools-row {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .esg-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .esg-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  .esg-tool-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Remove hover effects on tablet and keep green colors */
+  .esg-tool-item:hover {
+    transform: none;
+  }
+  
+  .esg-tool-icon {
+    background: #ffffff !important;
+    border: 2px solid #e5e7eb !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon::before {
+    display: none !important;
+  }
+  
+  .esg-tool-icon i {
+    color: #22c55e !important;
+    font-size: 24px !important;
+    z-index: 2 !important;
+    position: relative !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon i {
+    color: #22c55e !important;
+  }
+  
+  .esg-tool-name {
+    color: #22c55e !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    z-index: 2 !important;
+    position: relative !important;
+    text-align: center !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-name {
+    color: #22c55e !important;
+  }
+  
+  .esg-why-choose-image {
+    min-height: 300px;
+  }
+  
+  .esg-why-choose-content {
+    padding: 40px 30px;
+  }
+  
+  .esg-why-choose-title {
+    font-size: 32px;
+  }
+  
+  .esg-why-choose-description {
+    font-size: 16px;
+  }
+  
+  .esg-why-choose-benefit-title {
+    font-size: 18px;
+  }
+  
+  .esg-why-choose-benefit-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .esg-hero {
+    padding: 60px 0;
+  }
+  
+  .esg-hero-container {
+    padding: 0 16px;
+  }
+  
+  .esg-hero-title {
+    font-size: 32px;
+  }
+  
+  .esg-hero-description {
+    font-size: 15px;
+  }
+  
+  .esg-hero-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .esg-benefits,
+  .esg-process,
+  .esg-tools,
+  .esg-faq {
+    padding: 60px 0;
+  }
+  
+  .esg-benefits-container,
+  .esg-process-container,
+  .esg-tools-container,
+  .esg-faq-container {
+    padding: 0 16px;
+  }
+  
+  .esg-benefits-title,
+  .esg-process-title,
+  .esg-tools-title,
+  .esg-faq-title {
+    font-size: 32px;
+  }
+  
+  .esg-benefits-description,
+  .esg-process-description,
+  .esg-tools-description,
+  .esg-faq-description {
+    font-size: 15px;
+  }
+  
+  .esg-benefit-flip-card {
+    height: 220px;
+  }
+  
+  .esg-benefit-flip-front,
+  .esg-benefit-flip-back {
+    padding: 24px 20px;
+  }
+  
+  .esg-benefit-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .esg-benefit-icon i {
+    font-size: 20px;
+  }
+  
+  .esg-benefit-title {
+    font-size: 18px;
+  }
+  
+  .esg-benefit-description {
+    font-size: 14px;
+  }
+  
+  .esg-process-timeline {
+    gap: 20px;
+    flex-direction: column;
+  }
+  
+  .esg-process-step {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 16px;
+  }
+  
+  /* Hide arrows on mobile when cards are stacked */
+  .esg-process-arrow {
+    display: none;
+  }
+  
+  .esg-process-step-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .esg-process-step-icon i {
+    font-size: 20px;
+  }
+  
+  .esg-process-step-title {
+    font-size: 16px;
+  }
+  
+  .esg-tools-row {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .esg-tools-row:first-child {
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  .esg-tools-row:last-child {
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  /* Create 2-2-2-1 layout by controlling item width */
+  .esg-tool-item {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+  
+  /* For the 7th item (last one), center it */
+  .esg-tool-item:nth-child(7) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .esg-tool-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .esg-tool-icon i {
+    font-size: 20px;
+  }
+  
+  .esg-tool-name {
+    font-size: 10px;
+  }
+  
+  /* Remove hover effects on mobile and keep green colors */
+  .esg-tool-item:hover {
+    transform: none;
+  }
+  
+  .esg-tool-icon {
+    background: #ffffff !important;
+    border: 2px solid #e5e7eb !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon::before {
+    display: none !important;
+  }
+  
+  .esg-tool-icon i {
+    color: #22c55e !important;
+    font-size: 20px !important;
+    z-index: 2 !important;
+    position: relative !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-icon i {
+    color: #22c55e !important;
+  }
+  
+  .esg-tool-name {
+    color: #22c55e !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    z-index: 2 !important;
+    position: relative !important;
+    text-align: center !important;
+  }
+  
+  .esg-tool-item:hover .esg-tool-name {
+    color: #22c55e !important;
+  }
+  
+  .esg-why-choose-image {
+    min-height: 250px;
+  }
+  
+  .esg-why-choose-content {
+    padding: 30px 20px;
+  }
+  
+  .esg-why-choose-title {
+    font-size: 28px;
+  }
+  
+  .esg-why-choose-benefit-item {
+    gap: 12px;
+  }
+  
+  .esg-why-choose-benefit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .esg-why-choose-benefit-icon i {
+    font-size: 10px;
+  }
+  
+  .esg-faq-contact-card {
+    padding: 30px 24px;
+  }
+  
+  .esg-faq-contact-title {
+    font-size: 20px;
+  }
+  
+  .esg-faq-contact-description {
+    font-size: 14px;
+  }
+  
+  .esg-faq-contact-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .esg-faq-question {
+    padding: 20px;
+  }
+  
+  .esg-faq-question h4 {
+    font-size: 16px;
+  }
+  
+  .esg-faq-item.active .esg-faq-answer {
+    padding: 0 20px 20px;
+  }
+  
+  .esg-faq-answer p {
+    font-size: 14px;
+  }
+}
+
+/* Upper Footer Section */
+.upper-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.upper-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.upper-footer-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.upper-footer-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.upper-footer-header p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.office-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.office-flag {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.office-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.office-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.office-address,
+.office-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.office-address i,
+.office-phone i {
+  color: #22c55e;
+  width: 16px;
+  text-align: center;
+}
+
+.office-phone a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.office-phone a:hover {
+  color: #22c55e;
+}
+
+.office-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design for Upper Footer */
+@media (max-width: 768px) {
+  .upper-footer {
+    padding: 60px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 1rem;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-card {
+    padding: 25px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .office-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-footer {
+    padding: 50px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 0.9rem;
+  }
+  
+  .office-card {
+    padding: 20px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .office-company {
+    font-size: 1rem;
+  }
+  
+  .office-address,
+  .office-phone {
+    font-size: 0.9rem;
+  }
+}

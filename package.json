@@ -1,0 +1,21 @@
+{
+  "name": "venus-tech",
+  "version": "1.0.0",
+  "description": "Venus Global Technology - Full Stack Application",
+  "private": true,
+  "scripts": {
+    "client:install": "cd client && npm install",
+    "server:install": "cd server && npm install",
+    "install:all": "npm run client:install && npm run server:install",
+    "client:start": "cd client && npm start",
+    "server:start": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "client:build": "cd client && npm run build"
+  },
+  "keywords": [
+    "venus-tech",
+    "fullstack"
+  ],
+  "author": "Venus Global Technology",
+  "license": "MIT"
+}

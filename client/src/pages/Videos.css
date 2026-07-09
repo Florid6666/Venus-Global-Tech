@@ -1,0 +1,104 @@
+.videos-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.videos-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.videos-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.videos-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.videos-hero-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.videos-content {
+  padding: 3rem 2rem;
+}
+
+.videos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.videos-setup-message {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.videos-setup-message h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.videos-setup-message p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.videos-setup-message ol {
+  color: #333;
+  line-height: 1.8;
+}
+
+.videos-setup-message ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  color: #666;
+}
+
+.videos-setup-message code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.videos-setup-message a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.videos-setup-message a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .videos-hero-title {
+    font-size: 2rem;
+  }
+  
+  .videos-hero-description {
+    font-size: 1rem;
+  }
+  
+  .videos-content {
+    padding: 2rem 1rem;
+  }
+  
+  .videos-setup-message {
+    padding: 2rem 1.5rem;
+  }
+}
+
+

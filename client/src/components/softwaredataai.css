@@ -1,0 +1,1474 @@
+/* Software & Data AI Page Styles */
+.software-data-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.software-data-hero {
+  padding: 120px 0;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.software-data-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.software-data-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.software-data-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  width: fit-content;
+}
+
+.software-data-hero-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: #000000;
+}
+
+.software-data-hero-title .title-line {
+  display: block;
+}
+
+.software-data-hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+.software-data-hero-cta {
+  margin-top: 8px;
+}
+
+.software-data-hero-button {
+  padding: 16px 32px;
+  background: #8b4513;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.software-data-hero-button:hover {
+  background: #a0522d;
+  transform: translateY(-2px);
+}
+
+.software-data-hero-lottie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.software-data-lottie-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.lottie-placeholder-content {
+  text-align: center;
+  color: #6c757d;
+}
+
+.lottie-placeholder-content i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #8b4513;
+}
+
+.lottie-placeholder-content p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.lottie-placeholder-content small {
+  font-size: 14px;
+  color: #adb5bd;
+}
+
+/* Benefits Section */
+.software-data-benefits {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.software-data-benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-data-benefits-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.software-data-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  margin-bottom: 24px;
+}
+
+.software-data-benefits-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.software-data-benefits-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.software-data-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.software-data-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.software-data-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.software-data-benefit-flip-card:hover .software-data-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.software-data-benefit-flip-front,
+.software-data-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.software-data-benefit-flip-front {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.software-data-benefit-flip-back {
+  background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.software-data-benefit-icon {
+  width: 60px;
+  height: 60px;
+  background: #8b4513;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+}
+
+.software-data-benefit-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.software-data-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.software-data-benefit-flip-back .software-data-benefit-title {
+  color: #ffffff;
+}
+
+.software-data-benefit-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+}
+
+.software-data-benefit-flip-back .software-data-benefit-description {
+  color: #ffffff;
+}
+
+/* Process Section */
+.software-data-process {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.software-data-process-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-data-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.software-data-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  margin-bottom: 24px;
+}
+
+.software-data-process-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.software-data-process-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.software-data-process-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.software-data-process-step {
+  flex: 1;
+  max-width: 280px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.software-data-process-step:hover {
+  border-color: #8b4513;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.15);
+}
+
+.software-data-process-step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.software-data-process-step-number {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #8b4513;
+  background: rgba(139, 69, 19, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.software-data-process-step-icon {
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.software-data-process-step-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.software-data-process-step-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.software-data-process-arrow {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b4513;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Tools Section */
+.software-data-tools {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.software-data-tools-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-data-tools-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.software-data-tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  margin-bottom: 24px;
+}
+
+.software-data-tools-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.software-data-tools-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.software-data-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.software-data-tools-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.software-data-tools-row:first-child {
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.software-data-tools-row:last-child {
+  justify-content: center;
+  max-width: 480px;
+}
+
+.software-data-tool-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.software-data-tool-icon {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.software-data-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.software-data-tool-item:hover .software-data-tool-icon::before {
+  width: 120px;
+  height: 120px;
+}
+
+.software-data-tool-icon i {
+  font-size: 24px;
+  color: #8b4513;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.software-data-tool-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.software-data-tool-item:hover .software-data-tool-icon i,
+.software-data-tool-item:hover .software-data-tool-name {
+  color: #ffffff;
+}
+
+/* Why Choose Section */
+.software-data-why-choose {
+  padding: 0;
+  background: #ffffff;
+}
+
+.software-data-why-choose-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.software-data-why-choose-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.software-data-why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.software-data-why-choose-content {
+  background: #1a1a1a;
+  padding: 60px 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.software-data-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.software-data-why-choose-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.software-data-why-choose-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0 0 32px 0;
+}
+
+.software-data-why-choose-divider {
+  width: 100%;
+  height: 1px;
+  background: #333333;
+  margin: 32px 0;
+}
+
+.software-data-why-choose-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.software-data-why-choose-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.software-data-why-choose-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.software-data-why-choose-benefit-flip-card:hover .software-data-why-choose-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.software-data-why-choose-benefit-flip-front,
+.software-data-why-choose-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.software-data-why-choose-benefit-flip-front {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+.software-data-why-choose-benefit-flip-back {
+  background: linear-gradient(135deg, #8b4513 0%, #6b3410 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.software-data-why-choose-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: #8b4513;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+}
+
+.software-data-why-choose-benefit-icon i {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.software-data-why-choose-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.software-data-why-choose-benefit-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* FAQ Section */
+.software-data-faq {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.software-data-faq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-data-faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.software-data-faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  margin-bottom: 24px;
+}
+
+.software-data-faq-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.software-data-faq-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.software-data-faq-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.software-data-faq-contact {
+  position: sticky;
+  top: 120px;
+}
+
+.software-data-faq-contact-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.software-data-faq-contact-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.software-data-faq-contact-divider {
+  width: 60px;
+  height: 2px;
+  background: #8b4513;
+  margin: 0 auto 24px;
+}
+
+.software-data-faq-contact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 32px 0;
+}
+
+.software-data-faq-contact-button {
+  padding: 16px 32px;
+  background: #8b4513;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.software-data-faq-contact-button:hover {
+  background: #a0522d;
+  transform: translateY(-2px);
+}
+
+.software-data-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.software-data-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.software-data-faq-item:hover {
+  border-color: #8b4513;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+}
+
+.software-data-faq-question {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.software-data-faq-question h4 {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000000;
+}
+
+.software-data-faq-question i {
+  font-size: 16px;
+  color: #8b4513;
+  transition: all 0.3s ease;
+}
+
+.software-data-faq-item.active .software-data-faq-question i {
+  transform: rotate(45deg);
+}
+
+.software-data-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.software-data-faq-item.active .software-data-faq-answer {
+  max-height: 200px;
+  padding: 0 24px 24px;
+}
+
+.software-data-faq-answer p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* Laptop View - 4-3 Layout */
+@media (min-width: 1025px) {
+  .software-data-tools-row:first-child {
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .software-data-tools-row:last-child {
+    justify-content: center;
+    max-width: 480px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .software-data-hero-container {
+    gap: 60px;
+  }
+  
+  .software-data-hero-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 992px) {
+  .software-data-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .software-data-hero-title {
+    font-size: 42px;
+  }
+  
+  .software-data-lottie-container {
+    height: 400px;
+  }
+  
+  .software-data-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .software-data-why-choose-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .software-data-why-choose-image {
+    min-height: 400px;
+  }
+  
+  .software-data-why-choose-content {
+    padding: 50px 40px;
+  }
+  
+  .software-data-why-choose-title {
+    font-size: 36px;
+  }
+  
+  .software-data-faq-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .software-data-faq-contact {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .software-data-hero {
+    padding: 80px 0;
+  }
+  
+  .software-data-hero-container {
+    padding: 0 20px;
+  }
+  
+  .software-data-hero-title {
+    font-size: 36px;
+  }
+  
+  .software-data-hero-description {
+    font-size: 16px;
+  }
+  
+  .software-data-benefits,
+  .software-data-process,
+  .software-data-tools,
+  .software-data-faq {
+    padding: 80px 0;
+  }
+  
+  .software-data-benefits-container,
+  .software-data-process-container,
+  .software-data-tools-container,
+  .software-data-faq-container {
+    padding: 0 20px;
+  }
+  
+  .software-data-benefits-title,
+  .software-data-process-title,
+  .software-data-tools-title,
+  .software-data-faq-title {
+    font-size: 36px;
+  }
+  
+  .software-data-benefits-description,
+  .software-data-process-description,
+  .software-data-tools-description,
+  .software-data-faq-description {
+    font-size: 16px;
+  }
+  
+  .software-data-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .software-data-process-timeline {
+    gap: 30px;
+  }
+  
+  .software-data-process-step {
+    flex: 1;
+    max-width: 250px;
+    padding: 24px 20px;
+  }
+  
+  /* Change arrows to point downwards in tablet view when stacked */
+  .software-data-process-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .software-data-tools-row {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .software-data-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .software-data-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  .software-data-tool-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .software-data-tool-item:hover .software-data-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .software-data-why-choose-image {
+    min-height: 300px;
+  }
+  
+  .software-data-why-choose-content {
+    padding: 40px 30px;
+  }
+  
+  .software-data-why-choose-title {
+    font-size: 32px;
+  }
+  
+  .software-data-why-choose-description {
+    font-size: 16px;
+  }
+  
+  .software-data-why-choose-benefit-title {
+    font-size: 18px;
+  }
+  
+  .software-data-why-choose-benefit-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .software-data-hero {
+    padding: 60px 0;
+  }
+  
+  .software-data-hero-container {
+    padding: 0 16px;
+  }
+  
+  .software-data-hero-title {
+    font-size: 32px;
+  }
+  
+  .software-data-hero-description {
+    font-size: 15px;
+  }
+  
+  .software-data-hero-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .software-data-benefits,
+  .software-data-process,
+  .software-data-tools,
+  .software-data-faq {
+    padding: 60px 0;
+  }
+  
+  .software-data-benefits-container,
+  .software-data-process-container,
+  .software-data-tools-container,
+  .software-data-faq-container {
+    padding: 0 16px;
+  }
+  
+  .software-data-benefits-title,
+  .software-data-process-title,
+  .software-data-tools-title,
+  .software-data-faq-title {
+    font-size: 32px;
+  }
+  
+  .software-data-benefits-description,
+  .software-data-process-description,
+  .software-data-tools-description,
+  .software-data-faq-description {
+    font-size: 15px;
+  }
+  
+  .software-data-benefit-flip-card {
+    height: 220px;
+  }
+  
+  .software-data-benefit-flip-front,
+  .software-data-benefit-flip-back {
+    padding: 24px 20px;
+  }
+  
+  .software-data-benefit-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .software-data-benefit-icon i {
+    font-size: 20px;
+  }
+  
+  .software-data-benefit-title {
+    font-size: 18px;
+  }
+  
+  .software-data-benefit-description {
+    font-size: 14px;
+  }
+  
+  .software-data-process-timeline {
+    gap: 20px;
+    flex-direction: column;
+  }
+  
+  .software-data-process-step {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 16px;
+  }
+  
+  /* Change arrows to point downwards in mobile view */
+  .software-data-process-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .software-data-process-step-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .software-data-process-step-icon i {
+    font-size: 20px;
+  }
+  
+  .software-data-process-step-title {
+    font-size: 16px;
+  }
+  
+  .software-data-tools-row {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .software-data-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .software-data-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  /* Create 2-2-2-1 layout by controlling item width */
+  .software-data-tool-item {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+  
+  /* For the 7th item (last one), center it */
+  .software-data-tool-item:nth-child(7) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .software-data-tool-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .software-data-tool-item:hover .software-data-tool-icon::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .software-data-tool-icon i {
+    font-size: 20px;
+  }
+  
+  .software-data-tool-name {
+    font-size: 10px;
+  }
+  
+  .software-data-why-choose-image {
+    min-height: 250px;
+  }
+  
+  .software-data-why-choose-content {
+    padding: 30px 20px;
+  }
+  
+  .software-data-why-choose-title {
+    font-size: 28px;
+  }
+  
+  .software-data-why-choose-benefit-item {
+    gap: 12px;
+  }
+  
+  .software-data-why-choose-benefit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .software-data-why-choose-benefit-icon i {
+    font-size: 10px;
+  }
+  
+  .software-data-faq-contact-card {
+    padding: 30px 24px;
+  }
+  
+  .software-data-faq-contact-title {
+    font-size: 20px;
+  }
+  
+  .software-data-faq-contact-description {
+    font-size: 14px;
+  }
+  
+  .software-data-faq-contact-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .software-data-faq-question {
+    padding: 20px;
+  }
+  
+  .software-data-faq-question h4 {
+    font-size: 16px;
+  }
+  
+  .software-data-faq-item.active .software-data-faq-answer {
+    padding: 0 20px 20px;
+  }
+  
+  .software-data-faq-answer p {
+    font-size: 14px;
+  }
+}
+
+/* Upper Footer Section */
+.upper-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.upper-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.upper-footer-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.upper-footer-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.upper-footer-header p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.office-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.office-flag {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.office-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.office-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.office-address,
+.office-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.office-address i,
+.office-phone i {
+  color: #22c55e;
+  width: 16px;
+  text-align: center;
+}
+
+.office-phone a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.office-phone a:hover {
+  color: #22c55e;
+}
+
+.office-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design for Upper Footer */
+@media (max-width: 768px) {
+  .upper-footer {
+    padding: 60px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 1rem;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-card {
+    padding: 25px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .office-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-footer {
+    padding: 50px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 0.9rem;
+  }
+  
+  .office-card {
+    padding: 20px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .office-company {
+    font-size: 1rem;
+  }
+  
+  .office-address,
+  .office-phone {
+    font-size: 0.9rem;
+  }
+}
+

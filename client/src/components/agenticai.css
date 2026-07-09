@@ -1,0 +1,1864 @@
+.agentic-ai-page {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Agentic Hero Section */
+.agentic-hero {
+  padding: 120px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3;
+}
+
+.agentic-hero-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.agentic-hero-content {
+  max-width: 600px;
+}
+
+.agentic-hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+}
+
+.agentic-hero-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.agentic-hero-title .title-line {
+  display: block;
+}
+
+.agentic-hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0 0 32px 0;
+  max-width: 500px;
+}
+
+.agentic-hero-cta {
+  margin-top: 32px;
+}
+
+.agentic-hero-button {
+  padding: 16px 32px;
+  background: #ff6b35;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.agentic-hero-button:hover {
+  background: #e55a2b;
+  transform: translateY(-2px);
+}
+
+.agentic-hero-lottie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agentic-lottie-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+}
+
+.lottie-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.lottie-placeholder:hover {
+  border-color: #ff6b35;
+  background: rgba(255, 107, 53, 0.05);
+}
+
+.lottie-placeholder-content {
+  text-align: center;
+  color: #6c757d;
+}
+
+.lottie-placeholder-content i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #ff6b35;
+}
+
+.lottie-placeholder-content p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Agentic Benefits Section */
+.agentic-benefits {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.agentic-benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-benefits-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.agentic-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+}
+
+.agentic-benefits-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.agentic-benefits-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.agentic-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.agentic-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.agentic-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.agentic-benefit-flip-card:hover .agentic-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.agentic-benefit-flip-front,
+.agentic-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.agentic-benefit-flip-front {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.agentic-benefit-flip-back {
+  background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.agentic-benefit-icon {
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.agentic-benefit-flip-card:hover .agentic-benefit-icon {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
+.agentic-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.agentic-benefit-flip-back .agentic-benefit-title {
+  color: #ffffff;
+}
+
+.agentic-benefit-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+}
+
+.agentic-benefit-flip-back .agentic-benefit-description {
+  color: #ffffff;
+}
+
+/* Agentic Process Section */
+.agentic-process {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.agentic-process-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.agentic-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+}
+
+.agentic-process-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.agentic-process-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.agentic-process-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.process-step {
+  flex: 0 0 280px;
+  position: relative;
+}
+
+.process-step-content {
+  background: #000000;
+  border-radius: 16px;
+  padding: 40px 30px 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.process-step-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.process-step-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: #ff6b35;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.process-step-icon {
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  color: #000000;
+}
+
+.process-step-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.process-step-description {
+  display: none;
+}
+
+.process-arrow {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #000000;
+}
+
+/* Responsive Design for Process Section */
+@media (max-width: 1200px) {
+  .agentic-process-timeline {
+    gap: 30px;
+  }
+  
+  .process-step {
+    flex: 0 0 250px;
+  }
+  
+  .process-step-content {
+    padding: 30px 20px 25px;
+  }
+  
+  .process-step-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .agentic-process-timeline {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .process-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .process-step {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agentic-process {
+    padding: 80px 0;
+  }
+  
+  .agentic-process-title {
+    font-size: 32px;
+  }
+  
+  .process-step-content {
+    padding: 25px 20px 20px;
+  }
+  
+  .process-step-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .process-step-title {
+    font-size: 16px;
+  }
+}
+
+/* Agentic Tools Section */
+.agentic-tools {
+  padding: 50px 0;
+  background: #ffffff;
+}
+
+.agentic-tools-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-tools-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.agentic-tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+}
+
+.agentic-tools-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.agentic-tools-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.agentic-tools-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.agentic-tools-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 80%;
+}
+
+.agentic-tools-row:first-child {
+  justify-content: space-between;
+}
+
+.agentic-tools-row:last-child {
+  justify-content: center;
+}
+
+.agentic-tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.agentic-tool-item:hover {
+  transform: translateY(-5px);
+}
+
+.agentic-tool-icon {
+  width: 120px;
+  height: 120px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  font-size: 28px;
+  color: #2c2c2c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 15px;
+}
+
+.agentic-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.agentic-tool-item:hover .agentic-tool-icon::before {
+  width: 120px;
+  height: 120px;
+}
+
+.agentic-tool-item:hover .agentic-tool-icon {
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.agentic-tool-icon i {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.agentic-tool-name {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.agentic-tool-item:hover .agentic-tool-name {
+  color: #ffffff;
+}
+
+/* Responsive Design for Tools Section */
+@media (max-width: 992px) {
+  .agentic-tools-row {
+    gap: 30px;
+  }
+  
+  .agentic-tools-row:first-child {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .agentic-tools-row:last-child {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .agentic-tools {
+    padding: 80px 0;
+  }
+  
+  .agentic-tools-title {
+    font-size: 32px;
+  }
+  
+  .agentic-tools-row {
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .agentic-tool-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    padding: 12px;
+  }
+  
+  .agentic-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .agentic-tool-name {
+    font-size: 11px;
+  }
+  
+  /* Remove hover effects on mobile and keep white colors */
+  .agentic-tool-item:hover {
+    transform: none;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .agentic-tool-icon {
+    color: #ffffff !important;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon {
+    color: #ffffff !important;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .agentic-tool-name {
+    color: #ffffff !important;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-name {
+    color: #ffffff !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .agentic-tools-row {
+    gap: 20px;
+  }
+  
+  .agentic-tool-item {
+    padding: 15px;
+  }
+  
+  .agentic-tool-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  .agentic-tool-icon::before {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon::before {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .agentic-tool-name {
+    font-size: 10px;
+  }
+  
+  /* Remove hover effects on small mobile and keep white colors */
+  .agentic-tool-item:hover {
+    transform: none;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon::before {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .agentic-tool-icon {
+    color: #ffffff !important;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-icon {
+    color: #ffffff !important;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .agentic-tool-name {
+    color: #ffffff !important;
+  }
+  
+  .agentic-tool-item:hover .agentic-tool-name {
+    color: #ffffff !important;
+  }
+}
+
+/* Why Choose Agentic AI Section */
+.agentic-why-choose {
+  padding: 0;
+  background: #ffffff;
+}
+
+.agentic-why-choose-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.agentic-why-choose-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agentic-why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.agentic-why-choose-content {
+  background: #1a1a1a;
+  padding: 60px 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.agentic-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.agentic-why-choose-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.agentic-why-choose-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0 0 32px 0;
+}
+
+.agentic-why-choose-divider {
+  width: 100%;
+  height: 1px;
+  background: #333333;
+  margin: 32px 0;
+}
+
+.agentic-why-choose-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.agentic-why-choose-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.agentic-why-choose-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.agentic-why-choose-benefit-flip-card:hover .agentic-why-choose-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.agentic-why-choose-benefit-flip-front,
+.agentic-why-choose-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.agentic-why-choose-benefit-flip-front {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.agentic-why-choose-benefit-flip-back {
+  background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.agentic-why-choose-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: #ff6b35;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.agentic-why-choose-benefit-icon i {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.agentic-why-choose-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.agentic-why-choose-benefit-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Responsive Design for Why Choose Section */
+@media (max-width: 992px) {
+  .agentic-why-choose-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .agentic-why-choose-image {
+    min-height: 400px;
+  }
+  
+  .agentic-why-choose-content {
+    padding: 50px 40px;
+  }
+  
+  .agentic-why-choose-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agentic-why-choose-container {
+    min-height: auto;
+  }
+  
+  .agentic-why-choose-image {
+    min-height: 300px;
+  }
+  
+  .agentic-why-choose-content {
+    padding: 40px 30px;
+  }
+  
+  .agentic-why-choose-title {
+    font-size: 32px;
+  }
+  
+  .agentic-why-choose-description {
+    font-size: 16px;
+  }
+  
+  .agentic-benefit-title {
+    font-size: 18px;
+  }
+  
+  .agentic-benefit-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agentic-why-choose-image {
+    min-height: 250px;
+  }
+  
+  .agentic-why-choose-content {
+    padding: 30px 20px;
+  }
+  
+  .agentic-why-choose-title {
+    font-size: 28px;
+  }
+  
+  .agentic-benefit-item {
+    gap: 12px;
+  }
+  
+  .agentic-benefit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .agentic-benefit-icon i {
+    font-size: 10px;
+  }
+}
+
+/* FAQ Section */
+.agentic-faq {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.agentic-faq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.agentic-faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+  width: fit-content;
+}
+
+.agentic-faq-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.agentic-faq-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agentic-faq-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.agentic-faq-contact {
+  position: sticky;
+  top: 100px;
+}
+
+.agentic-faq-contact-card {
+  background: #f8f8f8;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.agentic-faq-contact-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #000000;
+}
+
+.agentic-faq-contact-divider {
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 20px 0;
+}
+
+.agentic-faq-contact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 30px 0;
+}
+
+.agentic-faq-contact-button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.agentic-faq-contact-button:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.agentic-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.agentic-faq-item {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.agentic-faq-item:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.agentic-faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.agentic-faq-question h4 {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  flex: 1;
+}
+
+.agentic-faq-question i {
+  font-size: 16px;
+  color: #666666;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.agentic-faq-item.active .agentic-faq-question i {
+  transform: rotate(45deg);
+  color: #ff6b35;
+}
+
+.agentic-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 30px;
+}
+
+.agentic-faq-item.active .agentic-faq-answer {
+  max-height: 300px;
+  padding: 0 30px 24px 30px;
+}
+
+.agentic-faq-answer p {
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* Responsive Design for FAQ Section */
+@media (max-width: 992px) {
+  .agentic-faq-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .agentic-faq-contact {
+    position: static;
+  }
+  
+  .agentic-faq-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agentic-faq {
+    padding: 80px 0;
+  }
+  
+  .agentic-faq-title {
+    font-size: 32px;
+  }
+  
+  .agentic-faq-description {
+    font-size: 16px;
+  }
+  
+  .agentic-faq-question {
+    padding: 20px 24px;
+  }
+  
+  .agentic-faq-question h4 {
+    font-size: 16px;
+  }
+  
+  .agentic-faq-answer p {
+    padding: 0 24px 20px 24px;
+    font-size: 14px;
+  }
+  
+  .agentic-faq-contact-card {
+    padding: 30px 24px;
+  }
+  
+  .agentic-faq-contact-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agentic-faq-title {
+    font-size: 28px;
+  }
+  
+  .agentic-faq-question {
+    padding: 16px 20px;
+  }
+  
+  .agentic-faq-question h4 {
+    font-size: 15px;
+  }
+  
+  .agentic-faq-answer p {
+    padding: 0 20px 16px 20px;
+    font-size: 13px;
+  }
+  
+  .agentic-faq-contact-card {
+    padding: 24px 20px;
+  }
+  
+  .agentic-faq-contact-title {
+    font-size: 18px;
+  }
+  
+  .agentic-faq-contact-description {
+    font-size: 14px;
+  }
+  
+  .agentic-faq-contact-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Agentic Features Section */
+.agentic-features {
+  padding: 120px 0;
+  background: #1a1a1a;
+}
+
+.agentic-features-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-features-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.agentic-features-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ff6b35;
+}
+
+.agentic-features-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.agentic-features-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.agentic-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.agentic-feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.agentic-feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 53, 0.3);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.1);
+}
+
+.agentic-feature-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 32px;
+  color: #ff6b35;
+}
+
+.agentic-feature-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.agentic-feature-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0;
+}
+
+/* Agentic Use Cases Section */
+.agentic-use-cases {
+  padding: 120px 0;
+  background: #0a0a0a;
+}
+
+.agentic-use-cases-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.agentic-use-cases-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.agentic-use-cases-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #ffffff;
+}
+
+.agentic-use-cases-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.agentic-use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.agentic-use-case {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.agentic-use-case:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+.agentic-use-case-number {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff6b35;
+  min-width: 40px;
+}
+
+.agentic-use-case-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #ffffff;
+}
+
+.agentic-use-case-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0;
+}
+
+/* Agentic CTA Section */
+.agentic-cta {
+  padding: 100px 0;
+  background: #0a0a0a;
+  position: relative;
+}
+
+.agentic-cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agentic-cta-card {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  padding: 80px 60px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.agentic-cta-prompt {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.agentic-cta-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2.5rem;
+  line-height: 1.2;
+}
+
+.agentic-cta-button {
+  background: #ff6b35;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.agentic-cta-button:hover {
+  background: #e55a2b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .agentic-hero-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .agentic-hero-title {
+    font-size: 40px;
+  }
+  
+  .agentic-lottie-container {
+    max-width: 400px;
+    height: 300px;
+  }
+  
+  .agentic-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .agentic-process-timeline {
+    gap: 40px;
+  }
+  
+  .process-step {
+    flex: 0 0 280px;
+  }
+  
+  .agentic-features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .agentic-use-cases-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .agentic-hero {
+    padding: 100px 0 60px;
+  }
+  
+  .agentic-hero-title {
+    font-size: 32px;
+  }
+  
+  .agentic-hero-description {
+    font-size: 16px;
+  }
+  
+  .agentic-hero-container {
+    padding: 0 16px;
+    gap: 40px;
+  }
+  
+  .agentic-lottie-container {
+    max-width: 350px;
+    height: 250px;
+  }
+  
+  .agentic-benefits {
+    padding: 80px 0;
+  }
+  
+  .agentic-benefits-title {
+    font-size: 32px;
+  }
+  
+  .agentic-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .agentic-benefit-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+  .agentic-benefit-icon i {
+    font-size: 30px;
+}
+  
+  .agentic-process {
+    padding: 80px 0;
+  }
+  
+  .agentic-process-timeline {
+    gap: 30px;
+    padding: 20px 0;
+  }
+  
+  .process-step {
+    flex: 0 0 250px;
+  }
+  
+  .process-step-content {
+    padding: 30px 20px;
+  }
+  
+  .process-step-title {
+    font-size: 20px;
+  }
+  
+  .process-step-description {
+    font-size: 14px;
+  }
+  
+  .agentic-features {
+    padding: 80px 0;
+  }
+  
+  .agentic-features-title {
+    font-size: 32px;
+  }
+  
+  .agentic-use-cases {
+    padding: 80px 0;
+  }
+  
+  .agentic-use-cases-title {
+    font-size: 32px;
+  }
+  
+  .agentic-cta-title {
+    font-size: 2.5rem;
+  }
+  
+  .agentic-cta-card {
+    padding: 60px 40px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agentic-hero-title {
+    font-size: 28px;
+  }
+  
+  .agentic-benefits-title {
+    font-size: 28px;
+  }
+  
+  .agentic-benefit-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  .agentic-process-title {
+    font-size: 28px;
+  }
+  
+  .agentic-features-title {
+    font-size: 28px;
+  }
+  
+  .agentic-use-cases-title {
+    font-size: 28px;
+  }
+  
+  .agentic-cta-title {
+    font-size: 2rem;
+  }
+  
+  .agentic-cta-card {
+    padding: 50px 30px;
+    margin: 0 15px;
+  }
+  
+  .agentic-cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Upper Footer Section */
+.upper-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.upper-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.upper-footer-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.upper-footer-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.upper-footer-header p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.office-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.office-flag {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.office-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.office-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.office-address,
+.office-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.office-address i,
+.office-phone i {
+  color: #22c55e;
+  width: 16px;
+  text-align: center;
+}
+
+.office-phone a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.office-phone a:hover {
+  color: #22c55e;
+}
+
+.office-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design for Upper Footer */
+@media (max-width: 768px) {
+  .upper-footer {
+    padding: 60px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 1rem;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-card {
+    padding: 25px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .office-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-footer {
+    padding: 50px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 0.9rem;
+  }
+  
+  .office-card {
+    padding: 20px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .office-company {
+    font-size: 1rem;
+  }
+  
+  .office-address,
+  .office-phone {
+    font-size: 0.9rem;
+  }
+}

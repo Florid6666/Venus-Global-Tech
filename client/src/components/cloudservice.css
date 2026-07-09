@@ -1,0 +1,1473 @@
+/* Cloud Service Page Styles */
+.cloud-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.cloud-hero {
+  padding: 120px 0;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.cloud-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.cloud-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cloud-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ea5e9;
+  width: fit-content;
+}
+
+.cloud-hero-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: #000000;
+}
+
+.cloud-hero-title .title-line {
+  display: block;
+}
+
+.cloud-hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+.cloud-hero-cta {
+  margin-top: 8px;
+}
+
+.cloud-hero-button {
+  padding: 16px 32px;
+  background: #0ea5e9;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.cloud-hero-button:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+}
+
+.cloud-hero-lottie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud-lottie-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.lottie-placeholder-content {
+  text-align: center;
+  color: #6c757d;
+}
+
+.lottie-placeholder-content i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #0ea5e9;
+}
+
+.lottie-placeholder-content p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.lottie-placeholder-content small {
+  font-size: 14px;
+  color: #adb5bd;
+}
+
+/* Benefits Section */
+.cloud-benefits {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.cloud-benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cloud-benefits-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.cloud-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ea5e9;
+  margin-bottom: 24px;
+}
+
+.cloud-benefits-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.cloud-benefits-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cloud-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.cloud-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.cloud-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.cloud-benefit-flip-card:hover .cloud-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.cloud-benefit-flip-front,
+.cloud-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.cloud-benefit-flip-front {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cloud-benefit-flip-back {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.cloud-benefit-icon {
+  width: 60px;
+  height: 60px;
+  background: #0ea5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.cloud-benefit-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.cloud-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.cloud-benefit-flip-back .cloud-benefit-title {
+  color: #ffffff;
+}
+
+.cloud-benefit-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555555;
+  margin: 0;
+}
+
+.cloud-benefit-flip-back .cloud-benefit-description {
+  color: #ffffff;
+}
+
+/* Process Section */
+.cloud-process {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.cloud-process-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cloud-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.cloud-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ea5e9;
+  margin-bottom: 24px;
+}
+
+.cloud-process-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.cloud-process-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cloud-process-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.cloud-process-step {
+  flex: 1;
+  max-width: 280px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cloud-process-step:hover {
+  border-color: #0ea5e9;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+}
+
+.cloud-process-step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cloud-process-step-number {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.cloud-process-step-icon {
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.cloud-process-step-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.cloud-process-step-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  line-height: 1.3;
+}
+
+.cloud-process-arrow {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0ea5e9;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Tools Section */
+.cloud-tools {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.cloud-tools-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cloud-tools-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.cloud-tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ea5e9;
+  margin-bottom: 24px;
+}
+
+.cloud-tools-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.cloud-tools-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cloud-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.cloud-tools-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.cloud-tools-row:first-child {
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.cloud-tools-row:last-child {
+  justify-content: center;
+  max-width: 480px;
+}
+
+.cloud-tool-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cloud-tool-icon {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cloud-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.cloud-tool-item:hover .cloud-tool-icon::before {
+  width: 120px;
+  height: 120px;
+}
+
+.cloud-tool-icon i {
+  font-size: 24px;
+  color: #0ea5e9;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.cloud-tool-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.cloud-tool-item:hover .cloud-tool-icon i,
+.cloud-tool-item:hover .cloud-tool-name {
+  color: #ffffff;
+}
+
+/* Why Choose Cloud Service Section */
+.cloud-why-choose {
+  padding: 0;
+  background: #ffffff;
+}
+
+.cloud-why-choose-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.cloud-why-choose-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud-why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cloud-why-choose-content {
+  background: #1a1a1a;
+  padding: 60px 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cloud-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.cloud-why-choose-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.cloud-why-choose-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0 0 32px 0;
+}
+
+.cloud-why-choose-divider {
+  width: 100%;
+  height: 1px;
+  background: #333333;
+  margin: 32px 0;
+}
+
+.cloud-why-choose-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.cloud-why-choose-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.cloud-why-choose-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.cloud-why-choose-benefit-flip-card:hover .cloud-why-choose-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.cloud-why-choose-benefit-flip-front,
+.cloud-why-choose-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cloud-why-choose-benefit-flip-front {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.cloud-why-choose-benefit-flip-back {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.cloud-why-choose-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: #0ea5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+.cloud-why-choose-benefit-icon i {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cloud-why-choose-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.cloud-why-choose-benefit-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* FAQ Section */
+.cloud-faq {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.cloud-faq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cloud-faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.cloud-faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0ea5e9;
+  margin-bottom: 24px;
+}
+
+.cloud-faq-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.cloud-faq-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cloud-faq-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cloud-faq-contact {
+  position: sticky;
+  top: 120px;
+}
+
+.cloud-faq-contact-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cloud-faq-contact-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.cloud-faq-contact-divider {
+  width: 60px;
+  height: 2px;
+  background: #0ea5e9;
+  margin: 0 auto 24px;
+}
+
+.cloud-faq-contact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 32px 0;
+}
+
+.cloud-faq-contact-button {
+  padding: 16px 32px;
+  background: #0ea5e9;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.cloud-faq-contact-button:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+}
+
+.cloud-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cloud-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cloud-faq-item:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+.cloud-faq-question {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.cloud-faq-question h4 {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000000;
+}
+
+.cloud-faq-question i {
+  font-size: 16px;
+  color: #0ea5e9;
+  transition: all 0.3s ease;
+}
+
+.cloud-faq-item.active .cloud-faq-question i {
+  transform: rotate(45deg);
+}
+
+.cloud-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cloud-faq-item.active .cloud-faq-answer {
+  max-height: 200px;
+  padding: 0 24px 24px;
+}
+
+.cloud-faq-answer p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* Laptop View - 4-3 Layout */
+@media (min-width: 1025px) {
+  .cloud-tools-row:first-child {
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .cloud-tools-row:last-child {
+    justify-content: center;
+    max-width: 480px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cloud-hero-container {
+    gap: 60px;
+  }
+  
+  .cloud-hero-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cloud-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .cloud-hero-title {
+    font-size: 42px;
+  }
+  
+  .cloud-lottie-container {
+    height: 400px;
+  }
+  
+  .cloud-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .cloud-why-choose-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .cloud-why-choose-image {
+    min-height: 400px;
+  }
+  
+  .cloud-why-choose-content {
+    padding: 50px 40px;
+  }
+  
+  .cloud-why-choose-title {
+    font-size: 36px;
+  }
+  
+  .cloud-faq-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .cloud-faq-contact {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .cloud-hero {
+    padding: 80px 0;
+  }
+  
+  .cloud-hero-container {
+    padding: 0 20px;
+  }
+  
+  .cloud-hero-title {
+    font-size: 36px;
+  }
+  
+  .cloud-hero-description {
+    font-size: 16px;
+  }
+  
+  .cloud-benefits,
+  .cloud-process,
+  .cloud-tools,
+  .cloud-faq {
+    padding: 80px 0;
+  }
+  
+  .cloud-benefits-container,
+  .cloud-process-container,
+  .cloud-tools-container,
+  .cloud-faq-container {
+    padding: 0 20px;
+  }
+  
+  .cloud-benefits-title,
+  .cloud-process-title,
+  .cloud-tools-title,
+  .cloud-faq-title {
+    font-size: 36px;
+  }
+  
+  .cloud-benefits-description,
+  .cloud-process-description,
+  .cloud-tools-description,
+  .cloud-faq-description {
+    font-size: 16px;
+  }
+  
+  .cloud-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .cloud-process-timeline {
+    gap: 30px;
+  }
+  
+  .cloud-process-step {
+    flex: 1;
+    max-width: 250px;
+    padding: 24px 20px;
+  }
+  
+  /* Change arrows to point downwards in tablet view when stacked */
+  .cloud-process-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .cloud-tools-row {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .cloud-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .cloud-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  .cloud-tool-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .cloud-tool-item:hover .cloud-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .cloud-why-choose-image {
+    min-height: 300px;
+  }
+  
+  .cloud-why-choose-content {
+    padding: 40px 30px;
+  }
+  
+  .cloud-why-choose-title {
+    font-size: 32px;
+  }
+  
+  .cloud-why-choose-description {
+    font-size: 16px;
+  }
+  
+  .cloud-why-choose-benefit-title {
+    font-size: 18px;
+  }
+  
+  .cloud-why-choose-benefit-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cloud-hero {
+    padding: 60px 0;
+  }
+  
+  .cloud-hero-container {
+    padding: 0 16px;
+  }
+  
+  .cloud-hero-title {
+    font-size: 32px;
+  }
+  
+  .cloud-hero-description {
+    font-size: 15px;
+  }
+  
+  .cloud-hero-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .cloud-benefits,
+  .cloud-process,
+  .cloud-tools,
+  .cloud-faq {
+    padding: 60px 0;
+  }
+  
+  .cloud-benefits-container,
+  .cloud-process-container,
+  .cloud-tools-container,
+  .cloud-faq-container {
+    padding: 0 16px;
+  }
+  
+  .cloud-benefits-title,
+  .cloud-process-title,
+  .cloud-tools-title,
+  .cloud-faq-title {
+    font-size: 32px;
+  }
+  
+  .cloud-benefits-description,
+  .cloud-process-description,
+  .cloud-tools-description,
+  .cloud-faq-description {
+    font-size: 15px;
+  }
+  
+  .cloud-benefit-flip-card {
+    height: 220px;
+  }
+  
+  .cloud-benefit-flip-front,
+  .cloud-benefit-flip-back {
+    padding: 24px 20px;
+  }
+  
+  .cloud-benefit-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .cloud-benefit-icon i {
+    font-size: 20px;
+  }
+  
+  .cloud-benefit-title {
+    font-size: 18px;
+  }
+  
+  .cloud-benefit-description {
+    font-size: 14px;
+  }
+  
+  .cloud-process-timeline {
+    gap: 20px;
+    flex-direction: column;
+  }
+  
+  .cloud-process-step {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 16px;
+  }
+  
+  /* Change arrows to point downwards in mobile view */
+  .cloud-process-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .cloud-process-step-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .cloud-process-step-icon i {
+    font-size: 20px;
+  }
+  
+  .cloud-process-step-title {
+    font-size: 16px;
+  }
+  
+  .cloud-tools-row {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .cloud-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .cloud-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  /* Create 2-2-2-1 layout by controlling item width */
+  .cloud-tool-item {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+  
+  /* For the 7th item (last one), center it */
+  .cloud-tool-item:nth-child(7) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cloud-tool-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cloud-tool-item:hover .cloud-tool-icon::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cloud-tool-icon i {
+    font-size: 20px;
+  }
+  
+  .cloud-tool-name {
+    font-size: 10px;
+  }
+  
+  .cloud-why-choose-image {
+    min-height: 250px;
+  }
+  
+  .cloud-why-choose-content {
+    padding: 30px 20px;
+  }
+  
+  .cloud-why-choose-title {
+    font-size: 28px;
+  }
+  
+  .cloud-why-choose-benefit-item {
+    gap: 12px;
+  }
+  
+  .cloud-why-choose-benefit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .cloud-why-choose-benefit-icon i {
+    font-size: 10px;
+  }
+  
+  .cloud-faq-contact-card {
+    padding: 30px 24px;
+  }
+  
+  .cloud-faq-contact-title {
+    font-size: 20px;
+  }
+  
+  .cloud-faq-contact-description {
+    font-size: 14px;
+  }
+  
+  .cloud-faq-contact-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .cloud-faq-question {
+    padding: 20px;
+  }
+  
+  .cloud-faq-question h4 {
+    font-size: 16px;
+  }
+  
+  .cloud-faq-item.active .cloud-faq-answer {
+    padding: 0 20px 20px;
+  }
+  
+  .cloud-faq-answer p {
+    font-size: 14px;
+  }
+}
+
+/* Upper Footer Section */
+.upper-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.upper-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.upper-footer-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.upper-footer-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.upper-footer-header p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.office-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.office-flag {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.office-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.office-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.office-address,
+.office-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.office-address i,
+.office-phone i {
+  color: #22c55e;
+  width: 16px;
+  text-align: center;
+}
+
+.office-phone a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.office-phone a:hover {
+  color: #22c55e;
+}
+
+.office-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design for Upper Footer */
+@media (max-width: 768px) {
+  .upper-footer {
+    padding: 60px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 1rem;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-card {
+    padding: 25px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .office-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-footer {
+    padding: 50px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 0.9rem;
+  }
+  
+  .office-card {
+    padding: 20px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .office-company {
+    font-size: 1rem;
+  }
+  
+  .office-address,
+  .office-phone {
+    font-size: 0.9rem;
+  }
+}

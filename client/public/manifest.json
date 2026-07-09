@@ -1,0 +1,23 @@
+{
+  "short_name": "Venus Global Tech",
+  "name": "Venus Global Technology - Innovative Technology Solutions",
+  "description": "Leading provider of innovative technology solutions, digital transformation, AI & cloud services, ESG compliance, and cutting-edge software development.",
+  "icons": [
+    {
+      "src": "images/02.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/02.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary"
+}
+

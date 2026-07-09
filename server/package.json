@@ -1,0 +1,29 @@
+{
+  "name": "venus-tech-server",
+  "version": "1.0.0",
+  "description": "Venus Global Technology - Express Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.9",
+    "sanitize-html": "^2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": [
+    "express",
+    "backend",
+    "api",
+    "venus-tech"
+  ],
+  "author": "Venus Global Technology",
+  "license": "MIT"
+}
+

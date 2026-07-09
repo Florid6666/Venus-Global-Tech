@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const c = require\\('c:/Users/satap/Downloads/Venusglobal-main/server/data/content.json'\\); console.log\\('OK, top-level keys:', Object.keys\\(c\\)\\); console.log\\('services keys:', Object.keys\\(c.services\\)\\); console.log\\('investment keys:', Object.keys\\(c.investment\\)\\);\")",
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('c:/Users/satap/Downloads/Venusglobal-main/server/cloud-functions/admin-api/default-content.json'\\)\\) ? 'valid' : 'invalid'\\)\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5000/api/content/services)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\(j.agenticAI.hero,null,2\\)\\)}\\)\")",
+      "Bash(curl -s http://localhost:5000/api/content/investment)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\(j.hero,null,2\\)\\)}\\)\")",
+      "Bash(curl -s http://localhost:5000/api/blogs)",
+      "Bash(curl -s -X POST http://localhost:5000/api/admin/login -H \"Content-Type: application/json\" -d '{\"password\":\"admin123\"}')",
+      "Bash(curl -s -X POST http://localhost:5000/api/blogs -H 'Content-Type: application/json' -H 'Authorization: Bearer admin-token-123' -d '{\"title\":\"Test Post <script>alert\\(1\\)</script>\",\"content\":\"Hello world content for testing.\"}')",
+      "Bash(curl -s -X POST http://localhost:5000/api/upload -H 'Content-Type: application/json' -H 'Authorization: Bearer admin-token-123' -d '{\"filename\":\"test.png\",\"mimeType\":\"image/png\",\"dataBase64\":\"__TRACKED_VAR__\"}')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5000/uploads/1783173797649-0cf7260a-5e58-487f-84a6-8202d306c1b4.png)",
+      "Bash(curl -s -X DELETE http://localhost:5000/api/blogs/33cf7fc0-aa4d-4a11-9fe2-ee539aed91dd -H \"Authorization: Bearer admin-token-123\")",
+      "Bash(taskkill //F //IM node.exe //T)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
