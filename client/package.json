@@ -6,6 +6,7 @@
   "proxy": "http://localhost:5050",
   "scripts": {
     "start": "react-scripts start",
+    "start:railway": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
