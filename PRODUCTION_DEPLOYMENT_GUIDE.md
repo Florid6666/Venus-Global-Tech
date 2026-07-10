@@ -101,11 +101,12 @@ npm run build
 
 ### For Venus Global Tech (Full Stack on Same Host)
 
-**`railway.toml` or Railway Dashboard Environment Variables**:
+**Railway Dashboard Environment Variables** (see [RAILWAY_DEPLOYMENT.md](RAILWAY_DEPLOYMENT.md) for the full list):
 ```
-PORT=5000
 NODE_ENV=production
-ADMIN_TOKEN=your-secure-token
+JWT_SECRET=<random secret>
+ADMIN_EMAIL=you@example.com
+ADMIN_PASSWORD=<used once to bootstrap the admin account>
 ```
 
 **Build Command**:

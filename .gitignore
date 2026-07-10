@@ -4,6 +4,10 @@ package-lock.json
 .env
 .env.local
 
+# Admin credentials (bcrypt hash) - never commit, bootstrap via
+# ADMIN_EMAIL/ADMIN_PASSWORD env vars or `npm run set-admin` instead
+server/data/admin.json
+
 # Documentation (keep these)
 # !README.md
 # !ADMIN_QUICK_START.md

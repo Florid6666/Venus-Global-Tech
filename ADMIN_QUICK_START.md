@@ -9,7 +9,7 @@
 
 2. **Access the admin panel**:
    - Open your browser and go to: `http://localhost:5000/admin`
-   - Default password: `admin123`
+   - Log in with the email/password from the account you created (see below)
 
 3. **Edit content**:
    - Select a section from the sidebar (Home Page, About Page, etc.)
@@ -17,15 +17,15 @@
    - Click the "Save" button for that section
    - Refresh your website to see changes
 
-## Default Login Credentials
+## Login Credentials
 
-- **Password**: `admin123`
-
-To change the password, add to your `.env` file:
+There's no default account — create one yourself, from the `server/` directory:
 ```
-ADMIN_PASSWORD=your-new-password
-ADMIN_TOKEN=your-secure-token
+npm run set-admin -- you@example.com your-password
 ```
+This stores the email and a bcrypt hash of the password in `server/data/admin.json`
+(gitignored, never committed). Run the same command again with a new password
+to rotate credentials.
 
 ## What Can You Edit?
 
@@ -66,8 +66,8 @@ ADMIN_TOKEN=your-secure-token
 
 **Can't log in?**
 - Make sure the server is running
-- Check that you're using the correct password
-- Default password is `admin123` if not set in `.env`
+- Check that you're using the correct email and password
+- If you haven't created an account yet, run `npm run set-admin -- you@example.com your-password` from `server/`
 
 **Changes not showing?**
 - Make sure you clicked "Save" after editing
@@ -82,9 +82,8 @@ ADMIN_TOKEN=your-secure-token
 ## Security Reminder
 
 ⚠️ For production use, please:
-- Change the default password
-- Use environment variables for sensitive data
-- Consider implementing stronger authentication
+- Set a strong, unique `JWT_SECRET` env var so admin sessions survive restarts
+- Use a strong password when running `npm run set-admin`
 - Use HTTPS
 
 

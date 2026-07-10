@@ -42,7 +42,7 @@ npm start
 - **Website:** http://localhost:3000
 - **Admin Panel:** http://localhost:3000/admin
 - **API Server:** http://localhost:5000
-- **Default Admin Password:** `admin123`
+- **Admin login:** no default — create your account with `cd server && npm run set-admin -- you@example.com your-password`
 
 ## Project Structure
 
@@ -66,11 +66,11 @@ venus-tech/
 Create `.env` file in `server/` directory:
 ```
 PORT=5000
-ADMIN_PASSWORD=admin123
-ADMIN_TOKEN=admin-token-123
+JWT_SECRET=some-long-random-string
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
 ```
+(Admin login is set up separately — see Access Points above.)
 
 ## Troubleshooting
 

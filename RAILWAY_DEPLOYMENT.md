@@ -17,13 +17,33 @@ paths (see `client/src/config/api.js`).
 
 Set these on the service:
 
-- `ADMIN_PASSWORD` — admin panel login password
-- `ADMIN_TOKEN` — admin panel auth token
+- `JWT_SECRET` — long random string used to sign admin login sessions. Required
+  for logins to survive a redeploy/restart (generate one with `openssl rand -hex 32`).
+- `ADMIN_EMAIL` / `ADMIN_PASSWORD` — used **once**, to create the admin account
+  on first boot (see "Admin login" below). Not read again after that.
 - `EMAIL_USER` / `EMAIL_PASS` — Gmail credentials used to send contact-form emails
 - `RECIPIENT_EMAIL` — optional, where contact form emails are sent (defaults to `EMAIL_USER`)
 
 Don't set `PORT` — Railway injects it automatically and the server reads
 `process.env.PORT`.
+
+### Admin login
+
+The admin account (email + bcrypt-hashed password) lives in `server/data/admin.json`,
+not in an env var. On first boot, if that file doesn't exist yet, the server
+creates it from `ADMIN_EMAIL`/`ADMIN_PASSWORD`. After that, those two env vars
+are ignored — to change the password later, run against the *deployed*
+service (so it writes to the same `admin.json` the running server reads),
+e.g. with the Railway CLI:
+
+```
+railway run --service <your-service> npm run set-admin -- you@example.com your-new-password
+```
+
+(Running `npm run set-admin` locally only edits your local `server/data/admin.json`, not Railway's.)
+
+`server/data/admin.json` needs the same persistence as `server/data/content.json`
+— see the Data persistence section below, so the admin account survives redeploys.
 
 ## 3. Deploy
 

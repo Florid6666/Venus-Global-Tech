@@ -6,17 +6,21 @@ This admin system allows you to edit all website content without touching any co
 ## Accessing the Admin Panel
 
 1. Navigate to `/admin` in your browser
-2. Enter the admin password (default: `admin123`)
+2. Enter your admin email and password
 3. You'll be redirected to the content management dashboard
 
-## Changing the Admin Password
+## Setting/Changing the Admin Password
 
-To change the default password, add the following to your `.env` file:
+There's no default account. Create or rotate the admin login from the
+`server/` directory:
 
 ```
-ADMIN_PASSWORD=your-secure-password
-ADMIN_TOKEN=your-secure-token
+npm run set-admin -- you@example.com your-secure-password
 ```
+
+This bcrypt-hashes the password and stores `{ email, passwordHash }` in
+`server/data/admin.json` (gitignored). Also set a stable `JWT_SECRET` env var
+in `.env` so login sessions survive server restarts.
 
 ## Available Content Sections
 
@@ -65,7 +69,7 @@ All content is stored in `data/content.json`. This file is automatically updated
 - `GET /api/content/:section` - Get specific section (e.g., `/api/content/home`)
 
 ### Admin Endpoints (Authentication Required)
-- `POST /api/admin/login` - Login with password
+- `POST /api/admin/login` - Login with email + password, returns a JWT
 - `PUT /api/content/:section` - Update entire section
 - `PUT /api/content/:section/:subsection` - Update subsection (e.g., `/api/content/home/hero`)
 
@@ -93,20 +97,20 @@ const MyPage = () => {
 
 ## Security Notes
 
-⚠️ **Important**: The current authentication system is basic and suitable for development. For production:
+Admin login uses email + bcrypt-hashed password, and sessions are signed JWTs
+with a 7-day expiration. For production, additionally:
 
-1. Use proper JWT tokens with expiration
-2. Implement rate limiting
+1. Set a strong, unique `JWT_SECRET` env var (don't rely on the random fallback)
+2. Implement rate limiting on `/api/admin/login`
 3. Use HTTPS
-4. Consider adding role-based access control
-5. Store passwords securely (hashed, not plain text)
-6. Add CSRF protection
+4. Add CSRF protection
 
 ## Troubleshooting
 
 ### Can't log in?
 - Check that the server is running
-- Verify the password matches `ADMIN_PASSWORD` in `.env` or default `admin123`
+- Verify you're using the email/password from your last `npm run set-admin` run
+- If you haven't run it yet, `server/data/admin.json` doesn't exist and login will fail — see "Setting/Changing the Admin Password" above
 - Check browser console for errors
 
 ### Changes not appearing?

@@ -70,13 +70,16 @@ venus-tech/
 ## Admin Panel
 
 - URL: `http://localhost:3000/admin`
-- Default Password: `admin123`
+- Login with the email/password set up below (there's no default — you create the account yourself).
 
-To change the password, create a `.env` file in the `server/` directory:
+The admin account (email + bcrypt-hashed password) is stored in `server/data/admin.json`,
+never in an env var or in git. Create/rotate it by running, from `server/`:
 ```
-ADMIN_PASSWORD=your-new-password
-ADMIN_TOKEN=your-secure-token
+npm run set-admin -- you@example.com your-password
 ```
+Alternatively, set `ADMIN_EMAIL`/`ADMIN_PASSWORD` in `server/.env` before the
+*first* time you start the server — it bootstraps the account from those and
+ignores them afterwards.
 
 ## Environment Variables
 
@@ -84,8 +87,9 @@ ADMIN_TOKEN=your-secure-token
 
 ```
 PORT=5000
-ADMIN_PASSWORD=admin123
-ADMIN_TOKEN=admin-token-123
+JWT_SECRET=some-long-random-string
+ADMIN_EMAIL=you@example.com
+ADMIN_PASSWORD=used-once-to-bootstrap-the-account
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
 RECIPIENT_EMAIL=recipient@example.com

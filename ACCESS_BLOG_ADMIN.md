@@ -20,7 +20,7 @@ npm start
 
 1. Open your browser
 2. Go to: **http://localhost:3000/admin**
-3. Enter password: **`admin123`** (default)
+3. Enter the email and password from your admin account (see "Login Credentials" below)
 4. Click "Login"
 
 ### 3. Access Blog Management
@@ -62,14 +62,11 @@ Once logged in:
 2. Click **"Delete"** button
 3. Confirm deletion
 
-## Default Login Credentials
+## Login Credentials
 
-- **Password**: `admin123`
-
-To change the password, edit `server/.env`:
+There's no default account. Create or change it from the `server/` directory:
 ```
-ADMIN_PASSWORD=your-new-password
-ADMIN_TOKEN=your-secure-token
+npm run set-admin -- you@example.com your-password
 ```
 
 ## Troubleshooting
@@ -82,7 +79,7 @@ ADMIN_TOKEN=your-secure-token
 
 ### Login Fails?
 - ✅ Verify backend server is running
-- ✅ Check password is correct (default: `admin123`)
+- ✅ Check email/password are correct (set with `npm run set-admin`)
 - ✅ Check browser console for error messages
 - ✅ Verify API is accessible: http://localhost:5000/api/admin/login
 
@@ -107,7 +104,7 @@ Blogs are stored in **Firestore** (if using cloud function) or can be stored in 
 To verify everything works:
 1. Start both servers
 2. Go to http://localhost:3000/admin
-3. Login with `admin123`
+3. Log in with your admin email/password
 4. Click "Blogs" in sidebar
 5. Click "+ Add New Blog"
 6. Fill in a test blog

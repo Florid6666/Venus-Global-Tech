@@ -5,6 +5,8 @@ const path = require('path');
 const crypto = require('crypto');
 const fs = require('fs').promises;
 const sanitizeHtml = require('sanitize-html');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
@@ -41,19 +43,59 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 // Content file path
 const CONTENT_FILE = path.join(__dirname, 'data', 'content.json');
 const BLOGS_FILE = path.join(__dirname, 'data', 'blogs.json');
+const ADMIN_FILE = path.join(__dirname, 'data', 'admin.json');
 
-// Simple authentication middleware
+// Signs/verifies admin login tokens. Must be set to a stable secret in
+// production (Railway env var) — falling back to a random value means every
+// admin gets logged out whenever the process restarts/redeploys.
+const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('hex');
+if (!process.env.JWT_SECRET) {
+  console.log('JWT_SECRET not set - using a random secret for this process only. Set JWT_SECRET in production so admin sessions survive restarts.');
+}
+const JWT_EXPIRY = '7d';
+
+// Admin credentials: { email, passwordHash } stored on disk, bcrypt-hashed.
+// Bootstrapped from ADMIN_EMAIL/ADMIN_PASSWORD on first run if admin.json
+// doesn't exist yet (see ensureAdminBootstrap below); rotate afterwards with
+// `npm run set-admin -- <email> <password>` in server/.
+const readAdmin = async () => {
+  try {
+    const data = await fs.readFile(ADMIN_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    if (error.code === 'ENOENT') return null;
+    throw error;
+  }
+};
+
+const ensureAdminBootstrap = async () => {
+  const existing = await readAdmin();
+  if (existing) return;
+
+  const { ADMIN_EMAIL, ADMIN_PASSWORD } = process.env;
+  if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+    console.log('No admin account found and ADMIN_EMAIL/ADMIN_PASSWORD are not set - admin login is disabled until you set those env vars (first run only) or run `npm run set-admin -- <email> <password>` in server/.');
+    return;
+  }
+
+  const passwordHash = await bcrypt.hash(ADMIN_PASSWORD, 12);
+  await fs.mkdir(path.dirname(ADMIN_FILE), { recursive: true });
+  await fs.writeFile(ADMIN_FILE, JSON.stringify({ email: ADMIN_EMAIL.toLowerCase(), passwordHash }, null, 2), 'utf8');
+  console.log(`Bootstrapped admin account for ${ADMIN_EMAIL} from ADMIN_EMAIL/ADMIN_PASSWORD.`);
+};
+
+// JWT-based authentication middleware
 const authenticateAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
   const token = authHeader.substring(7);
-  // Simple token check - in production, use proper JWT or session management
-  if (token === process.env.ADMIN_TOKEN || token === 'admin-token-123') {
+  try {
+    req.admin = jwt.verify(token, JWT_SECRET);
     next();
-  } else {
-    res.status(401).json({ error: 'Invalid token' });
+  } catch (error) {
+    res.status(401).json({ error: 'Invalid or expired token' });
   }
 };
 
@@ -405,16 +447,23 @@ app.post('/api/upload', authenticateAdmin, async (req, res) => {
 // Admin login endpoint
 app.post('/api/admin/login', async (req, res) => {
   try {
-    const { password } = req.body;
-    // Simple password check - in production, use proper authentication
-    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
-    if (password === adminPassword) {
-      // Return a simple token
-      const token = process.env.ADMIN_TOKEN || 'admin-token-123';
-      res.json({ token, message: 'Login successful' });
-    } else {
-      res.status(401).json({ error: 'Invalid password' });
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
     }
+
+    const admin = await readAdmin();
+    if (!admin) {
+      return res.status(503).json({ error: 'No admin account is configured yet' });
+    }
+
+    const matches = admin.email === email.toLowerCase().trim() && await bcrypt.compare(password, admin.passwordHash);
+    if (!matches) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+
+    const token = jwt.sign({ email: admin.email }, JWT_SECRET, { expiresIn: JWT_EXPIRY });
+    res.json({ token, message: 'Login successful' });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
   }
@@ -484,6 +533,10 @@ try {
   console.log('Client build folder not found - API server only mode');
 }
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+ensureAdminBootstrap()
+  .catch((error) => console.error('Admin bootstrap failed:', error))
+  .finally(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  });

@@ -195,6 +195,7 @@ const SidebarNode = ({ node, path, activePath, expanded, onToggle, onSelect }) =
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
   const [content, setContent] = useState(null);
@@ -220,7 +221,7 @@ const Admin = () => {
       const response = await fetch(getApiUrl('api/admin/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email, password }),
       });
       const contentType = response.headers.get('content-type');
       let data;
@@ -252,6 +253,7 @@ const Admin = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('adminToken');
     setContent(null);
+    setPassword('');
   };
 
   const loadContent = async () => {
@@ -326,8 +328,12 @@ const Admin = () => {
           <h1>Admin Login</h1>
           <form onSubmit={handleLogin}>
             <div className="field-group">
+              <label className="field-label">Email</label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter admin email" autoComplete="username" />
+            </div>
+            <div className="field-group">
               <label className="field-label">Password</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter admin password" />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter admin password" autoComplete="current-password" />
             </div>
             <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Login'}</button>
           </form>
