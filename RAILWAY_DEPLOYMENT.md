@@ -1,35 +1,42 @@
 # Railway deployment guide
 
-This project is set up to deploy as two Railway services:
+This project deploys to Railway as **one service**. The root [`Dockerfile`](Dockerfile)
+builds the React app and copies it into the Express backend's image; the
+backend (`server/server.js`) serves both the built frontend and the `/api/*`
+routes from the same domain. There is no CORS configuration or
+`REACT_APP_API_URL` to set — the frontend always calls same-origin `/api/...`
+paths (see `client/src/config/api.js`).
 
-- Backend API service from the server folder
-- Frontend static site service from the client folder
+## 1. Create the service
 
-## 1. Create the backend service
+1. In Railway, create a new project and add a service from this GitHub repo.
+2. Root Directory: leave it as `/` (the repo root, not `client` or `server`).
+3. Railway will detect the root `Dockerfile` and build with it automatically.
 
-1. In Railway, create a new project and add a service from the server folder.
-2. Railway will detect the Node app automatically.
-3. Set the following environment variables if needed:
-   - PORT (Railway provides this automatically)
-   - ADMIN_PASSWORD
-   - ADMIN_TOKEN
-   - EMAIL_USER
-   - EMAIL_PASS
-   - RECIPIENT_EMAIL
+## 2. Environment variables
 
-## 2. Create the frontend service
+Set these on the service:
 
-1. Add a second service from the client folder.
-2. Set the frontend environment variable:
-   - REACT_APP_API_URL: the public URL of the backend service
-3. Optionally set:
-   - REACT_APP_USE_CLOUD_FUNCTION=false
+- `ADMIN_PASSWORD` — admin panel login password
+- `ADMIN_TOKEN` — admin panel auth token
+- `EMAIL_USER` / `EMAIL_PASS` — Gmail credentials used to send contact-form emails
+- `RECIPIENT_EMAIL` — optional, where contact form emails are sent (defaults to `EMAIL_USER`)
+
+Don't set `PORT` — Railway injects it automatically and the server reads
+`process.env.PORT`.
 
 ## 3. Deploy
 
-Railway will build and start both services automatically using the provided railway.toml files.
+Push to `main`; Railway builds and deploys automatically.
 
-## 4. Verify
+## 4. Data persistence
 
-- Backend health: open the backend URL and check the API routes
-- Frontend: open the frontend URL and confirm the site loads
+`server/data/*.json` (content/blog edits) and `server/uploads/` (admin-uploaded
+images) are written to local disk. Railway's filesystem is not persisted across
+deploys by default — add Railway Volumes mounted at `/app/server/data` and
+`/app/server/uploads` if you need admin edits to survive redeploys.
+
+## 5. Verify
+
+Open the service's Railway URL and confirm the site loads, then check
+`https://<your-domain>/api/content/home` returns JSON.
