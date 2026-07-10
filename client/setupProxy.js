@@ -1,18 +1,30 @@
+// This setupProxy is ONLY used by react-scripts during development (npm start).
+// It is NOT included in production builds.
+// 
+// In production, API requests use the REACT_APP_API_URL environment variable
+// or fall back to same-origin (/api).
+
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
+  // Only enable proxy if explicitly configured for development
+  const devBackendUrl = process.env.REACT_APP_DEV_BACKEND || process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  
   // Only proxy API requests, not static assets
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:5000',
+      target: devBackendUrl,
       changeOrigin: true,
       logLevel: 'debug',
       onError: (err, req, res) => {
         console.log('Proxy error:', err.message);
-        res.status(500).json({ 
-          error: 'Proxy error', 
-          message: 'Backend server is not running. Please start it with: cd server && npm start' 
+        console.log(`Failed to connect to backend at: ${devBackendUrl}`);
+        console.log('Make sure your backend server is running!');
+        res.status(503).json({ 
+          error: 'Backend unavailable', 
+          message: `Cannot connect to ${devBackendUrl}. Start backend with: cd server && npm start`,
+          details: err.message
         });
       }
     })

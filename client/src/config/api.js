@@ -1,24 +1,54 @@
 // API Configuration
-// Set USE_CLOUD_FUNCTION to true to use cloud function, false for local server
+// Production-safe configuration that avoids hardcoded localhost references.
+//
+// Priority order:
+// 1. REACT_APP_USE_CLOUD_FUNCTION=true → use Google Cloud Function
+// 2. Production build (npm run build / NODE_ENV=production) → always use
+//    same-origin relative paths (/api/*). This is the Railway deployment
+//    case: the built React app and the Express API are served from the
+//    same service/domain, so the frontend should never call out to a
+//    different host.
+// 3. Non-production (e.g. `react-scripts start` for local development) with
+//    REACT_APP_API_URL set → use that backend URL. This is only relevant
+//    locally, where the backend typically runs on a different port
+//    (e.g. http://localhost:5000) than the CRA dev server.
+// 4. Default (local dev, no REACT_APP_API_URL) → same-origin relative
+//    paths; local development normally relies on setupProxy.js to forward
+//    /api requests to the backend instead.
+//
+// IMPORTANT: Never hardcode localhost here. Local development should set
+// REACT_APP_API_URL (or rely on the CRA dev proxy) instead.
 
-const USE_CLOUD_FUNCTION = false; // Change to true to use cloud function
+const USE_CLOUD_FUNCTION = process.env.REACT_APP_USE_CLOUD_FUNCTION === 'true';
 
-// Cloud Function URL (update with your deployed function URL)
-const CLOUD_FUNCTION_URL = 'https://venusglobal-server-841304788329.asia-south1.run.app';
+// Cloud Function URL (update with your deployed function URL if needed)
+const CLOUD_FUNCTION_URL = process.env.REACT_APP_CLOUD_FUNCTION_URL || 'https://venusglobal-server-841304788329.asia-south1.run.app';
 
-// Local server URL
-const LOCAL_API_URL = '';
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-// Export the base URL
+// Backend URL override, only honored outside of production builds - see the
+// priority order above. In production this is intentionally ignored so a
+// Railway deployment always talks to its own domain.
+const API_URL = IS_PRODUCTION ? '' : (process.env.REACT_APP_API_URL || '').trim();
 
-export const API_BASE_URL = USE_CLOUD_FUNCTION ? CLOUD_FUNCTION_URL : LOCAL_API_URL;
+export const API_BASE_URL = USE_CLOUD_FUNCTION ? CLOUD_FUNCTION_URL : (API_URL || '/');
 
 // Helper function to build API URLs
 export const getApiUrl = (endpoint) => {
-  // Remove leading slash if present
   const cleanEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
-  return USE_CLOUD_FUNCTION 
-    ? `${CLOUD_FUNCTION_URL}/${cleanEndpoint}`
-    : `/${cleanEndpoint}`;
+
+  if (USE_CLOUD_FUNCTION) {
+    return `${CLOUD_FUNCTION_URL}/${cleanEndpoint}`;
+  }
+
+  if (API_URL) {
+    const normalizedBaseUrl = API_URL.replace(/\/$/, '');
+    return `${normalizedBaseUrl}/${cleanEndpoint}`;
+  }
+
+  // Same-origin by default: the production Railway deployment (frontend and
+  // backend on one domain) and local dev via setupProxy.js both rely on
+  // relative paths here.
+  return `/${cleanEndpoint}`;
 };
 
