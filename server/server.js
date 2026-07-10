@@ -8,10 +8,24 @@ const sanitizeHtml = require('sanitize-html');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+// Railway sets PORT automatically (default 3000 for this service). Keep 3000
+// as the local fallback so behavior matches Railway's standard.
+const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+// In production, the built React app and this API are served from the same
+// Railway service/domain, so browser requests are same-origin and CORS
+// headers are irrelevant to them in practice. CORS still matters for local
+// development, where the CRA dev server (localhost:3000) talks to this API
+// on a different port (5000/3000 conflicts, proxying, etc). Reflecting the
+// request's Origin (instead of a bare `*`) lets `credentials: true` work
+// safely for any origin, including whatever domain this service ends up
+// being reached at on Railway.
+const corsOptions = {
+  origin: (origin, callback) => callback(null, origin || true),
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 // Serve React app from client build (if built)
 const buildPath = path.join(__dirname, '..', 'client', 'build');
