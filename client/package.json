@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Venus Global Technology - React Frontend",
   "private": true,
-  "proxy": "http://localhost:5050",
   "scripts": {
     "start": "react-scripts start",
     "start:railway": "node server.js",
