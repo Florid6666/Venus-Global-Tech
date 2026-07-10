@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import AnimatedHero from '../components/AnimatedHero';
 import GlobalOffices from '../components/GlobalOffices';
 import { useContent } from '../hooks/useContent';
+import RichText from '../components/RichText';
 
 const Home = () => {
   const { content, loading } = useContent('home');
@@ -167,7 +168,7 @@ const Home = () => {
         <div className="partners-container">
           <div className="partners-header">
             <div className="partners-badge">
-              <span>{homeContent.trustedPartners?.badge}</span>
+              <RichText html={homeContent.trustedPartners?.badge} as="span" />
             </div>
           </div>
           <div className="sponsors-ticker-wrapper">
@@ -195,7 +196,7 @@ const Home = () => {
           <div className="about-header">
             <div className="about-badge">
               <i className="fas fa-cube"></i>
-              <span>{homeContent.about?.badge}</span>
+              <RichText html={homeContent.about?.badge} as="span" />
             </div>
             <h2 className="about-title">{homeContent.about?.title}</h2>
             <p className="about-description">
@@ -248,7 +249,7 @@ const Home = () => {
               <div className="services-header">
                 <div className="services-badge">
                   <i className="fas fa-cube"></i>
-                  <span>{homeContent.services?.badge}</span>
+                  <RichText html={homeContent.services?.badge} as="span" />
                 </div>
                 <h2 className="services-title">{homeContent.services?.title}</h2>
                 <p className="services-description">
@@ -294,7 +295,7 @@ const Home = () => {
               <div className="working-process-content">
                 <div className="working-process-badge">
                   <i className="fas fa-cube"></i>
-                  <span>{homeContent.workingProcess?.badge}</span>
+                  <RichText html={homeContent.workingProcess?.badge} as="span" />
                 </div>
                 <h2 className="working-process-title">
                   {homeContent.workingProcess?.title}
@@ -329,7 +330,7 @@ const Home = () => {
               <div className="working-process-mobile-content">
                 <div className="working-process-badge">
                   <i className="fas fa-cube"></i>
-                  <span>{homeContent.workingProcess?.badge}</span>
+                  <RichText html={homeContent.workingProcess?.badge} as="span" />
                 </div>
                 <h2 className="working-process-title">
                   {homeContent.workingProcess?.title}

@@ -31,7 +31,7 @@ const Investment = () => {
         <div className="inv-container inv-hero-content">
           <div className="inv-badge">
             <i className={hero?.badgeIcon} />
-            <span>{hero?.badge}</span>
+            <RichText html={hero?.badge} as="span" />
           </div>
           <h1 className="inv-hero-title">
             {hero?.titleLine1}<br />
@@ -71,7 +71,7 @@ const Investment = () => {
           <div className="inv-section-header">
             <div className="inv-badge inv-badge-dark">
               <i className="fas fa-bullseye" />
-              <span>{focus?.badge}</span>
+              <RichText html={focus?.badge} as="span" />
             </div>
             <h2 className="inv-section-title">{focus?.title}</h2>
             <p className="inv-section-desc">
@@ -136,7 +136,7 @@ const Investment = () => {
           <div className="inv-more-content">
             <div className="inv-badge inv-badge-dark">
               <i className="fas fa-handshake" />
-              <span>{moreThanCapital?.badge}</span>
+              <RichText html={moreThanCapital?.badge} as="span" />
             </div>
             <h2 className="inv-section-title">{moreThanCapital?.titleLine1}<br />{moreThanCapital?.titleLine2}</h2>
             <RichText html={moreThanCapital?.description} as="p" className="inv-more-desc" />
@@ -163,7 +163,7 @@ const Investment = () => {
           <div className="inv-section-header">
             <div className="inv-badge">
               <i className="fas fa-images" />
-              <span>{gallery?.badge}</span>
+              <RichText html={gallery?.badge} as="span" />
             </div>
             <h2 className="inv-section-title inv-light">{gallery?.title}</h2>
             <p className="inv-section-desc inv-light">
@@ -190,7 +190,7 @@ const Investment = () => {
           <div className="inv-cta-text">
             <div className="inv-badge">
               <i className="fas fa-rocket" />
-              <span>{cta?.badge}</span>
+              <RichText html={cta?.badge} as="span" />
             </div>
             <h2 className="inv-cta-title">{cta?.title}</h2>
             <RichText html={cta?.description} as="p" className="inv-cta-desc" />

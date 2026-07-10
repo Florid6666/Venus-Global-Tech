@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageTrail from './ImageTrail';
+import RichText from './RichText';
 import './animated-hero.css';
 
 const AnimatedHero = ({ content }) => {
@@ -65,7 +66,7 @@ const AnimatedHero = ({ content }) => {
       <div className="animated-hero-container">
         <div className="animated-hero-content">
           <div className="animated-hero-badge">
-            <span>{heroContent.badge}</span>
+            <RichText html={heroContent.badge} as="span" />
           </div>
           
           <h1 className="animated-hero-title">

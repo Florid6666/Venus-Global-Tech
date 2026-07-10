@@ -62,7 +62,7 @@ const About = () => {
             <div className="about-content-text">
               <div className="about-content-badge">
                 <i className="fas fa-cube"></i>
-                <span>{aboutContent.content?.badge}</span>
+                <RichText html={aboutContent.content?.badge} as="span" />
               </div>
 
               <h2 className="about-content-title">{aboutContent.content?.title}</h2>
@@ -99,7 +99,7 @@ const About = () => {
           <div className="partners-divider">
             <div className="partners-line"></div>
             <div className="partners-badge">
-              <span>{homeContent.trustedPartners?.badge}</span>
+              <RichText html={homeContent.trustedPartners?.badge} as="span" />
             </div>
             <div className="partners-line"></div>
           </div>
@@ -128,7 +128,7 @@ const About = () => {
           <div className="services-header">
             <div className="services-badge">
               <i className="fas fa-cube"></i>
-              <span>{homeContent.services?.badge}</span>
+              <RichText html={homeContent.services?.badge} as="span" />
             </div>
             <h2 className="services-title">{homeContent.services?.title}</h2>
             <p className="services-description">

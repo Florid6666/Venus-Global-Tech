@@ -4,6 +4,7 @@ import Footer from './Footer';
 import GlobalOffices from './GlobalOffices';
 import RichText from './RichText';
 import { useContent } from '../hooks/useContent';
+import { stripHtml } from '../utils/stripHtml';
 
 const iconClass = (icon) => (icon && icon.includes(' ') ? icon : `fas ${icon || ''}`);
 
@@ -45,7 +46,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
         <div className={`${prefix}-hero-container`}>
           <div className={`${prefix}-hero-content`}>
             <div className={`${prefix}-hero-badge`}>
-              <span>{hero.badge}</span>
+              <RichText html={hero.badge} as="span" />
             </div>
             <h1 className={`${prefix}-hero-title`}>
               <span className="title-line">{hero.titleLine1}</span>
@@ -80,7 +81,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
           ) : hero.image ? (
             <div className={`${prefix}-hero-image`}>
               <div className={`${prefix}-image-container`}>
-                <img src={hero.image} alt={hero.badge} className={`${prefix}-hero-img`} />
+                <img src={hero.image} alt={stripHtml(hero.badge)} className={`${prefix}-hero-img`} />
               </div>
             </div>
           ) : null}
@@ -93,7 +94,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
           <div className={`${prefix}-benefits-header`}>
             <div className={`${prefix}-benefits-badge`}>
               <i className="fas fa-star"></i>
-              <span>{benefits.badge}</span>
+              <RichText html={benefits.badge} as="span" />
             </div>
             <h2 className={`${prefix}-benefits-title`}>{benefits.title}</h2>
             <RichText html={benefits.description} as="p" className={`${prefix}-benefits-description`} />
@@ -127,7 +128,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
           <div className={`${prefix}-process-header`}>
             <div className={`${prefix}-process-badge`}>
               <i className="fas fa-cogs"></i>
-              <span>{process.badge}</span>
+              <RichText html={process.badge} as="span" />
             </div>
             <h2 className={`${prefix}-process-title`}>{process.title}</h2>
             {process.description && (
@@ -166,7 +167,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
           <div className={`${prefix}-tools-header`}>
             <div className={`${prefix}-tools-badge`}>
               <i className="fas fa-cube"></i>
-              <span>{tools.badge}</span>
+              <RichText html={tools.badge} as="span" />
             </div>
             <h2 className={`${prefix}-tools-title`}>{tools.title}</h2>
             {tools.description && (
@@ -201,7 +202,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
             {whyChoose.badge && (
               <div className={`${prefix}-why-choose-badge`}>
                 <i className="fas fa-cube"></i>
-                <span>{whyChoose.badge}</span>
+                <RichText html={whyChoose.badge} as="span" />
               </div>
             )}
             {whyChoose.title && <h2 className={`${prefix}-why-choose-title`}>{whyChoose.title}</h2>}
@@ -238,7 +239,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
           <div className={`${prefix}-faq-header`}>
             <div className={`${prefix}-faq-badge`}>
               <i className="fas fa-cube"></i>
-              <span>{faq.badge}</span>
+              <RichText html={faq.badge} as="span" />
             </div>
             <h2 className={`${prefix}-faq-title`}>{faq.title}</h2>
             {faq.description && (

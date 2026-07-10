@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import GlobalOffices from '../components/GlobalOffices';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
+import { getApiUrl } from '../config/api';
 
 const Contact = () => {
   const { content: contact } = useContent('contact');
@@ -36,12 +37,7 @@ const Contact = () => {
     setSubmitStatus('');
 
     try {
-      // Submit to cloud function
-      // Note: If you get 405 error, the function might need a specific path
-      // Common paths: '', '/submit', '/api/submit', '/api/contact'
-      const cloudFunctionUrl = 'https://submitform2-cyucomi7gq-uc.a.run.app';
-
-      const response = await fetch(cloudFunctionUrl, {
+      const response = await fetch(getApiUrl('api/contact'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +105,7 @@ const Contact = () => {
             <div className="contact-form-header">
               <div className="contact-form-badge">
                 <i className="fas fa-cube"></i>
-                <span>{form.badge}</span>
+                <RichText html={form.badge} as="span" />
               </div>
               <h2 className="contact-form-title">{form.title}</h2>
               <div className="contact-form-divider"></div>
