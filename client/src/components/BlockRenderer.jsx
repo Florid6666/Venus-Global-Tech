@@ -2,6 +2,7 @@ import React from 'react';
 import RichText from './RichText';
 import VideoEmbed from './VideoEmbed';
 import ImageSlideshow from './ImageSlideshow';
+import { headingId } from '../utils/slugify';
 
 // Renders a blog post body authored as a list of content blocks (the
 // WordPress-style block builder in the admin panel). Used both for the
@@ -18,7 +19,7 @@ const BlockRenderer = ({ blocks }) => {
             return <RichText key={index} html={block.html} />;
           case 'heading': {
             const Tag = block.level === 3 ? 'h3' : 'h2';
-            return <Tag key={index}>{block.text}</Tag>;
+            return <Tag key={index} id={headingId(block.text, index)} className="content-heading">{block.text}</Tag>;
           }
           case 'paragraph':
             return <RichText key={index} html={block.html} />;

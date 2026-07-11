@@ -7,6 +7,7 @@ import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
 import RichText from '../components/RichText';
 import BlockRenderer from '../components/BlockRenderer';
+import TableOfContents from '../components/TableOfContents';
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -155,22 +156,26 @@ const BlogDetail = () => {
             )}
           </div>
 
-          {/* Social Share */}
-          <div className="blog-share">
-            <h3>Share this article</h3>
-            <div className="share-buttons">
-              <button className="share-button twitter" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(stripHtml(blog.title))}&url=${encodeURIComponent(window.location.href)}`)}>
-                <i className="fab fa-twitter"></i>
-                Twitter
-              </button>
-              <button className="share-button linkedin" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
-                <i className="fab fa-linkedin"></i>
-                LinkedIn
-              </button>
-              <button className="share-button facebook" onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`)}>
-                <i className="fab fa-facebook"></i>
-                Facebook
-              </button>
+          <div className="blog-sidebar">
+            <TableOfContents blocks={blog.contentBlocks} />
+
+            {/* Social Share */}
+            <div className="blog-share">
+              <h3>Share this article</h3>
+              <div className="share-buttons">
+                <button className="share-button twitter" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(stripHtml(blog.title))}&url=${encodeURIComponent(window.location.href)}`)}>
+                  <i className="fab fa-twitter"></i>
+                  Twitter
+                </button>
+                <button className="share-button linkedin" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
+                  <i className="fab fa-linkedin"></i>
+                  LinkedIn
+                </button>
+                <button className="share-button facebook" onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`)}>
+                  <i className="fab fa-facebook"></i>
+                  Facebook
+                </button>
+              </div>
             </div>
           </div>
         </div>
