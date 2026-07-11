@@ -11,7 +11,7 @@
 }
 
 .blog-header-container {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -110,7 +110,7 @@
 }
 
 .blog-image-container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -129,11 +129,11 @@
 }
 
 .blog-content-container {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr 280px;
   gap: 60px;
 }
 
