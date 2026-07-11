@@ -1218,7 +1218,11 @@ const BlogEditor = ({ token }) => {
   return (
     <div>
       <div className="blog-toolbar">
-        {!showForm && <button onClick={handleCreate} className="btn-save">+ Add New Blog</button>}
+        {showForm ? (
+          <button type="button" onClick={() => { setShowForm(false); setEditingBlog(null); }} className="btn-logout">&larr; Back to Blogs</button>
+        ) : (
+          <button onClick={handleCreate} className="btn-save">+ Add New Blog</button>
+        )}
         {saveStatus === 'success' && <span className="save-toast success">Saved!</span>}
       </div>
 
