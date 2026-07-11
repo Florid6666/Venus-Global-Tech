@@ -84,6 +84,33 @@ const ensureAdminBootstrap = async () => {
   console.log(`Bootstrapped admin account for ${ADMIN_EMAIL} from ADMIN_EMAIL/ADMIN_PASSWORD.`);
 };
 
+// data/ is where CONTENT_FILE/BLOGS_FILE/ADMIN_FILE live, and in production
+// that's expected to be a mounted Volume so edits survive redeploys. A fresh
+// Volume mounts empty, which shadows whatever content.json/blogs.json shipped
+// in the image at that path — so on first boot against an empty volume,
+// seed it from data-seed/ (a copy baked into the image, outside the mount
+// point) instead of leaving the site with no content to serve.
+const seedFileIfMissing = async (targetFile, seedFile, label) => {
+  try {
+    await fs.access(targetFile);
+    return;
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  try {
+    await fs.mkdir(path.dirname(targetFile), { recursive: true });
+    await fs.copyFile(seedFile, targetFile);
+    console.log(`Seeded ${label} from the committed default (first boot on this volume).`);
+  } catch (seedError) {
+    console.log(`No seed available for ${label}: ${seedError.message}`);
+  }
+};
+
+const ensureDataBootstrap = async () => {
+  await seedFileIfMissing(CONTENT_FILE, path.join(__dirname, 'data-seed', 'content.json'), 'content.json');
+  await seedFileIfMissing(BLOGS_FILE, path.join(__dirname, 'data-seed', 'blogs.json'), 'blogs.json');
+};
+
 // JWT-based authentication middleware
 const authenticateAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -533,8 +560,8 @@ try {
   console.log('Client build folder not found - API server only mode');
 }
 
-ensureAdminBootstrap()
-  .catch((error) => console.error('Admin bootstrap failed:', error))
+Promise.all([ensureAdminBootstrap(), ensureDataBootstrap()])
+  .catch((error) => console.error('Startup bootstrap failed:', error))
   .finally(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
