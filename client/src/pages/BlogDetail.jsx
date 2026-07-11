@@ -130,7 +130,7 @@ const BlogDetail = () => {
           <div className="blog-author-info">
             <div className="author-details">
               <span className="author-label">By</span>
-              <span className="author-name">{blog.author}</span>
+              <span className="author-name">{stripHtml(blog.author)}</span>
             </div>
           </div>
         </div>

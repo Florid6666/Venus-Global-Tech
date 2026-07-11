@@ -4,6 +4,12 @@
   min-height: 100vh;
 }
 
+/* Smooth-scrolls to a heading when a Table of Contents link is clicked
+   (see content-heading's scroll-margin-top above for the navbar offset). */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Blog Header */
 .blog-header {
   padding: 120px 0 60px;
@@ -11,7 +17,7 @@
 }
 
 .blog-header-container {
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -110,7 +116,7 @@
 }
 
 .blog-image-container {
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -130,11 +136,11 @@
 }
 
 .blog-content-container {
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr 340px;
   gap: 60px;
 }
 
@@ -261,6 +267,13 @@
   object-position: center;
   border-radius: 8px;
   display: block;
+}
+
+/* "Fit" option (BlockBuilder's image fit dropdown): shows the whole image
+   uncropped, letterboxed on a light background instead of cover-cropping. */
+.blog-content .content-image.fit-contain img {
+  object-fit: contain;
+  background: #f5f5f5;
 }
 
 .blog-content .content-image figcaption {

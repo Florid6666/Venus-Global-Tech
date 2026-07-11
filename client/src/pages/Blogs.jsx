@@ -107,7 +107,7 @@ const Blogs = () => {
                         <RichText html={blog.title} as="h3" className="blog-title" />
                         {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
                         <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
-                        <div className="blog-author">By {blog.author}</div>
+                        <div className="blog-author">By {stripHtml(blog.author)}</div>
                       </div>
                     </article>
                   </Link>

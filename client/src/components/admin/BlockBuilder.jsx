@@ -8,7 +8,7 @@ import ImageArrayEditor from './ImageArrayEditor';
 const BLOCK_TEMPLATES = {
   heading: { type: 'heading', level: 2, text: '' },
   paragraph: { type: 'paragraph', html: '' },
-  image: { type: 'image', url: '', caption: '' },
+  image: { type: 'image', url: '', caption: '', fit: 'cover' },
   list: { type: 'list', ordered: false, items: [''] },
   video: { type: 'video', url: '' },
   link: { type: 'link', url: '', text: '' },
@@ -109,6 +109,18 @@ const BlockBuilder = ({ blocks, onChange, token }) => {
                 onChange={(e) => updateBlock(index, { caption: e.target.value })}
                 placeholder="Caption (optional)"
               />
+              <div className="block-field-grid">
+                <select value={block.fit || 'cover'} onChange={(e) => updateBlock(index, { fit: e.target.value })}>
+                  <option value="cover">Fill — crop to fit the frame</option>
+                  <option value="contain">Fit — show the whole image, no cropping</option>
+                </select>
+              </div>
+              <p className="block-field-hint">
+                Displays at full column width × 360px tall. "Fill" crops the image (centered) to cover that
+                frame completely; "Fit" shows the entire image uncropped, letterboxed on a light background
+                if its proportions don't match. For "Fill", upload an image close to a 2:1 landscape ratio
+                (e.g. 1200×600px) so the crop keeps what matters; "Fit" works with any size or shape.
+              </p>
             </>
           )}
 

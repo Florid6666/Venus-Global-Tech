@@ -25,7 +25,7 @@ const BlockRenderer = ({ blocks }) => {
             return <RichText key={index} html={block.html} />;
           case 'image':
             return (
-              <figure key={index} className="content-image">
+              <figure key={index} className={`content-image${block.fit === 'contain' ? ' fit-contain' : ''}`}>
                 <img src={block.url} alt={block.caption || ''} />
                 {block.caption && <figcaption>{block.caption}</figcaption>}
               </figure>

@@ -36,7 +36,10 @@ if (require('fs').existsSync(buildPath)) {
 }
 
 // Uploaded images (from the admin panel's rich text editor / image fields)
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
+// Lives under data/ so it's covered by the same persistent Railway Volume as
+// content.json/blogs.json/admin.json — uploads used to be wiped on every
+// redeploy since /app/server/uploads wasn't on the volume.
+const UPLOADS_DIR = path.join(__dirname, 'data', 'uploads');
 require('fs').mkdirSync(UPLOADS_DIR, { recursive: true });
 app.use('/uploads', express.static(UPLOADS_DIR));
 
@@ -471,7 +474,10 @@ app.post('/api/upload', authenticateAdmin, async (req, res) => {
     const buffer = Buffer.from(dataBase64, 'base64');
     await fs.writeFile(path.join(UPLOADS_DIR, safeName), buffer);
 
-    const url = `${req.protocol}://${req.get('host')}/uploads/${safeName}`;
+    // Relative, not absolute: req.protocol reports 'http' behind Railway's
+    // TLS-terminating proxy (no `trust proxy` set), which produced broken
+    // http:// URLs that browsers block as mixed content on the https:// site.
+    const url = `/uploads/${safeName}`;
     res.status(201).json({ url });
   } catch (error) {
     console.error('Error uploading file:', error);
