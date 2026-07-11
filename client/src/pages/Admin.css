@@ -621,6 +621,6 @@
 .blog-live-preview blockquote { border-left: 3px solid #ff6b35; margin: 16px 0; padding: 8px 16px; color: #555; font-style: italic; }
 .blog-live-preview a { color: #ff6b35; }
 .blog-live-preview .content-image { margin: 0 0 16px; }
-.blog-live-preview .content-image img { max-width: 100%; border-radius: 6px; }
+.blog-live-preview .content-image img { width: 100%; height: 360px; object-fit: cover; object-position: center; border-radius: 6px; }
 .blog-live-preview .content-image figcaption { font-size: 0.85rem; color: #777; margin-top: 0.4rem; }
 .blog-live-preview .video-embed { margin: 0 0 16px; }
