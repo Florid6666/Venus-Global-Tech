@@ -496,6 +496,33 @@ app.post('/api/admin/login', async (req, res) => {
   }
 });
 
+// Change admin email/password. Requires the current password (not just a
+// valid session token) so a leaked/stolen token alone can't lock the real
+// admin out by rotating credentials to something else.
+app.put('/api/admin/credentials', authenticateAdmin, async (req, res) => {
+  try {
+    const { currentPassword, email, password } = req.body;
+    if (!currentPassword || !email || !password) {
+      return res.status(400).json({ error: 'Current password, new email, and new password are required' });
+    }
+    if (password.length < 8) {
+      return res.status(400).json({ error: 'New password must be at least 8 characters' });
+    }
+
+    const admin = await readAdmin();
+    if (!admin || !(await bcrypt.compare(currentPassword, admin.passwordHash))) {
+      return res.status(401).json({ error: 'Current password is incorrect' });
+    }
+
+    const passwordHash = await bcrypt.hash(password, 12);
+    await fs.mkdir(path.dirname(ADMIN_FILE), { recursive: true });
+    await fs.writeFile(ADMIN_FILE, JSON.stringify({ email: email.toLowerCase().trim(), passwordHash }, null, 2), 'utf8');
+    res.json({ message: 'Admin credentials updated' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update credentials' });
+  }
+});
+
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   try {
