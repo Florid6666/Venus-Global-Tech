@@ -15,10 +15,41 @@ const BlogDetail = () => {
   const [relatedBlogs, setRelatedBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     loadBlog();
   }, [slug]);
+
+  // Meta title/description are plain text (never HTML — see server.js's
+  // sanitizePlainText), so they can go straight into document.title and a
+  // <meta name="description"> tag without RichText. Falls back to the
+  // post's title/excerpt when left blank in the admin panel, and restores
+  // whatever was there before on unmount (SPA navigation away from this page).
+  useEffect(() => {
+    if (!blog) return;
+    const prevTitle = document.title;
+    document.title = blog.metaTitle || stripHtml(blog.title);
+
+    let metaDescTag = document.querySelector('meta[name="description"]');
+    const wasCreated = !metaDescTag;
+    if (!metaDescTag) {
+      metaDescTag = document.createElement('meta');
+      metaDescTag.setAttribute('name', 'description');
+      document.head.appendChild(metaDescTag);
+    }
+    const prevContent = metaDescTag.getAttribute('content');
+    metaDescTag.setAttribute('content', blog.metaDescription || stripHtml(blog.excerpt));
+
+    return () => {
+      document.title = prevTitle;
+      if (wasCreated) {
+        metaDescTag.remove();
+      } else {
+        metaDescTag.setAttribute('content', prevContent || '');
+      }
+    };
+  }, [blog]);
 
   const loadBlog = async () => {
     setLoading(true);
@@ -144,6 +175,32 @@ const BlogDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {blog.faq && blog.faq.length > 0 && (
+        <section className="blog-faq-section">
+          <div className="blog-faq-container">
+            <h2 className="blog-faq-title">Frequently Asked Questions</h2>
+            <div className="blog-faq-list">
+              {blog.faq.map((item, index) => (
+                <div
+                  className={`blog-faq-item${openFaqIndex === index ? ' active' : ''}`}
+                  key={index}
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                >
+                  <div className="blog-faq-question">
+                    <h4><RichText html={item.question} as="span" /></h4>
+                    <i className="fas fa-plus"></i>
+                  </div>
+                  <div className="blog-faq-answer">
+                    <RichText html={item.answer} as="p" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="blog-cta-section">

@@ -1119,6 +1119,7 @@ const BlogEditor = ({ token }) => {
   const [formData, setFormData] = useState({
     title: '', subtitle: '', excerpt: '', contentBlocks: [], author: 'Venus Tech Team', category: 'AI & Technology',
     image: '', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
+    metaTitle: '', metaDescription: '', faq: [],
   });
   const [saveStatus, setSaveStatus] = useState('');
 
@@ -1149,7 +1150,11 @@ const BlogEditor = ({ token }) => {
 
   const handleCreate = () => {
     setEditingBlog(null);
-    setFormData({ title: '', subtitle: '', excerpt: '', contentBlocks: [], author: 'Venus Tech Team', category: 'AI & Technology', image: '', featured: false, slug: '', date: new Date().toISOString().split('T')[0] });
+    setFormData({
+      title: '', subtitle: '', excerpt: '', contentBlocks: [], author: 'Venus Tech Team', category: 'AI & Technology',
+      image: '', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
+      metaTitle: '', metaDescription: '', faq: [],
+    });
     setShowForm(true);
   };
 
@@ -1165,6 +1170,7 @@ const BlogEditor = ({ token }) => {
       title: blog.title || '', subtitle: blog.subtitle || '', excerpt: blog.excerpt || '', contentBlocks, author: blog.author || 'Venus Tech Team',
       category: blog.category || 'AI & Technology', image: blog.image || '', featured: blog.featured || false, slug: blog.slug || '',
       date: blog.date || new Date().toISOString().split('T')[0],
+      metaTitle: blog.metaTitle || '', metaDescription: blog.metaDescription || '', faq: blog.faq || [],
     });
     setShowForm(true);
   };
@@ -1221,6 +1227,19 @@ const BlogEditor = ({ token }) => {
           <Field label="Title *" value={formData.title} onChange={(v) => handleInputChange('title', v)} token={token} full />
           <Field label="Subtitle" value={formData.subtitle} onChange={(v) => handleInputChange('subtitle', v)} token={token} full />
           <Field label="Excerpt" value={formData.excerpt} onChange={(v) => handleInputChange('excerpt', v)} token={token} full />
+
+          <h3>SEO</h3>
+          <div className="field-grid">
+            <div className="field-group">
+              <label className="field-label">Meta Title</label>
+              <input type="text" value={formData.metaTitle} onChange={(e) => handleInputChange('metaTitle', e.target.value)} placeholder="Defaults to Title if left blank" maxLength={70} />
+            </div>
+            <div className="field-group field-full">
+              <label className="field-label">Meta Description</label>
+              <textarea rows={2} value={formData.metaDescription} onChange={(e) => handleInputChange('metaDescription', e.target.value)} placeholder="Defaults to Excerpt if left blank" maxLength={200} />
+            </div>
+          </div>
+
           <div className="field-group field-full">
             <label className="field-label">Content Blocks *</label>
             <BlockBuilder
@@ -1235,6 +1254,18 @@ const BlogEditor = ({ token }) => {
             <div className="blog-live-preview">
               <BlockRenderer blocks={formData.contentBlocks} />
             </div>
+          </div>
+
+          <h3>FAQ</h3>
+          <div className="field-group field-full">
+            <ArrayEditor
+              items={formData.faq}
+              fields={[{ name: 'question', label: 'Question' }, { name: 'answer', label: 'Answer' }]}
+              addTemplate={{ question: '', answer: '' }}
+              itemLabel="FAQ"
+              token={token}
+              onChange={(v) => setFormData((prev) => ({ ...prev, faq: v }))}
+            />
           </div>
 
           <div className="field-grid">

@@ -75,6 +75,11 @@ const SANITIZE_OPTIONS = {
 // compound with each edit and desync them from dropdown/select options).
 const looksLikeHtml = (value) => /<[a-z][\s\S]*>/i.test(value);
 
+// For fields that render as plain text in a non-HTML context (e.g. document
+// title, a <meta content="..."> attribute) — strips all tags rather than
+// just disallowed ones, since these can never legitimately contain markup.
+const sanitizePlainText = (value) => sanitizeHtml(String(value || ''), { allowedTags: [], allowedAttributes: {} }).trim();
+
 function sanitizeContent(value) {
   if (typeof value === 'string') {
     return looksLikeHtml(value) ? sanitizeHtml(value, SANITIZE_OPTIONS) : value;
@@ -546,6 +551,9 @@ async function handleCreateBlog(req, res) {
       category,
       image,
       featured: Boolean(featured),
+      metaTitle: sanitizePlainText(req.body.metaTitle),
+      metaDescription: sanitizePlainText(req.body.metaDescription),
+      faq: Array.isArray(req.body.faq) ? sanitizeContent(req.body.faq) : [],
       slug,
       readTime,
       date: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
