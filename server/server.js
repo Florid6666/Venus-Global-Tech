@@ -216,6 +216,11 @@ const writeBlogs = async (blogs) => {
 
 const generateSlug = (title) => {
   return title
+    // Title is CKEditor HTML (e.g. "<h2>My Title</h2>" if authored with a
+    // heading format) — strip tags first, otherwise the surviving tag name
+    // (h2, strong, ...) leaks into the slug as literal text, since letters
+    // and digits pass the word-character filter below unchanged.
+    .replace(/<[^>]+>/g, ' ')
     .toLowerCase()
     .trim()
     .replace(/[^\w\s-]/g, '')

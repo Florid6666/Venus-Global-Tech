@@ -1,6 +1,6 @@
 import React from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline, Link, List, BlockQuote, Heading } from 'ckeditor5';
+import { ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline, Link, List, BlockQuote } from 'ckeditor5';
 import 'ckeditor5/ckeditor5.css';
 
 // Shared rich text field used throughout the admin panel for every editable
@@ -18,8 +18,13 @@ const RichTextEditor = ({ value, onChange, token, placeholder }) => {
         config={{
           licenseKey: 'GPL',
           placeholder,
-          plugins: [Essentials, Paragraph, Bold, Italic, Underline, Link, List, BlockQuote, Heading],
-          toolbar: ['undo', 'redo', '|', 'heading', '|', 'bold', 'italic', 'underline', '|', 'link', '|', 'bulletedList', 'numberedList', 'blockQuote'],
+          // No Heading plugin/toolbar button: every field this editor is used
+          // for is already rendered inside a specific semantic tag by its
+          // caller (h1, h3, span, ...). Letting authors pick a heading format
+          // here produced invalid nested markup (e.g. <h1><h2>Title</h2></h1>)
+          // and leaked the tag name into auto-generated slugs.
+          plugins: [Essentials, Paragraph, Bold, Italic, Underline, Link, List, BlockQuote],
+          toolbar: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'link', '|', 'bulletedList', 'numberedList', 'blockQuote'],
         }}
         onChange={(_event, editor) => onChange(editor.getData())}
       />
