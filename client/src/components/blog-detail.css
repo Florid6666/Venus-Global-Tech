@@ -131,10 +131,9 @@ html {
 }
 
 /* "Fit" option (blog form's Image Fit dropdown): shows the whole image
-   uncropped, letterboxed on a light background instead of cover-cropping. */
+   uncropped instead of cover-cropping, with no visible frame behind it. */
 .blog-featured-image.fit-contain {
   object-fit: contain;
-  background: #f5f5f5;
 }
 
 /* Blog Content Section */
@@ -277,10 +276,9 @@ html {
 }
 
 /* "Fit" option (BlockBuilder's image fit dropdown): shows the whole image
-   uncropped, letterboxed on a light background instead of cover-cropping. */
+   uncropped instead of cover-cropping, with no visible frame behind it. */
 .blog-content .content-image.fit-contain img {
   object-fit: contain;
-  background: #f5f5f5;
 }
 
 .blog-content .content-image figcaption {

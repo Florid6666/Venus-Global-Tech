@@ -8,6 +8,9 @@ package-lock.json
 # ADMIN_EMAIL/ADMIN_PASSWORD env vars or `npm run set-admin` instead
 server/data/admin.json
 
+# Admin-uploaded images - runtime data, not source
+server/data/uploads/
+
 # Documentation (keep these)
 # !README.md
 # !ADMIN_QUICK_START.md
