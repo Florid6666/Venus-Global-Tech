@@ -550,6 +550,7 @@ async function handleCreateBlog(req, res) {
       author,
       category,
       image,
+      imageFit: req.body.imageFit === 'contain' ? 'contain' : 'cover',
       featured: Boolean(featured),
       metaTitle: sanitizePlainText(req.body.metaTitle),
       metaDescription: sanitizePlainText(req.body.metaDescription),

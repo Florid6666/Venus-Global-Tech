@@ -140,7 +140,11 @@ const BlogDetail = () => {
       {blog.image && (
         <section className="blog-image-section">
           <div className="blog-image-container">
-            <img src={blog.image} alt={stripHtml(blog.title)} className="blog-featured-image" />
+            <img
+              src={blog.image}
+              alt={stripHtml(blog.title)}
+              className={`blog-featured-image${blog.imageFit === 'contain' ? ' fit-contain' : ''}`}
+            />
           </div>
         </section>
       )}

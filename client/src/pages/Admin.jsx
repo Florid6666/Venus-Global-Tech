@@ -1118,7 +1118,7 @@ const BlogEditor = ({ token }) => {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     title: '', subtitle: '', excerpt: '', contentBlocks: [], author: 'Venus Tech Team', category: 'AI & Technology',
-    image: '', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
+    image: '', imageFit: 'cover', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
     metaTitle: '', metaDescription: '', faq: [],
   });
   const [saveStatus, setSaveStatus] = useState('');
@@ -1152,7 +1152,7 @@ const BlogEditor = ({ token }) => {
     setEditingBlog(null);
     setFormData({
       title: '', subtitle: '', excerpt: '', contentBlocks: [], author: 'Venus Tech Team', category: 'AI & Technology',
-      image: '', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
+      image: '', imageFit: 'cover', featured: false, slug: '', date: new Date().toISOString().split('T')[0],
       metaTitle: '', metaDescription: '', faq: [],
     });
     setShowForm(true);
@@ -1168,7 +1168,7 @@ const BlogEditor = ({ token }) => {
       : (blog.content ? [{ type: 'legacy', html: blog.content }] : []);
     setFormData({
       title: blog.title || '', subtitle: blog.subtitle || '', excerpt: blog.excerpt || '', contentBlocks, author: blog.author || 'Venus Tech Team',
-      category: blog.category || 'AI & Technology', image: blog.image || '', featured: blog.featured || false, slug: blog.slug || '',
+      category: blog.category || 'AI & Technology', image: blog.image || '', imageFit: blog.imageFit || 'cover', featured: blog.featured || false, slug: blog.slug || '',
       date: blog.date || new Date().toISOString().split('T')[0],
       metaTitle: blog.metaTitle || '', metaDescription: blog.metaDescription || '', faq: blog.faq || [],
     });
@@ -1281,6 +1281,18 @@ const BlogEditor = ({ token }) => {
               </select>
             </div>
             <ImageField label="Image" value={formData.image} onChange={(v) => handleInputChange('image', v)} token={token} />
+            <div className="field-group">
+              <label className="field-label">Image Fit</label>
+              <select value={formData.imageFit} onChange={(e) => handleInputChange('imageFit', e.target.value)}>
+                <option value="cover">Fill — crop to fit the frame</option>
+                <option value="contain">Fit — show the whole image, no cropping</option>
+              </select>
+              <p className="block-field-hint">
+                Displays at full width × 400px tall. "Fill" crops (centered) to cover that frame; "Fit"
+                shows the entire image uncropped, letterboxed if its proportions don't match. For "Fill",
+                use a landscape image close to 2:1 (e.g. 1400×700px); "Fit" works with any size or shape.
+              </p>
+            </div>
             <div className="field-group">
               <label className="field-label">Date</label>
               <input type="date" value={formData.date} onChange={(e) => handleInputChange('date', e.target.value)} />

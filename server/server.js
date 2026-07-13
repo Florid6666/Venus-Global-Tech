@@ -393,6 +393,7 @@ app.post('/api/blogs', authenticateAdmin, async (req, res) => {
       author: req.body.author || 'Venus Tech Team',
       category: req.body.category || 'AI & Technology',
       image: req.body.image || '',
+      imageFit: req.body.imageFit === 'contain' ? 'contain' : 'cover',
       featured: Boolean(req.body.featured),
       metaTitle: sanitizePlainText(req.body.metaTitle),
       metaDescription: sanitizePlainText(req.body.metaDescription),
