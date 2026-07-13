@@ -118,7 +118,7 @@ html {
 .blog-image-container {
   max-width: 1250px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 10px 24px;
 }
 
 .blog-featured-image {
@@ -127,7 +127,6 @@ html {
   object-fit: cover;
   object-position: center;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* "Fit" option (blog form's Image Fit dropdown): shows the whole image
