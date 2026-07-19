@@ -22,6 +22,16 @@ const Field = ({ label, value, onChange, token, full }) => (
   </div>
 );
 
+// Plain `<input>` for raw, non-HTML values (file paths, CSS class names) —
+// RichTextEditor wraps everything in a <p> and can rewrite characters like
+// `/` and `-` via CKEditor's autoformatting, which corrupts a literal path.
+const PlainField = ({ label, value, onChange, full, placeholder }) => (
+  <div className={`field-group ${full ? 'field-full' : ''}`}>
+    <label className="field-label">{label}</label>
+    <input type="text" value={value || ''} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} />
+  </div>
+);
+
 // Generic editor for an array of objects, e.g. benefit cards, FAQ items,
 // process steps. `fields` describes each object's shape:
 // { name, label, type: 'text' | 'image' }
@@ -846,8 +856,8 @@ const ServicePartEditor = ({ content, part, onSave, onRegisterSave, token }) => 
         <Field label="Title Line 2" value={hero.titleLine2} onChange={(v) => set('hero', 'titleLine2', v)} token={token} />
         <Field label="CTA Button" value={hero.ctaButton} onChange={(v) => set('hero', 'ctaButton', v)} token={token} />
         <Field label="Description" value={hero.description} onChange={(v) => set('hero', 'description', v)} token={token} full />
-        <Field label="Lottie Animation Path (leave empty to use a static image instead)" value={hero.lottiePath} onChange={(v) => set('hero', 'lottiePath', v)} token={token} />
-        <Field label="Fallback Icon Class (e.g. fa-robot)" value={hero.fallbackIcon} onChange={(v) => set('hero', 'fallbackIcon', v)} token={token} />
+        <PlainField label="Lottie Animation Path (leave empty to use a static image instead)" value={hero.lottiePath} onChange={(v) => set('hero', 'lottiePath', v)} placeholder="/lottie/example.json" />
+        <PlainField label="Fallback Icon Class (e.g. fa-robot)" value={hero.fallbackIcon} onChange={(v) => set('hero', 'fallbackIcon', v)} placeholder="fa-robot" />
         <ImageField label="Static Hero Image (used only if no Lottie path)" value={hero.image} onChange={(v) => set('hero', 'image', v)} token={token} />
       </div>
     );
