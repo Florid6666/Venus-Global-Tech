@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import HomeV2 from './pages/homev2/HomeV2';
 import About from './pages/About';
 import AgenticAI from './pages/AgenticAI';
 import ESG from './pages/ESG';
@@ -51,6 +52,7 @@ function AnimatedRoutes() {
       <Routes location={displayLocation}>
         <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<Home />} />
+        <Route path="/v2" element={<HomeV2 />} />
         <Route path="/about" element={<About />} />
         <Route path="/agentic-ai" element={<AgenticAI />} />
         <Route path="/esg" element={<ESG />} />

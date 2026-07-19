@@ -13,16 +13,18 @@ export const useContent = (section = null) => {
         const url = section
           ? getApiUrl(`api/content/${section}`)
           : getApiUrl('api/content');
+        console.log('[useContent] Fetching from URL:', url);
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Failed to fetch content');
+          throw new Error(`Failed to fetch content, status: ${response.status}`);
         }
         const data = await response.json();
+        console.log('[useContent] Successfully fetched data:', data);
         setContent(data);
         setError(null);
       } catch (err) {
         setError(err.message);
-        console.error('Error fetching content:', err);
+        console.error('[useContent] Error fetching content:', err);
       } finally {
         setLoading(false);
       }

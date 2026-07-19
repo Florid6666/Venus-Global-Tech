@@ -287,6 +287,12 @@ if (emailUser && emailPass && emailUser !== 'your-email@gmail.com' && emailPass 
   console.log('Email not configured - contact form emails will be disabled');
 }
 
+// Disable caching for all API routes
+app.use('/api', (req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+
 // Content Management API Endpoints
 
 // Get all content

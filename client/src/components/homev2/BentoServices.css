@@ -1,0 +1,282 @@
+/* ==============================================
+   BentoServices — Premium Card Grid
+   White section background, image-backed cards
+   ============================================== */
+
+.bs-section {
+  background: #ffffff;
+  padding: 60px 40px 80px;
+  width: 100%;
+}
+
+/* ── Grid Layout ── */
+.bs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.72fr;
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* ── Right column stacked pair ── */
+.bs-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ==============================================
+   Base Card
+   ============================================== */
+.bs-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* Reveal start state */
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+}
+
+.bs-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover lift */
+.bs-card:hover {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  transform: translateY(-6px);
+}
+
+.bs-card--visible:hover {
+  transform: translateY(-6px);
+}
+
+/* Full-cover background image */
+.bs-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bs-card:hover .bs-card-bg {
+  transform: scale(1.04);
+}
+
+/* Card inner content layer */
+.bs-card-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 30px;
+}
+
+/* Tall cards (col 1 & 2) */
+.bs-card--tall {
+  min-height: 440px;
+}
+
+/* ==============================================
+   Card Content — Top block
+   ============================================== */
+.bs-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Pill badges */
+.bs-pill-row {
+  display: flex;
+  gap: 8px;
+}
+
+.bs-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+}
+
+/* Card icon wrapper */
+.bs-card-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Headings */
+.bs-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.bs-card-title--sm {
+  font-size: 1.1rem;
+}
+
+/* Body text */
+.bs-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 4px;
+}
+
+/* ==============================================
+   Card 1 bottom — Brand icons
+   ============================================== */
+.bs-card-bottom {
+  margin-top: auto;
+}
+
+.bs-icon-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bs-brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #fff;
+  transition: transform 0.25s ease;
+}
+
+.bs-brand-icon:hover {
+  transform: scale(1.15);
+}
+
+.bs-messenger { background: linear-gradient(135deg, #0099ff, #a033ff); }
+.bs-skype     { background: #00aff0; }
+.bs-telegram  { background: #229ed9; }
+.bs-discord   { background: #5865f2; }
+
+/* ==============================================
+   Card 3A — Stat card (500+ Projects)
+   ============================================== */
+.bs-card--stat {
+  flex: 0 0 auto;
+  min-height: 170px;
+}
+
+.bs-card-inner--stat {
+  justify-content: flex-end;
+  padding: 24px 28px;
+  gap: 4px;
+}
+
+/* Giant outlined number */
+.bs-stat-number {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.55);
+  user-select: none;
+}
+
+.bs-stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.03em;
+}
+
+/* ==============================================
+   Card 3B — OpenAI Integration
+   ============================================== */
+.bs-card--openai {
+  flex: 1;
+  min-height: 240px;
+}
+
+.bs-openai-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.bs-openai-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.bs-openai-logo span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+
+/* ==============================================
+   Responsive
+   ============================================== */
+@media (max-width: 1100px) {
+  .bs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bs-card-stack {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+  .bs-card--stat,
+  .bs-card--openai {
+    flex: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .bs-section {
+    padding: 40px 20px 60px;
+  }
+  .bs-grid {
+    grid-template-columns: 1fr;
+  }
+  .bs-card-stack {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+  .bs-card--tall {
+    min-height: 360px;
+  }
+}

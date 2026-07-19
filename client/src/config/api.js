@@ -19,12 +19,9 @@
 // IMPORTANT: Never hardcode localhost here. Local development should set
 // REACT_APP_API_URL (or rely on the CRA dev proxy) instead.
 
-const USE_CLOUD_FUNCTION = process.env.REACT_APP_USE_CLOUD_FUNCTION === 'true';
-
-// Cloud Function URL (update with your deployed function URL if needed)
-const CLOUD_FUNCTION_URL = process.env.REACT_APP_CLOUD_FUNCTION_URL || 'https://venusglobal-server-841304788329.asia-south1.run.app';
-
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const USE_CLOUD_FUNCTION = process.env.REACT_APP_USE_CLOUD_FUNCTION === 'true' && IS_PRODUCTION;
+const CLOUD_FUNCTION_URL = process.env.REACT_APP_CLOUD_FUNCTION_URL || 'https://venusglobal-server-841304788329.asia-south1.run.app';
 
 // Backend URL override, only honored outside of production builds - see the
 // priority order above. In production this is intentionally ignored so a

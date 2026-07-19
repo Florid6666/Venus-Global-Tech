@@ -1,11 +1,13 @@
 {
   "home": {
     "hero": {
-      "badge": "Creative Ideas That Inspire Growth",
-      "titleLine1": "Driving Growth Through",
-      "titleLine2": "Technology, Compliance & Innovation",
-      "description": "Maximise Your Technology Investment, From SEO and Agentic AI to IATF compliance, ESG solutions, Managed IT Services, and Staff Augmentation — we deliver end-to-end expertise to help your business stay competitive and future-proof.",
-      "ctaButton": "Get Started",
+      "badge": "AI Development Company",
+      "titleLine1": "AI Development Company for",
+      "titleLine2": "Enterprise AI & Digital Transformation",
+      "description": "Transform your business with intelligent technology built for growth. Venus Global Technology helps startups, SMBs, and enterprises build secure, scalable, and future-ready digital solutions that improve efficiency, reduce costs, and accelerate innovation.",
+      "ctaButton": "Book a Free AI Strategy Session",
+      "secondaryCtaButton": "Talk to Our Experts",
+      "secondaryCtaLink": "/contact",
       "image": "/images/01.png",
       "trailImages": [
         "/images/Software & Data.jpg",
@@ -656,7 +658,7 @@
         "titleLine2": "for Future Growth",
         "description": "Transform your business with comprehensive ESG solutions that drive sustainability, enhance stakeholder value, and ensure regulatory compliance. Our expert team helps you build a responsible and profitable future.",
         "ctaButton": "Get Started",
-        "lottiePath": "",
+        "lottiePath": "/lottie/ESG - Environmental Social Governance.json",
         "fallbackIcon": "",
         "image": "/images/esganimation.jpg"
       },
