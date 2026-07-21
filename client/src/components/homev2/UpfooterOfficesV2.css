@@ -1,0 +1,457 @@
+/* ==========================================================================
+   Global Office Locations - Upfooter Component (Home V2)
+   Pure White Background, Interactive Map Deck, 24px Border Radius
+   ========================================================================== */
+
+.v2-upfooter-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+.v2-upfooter-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.v2-upfooter-glow.glow-center {
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.v2-upfooter-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER SECTION (~700px Centered)
+   -------------------------------------------------------------------------- */
+
+.v2-upfooter-header {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v2-upfooter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.v2-upfooter-badge-icon {
+  font-size: 0.85rem;
+}
+
+.v2-upfooter-badge-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+/* Heading (56px) */
+.v2-upfooter-heading {
+  font-size: 3.5rem; /* 56px */
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.v2-upfooter-paragraph {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE MAP DECK CANVAS
+   -------------------------------------------------------------------------- */
+
+.v2-upfooter-map-wrapper {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.v2-map-card-canvas {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0b0f19 0%, #111827 60%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px -10px rgba(7, 9, 14, 0.4);
+  overflow: hidden;
+}
+
+.v2-map-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+}
+
+/* World Map SVG Overlay */
+.v2-world-map-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.v2-map-landmass {
+  fill: rgba(255, 255, 255, 0.08);
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1;
+  transition: fill 0.3s ease;
+}
+
+.v2-map-arc-line {
+  stroke: rgba(56, 189, 248, 0.4);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+  animation: v2ArcDash 20s linear infinite;
+}
+
+@keyframes v2ArcDash {
+  to { stroke-dashoffset: -100; }
+}
+
+/* Map Pins */
+.v2-map-pins-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.v2-map-pin {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.v2-pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.35);
+  animation: v2MapPinPulse 2.5s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes v2MapPinPulse {
+  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+.v2-pin-head {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-map-pin:hover .v2-pin-head,
+.v2-map-pin.pin-active .v2-pin-head {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: scale(1.25);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.8);
+}
+
+/* Tooltip on Pin Hover */
+.v2-pin-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.v2-tooltip-flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.v2-pin-tooltip strong {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.v2-map-pin:hover .v2-pin-tooltip,
+.v2-map-pin.pin-active .v2-pin-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   3-COLUMN OFFICE LOCATION CARDS GRID
+   -------------------------------------------------------------------------- */
+
+.v2-offices-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.v2-office-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e8ecf2;
+  border-radius: 24px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 330px;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+/* Card Header */
+.v2-office-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.v2-office-flag-container {
+  width: 44px;
+  height: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.v2-office-flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.v2-office-title-wrap {
+  flex: 1;
+}
+
+.v2-office-city {
+  font-size: 1.35rem; /* ~22px */
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+}
+
+.v2-office-region {
+  font-size: 0.86rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Card Body */
+.v2-office-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.v2-office-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.v2-info-icon {
+  width: 20px;
+  color: #2563eb;
+  font-size: 0.95rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.v2-info-text {
+  flex: 1;
+}
+
+.phones-row {
+  align-items: center;
+}
+
+.v2-phones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.v2-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
+}
+
+.v2-phone-link:hover {
+  color: #10b981; /* WhatsApp green */
+}
+
+.v2-wa-icon {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+/* Card Footer Action */
+.v2-office-card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 18px;
+}
+
+.v2-office-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2563eb;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.v2-office-map-btn i {
+  font-size: 0.82rem;
+  transition: transform 0.25s ease;
+}
+
+.v2-office-card:hover .v2-office-map-btn i {
+  transform: translate(3px, -3px);
+}
+
+/* Hover Interaction: translateY(-6px), border-color brand blue (#2563eb), depth shadow */
+.v2-office-card:hover,
+.v2-office-card.is-hovered {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(191, 219, 254, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .v2-offices-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .v2-upfooter-heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .v2-offices-cards-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .v2-office-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-upfooter-section {
+    padding: 60px 0 70px;
+  }
+
+  .v2-upfooter-container {
+    padding: 0 20px;
+  }
+
+  .v2-upfooter-heading {
+    font-size: 2.15rem;
+  }
+
+  .v2-upfooter-paragraph {
+    font-size: 1rem;
+  }
+
+  .v2-map-card-canvas {
+    height: 180px;
+  }
+}

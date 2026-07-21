@@ -20,12 +20,27 @@
         "/slider/Venus Global Tech with Team RBC.jpg"
       ],
       "backgroundWords": [
-        "SOFTWARE DEVELOPMENT & DATA AI", "AGENTIC AI SOLUTIONS",
-        "CLOUD SERVICES & INFRASTRUCTURE", "DIGITAL MARKETING & REACH",
-        "ESG SOLUTIONS & SUSTAINABILITY", "IATF AUDITING & COMPLIANCE",
-        "INNOVATION", "TECHNOLOGY", "GROWTH", "SUCCESS", "EXCELLENCE",
-        "QUALITY", "LEADERSHIP", "VISION", "STRATEGY", "SOLUTIONS",
-        "DIGITAL", "TRANSFORMATION", "AI", "CLOUD", "COMPLIANCE"
+        "SOFTWARE DEVELOPMENT & DATA AI",
+        "AGENTIC AI SOLUTIONS",
+        "CLOUD SERVICES & INFRASTRUCTURE",
+        "DIGITAL MARKETING & REACH",
+        "ESG SOLUTIONS & SUSTAINABILITY",
+        "IATF AUDITING & COMPLIANCE",
+        "INNOVATION",
+        "TECHNOLOGY",
+        "GROWTH",
+        "SUCCESS",
+        "EXCELLENCE",
+        "QUALITY",
+        "LEADERSHIP",
+        "VISION",
+        "STRATEGY",
+        "SOLUTIONS",
+        "DIGITAL",
+        "TRANSFORMATION",
+        "AI",
+        "CLOUD",
+        "COMPLIANCE"
       ]
     },
     "trustedPartners": {
@@ -73,6 +88,57 @@
       "phoneNumber": "647-722-0837",
       "whatsappLink": "https://wa.me/16477220837"
     },
+    "whyWeHelp": {
+      "badge": "Our Impact",
+      "title": "Helping Businesses Build Smarter Digital Products",
+      "description": "Technology should solve business challenges, not create new ones. We combine strategy, engineering, and AI to help you innovate faster and ship solutions that create measurable value.",
+      "ctaButton": "Talk to an Expert",
+      "ctaLink": "/contact",
+      "secondaryLink": "View Case Studies",
+      "secondaryLinkHref": "/blogs",
+      "stats": [
+        {
+          "number": "6",
+          "label": "Core Service Areas"
+        },
+        {
+          "number": "16+",
+          "label": "Years Experience"
+        },
+        {
+          "number": "2",
+          "label": "Industry Awards"
+        }
+      ],
+      "itemsTitle": "What We Help Businesses Achieve",
+      "items": [
+        {
+          "icon": "fa-credit-card",
+          "title": "Reduce Operational Costs",
+          "description": "Streamline processes and eliminate inefficiencies that quietly drain your budget every month."
+        },
+        {
+          "icon": "fa-clock",
+          "title": "Automate Repetitive Workflows",
+          "description": "Replace manual, repetitive tasks with intelligent automation that runs reliably in the background."
+        },
+        {
+          "icon": "fa-face-smile",
+          "title": "Improve Customer Experiences",
+          "description": "Deliver faster, more personalized interactions that keep customers coming back."
+        },
+        {
+          "icon": "fa-lightbulb",
+          "title": "Build AI-Powered Products",
+          "description": "Embed intelligent, adaptive capabilities directly into the products your customers use every day."
+        },
+        {
+          "icon": "fa-hard-drive",
+          "title": "Scale Cloud Infrastructure",
+          "description": "Architect infrastructure that grows with demand, without over-provisioning or downtime."
+        }
+      ]
+    },
     "services": {
       "badge": "Services",
       "title": "Your Needs, Our Expertise",
@@ -83,21 +149,21 @@
           "title": "Software Development & Data AI",
           "description": "Cutting-edge software development and AI solutions that transform your business operations. We build intelligent applications, implement machine learning models, and create data-driven solutions that drive innovation and efficiency.",
           "link": "/software-data-ai",
-          "image": "/images/Software & Data.jpg"
+          "image": "/images/software-data.jpg"
         },
         {
           "number": "02",
           "title": "Agentic AI Solutions",
           "description": "Next-generation autonomous AI agents that can reason, plan, and execute complex tasks independently. Our agentic AI systems learn, adapt, and make decisions to optimize your business processes and drive intelligent automation.",
           "link": "/agentic-ai",
-          "image": "/images/Agentic AI.jpg"
+          "image": "/images/agentic-ai.jpg"
         },
         {
           "number": "03",
           "title": "Cloud Services & Infrastructure",
           "description": "Comprehensive cloud solutions that scale with your business. From cloud migration and architecture design to managed services and DevOps, we ensure your infrastructure is secure, scalable, and cost-effective.",
           "link": "/cloud-service",
-          "image": "/images/AI & Cloud.jpg"
+          "image": "/images/ai-cloud.jpg"
         },
         {
           "number": "04",
@@ -119,6 +185,76 @@
           "description": "Specialized IATF 16949 automotive quality management system auditing and compliance services. We help automotive suppliers achieve and maintain certification while improving quality processes and reducing risks.",
           "link": "/iatf-auditing",
           "image": "/images/IATF.jpg"
+        },
+        {
+          "number": "07",
+          "title": "AI Development",
+          "description": "Build intelligent applications powered by Generative AI, Machine Learning, Computer Vision, NLP, and Agentic AI.",
+          "link": "/agentic-ai",
+          "image": "/images/agentic-ai.jpg"
+        },
+        {
+          "number": "08",
+          "title": "Custom Software Development",
+          "description": "Design and develop secure web, mobile, SaaS, and enterprise software tailored to your business.",
+          "link": "/software-data-ai",
+          "image": "/images/software-data.jpg"
+        },
+        {
+          "number": "09",
+          "title": "Enterprise AI Solutions",
+          "description": "Deploy scalable AI systems that integrate with existing business operations and enterprise applications.",
+          "link": "/agentic-ai",
+          "image": "/images/ai-cloud.jpg"
+        },
+        {
+          "number": "10",
+          "title": "AI Consulting Services",
+          "description": "Identify high-impact AI opportunities, create implementation roadmaps, and maximize ROI.",
+          "link": "/agentic-ai",
+          "image": "/images/agentic-ai.jpg"
+        },
+        {
+          "number": "11",
+          "title": "AI Automation Services",
+          "description": "Automate repetitive business processes using intelligent workflows, AI agents, and predictive automation.",
+          "link": "/agentic-ai",
+          "image": "/images/ai-cloud.jpg"
+        },
+        {
+          "number": "12",
+          "title": "Digital Transformation Services",
+          "description": "Modernize business operations with cloud technologies, AI, automation, and data-driven decision-making.",
+          "link": "/cloud-service",
+          "image": "/images/ai-cloud.jpg"
+        },
+        {
+          "number": "13",
+          "title": "Cloud Consulting Services",
+          "description": "Accelerate cloud adoption using AWS, Microsoft Azure, and Google Cloud.",
+          "link": "/cloud-service",
+          "image": "/images/ai-cloud.jpg"
+        },
+        {
+          "number": "14",
+          "title": "Software Engineering Services",
+          "description": "Build secure, scalable, high-performance software using modern engineering practices.",
+          "link": "/software-data-ai",
+          "image": "/images/software-data.jpg"
+        },
+        {
+          "number": "15",
+          "title": "Data Analytics Services",
+          "description": "Transform business data into actionable insights through dashboards, AI analytics, and business intelligence.",
+          "link": "/software-data-ai",
+          "image": "/images/software-data.jpg"
+        },
+        {
+          "number": "16",
+          "title": "Technology Consulting Services",
+          "description": "Align technology investments with business goals through strategic planning and digital innovation.",
+          "link": "/contact",
+          "image": "/images/software-data.jpg"
         }
       ]
     },
@@ -158,11 +294,13 @@
       "IATF Auditing"
     ],
     "cta": {
-      "prompt": "Have a project in mind? Just let us know!",
-      "title": "Let's Talk",
-      "button": "Connect With Us",
+      "badge": "Have a project in mind? Just let us know!",
+      "description": "Whether you're looking for an AI Development Company, Enterprise AI Solutions, Custom Software Development, or Digital Transformation Services, our experts are ready to help you turn ideas into intelligent digital products.",
+      "primaryBtnText": "Connect With Us",
+      "secondaryBtnText": "Let's Discuss Your Project",
       "whatsappLink": "https://wa.me/16477220837",
-      "backgroundImage": "/images/bg.jpg"
+      "headingMain": "Ready to Build the Future with",
+      "headingHighlight": "AI?"
     },
     "offices": [
       {
@@ -209,7 +347,509 @@
           }
         ]
       }
-    ]
+    ],
+    "whyChooseUs": {
+      "badge": "WHY CHOOSE VENUS GLOBAL TECHNOLOGY",
+      "title": "Building Intelligent Technology for Modern Businesses",
+      "description": "We partner with ambitious enterprises to engineer high-impact AI solutions, resilient cloud platforms, and modern enterprise software. From digital transformation to business automation, our battle-tested engineering powers sustainable growth and technical excellence.",
+      "primaryCta": "Schedule a Consultation",
+      "primaryCtaLink": "/contact",
+      "secondaryCta": "Explore Our Services",
+      "secondaryCtaLink": "/services",
+      "lottieJson": "/images/homev2/hovering-laptop-girl.json",
+      "benefits": [
+        {
+          "icon": "fa-robot",
+          "title": "AI-First Development",
+          "description": "Custom machine learning models, generative AI, and intelligent automation engineered to scale enterprise workflows effortlessly."
+        },
+        {
+          "icon": "fa-cubes",
+          "title": "Enterprise-Grade Engineering",
+          "description": "Robust, high-performance architecture built for mission-critical software, high concurrency, and zero downtime."
+        },
+        {
+          "icon": "fa-cloud",
+          "title": "Cloud-Native Solutions",
+          "description": "Scalable multi-cloud infrastructure designed for maximum uptime, seamless migration, and optimized cost efficiency."
+        },
+        {
+          "icon": "fa-bolt",
+          "title": "Agile Delivery",
+          "description": "Accelerated development cycles powered by continuous integration, rapid prototyping, and transparent communication."
+        },
+        {
+          "icon": "fa-shield-alt",
+          "title": "Security by Design",
+          "description": "End-to-end data encryption, strict SOC2 & GDPR compliance standards, and proactive threat protection built in from day one."
+        },
+        {
+          "icon": "fa-handshake",
+          "title": "Long-Term Technology Partnership",
+          "description": "Dedicated senior engineering leadership, continuous platform optimization, and strategic guidance for sustained ROI."
+        }
+      ]
+    },
+    "aiExpertise": {
+      "badge": "OUR AI EXPERTISE",
+      "title": "AI Solutions Built for Real Business Outcomes",
+      "description": "Artificial Intelligence should deliver measurable business value. Our AI experts design and develop intelligent systems that automate operations, improve decision-making, enhance customer experiences, and unlock new revenue opportunities.",
+      "primaryCta": "Explore AI Solutions",
+      "secondaryCta": "Talk to an AI Expert",
+      "lottieJson": "/images/homev2/live-chatbot.json",
+      "items": [
+        {
+          "icon": "fa-robot",
+          "title": "Agentic AI Solutions",
+          "description": "Autonomous agents that plan, reason, and execute multi-step workflows."
+        },
+        {
+          "icon": "fa-brain",
+          "title": "Autonomous AI Agents",
+          "description": "Independent task execution with continuous learning & adaptation."
+        },
+        {
+          "icon": "fa-diagram-project",
+          "title": "AI Workflow Automation",
+          "description": "Streamlined end-to-end enterprise operations reducing manual overhead."
+        },
+        {
+          "icon": "fa-plug",
+          "title": "AI Integration Services",
+          "description": "Seamless embedding of LLMs and foundation models into core business apps."
+        },
+        {
+          "icon": "fa-code",
+          "title": "AI Software Development",
+          "description": "Bespoke enterprise software powered by built-in artificial intelligence."
+        },
+        {
+          "icon": "fa-network-wired",
+          "title": "Machine Learning Solutions",
+          "description": "Predictive analytics, NLP, and computer vision tailored to domain data."
+        },
+        {
+          "icon": "fa-chart-line",
+          "title": "AI Business Solutions",
+          "description": "Data-backed strategies driving measurable business growth and ROI."
+        },
+        {
+          "icon": "fa-bolt-lightning",
+          "title": "Intelligent Automation",
+          "description": "Cognitive bots handling high-frequency tasks with high precision."
+        },
+        {
+          "icon": "fa-microchip",
+          "title": "AI Agent Development",
+          "description": "Custom multi-agent architectures built for complex enterprise domains."
+        },
+        {
+          "icon": "fa-wand-magic-sparkles",
+          "title": "AI Digital Transformation",
+          "description": "Modernizing legacy architectures with AI-first cloud infrastructure."
+        }
+      ]
+    },
+    "industries": {
+      "badge": "INDUSTRIES WE EMPOWER",
+      "title": "Technology Solutions Built for Every Industry",
+      "description": "Every industry faces distinct digital challenges. Venus Global Technology engineers custom AI, cloud, automation, and software solutions tailored to solve domain-specific problems and accelerate business outcomes.",
+      "items": [
+        {
+          "title": "Healthcare",
+          "description": "Digital healthcare platforms, AI diagnostics, patient engagement, and HIPAA-compliant workflow automation.",
+          "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Manufacturing",
+          "description": "Smart factories, Industry 4.0, predictive maintenance, and operational intelligence platforms.",
+          "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Financial Services",
+          "description": "FinTech platforms, AI-powered risk analysis, automated fraud detection, and regulatory compliance.",
+          "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Retail & eCommerce",
+          "description": "Personalized shopping experiences, recommendation engines, customer analytics, and retail automation.",
+          "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Logistics",
+          "description": "Fleet intelligence, warehouse automation, supply chain optimization, and real-time shipment tracking.",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Education",
+          "description": "Next-gen Learning Management Systems, AI tutoring, virtual classrooms, and EdTech platforms.",
+          "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Government",
+          "description": "Digital public services, citizen engagement portals, and secure enterprise cloud platforms.",
+          "image": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        },
+        {
+          "title": "Energy & Utilities",
+          "description": "IoT monitoring, predictive grid maintenance, sustainability analytics, and smart infrastructure.",
+          "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
+          "link": "/services"
+        }
+      ]
+    },
+    "technologies": {
+      "badge": "TECHNOLOGY STACK",
+      "title": "Technologies We Work With",
+      "description": "We leverage modern programming languages, cloud platforms, AI frameworks, enterprise technologies, and DevOps tools to build scalable digital products that power business transformation.",
+      "innerRing": [
+        {
+          "name": "OpenAI",
+          "category": "Generative AI • LLM Orchestration",
+          "icon": "fa-robot",
+          "iconPrefix": "fas",
+          "color": "#10a37f"
+        },
+        {
+          "name": "Python",
+          "category": "AI Models • Data Engineering",
+          "icon": "fa-python",
+          "iconPrefix": "fab",
+          "color": "#3776ab"
+        },
+        {
+          "name": "LangChain",
+          "category": "Agentic AI • RAG Pipelines",
+          "icon": "fa-diagram-project",
+          "iconPrefix": "fas",
+          "color": "#2563eb"
+        },
+        {
+          "name": "Azure AI",
+          "category": "Enterprise AI & Cognitive Services",
+          "icon": "fa-brain",
+          "iconPrefix": "fas",
+          "color": "#0078d4"
+        },
+        {
+          "name": "Vector DBs",
+          "category": "Semantic Search • Embeddings",
+          "icon": "fa-database",
+          "iconPrefix": "fas",
+          "color": "#9333ea"
+        },
+        {
+          "name": "Machine Learning",
+          "category": "Predictive Analytics & Deep Learning",
+          "icon": "fa-microchip",
+          "iconPrefix": "fas",
+          "color": "#0891b2"
+        }
+      ],
+      "middleRing": [
+        {
+          "name": "React",
+          "category": "Frontend Development • Modern UI",
+          "icon": "fa-react",
+          "iconPrefix": "fab",
+          "color": "#61dafb"
+        },
+        {
+          "name": "Node.js",
+          "category": "Scalable Microservices & APIs",
+          "icon": "fa-node-js",
+          "iconPrefix": "fab",
+          "color": "#68a063"
+        },
+        {
+          "name": "Angular",
+          "category": "Enterprise Web Applications",
+          "icon": "fa-angular",
+          "iconPrefix": "fab",
+          "color": "#dd0031"
+        },
+        {
+          "name": "Java",
+          "category": "Mission-Critical Backend Systems",
+          "icon": "fa-java",
+          "iconPrefix": "fab",
+          "color": "#f89820"
+        },
+        {
+          "name": ".NET",
+          "category": "Enterprise Software Architecture",
+          "icon": "fa-cubes",
+          "iconPrefix": "fas",
+          "color": "#512bd4"
+        },
+        {
+          "name": "Docker",
+          "category": "Containerization & Dev Ops",
+          "icon": "fa-docker",
+          "iconPrefix": "fab",
+          "color": "#2496ed"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "Cloud Container Orchestration",
+          "icon": "fa-dharmachakra",
+          "iconPrefix": "fas",
+          "color": "#326ce5"
+        },
+        {
+          "name": "DevOps",
+          "category": "CI/CD & Infrastructure Automation",
+          "icon": "fa-infinity",
+          "iconPrefix": "fas",
+          "color": "#ea580c"
+        }
+      ],
+      "outerRing": [
+        {
+          "name": "AWS",
+          "category": "Global Cloud Infrastructure",
+          "icon": "fa-aws",
+          "iconPrefix": "fab",
+          "color": "#ff9900"
+        },
+        {
+          "name": "Microsoft Azure",
+          "category": "Enterprise Cloud & Hybrid Infra",
+          "icon": "fa-microsoft",
+          "iconPrefix": "fab",
+          "color": "#0078d4"
+        },
+        {
+          "name": "Google Cloud",
+          "category": "Big Data & AI Infrastructure",
+          "icon": "fa-google",
+          "iconPrefix": "fab",
+          "color": "#4285f4"
+        },
+        {
+          "name": "Salesforce",
+          "category": "CRM & Enterprise Platforms",
+          "icon": "fa-salesforce",
+          "iconPrefix": "fab",
+          "color": "#00a1e0"
+        },
+        {
+          "name": "SAP",
+          "category": "Enterprise Resource Planning",
+          "icon": "fa-layer-group",
+          "iconPrefix": "fas",
+          "color": "#008fd3"
+        },
+        {
+          "name": "Power BI",
+          "category": "Business Intelligence & Analytics",
+          "icon": "fa-chart-pie",
+          "iconPrefix": "fas",
+          "color": "#f2c811"
+        },
+        {
+          "name": "Microsoft Dynamics",
+          "category": "Intelligent Business Applications",
+          "icon": "fa-grip-vertical",
+          "iconPrefix": "fas",
+          "color": "#002050"
+        }
+      ]
+    },
+    "consultingExpertise": {
+      "badge": "STRATEGIC CONSULTING",
+      "title": "Business Technology Beyond Software Development",
+      "description": "We are more than a software development firm—Venus Global Technology serves as a trusted technology consulting partner. We bridge the gap between strategic vision and scalable engineering to drive long-term business value.",
+      "ctaButton": "Schedule a Strategy Session",
+      "items": [
+        {
+          "icon": "fa-brain",
+          "title": "Technology Strategy",
+          "description": "Strategic roadmaps aligned with business growth objectives and ROI."
+        },
+        {
+          "icon": "fa-lightbulb",
+          "title": "Digital Innovation",
+          "description": "Emerging tech integration and transformative digital business models."
+        },
+        {
+          "icon": "fa-sitemap",
+          "title": "Enterprise Architecture",
+          "description": "Scalable systems design built for complex enterprise ecosystems."
+        },
+        {
+          "icon": "fa-cloud-upload-alt",
+          "title": "Cloud Modernization",
+          "description": "Legacy migration and cloud-native infrastructure optimization."
+        },
+        {
+          "icon": "fa-robot",
+          "title": "AI Adoption",
+          "description": "Enterprise-wide AI strategy, governance, and agentic enablement."
+        },
+        {
+          "icon": "fa-cogs",
+          "title": "Business Technology",
+          "description": "End-to-end process optimization and automated digital workflows."
+        },
+        {
+          "icon": "fa-laptop-code",
+          "title": "Enterprise Software",
+          "description": "Custom mission-critical platforms and seamless API integrations."
+        },
+        {
+          "icon": "fa-chart-line",
+          "title": "Digital Business Solutions",
+          "description": "Data-driven analytics and executive business intelligence systems."
+        }
+      ]
+    },
+    "esgCompliance": {
+      "badge": "GOVERNANCE & SUSTAINABILITY",
+      "title": "ESG & Compliance Services",
+      "description": "Building enterprise trust through sustainable innovation, robust governance frameworks, and rigorous regulatory compliance.",
+      "panels": [
+        {
+          "icon": "fa-seedling",
+          "title": "Sustainability & ESG Solutions",
+          "description": "Comprehensive ESG consulting, carbon footprint accounting, and sustainability reporting aligned with global frameworks.",
+          "items": [
+            "ESG Strategy & Consulting",
+            "Carbon Footprint Tracking & Auditing",
+            "Sustainability Reporting (GRI / SASB)"
+          ],
+          "ctaText": "Explore ESG Solutions",
+          "link": "/services"
+        },
+        {
+          "icon": "fa-shield-alt",
+          "title": "Governance & Compliance",
+          "description": "Enterprise risk management, governance frameworks, and automated regulatory monitoring tailored for modern industries.",
+          "items": [
+            "Compliance Risk Assessments",
+            "Governance & Policy Frameworks",
+            "Automated Regulatory Monitoring"
+          ],
+          "ctaText": "View Compliance Services",
+          "link": "/services"
+        },
+        {
+          "icon": "fa-clipboard-check",
+          "title": "IATF 16949 & Industry Standards",
+          "description": "Specialized consulting for automotive quality management (IATF 16949) and ISO digital compliance automation.",
+          "items": [
+            "IATF 16949 Audit Preparation",
+            "Quality Management Systems (QMS)",
+            "Digital Compliance Automation"
+          ],
+          "ctaText": "Learn About Auditing",
+          "link": "/iatf-auditing"
+        }
+      ]
+    },
+    "servingRegion": {
+      "badge": "NORTH AMERICAN REACH",
+      "title": "Serving Businesses Across North America",
+      "description": "Delivering enterprise software engineering, AI consulting, and digital transformation for market-leading organizations across the United States and Canada.",
+      "ctaButton": "Connect with Our Regional Teams",
+      "categories": [
+        {
+          "icon": "fa-robot",
+          "title": "AI Solutions",
+          "countText": "4 Specialized Services",
+          "services": [
+            "AI Development Company USA",
+            "AI Development Company Canada",
+            "AI Consulting Company USA",
+            "Enterprise AI & Automation"
+          ]
+        },
+        {
+          "icon": "fa-code",
+          "title": "Software Engineering",
+          "countText": "3 Specialized Services",
+          "services": [
+            "Software Development USA",
+            "Software Development Canada",
+            "Custom Enterprise Software"
+          ]
+        },
+        {
+          "icon": "fa-cloud-upload-alt",
+          "title": "Cloud & Transformation",
+          "countText": "3 Specialized Services",
+          "services": [
+            "Cloud Consulting Company USA",
+            "Digital Transformation Company USA",
+            "Hybrid Cloud Architecture"
+          ]
+        },
+        {
+          "icon": "fa-building",
+          "title": "Enterprise Services",
+          "countText": "3 Specialized Services",
+          "services": [
+            "Custom AI Solutions",
+            "AI Automation Company",
+            "Enterprise System Integration"
+          ]
+        }
+      ]
+    },
+    "bentoServices": {
+      "agenticAi": {
+        "image": "/images/homev2/card01.png",
+        "link": "/agentic-ai",
+        "pillOne": "AI Agents",
+        "pillTwo": "Automation",
+        "title": "Next-generation autonomous AI agents that reason, plan, and execute complex tasks independently"
+      },
+      "softwareData": {
+        "image": "/images/homev2/card02.png",
+        "link": "/software-data-ai",
+        "title": "Intelligent software and data AI solutions built to transform your business operations",
+        "description": "We build intelligent applications, implement machine learning models, and craft data-driven solutions that drive innovation and efficiency."
+      },
+      "stat": {
+        "image": "/images/homev2/card03top.png",
+        "link": "/about",
+        "number": "100+",
+        "label": "Happy Clients Worldwide"
+      },
+      "cloud": {
+        "image": "/images/homev2/card03bottom.png",
+        "link": "/cloud-service",
+        "title": "Scalable, secure cloud infrastructure built to grow with your business",
+        "tagLabel": "Cloud Services"
+      }
+    },
+    "trustSection": {
+      "heading": "Supported by many companies around the world",
+      "badge": "CEO's Words",
+      "quote": "\"Working with you was seamless from start to finish. The final design exceeded our expectations. Your attention to detail and ability to adaptable was outstanding throughout the entire process to the world.\"",
+      "personName": "Emily R",
+      "personRole": "Co Founder of Metrilo",
+      "avatar": "/images/homev2/68bc8ab3454cbbc5f39299c6_Avater.avif",
+      "stats": [
+        {
+          "value": "15+",
+          "label": "Years of experiences",
+          "description": "Delivering timeless, functional spaces through innovation, precision, and client-focused design excellence."
+        },
+        {
+          "value": "98%",
+          "label": "Client satisfaction rate",
+          "description": "We pride ourselves on delivering excellence, reflected in the high satisfaction of every client."
+        }
+      ]
+    }
   },
   "about": {
     "hero": {
@@ -460,7 +1100,14 @@
       "title": "Our Blog",
       "description": "Stay updated with the latest insights, trends, and innovations in technology, AI, ESG, and digital transformation."
     },
-    "categories": ["All", "AI & Technology", "ESG", "Digital Strategy", "Cloud Services", "Software Development"],
+    "categories": [
+      "All",
+      "AI & Technology",
+      "ESG",
+      "Digital Strategy",
+      "Cloud Services",
+      "Software Development"
+    ],
     "cta": {
       "title": "Ready to Transform Your Business?",
       "description": "Let's discuss how our technology solutions can drive your success.",
@@ -489,10 +1136,22 @@
       "backgroundImage": "/images/AI & Cloud (1).jpg"
     },
     "stats": [
-      { "number": "3+", "label": "Core Investment Sectors" },
-      { "number": "Global", "label": "Network & Reach" },
-      { "number": "Tech", "label": "Expertise & Guidance" },
-      { "number": "Long-term", "label": "Sustainable Growth" }
+      {
+        "number": "3+",
+        "label": "Core Investment Sectors"
+      },
+      {
+        "number": "Global",
+        "label": "Network & Reach"
+      },
+      {
+        "number": "Tech",
+        "label": "Expertise & Guidance"
+      },
+      {
+        "number": "Long-term",
+        "label": "Sustainable Growth"
+      }
     ],
     "focus": {
       "badge": "Investment Focus",
@@ -549,9 +1208,21 @@
       "mainImage": "/images/Venus Global Tech with Team RBC.jpg",
       "secondaryImage": "/images/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
       "pillars": [
-        { "icon": "fas fa-globe", "title": "Global Network", "description": "Access to international markets and industry connections" },
-        { "icon": "fas fa-microchip", "title": "Technical Expertise", "description": "Deep domain knowledge across technology verticals" },
-        { "icon": "fas fa-chess", "title": "Strategic Guidance", "description": "Executive mentorship and go-to-market strategy" }
+        {
+          "icon": "fas fa-globe",
+          "title": "Global Network",
+          "description": "Access to international markets and industry connections"
+        },
+        {
+          "icon": "fas fa-microchip",
+          "title": "Technical Expertise",
+          "description": "Deep domain knowledge across technology verticals"
+        },
+        {
+          "icon": "fas fa-chess",
+          "title": "Strategic Guidance",
+          "description": "Executive mentorship and go-to-market strategy"
+        }
       ]
     },
     "gallery": {
@@ -559,9 +1230,21 @@
       "title": "Venus Global at the World Stage",
       "description": "From global conferences to industry summits, we are where innovation happens.",
       "items": [
-        { "image": "/images/Venus Global Tech at CES Las Vegas Nevada.jpg", "caption": "CES Las Vegas, Nevada", "size": "large" },
-        { "image": "/images/Team Venus at US thanks giving dinner at AMCHAM Gala Event.jpg", "caption": "AMCHAM Gala Event", "size": "regular" },
-        { "image": "/images/Venus Consultancy at Baltimore US for NMSDC Conference.jpg", "caption": "NMSDC Conference, Baltimore", "size": "regular" }
+        {
+          "image": "/images/Venus Global Tech at CES Las Vegas Nevada.jpg",
+          "caption": "CES Las Vegas, Nevada",
+          "size": "large"
+        },
+        {
+          "image": "/images/Team Venus at US thanks giving dinner at AMCHAM Gala Event.jpg",
+          "caption": "AMCHAM Gala Event",
+          "size": "regular"
+        },
+        {
+          "image": "/images/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
+          "caption": "NMSDC Conference, Baltimore",
+          "size": "regular"
+        }
       ]
     },
     "cta": {
@@ -581,21 +1264,43 @@
         "titleLine2": "for Modern Business",
         "description": "Transform your business with autonomous AI agents that think, learn, and act independently. Our Agentic AI solutions automate complex workflows, enhance decision-making, and drive unprecedented efficiency across your organization.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/Actable AI Landing Page Animation.json",
-        "fallbackIcon": "fa-robot",
-        "image": ""
+        "image": "/images/agentic-ai.jpg"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose Agentic AI?",
         "description": "Discover the transformative benefits that Agentic AI brings to your business operations and decision-making processes.",
         "items": [
-          { "icon": "fa-rocket", "title": "Increased Efficiency", "description": "Automate complex workflows and reduce manual tasks by up to 80%, allowing your team to focus on strategic initiatives." },
-          { "icon": "fa-dollar-sign", "title": "Cost Reduction", "description": "Significantly reduce operational costs through intelligent automation and optimized resource allocation." },
-          { "icon": "fa-chart-line", "title": "Better Decision Making", "description": "Leverage real-time data analysis and predictive insights to make informed decisions faster than ever before." },
-          { "icon": "fa-clock", "title": "24/7 Operations", "description": "Maintain continuous operations with AI agents that work around the clock without breaks or downtime." },
-          { "icon": "fa-shield-alt", "title": "Enhanced Security", "description": "Advanced threat detection and automated security protocols to protect your business from emerging risks." },
-          { "icon": "fa-users", "title": "Improved Customer Experience", "description": "Deliver personalized, instant responses and support that exceeds customer expectations every time." }
+          {
+            "icon": "fa-rocket",
+            "title": "Increased Efficiency",
+            "description": "Automate complex workflows and reduce manual tasks by up to 80%, allowing your team to focus on strategic initiatives."
+          },
+          {
+            "icon": "fa-dollar-sign",
+            "title": "Cost Reduction",
+            "description": "Significantly reduce operational costs through intelligent automation and optimized resource allocation."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Better Decision Making",
+            "description": "Leverage real-time data analysis and predictive insights to make informed decisions faster than ever before."
+          },
+          {
+            "icon": "fa-clock",
+            "title": "24/7 Operations",
+            "description": "Maintain continuous operations with AI agents that work around the clock without breaks or downtime."
+          },
+          {
+            "icon": "fa-shield-alt",
+            "title": "Enhanced Security",
+            "description": "Advanced threat detection and automated security protocols to protect your business from emerging risks."
+          },
+          {
+            "icon": "fa-users",
+            "title": "Improved Customer Experience",
+            "description": "Deliver personalized, instant responses and support that exceeds customer expectations every time."
+          }
         ]
       },
       "process": {
@@ -603,10 +1308,26 @@
         "title": "How We Build Your AI Solution",
         "description": "Our proven 4-step process ensures your Agentic AI implementation is tailored to your specific business needs and delivers measurable results.",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Analyze Business Needs &amp; Goals" },
-          { "number": "02", "icon": "fa-project-diagram", "title": "Design Intelligent AI Workflows" },
-          { "number": "03", "icon": "fa-brain", "title": "Develop, Train &amp; Integrate AI Models" },
-          { "number": "04", "icon": "fa-rocket", "title": "Deploy, Monitor &amp; Optimize Performance" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Analyze Business Needs &amp; Goals"
+          },
+          {
+            "number": "02",
+            "icon": "fa-project-diagram",
+            "title": "Design Intelligent AI Workflows"
+          },
+          {
+            "number": "03",
+            "icon": "fa-brain",
+            "title": "Develop, Train &amp; Integrate AI Models"
+          },
+          {
+            "number": "04",
+            "icon": "fa-rocket",
+            "title": "Deploy, Monitor &amp; Optimize Performance"
+          }
         ]
       },
       "tools": {
@@ -614,13 +1335,34 @@
         "title": "Tools We Use to Build Intelligent AI",
         "description": "We leverage cutting-edge AI technologies and frameworks to create powerful, scalable, and intelligent solutions. Our tech stack is built for performance, accuracy, and seamless integration.",
         "items": [
-          { "icon": "fa-brain", "name": "TensorFlow" },
-          { "icon": "fa-project-diagram", "name": "PyTorch" },
-          { "icon": "fa-robot", "name": "OpenAI GPT" },
-          { "icon": "fa-shield-alt", "name": "Hugging Face" },
-          { "icon": "fa-database", "name": "LangChain" },
-          { "icon": "fa-wave-square", "name": "Vector DB" },
-          { "icon": "fa-cogs", "name": "AutoML" }
+          {
+            "icon": "fa-brain",
+            "name": "TensorFlow"
+          },
+          {
+            "icon": "fa-project-diagram",
+            "name": "PyTorch"
+          },
+          {
+            "icon": "fa-robot",
+            "name": "OpenAI GPT"
+          },
+          {
+            "icon": "fa-shield-alt",
+            "name": "Hugging Face"
+          },
+          {
+            "icon": "fa-database",
+            "name": "LangChain"
+          },
+          {
+            "icon": "fa-wave-square",
+            "name": "Vector DB"
+          },
+          {
+            "icon": "fa-cogs",
+            "name": "AutoML"
+          }
         ]
       },
       "whyChoose": {
@@ -629,8 +1371,16 @@
         "description": "Get intelligent automation, faster implementation, and AI solutions that evolve with your business. We focus on innovation, efficiency, and transformative results for every AI project.",
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Intelligent &amp; Autonomous", "description": "Our AI agents think, learn, and act independently to solve complex business challenges." },
-          { "icon": "fa-check", "title": "Scalable &amp; Future-Ready", "description": "Every solution is designed to grow and adapt with your evolving business needs." }
+          {
+            "icon": "fa-check",
+            "title": "Intelligent &amp; Autonomous",
+            "description": "Our AI agents think, learn, and act independently to solve complex business challenges."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Scalable &amp; Future-Ready",
+            "description": "Every solution is designed to grow and adapt with your evolving business needs."
+          }
         ]
       },
       "faq": {
@@ -638,11 +1388,26 @@
         "title": "Frequently Asked Questions",
         "description": "We use cutting-edge AI technologies to deliver intelligent, autonomous solutions that transform your business.\nOur Agentic AI is built for performance, scalability, and seamless integration.",
         "items": [
-          { "question": "What Agentic AI Services Do You Offer?", "answer": "We offer comprehensive Agentic AI solutions including autonomous workflow automation, intelligent decision-making systems, predictive analytics, and custom AI agent development tailored to your specific business needs." },
-          { "question": "What Is the Implementation Timeline?", "answer": "Our Agentic AI implementation typically takes 4-8 weeks depending on complexity. We follow a structured approach: analysis (1 week), design (1-2 weeks), development (2-4 weeks), and deployment (1 week)." },
-          { "question": "Do You Offer Ongoing AI Support?", "answer": "Yes, we provide comprehensive ongoing support including AI model monitoring, performance optimization, updates, and 24/7 technical assistance to ensure your Agentic AI systems run smoothly." },
-          { "question": "How Do You Ensure AI Quality &amp; Accuracy?", "answer": "We implement rigorous testing protocols, continuous monitoring, and validation processes. Our AI models undergo extensive training with high-quality data and regular performance evaluations." },
-          { "question": "Can I Request Custom AI Features?", "answer": "Absolutely! We specialize in custom Agentic AI development. Our team works closely with you to understand your unique requirements and build tailored AI solutions that meet your specific business objectives." }
+          {
+            "question": "What Agentic AI Services Do You Offer?",
+            "answer": "We offer comprehensive Agentic AI solutions including autonomous workflow automation, intelligent decision-making systems, predictive analytics, and custom AI agent development tailored to your specific business needs."
+          },
+          {
+            "question": "What Is the Implementation Timeline?",
+            "answer": "Our Agentic AI implementation typically takes 4-8 weeks depending on complexity. We follow a structured approach: analysis (1 week), design (1-2 weeks), development (2-4 weeks), and deployment (1 week)."
+          },
+          {
+            "question": "Do You Offer Ongoing AI Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including AI model monitoring, performance optimization, updates, and 24/7 technical assistance to ensure your Agentic AI systems run smoothly."
+          },
+          {
+            "question": "How Do You Ensure AI Quality &amp; Accuracy?",
+            "answer": "We implement rigorous testing protocols, continuous monitoring, and validation processes. Our AI models undergo extensive training with high-quality data and regular performance evaluations."
+          },
+          {
+            "question": "Can I Request Custom AI Features?",
+            "answer": "Absolutely! We specialize in custom Agentic AI development. Our team works closely with you to understand your unique requirements and build tailored AI solutions that meet your specific business objectives."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",
@@ -658,62 +1423,144 @@
         "titleLine2": "for Future Growth",
         "description": "Transform your business with comprehensive ESG solutions that drive sustainability, enhance stakeholder value, and ensure regulatory compliance. Our expert team helps you build a responsible and profitable future.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/ESG - Environmental Social Governance.json",
-        "fallbackIcon": "",
-        "image": "/images/esganimation.jpg"
+        "image": "/images/ESG.jpg"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose ESG Solutions?",
         "description": "Discover the transformative benefits that ESG solutions bring to your business operations and stakeholder relationships.",
         "items": [
-          { "icon": "fa-leaf", "title": "Environmental Impact", "description": "Reduce your carbon footprint and implement sustainable practices that protect the environment while improving efficiency." },
-          { "icon": "fa-users", "title": "Social Responsibility", "description": "Build stronger communities and stakeholder relationships through ethical business practices and social initiatives." },
-          { "icon": "fa-shield-alt", "title": "Governance Excellence", "description": "Implement robust governance frameworks that ensure transparency, accountability, and long-term business sustainability." },
-          { "icon": "fa-chart-line", "title": "Financial Performance", "description": "Drive better financial results through improved risk management, operational efficiency, and stakeholder confidence." },
-          { "icon": "fa-award", "title": "Compliance &amp; Reporting", "description": "Stay ahead of regulatory requirements with comprehensive ESG reporting and compliance management solutions." },
-          { "icon": "fa-handshake", "title": "Stakeholder Trust", "description": "Build lasting trust with investors, customers, and partners through transparent and responsible business practices." }
+          {
+            "icon": "fa-leaf",
+            "title": "Environmental Impact",
+            "description": "Reduce your carbon footprint and implement sustainable practices that protect the environment while improving efficiency."
+          },
+          {
+            "icon": "fa-users",
+            "title": "Social Responsibility",
+            "description": "Build stronger communities and stakeholder relationships through ethical business practices and social initiatives."
+          },
+          {
+            "icon": "fa-shield-alt",
+            "title": "Governance Excellence",
+            "description": "Implement robust governance frameworks that ensure transparency, accountability, and long-term business sustainability."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Financial Performance",
+            "description": "Drive better financial results through improved risk management, operational efficiency, and stakeholder confidence."
+          },
+          {
+            "icon": "fa-award",
+            "title": "Compliance &amp; Reporting",
+            "description": "Stay ahead of regulatory requirements with comprehensive ESG reporting and compliance management solutions."
+          },
+          {
+            "icon": "fa-handshake",
+            "title": "Stakeholder Trust",
+            "description": "Build lasting trust with investors, customers, and partners through transparent and responsible business practices."
+          }
         ]
       },
       "process": {
         "badge": "Our Process",
         "title": "How We Implement ESG Solutions",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "ESG Assessment &amp; Strategy" },
-          { "number": "02", "icon": "fa-project-diagram", "title": "Framework Development" },
-          { "number": "03", "icon": "fa-cogs", "title": "Implementation &amp; Training" },
-          { "number": "04", "icon": "fa-chart-bar", "title": "Monitoring &amp; Reporting" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "ESG Assessment &amp; Strategy"
+          },
+          {
+            "number": "02",
+            "icon": "fa-project-diagram",
+            "title": "Framework Development"
+          },
+          {
+            "number": "03",
+            "icon": "fa-cogs",
+            "title": "Implementation &amp; Training"
+          },
+          {
+            "number": "04",
+            "icon": "fa-chart-bar",
+            "title": "Monitoring &amp; Reporting"
+          }
         ]
       },
       "tools": {
         "badge": "ESG Technology",
         "title": "Tools We Use for ESG Excellence",
         "items": [
-          { "icon": "fa-leaf", "name": "Carbon Tracking" },
-          { "icon": "fa-chart-line", "name": "ESG Analytics" },
-          { "icon": "fa-file-alt", "name": "Reporting Tools" },
-          { "icon": "fa-shield-alt", "name": "Compliance" },
-          { "icon": "fa-users", "name": "Stakeholder" },
-          { "icon": "fa-database", "name": "Data Management" },
-          { "icon": "fa-cogs", "name": "Automation" }
+          {
+            "icon": "fa-leaf",
+            "name": "Carbon Tracking"
+          },
+          {
+            "icon": "fa-chart-line",
+            "name": "ESG Analytics"
+          },
+          {
+            "icon": "fa-file-alt",
+            "name": "Reporting Tools"
+          },
+          {
+            "icon": "fa-shield-alt",
+            "name": "Compliance"
+          },
+          {
+            "icon": "fa-users",
+            "name": "Stakeholder"
+          },
+          {
+            "icon": "fa-database",
+            "name": "Data Management"
+          },
+          {
+            "icon": "fa-cogs",
+            "name": "Automation"
+          }
         ]
       },
       "whyChoose": {
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Comprehensive &amp; Measurable", "description": "Our ESG solutions provide complete coverage with measurable impact and clear ROI." },
-          { "icon": "fa-check", "title": "Expert &amp; Future-Ready", "description": "Every solution is designed by experts to meet current and future ESG requirements." }
+          {
+            "icon": "fa-check",
+            "title": "Comprehensive &amp; Measurable",
+            "description": "Our ESG solutions provide complete coverage with measurable impact and clear ROI."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Expert &amp; Future-Ready",
+            "description": "Every solution is designed by experts to meet current and future ESG requirements."
+          }
         ]
       },
       "faq": {
         "badge": "FAQS",
         "title": "Frequently Asked Questions",
         "items": [
-          { "question": "What ESG Services Do You Offer?", "answer": "We offer comprehensive ESG solutions including sustainability assessments, carbon footprint analysis, social impact measurement, governance frameworks, compliance reporting, and stakeholder engagement strategies." },
-          { "question": "What Is the ESG Implementation Timeline?", "answer": "Our ESG implementation typically takes 6-12 weeks depending on complexity. We follow a structured approach: assessment (2 weeks), strategy (2-3 weeks), implementation (4-6 weeks), and monitoring (ongoing)." },
-          { "question": "Do You Offer Ongoing ESG Support?", "answer": "Yes, we provide comprehensive ongoing support including ESG monitoring, performance tracking, regulatory updates, and continuous improvement to ensure your ESG initiatives remain effective and compliant." },
-          { "question": "How Do You Measure ESG Impact?", "answer": "We implement robust measurement frameworks using industry-standard metrics, KPI tracking, stakeholder feedback, and regular reporting to ensure your ESG initiatives deliver measurable and meaningful impact." },
-          { "question": "Can I Request Custom ESG Solutions?", "answer": "Absolutely! We specialize in custom ESG solutions tailored to your industry, size, and specific requirements. Our team works closely with you to develop bespoke strategies that align with your business goals." }
+          {
+            "question": "What ESG Services Do You Offer?",
+            "answer": "We offer comprehensive ESG solutions including sustainability assessments, carbon footprint analysis, social impact measurement, governance frameworks, compliance reporting, and stakeholder engagement strategies."
+          },
+          {
+            "question": "What Is the ESG Implementation Timeline?",
+            "answer": "Our ESG implementation typically takes 6-12 weeks depending on complexity. We follow a structured approach: assessment (2 weeks), strategy (2-3 weeks), implementation (4-6 weeks), and monitoring (ongoing)."
+          },
+          {
+            "question": "Do You Offer Ongoing ESG Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including ESG monitoring, performance tracking, regulatory updates, and continuous improvement to ensure your ESG initiatives remain effective and compliant."
+          },
+          {
+            "question": "How Do You Measure ESG Impact?",
+            "answer": "We implement robust measurement frameworks using industry-standard metrics, KPI tracking, stakeholder feedback, and regular reporting to ensure your ESG initiatives deliver measurable and meaningful impact."
+          },
+          {
+            "question": "Can I Request Custom ESG Solutions?",
+            "answer": "Absolutely! We specialize in custom ESG solutions tailored to your industry, size, and specific requirements. Our team works closely with you to develop bespoke strategies that align with your business goals."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",
@@ -729,21 +1576,43 @@
         "titleLine2": "Across Digital Channels",
         "description": "Expand your digital presence and reach your target audience with strategic digital marketing solutions. Our comprehensive approach drives engagement, builds brand awareness, and delivers measurable results across all digital platforms.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/Digital Marketing Services.json",
-        "fallbackIcon": "fa-bullhorn",
-        "image": ""
+        "image": "/images/SEO.webp"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose Digital Reach Solutions?",
         "description": "Discover the transformative benefits that digital reach solutions bring to your brand visibility and audience engagement.",
         "items": [
-          { "icon": "fa-eye", "title": "Increased Visibility", "description": "Boost your brand's online presence and reach a wider audience across multiple digital platforms and channels." },
-          { "icon": "fa-users", "title": "Targeted Engagement", "description": "Connect with your ideal customers through precise targeting and personalized digital marketing strategies." },
-          { "icon": "fa-chart-line", "title": "Measurable Results", "description": "Track and measure your digital marketing performance with detailed analytics and ROI reporting." },
-          { "icon": "fa-mobile-alt", "title": "Multi-Platform Reach", "description": "Extend your reach across social media, search engines, email, and other digital channels simultaneously." },
-          { "icon": "fa-dollar-sign", "title": "Cost-Effective Marketing", "description": "Maximize your marketing budget with efficient digital strategies that deliver better results at lower costs." },
-          { "icon": "fa-rocket", "title": "Rapid Growth", "description": "Accelerate your business growth with scalable digital marketing solutions that adapt to your needs." }
+          {
+            "icon": "fa-eye",
+            "title": "Increased Visibility",
+            "description": "Boost your brand's online presence and reach a wider audience across multiple digital platforms and channels."
+          },
+          {
+            "icon": "fa-users",
+            "title": "Targeted Engagement",
+            "description": "Connect with your ideal customers through precise targeting and personalized digital marketing strategies."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Measurable Results",
+            "description": "Track and measure your digital marketing performance with detailed analytics and ROI reporting."
+          },
+          {
+            "icon": "fa-mobile-alt",
+            "title": "Multi-Platform Reach",
+            "description": "Extend your reach across social media, search engines, email, and other digital channels simultaneously."
+          },
+          {
+            "icon": "fa-dollar-sign",
+            "title": "Cost-Effective Marketing",
+            "description": "Maximize your marketing budget with efficient digital strategies that deliver better results at lower costs."
+          },
+          {
+            "icon": "fa-rocket",
+            "title": "Rapid Growth",
+            "description": "Accelerate your business growth with scalable digital marketing solutions that adapt to your needs."
+          }
         ]
       },
       "process": {
@@ -751,10 +1620,26 @@
         "title": "How We Expand Your Digital Reach",
         "description": "Our proven 4-step process ensures your digital reach strategy is comprehensive, targeted, and delivers maximum impact.",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Audience Research &amp; Analysis" },
-          { "number": "02", "icon": "fa-bullseye", "title": "Strategy Development" },
-          { "number": "03", "icon": "fa-play", "title": "Campaign Launch" },
-          { "number": "04", "icon": "fa-chart-bar", "title": "Optimization &amp; Growth" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Audience Research &amp; Analysis"
+          },
+          {
+            "number": "02",
+            "icon": "fa-bullseye",
+            "title": "Strategy Development"
+          },
+          {
+            "number": "03",
+            "icon": "fa-play",
+            "title": "Campaign Launch"
+          },
+          {
+            "number": "04",
+            "icon": "fa-chart-bar",
+            "title": "Optimization &amp; Growth"
+          }
         ]
       },
       "tools": {
@@ -762,13 +1647,34 @@
         "title": "Tools We Use for Digital Excellence",
         "description": "We leverage cutting-edge digital marketing tools and platforms to create comprehensive, measurable, and impactful reach solutions.",
         "items": [
-          { "icon": "fa-search", "name": "SEO Tools" },
-          { "icon": "fa-ad", "name": "PPC Ads" },
-          { "icon": "fa-share-alt", "name": "Social Media" },
-          { "icon": "fa-envelope", "name": "Email Marketing" },
-          { "icon": "fa-chart-line", "name": "Analytics" },
-          { "icon": "fa-video", "name": "Content Creation" },
-          { "icon": "fa-cogs", "name": "Automation" }
+          {
+            "icon": "fa-search",
+            "name": "SEO Tools"
+          },
+          {
+            "icon": "fa-ad",
+            "name": "PPC Ads"
+          },
+          {
+            "icon": "fa-share-alt",
+            "name": "Social Media"
+          },
+          {
+            "icon": "fa-envelope",
+            "name": "Email Marketing"
+          },
+          {
+            "icon": "fa-chart-line",
+            "name": "Analytics"
+          },
+          {
+            "icon": "fa-video",
+            "name": "Content Creation"
+          },
+          {
+            "icon": "fa-cogs",
+            "name": "Automation"
+          }
         ]
       },
       "whyChoose": {
@@ -777,8 +1683,16 @@
         "description": "Get comprehensive digital reach solutions, expert guidance, and measurable growth. We focus on visibility, engagement, and transformative results for every digital campaign.",
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Strategic &amp; Data-Driven", "description": "Our digital reach strategies are backed by data and designed for maximum impact and ROI." },
-          { "icon": "fa-check", "title": "Multi-Channel &amp; Scalable", "description": "Every solution spans multiple channels and scales with your business growth and objectives." }
+          {
+            "icon": "fa-check",
+            "title": "Strategic &amp; Data-Driven",
+            "description": "Our digital reach strategies are backed by data and designed for maximum impact and ROI."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Multi-Channel &amp; Scalable",
+            "description": "Every solution spans multiple channels and scales with your business growth and objectives."
+          }
         ]
       },
       "faq": {
@@ -786,11 +1700,26 @@
         "title": "Frequently Asked Questions",
         "description": "We use cutting-edge digital marketing technologies to deliver comprehensive, measurable solutions that transform your reach.\nOur digital reach solutions are built for visibility, engagement, and seamless integration.",
         "items": [
-          { "question": "What Digital Reach Services Do You Offer?", "answer": "We offer comprehensive digital reach solutions including SEO, PPC advertising, social media marketing, email campaigns, content marketing, and multi-channel digital strategies to maximize your online presence." },
-          { "question": "What Is the Digital Reach Implementation Timeline?", "answer": "Our digital reach implementation typically takes 2-6 weeks depending on complexity. We follow a structured approach: research (1 week), strategy (1-2 weeks), launch (1-2 weeks), and optimization (ongoing)." },
-          { "question": "Do You Offer Ongoing Digital Support?", "answer": "Yes, we provide comprehensive ongoing support including campaign monitoring, performance optimization, content updates, and continuous strategy refinement to ensure your digital reach remains effective." },
-          { "question": "How Do You Measure Digital Reach Success?", "answer": "We implement robust measurement frameworks using analytics tools, KPI tracking, conversion monitoring, and regular reporting to ensure your digital reach campaigns deliver measurable and meaningful results." },
-          { "question": "Can I Request Custom Digital Strategies?", "answer": "Absolutely! We specialize in custom digital reach strategies tailored to your industry, audience, and specific goals. Our team works closely with you to develop bespoke campaigns that align with your business objectives." }
+          {
+            "question": "What Digital Reach Services Do You Offer?",
+            "answer": "We offer comprehensive digital reach solutions including SEO, PPC advertising, social media marketing, email campaigns, content marketing, and multi-channel digital strategies to maximize your online presence."
+          },
+          {
+            "question": "What Is the Digital Reach Implementation Timeline?",
+            "answer": "Our digital reach implementation typically takes 2-6 weeks depending on complexity. We follow a structured approach: research (1 week), strategy (1-2 weeks), launch (1-2 weeks), and optimization (ongoing)."
+          },
+          {
+            "question": "Do You Offer Ongoing Digital Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including campaign monitoring, performance optimization, content updates, and continuous strategy refinement to ensure your digital reach remains effective."
+          },
+          {
+            "question": "How Do You Measure Digital Reach Success?",
+            "answer": "We implement robust measurement frameworks using analytics tools, KPI tracking, conversion monitoring, and regular reporting to ensure your digital reach campaigns deliver measurable and meaningful results."
+          },
+          {
+            "question": "Can I Request Custom Digital Strategies?",
+            "answer": "Absolutely! We specialize in custom digital reach strategies tailored to your industry, audience, and specific goals. Our team works closely with you to develop bespoke campaigns that align with your business objectives."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",
@@ -806,62 +1735,144 @@
         "titleLine2": "&amp; Data Solutions",
         "description": "Transform your business with cutting-edge software development and intelligent data AI solutions. We create powerful applications and leverage advanced analytics to drive innovation, efficiency, and growth across your organization.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/Software Development.json",
-        "fallbackIcon": "fa-code",
-        "image": ""
+        "image": "/images/software-data.jpg"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose Software &amp; Data AI Solutions?",
         "description": "Discover the transformative benefits that our combined software development and data AI solutions bring to your business operations and digital transformation.",
         "items": [
-          { "icon": "fa-code", "title": "Custom Software Development", "description": "Build scalable, robust applications tailored to your specific business needs with modern technologies and best practices." },
-          { "icon": "fa-brain", "title": "Intelligent Data Analytics", "description": "Unlock insights from your data with advanced AI algorithms, machine learning models, and predictive analytics." },
-          { "icon": "fa-chart-line", "title": "Business Intelligence", "description": "Transform raw data into actionable insights with comprehensive dashboards and real-time reporting systems." },
-          { "icon": "fa-cogs", "title": "Process Automation", "description": "Automate complex workflows and business processes to increase efficiency and reduce manual errors." },
-          { "icon": "fa-shield-alt", "title": "Data Security &amp; Compliance", "description": "Ensure your data and applications are secure with enterprise-grade security measures and compliance standards." },
-          { "icon": "fa-rocket", "title": "Scalable Solutions", "description": "Build solutions that grow with your business, from startup to enterprise scale with cloud-native architectures." }
+          {
+            "icon": "fa-code",
+            "title": "Custom Software Development",
+            "description": "Build scalable, robust applications tailored to your specific business needs with modern technologies and best practices."
+          },
+          {
+            "icon": "fa-brain",
+            "title": "Intelligent Data Analytics",
+            "description": "Unlock insights from your data with advanced AI algorithms, machine learning models, and predictive analytics."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Business Intelligence",
+            "description": "Transform raw data into actionable insights with comprehensive dashboards and real-time reporting systems."
+          },
+          {
+            "icon": "fa-cogs",
+            "title": "Process Automation",
+            "description": "Automate complex workflows and business processes to increase efficiency and reduce manual errors."
+          },
+          {
+            "icon": "fa-shield-alt",
+            "title": "Data Security &amp; Compliance",
+            "description": "Ensure your data and applications are secure with enterprise-grade security measures and compliance standards."
+          },
+          {
+            "icon": "fa-rocket",
+            "title": "Scalable Solutions",
+            "description": "Build solutions that grow with your business, from startup to enterprise scale with cloud-native architectures."
+          }
         ]
       },
       "process": {
         "badge": "Our Process",
         "title": "How We Build Your Software &amp; Data AI Solution",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Analysis &amp; Planning" },
-          { "number": "02", "icon": "fa-drafting-compass", "title": "Design &amp; Architecture" },
-          { "number": "03", "icon": "fa-code", "title": "Development &amp; Integration" },
-          { "number": "04", "icon": "fa-rocket", "title": "Deployment &amp; Optimization" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Analysis &amp; Planning"
+          },
+          {
+            "number": "02",
+            "icon": "fa-drafting-compass",
+            "title": "Design &amp; Architecture"
+          },
+          {
+            "number": "03",
+            "icon": "fa-code",
+            "title": "Development &amp; Integration"
+          },
+          {
+            "number": "04",
+            "icon": "fa-rocket",
+            "title": "Deployment &amp; Optimization"
+          }
         ]
       },
       "tools": {
         "badge": "Technology Stack",
         "title": "Technologies We Use for Software &amp; Data Excellence",
         "items": [
-          { "icon": "fab fa-react", "name": "React" },
-          { "icon": "fab fa-node-js", "name": "Node.js" },
-          { "icon": "fas fa-database", "name": "MongoDB" },
-          { "icon": "fas fa-brain", "name": "Python" },
-          { "icon": "fas fa-chart-bar", "name": "TensorFlow" },
-          { "icon": "fas fa-cloud", "name": "AWS" },
-          { "icon": "fas fa-robot", "name": "Machine Learning" }
+          {
+            "icon": "fab fa-react",
+            "name": "React"
+          },
+          {
+            "icon": "fab fa-node-js",
+            "name": "Node.js"
+          },
+          {
+            "icon": "fas fa-database",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "fas fa-brain",
+            "name": "Python"
+          },
+          {
+            "icon": "fas fa-chart-bar",
+            "name": "TensorFlow"
+          },
+          {
+            "icon": "fas fa-cloud",
+            "name": "AWS"
+          },
+          {
+            "icon": "fas fa-robot",
+            "name": "Machine Learning"
+          }
         ]
       },
       "whyChoose": {
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Expert &amp; Innovative", "description": "Our team combines software development expertise with cutting-edge data AI technologies to deliver innovative solutions." },
-          { "icon": "fa-check", "title": "Scalable &amp; Future-Ready", "description": "Every solution is designed to scale and adapt with your evolving business needs and technological advancements." }
+          {
+            "icon": "fa-check",
+            "title": "Expert &amp; Innovative",
+            "description": "Our team combines software development expertise with cutting-edge data AI technologies to deliver innovative solutions."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Scalable &amp; Future-Ready",
+            "description": "Every solution is designed to scale and adapt with your evolving business needs and technological advancements."
+          }
         ]
       },
       "faq": {
         "badge": "FAQS",
         "title": "Frequently Asked Questions",
         "items": [
-          { "question": "What Software &amp; Data AI Services Do You Offer?", "answer": "We offer comprehensive software development including web applications, mobile apps, and custom software, combined with data AI services like machine learning, predictive analytics, business intelligence, and data automation solutions." },
-          { "question": "What Is the Development Timeline?", "answer": "Our development timeline varies based on project complexity, typically ranging from 4-12 weeks for software development and 6-16 weeks for data AI solutions. We provide detailed project timelines during the planning phase." },
-          { "question": "Do You Offer Ongoing Support?", "answer": "Yes, we provide comprehensive ongoing support including maintenance, updates, performance optimization, data monitoring, and 24/7 technical assistance to ensure your solutions run smoothly and efficiently." },
-          { "question": "How Do You Ensure Data Security?", "answer": "We implement enterprise-grade security measures including encryption, access controls, secure data storage, compliance with industry standards, and regular security audits to protect your data and applications." },
-          { "question": "Can You Integrate AI with Existing Systems?", "answer": "Absolutely! We specialize in integrating AI capabilities with existing software systems, databases, and workflows. Our team ensures seamless integration while maintaining system stability and performance." }
+          {
+            "question": "What Software &amp; Data AI Services Do You Offer?",
+            "answer": "We offer comprehensive software development including web applications, mobile apps, and custom software, combined with data AI services like machine learning, predictive analytics, business intelligence, and data automation solutions."
+          },
+          {
+            "question": "What Is the Development Timeline?",
+            "answer": "Our development timeline varies based on project complexity, typically ranging from 4-12 weeks for software development and 6-16 weeks for data AI solutions. We provide detailed project timelines during the planning phase."
+          },
+          {
+            "question": "Do You Offer Ongoing Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including maintenance, updates, performance optimization, data monitoring, and 24/7 technical assistance to ensure your solutions run smoothly and efficiently."
+          },
+          {
+            "question": "How Do You Ensure Data Security?",
+            "answer": "We implement enterprise-grade security measures including encryption, access controls, secure data storage, compliance with industry standards, and regular security audits to protect your data and applications."
+          },
+          {
+            "question": "Can You Integrate AI with Existing Systems?",
+            "answer": "Absolutely! We specialize in integrating AI capabilities with existing software systems, databases, and workflows. Our team ensures seamless integration while maintaining system stability and performance."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",
@@ -877,21 +1888,43 @@
         "titleLine2": "Infrastructure Solutions",
         "description": "Transform your business with comprehensive cloud services that provide scalability, security, and reliability. Our cloud solutions help you migrate, optimize, and manage your infrastructure for maximum performance and cost efficiency.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/Automation Process.json",
-        "fallbackIcon": "fa-cloud",
-        "image": ""
+        "image": "/images/ai-cloud.jpg"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose Cloud Services?",
         "description": "Discover the transformative benefits that cloud services bring to your business infrastructure and operations.",
         "items": [
-          { "icon": "fa-expand-arrows-alt", "title": "Scalability", "description": "Scale your infrastructure up or down based on demand, ensuring optimal performance and cost efficiency." },
-          { "icon": "fa-shield-alt", "title": "Enhanced Security", "description": "Protect your data and applications with enterprise-grade security measures and compliance standards." },
-          { "icon": "fa-dollar-sign", "title": "Cost Efficiency", "description": "Reduce infrastructure costs with pay-as-you-go pricing models and eliminate upfront hardware investments." },
-          { "icon": "fa-clock", "title": "High Availability", "description": "Ensure 99.9% uptime with redundant systems and automatic failover capabilities." },
-          { "icon": "fa-globe", "title": "Global Reach", "description": "Deploy your applications globally with data centers located worldwide for optimal performance." },
-          { "icon": "fa-cogs", "title": "Managed Services", "description": "Focus on your business while we handle infrastructure management, monitoring, and maintenance." }
+          {
+            "icon": "fa-expand-arrows-alt",
+            "title": "Scalability",
+            "description": "Scale your infrastructure up or down based on demand, ensuring optimal performance and cost efficiency."
+          },
+          {
+            "icon": "fa-shield-alt",
+            "title": "Enhanced Security",
+            "description": "Protect your data and applications with enterprise-grade security measures and compliance standards."
+          },
+          {
+            "icon": "fa-dollar-sign",
+            "title": "Cost Efficiency",
+            "description": "Reduce infrastructure costs with pay-as-you-go pricing models and eliminate upfront hardware investments."
+          },
+          {
+            "icon": "fa-clock",
+            "title": "High Availability",
+            "description": "Ensure 99.9% uptime with redundant systems and automatic failover capabilities."
+          },
+          {
+            "icon": "fa-globe",
+            "title": "Global Reach",
+            "description": "Deploy your applications globally with data centers located worldwide for optimal performance."
+          },
+          {
+            "icon": "fa-cogs",
+            "title": "Managed Services",
+            "description": "Focus on your business while we handle infrastructure management, monitoring, and maintenance."
+          }
         ]
       },
       "process": {
@@ -899,10 +1932,26 @@
         "title": "How We Implement Your Cloud Solution",
         "description": "Our proven 4-step process ensures your cloud implementation is seamless, secure, and optimized for your business needs.",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Assessment &amp; Planning" },
-          { "number": "02", "icon": "fa-drafting-compass", "title": "Architecture Design" },
-          { "number": "03", "icon": "fa-rocket", "title": "Migration &amp; Deployment" },
-          { "number": "04", "icon": "fa-chart-line", "title": "Optimization &amp; Support" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Assessment &amp; Planning"
+          },
+          {
+            "number": "02",
+            "icon": "fa-drafting-compass",
+            "title": "Architecture Design"
+          },
+          {
+            "number": "03",
+            "icon": "fa-rocket",
+            "title": "Migration &amp; Deployment"
+          },
+          {
+            "number": "04",
+            "icon": "fa-chart-line",
+            "title": "Optimization &amp; Support"
+          }
         ]
       },
       "tools": {
@@ -910,13 +1959,34 @@
         "title": "Cloud Platforms We Use for Excellence",
         "description": "We leverage leading cloud platforms and technologies to create robust, scalable, and secure cloud solutions.",
         "items": [
-          { "icon": "fab fa-aws", "name": "AWS" },
-          { "icon": "fab fa-microsoft", "name": "Azure" },
-          { "icon": "fab fa-google", "name": "Google Cloud" },
-          { "icon": "fa-server", "name": "Kubernetes" },
-          { "icon": "fa-docker", "name": "Docker" },
-          { "icon": "fa-database", "name": "Database" },
-          { "icon": "fa-shield-alt", "name": "Security" }
+          {
+            "icon": "fab fa-aws",
+            "name": "AWS"
+          },
+          {
+            "icon": "fab fa-microsoft",
+            "name": "Azure"
+          },
+          {
+            "icon": "fab fa-google",
+            "name": "Google Cloud"
+          },
+          {
+            "icon": "fa-server",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "fa-docker",
+            "name": "Docker"
+          },
+          {
+            "icon": "fa-database",
+            "name": "Database"
+          },
+          {
+            "icon": "fa-shield-alt",
+            "name": "Security"
+          }
         ]
       },
       "whyChoose": {
@@ -925,8 +1995,16 @@
         "description": "Get comprehensive cloud solutions, expert guidance, and reliable infrastructure. We focus on scalability, security, and transformative results for every cloud project.",
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Expert &amp; Reliable", "description": "Our cloud solutions are built by experts with proven reliability and enterprise-grade security." },
-          { "icon": "fa-check", "title": "Scalable &amp; Future-Ready", "description": "Every solution is designed to scale and adapt with your evolving business needs and growth." }
+          {
+            "icon": "fa-check",
+            "title": "Expert &amp; Reliable",
+            "description": "Our cloud solutions are built by experts with proven reliability and enterprise-grade security."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Scalable &amp; Future-Ready",
+            "description": "Every solution is designed to scale and adapt with your evolving business needs and growth."
+          }
         ]
       },
       "faq": {
@@ -934,11 +2012,26 @@
         "title": "Frequently Asked Questions",
         "description": "We use cutting-edge cloud technologies to deliver scalable, secure, and reliable infrastructure solutions.\nOur cloud services are built for performance, security, and seamless integration.",
         "items": [
-          { "question": "What Cloud Services Do You Offer?", "answer": "We offer comprehensive cloud services including cloud migration, infrastructure setup, managed services, security implementation, disaster recovery, and 24/7 monitoring across AWS, Azure, and Google Cloud platforms." },
-          { "question": "What Is the Cloud Implementation Timeline?", "answer": "Our cloud implementation typically takes 4-8 weeks depending on complexity. We follow a structured approach: assessment (1 week), design (1-2 weeks), migration (2-4 weeks), and optimization (1 week)." },
-          { "question": "Do You Offer Ongoing Cloud Support?", "answer": "Yes, we provide comprehensive ongoing support including 24/7 monitoring, performance optimization, security updates, backup management, and technical assistance to ensure your cloud infrastructure runs smoothly." },
-          { "question": "How Do You Ensure Cloud Security?", "answer": "We implement multi-layered security measures including encryption, access controls, network security, compliance monitoring, and regular security audits to protect your data and applications in the cloud." },
-          { "question": "Can I Request Custom Cloud Solutions?", "answer": "Absolutely! We specialize in custom cloud solutions tailored to your specific requirements. Our team works closely with you to design and implement cloud infrastructure that meets your unique business objectives." }
+          {
+            "question": "What Cloud Services Do You Offer?",
+            "answer": "We offer comprehensive cloud services including cloud migration, infrastructure setup, managed services, security implementation, disaster recovery, and 24/7 monitoring across AWS, Azure, and Google Cloud platforms."
+          },
+          {
+            "question": "What Is the Cloud Implementation Timeline?",
+            "answer": "Our cloud implementation typically takes 4-8 weeks depending on complexity. We follow a structured approach: assessment (1 week), design (1-2 weeks), migration (2-4 weeks), and optimization (1 week)."
+          },
+          {
+            "question": "Do You Offer Ongoing Cloud Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including 24/7 monitoring, performance optimization, security updates, backup management, and technical assistance to ensure your cloud infrastructure runs smoothly."
+          },
+          {
+            "question": "How Do You Ensure Cloud Security?",
+            "answer": "We implement multi-layered security measures including encryption, access controls, network security, compliance monitoring, and regular security audits to protect your data and applications in the cloud."
+          },
+          {
+            "question": "Can I Request Custom Cloud Solutions?",
+            "answer": "Absolutely! We specialize in custom cloud solutions tailored to your specific requirements. Our team works closely with you to design and implement cloud infrastructure that meets your unique business objectives."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",
@@ -954,62 +2047,144 @@
         "titleLine2": "Management Excellence",
         "description": "Achieve IATF 16949 certification with our comprehensive auditing services. Our expert auditors help automotive organizations implement, maintain, and continuously improve their quality management systems to meet international automotive standards.",
         "ctaButton": "Get Started",
-        "lottiePath": "/lottie/hotf-4.json",
-        "fallbackIcon": "fa-clipboard-check",
-        "image": ""
+        "image": "/images/IATF.jpg"
       },
       "benefits": {
         "badge": "Benefits",
         "title": "Why Choose IATF Auditing Services?",
         "description": "Discover the transformative benefits that IATF auditing services bring to your automotive quality management and compliance processes.",
         "items": [
-          { "icon": "fa-certificate", "title": "IATF 16949 Certification", "description": "Achieve and maintain IATF 16949 certification with our comprehensive auditing and compliance services." },
-          { "icon": "fa-shield-alt", "title": "Quality Assurance", "description": "Ensure your quality management system meets international automotive industry standards and requirements." },
-          { "icon": "fa-chart-line", "title": "Process Improvement", "description": "Identify opportunities for continuous improvement and optimize your automotive manufacturing processes." },
-          { "icon": "fa-users", "title": "Expert Guidance", "description": "Work with certified auditors who have extensive experience in automotive quality management systems." },
-          { "icon": "fa-handshake", "title": "Customer Satisfaction", "description": "Enhance customer satisfaction through improved product quality and consistent delivery performance." },
-          { "icon": "fa-globe", "title": "Global Recognition", "description": "Gain international recognition and access to global automotive supply chains with IATF certification." }
+          {
+            "icon": "fa-certificate",
+            "title": "IATF 16949 Certification",
+            "description": "Achieve and maintain IATF 16949 certification with our comprehensive auditing and compliance services."
+          },
+          {
+            "icon": "fa-shield-alt",
+            "title": "Quality Assurance",
+            "description": "Ensure your quality management system meets international automotive industry standards and requirements."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Process Improvement",
+            "description": "Identify opportunities for continuous improvement and optimize your automotive manufacturing processes."
+          },
+          {
+            "icon": "fa-users",
+            "title": "Expert Guidance",
+            "description": "Work with certified auditors who have extensive experience in automotive quality management systems."
+          },
+          {
+            "icon": "fa-handshake",
+            "title": "Customer Satisfaction",
+            "description": "Enhance customer satisfaction through improved product quality and consistent delivery performance."
+          },
+          {
+            "icon": "fa-globe",
+            "title": "Global Recognition",
+            "description": "Gain international recognition and access to global automotive supply chains with IATF certification."
+          }
         ]
       },
       "process": {
         "badge": "Our Process",
         "title": "How We Conduct IATF Auditing",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Pre-Audit Assessment" },
-          { "number": "02", "icon": "fa-clipboard-list", "title": "Documentation Review" },
-          { "number": "03", "icon": "fa-eye", "title": "On-Site Audit" },
-          { "number": "04", "icon": "fa-file-alt", "title": "Report &amp; Follow-up" }
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Pre-Audit Assessment"
+          },
+          {
+            "number": "02",
+            "icon": "fa-clipboard-list",
+            "title": "Documentation Review"
+          },
+          {
+            "number": "03",
+            "icon": "fa-eye",
+            "title": "On-Site Audit"
+          },
+          {
+            "number": "04",
+            "icon": "fa-file-alt",
+            "title": "Report &amp; Follow-up"
+          }
         ]
       },
       "tools": {
         "badge": "Auditing Tools",
         "title": "Tools We Use for IATF Excellence",
         "items": [
-          { "icon": "fa-clipboard-check", "name": "Checklists" },
-          { "icon": "fa-chart-bar", "name": "Risk Assessment" },
-          { "icon": "fa-file-alt", "name": "Documentation" },
-          { "icon": "fa-users", "name": "Interviews" },
-          { "icon": "fa-eye", "name": "Observation" },
-          { "icon": "fa-database", "name": "Data Analysis" },
-          { "icon": "fa-chart-line", "name": "Reporting" }
+          {
+            "icon": "fa-clipboard-check",
+            "name": "Checklists"
+          },
+          {
+            "icon": "fa-chart-bar",
+            "name": "Risk Assessment"
+          },
+          {
+            "icon": "fa-file-alt",
+            "name": "Documentation"
+          },
+          {
+            "icon": "fa-users",
+            "name": "Interviews"
+          },
+          {
+            "icon": "fa-eye",
+            "name": "Observation"
+          },
+          {
+            "icon": "fa-database",
+            "name": "Data Analysis"
+          },
+          {
+            "icon": "fa-chart-line",
+            "name": "Reporting"
+          }
         ]
       },
       "whyChoose": {
         "image": "/images/05.jpg",
         "items": [
-          { "icon": "fa-check", "title": "Expert &amp; Certified", "description": "Our auditors are certified professionals with extensive experience in automotive quality management systems." },
-          { "icon": "fa-check", "title": "Comprehensive &amp; Reliable", "description": "Every audit is thorough and reliable, ensuring your organization meets all IATF 16949 requirements." }
+          {
+            "icon": "fa-check",
+            "title": "Expert &amp; Certified",
+            "description": "Our auditors are certified professionals with extensive experience in automotive quality management systems."
+          },
+          {
+            "icon": "fa-check",
+            "title": "Comprehensive &amp; Reliable",
+            "description": "Every audit is thorough and reliable, ensuring your organization meets all IATF 16949 requirements."
+          }
         ]
       },
       "faq": {
         "badge": "FAQS",
         "title": "Frequently Asked Questions",
         "items": [
-          { "question": "What IATF Auditing Services Do You Offer?", "answer": "We offer comprehensive IATF auditing services including IATF 16949 certification audits, internal audits, supplier audits, gap assessments, and ongoing compliance support for automotive organizations." },
-          { "question": "What Is the IATF Auditing Timeline?", "answer": "Our IATF auditing timeline varies based on organization size and complexity, typically ranging from 2-5 days for initial audits and 1-3 days for surveillance audits, with follow-up activities as needed." },
-          { "question": "Do You Offer Ongoing IATF Support?", "answer": "Yes, we provide comprehensive ongoing support including surveillance audits, corrective action follow-up, training programs, and continuous improvement guidance to maintain your IATF certification." },
-          { "question": "How Do You Ensure Audit Quality?", "answer": "We ensure audit quality through certified auditors, standardized methodologies, thorough documentation, peer review processes, and adherence to IATF requirements and industry best practices." },
-          { "question": "Can You Help with IATF Certification Preparation?", "answer": "Absolutely! We provide comprehensive IATF certification preparation including gap assessments, documentation review, training programs, and pre-audit support to ensure your organization is ready for certification." }
+          {
+            "question": "What IATF Auditing Services Do You Offer?",
+            "answer": "We offer comprehensive IATF auditing services including IATF 16949 certification audits, internal audits, supplier audits, gap assessments, and ongoing compliance support for automotive organizations."
+          },
+          {
+            "question": "What Is the IATF Auditing Timeline?",
+            "answer": "Our IATF auditing timeline varies based on organization size and complexity, typically ranging from 2-5 days for initial audits and 1-3 days for surveillance audits, with follow-up activities as needed."
+          },
+          {
+            "question": "Do You Offer Ongoing IATF Support?",
+            "answer": "Yes, we provide comprehensive ongoing support including surveillance audits, corrective action follow-up, training programs, and continuous improvement guidance to maintain your IATF certification."
+          },
+          {
+            "question": "How Do You Ensure Audit Quality?",
+            "answer": "We ensure audit quality through certified auditors, standardized methodologies, thorough documentation, peer review processes, and adherence to IATF requirements and industry best practices."
+          },
+          {
+            "question": "Can You Help with IATF Certification Preparation?",
+            "answer": "Absolutely! We provide comprehensive IATF certification preparation including gap assessments, documentation review, training programs, and pre-audit support to ensure your organization is ready for certification."
+          }
         ],
         "contactCard": {
           "title": "Still Have More Questions?",

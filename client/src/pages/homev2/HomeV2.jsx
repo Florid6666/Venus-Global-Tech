@@ -7,6 +7,17 @@ import RichText from '../../components/RichText';
 import { stripHtml } from '../../utils/stripHtml';
 import HeroV2 from '../../components/homev2/HeroV2';
 import BentoServices from '../../components/homev2/BentoServices';
+import WhyChooseV2 from '../../components/homev2/WhyChooseV2';
+import AiSolutionsV2 from '../../components/homev2/AiSolutionsV2';
+import IndustriesV2 from '../../components/homev2/IndustriesV2';
+import TechStackOrbitV2 from '../../components/homev2/TechStackOrbitV2';
+import ConsultingShowcaseV2 from '../../components/homev2/ConsultingShowcaseV2';
+import EsgComplianceV2 from '../../components/homev2/EsgComplianceV2';
+import NorthAmericaReachV2 from '../../components/homev2/NorthAmericaReachV2';
+import FaqV2 from '../../components/homev2/FaqV2';
+import CtaBannerV2 from '../../components/homev2/CtaBannerV2';
+import UpfooterOfficesV2 from '../../components/homev2/UpfooterOfficesV2';
+import FooterV2 from '../../components/homev2/FooterV2';
 
 // Reusable Section Header for the V2 design system
 const SectionHeader = ({ badge, title, description }) => (
@@ -40,7 +51,7 @@ const ChecklistGrid = ({ items }) => (
 const FeatureGrid = ({ items }) => (
   <div className="v2-feature-grid">
     {items?.map((item, i) => (
-      <div className="v2-feature-card v2-reveal-on-scroll v2-reveal-up" key={i} style={{ transitionDelay: `${i * 100}ms` }}>
+      <div className="v2-feature-card v2-reveal-on-scroll v2-reveal-up" key={i} style={{ transitionDelay: `${i * 50}ms` }}>
         <div className="v2-feature-card-icon">
           <i className={`fas ${item.icon}`}></i>
         </div>
@@ -50,6 +61,68 @@ const FeatureGrid = ({ items }) => (
     ))}
   </div>
 );
+
+// One "slot machine" digit column: a strip of 0-9 stacked vertically inside
+// an overflow:hidden window, which slides via CSS transition from
+// `startDigit` to `finalDigit` once scrolled into view. Whether it reads as
+// rolling "up" or "down" falls out naturally from whether startDigit is
+// below or above finalDigit — no separate direction flag needed.
+const DIGIT_ROW_HEIGHT = 64;
+
+const DigitReel = ({ finalDigit, startDigit = 0, delay = 0 }) => {
+  const ref = useRef(null);
+  const [offset, setOffset] = useState(startDigit);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    let timer;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          timer = setTimeout(() => setOffset(finalDigit), delay);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, [finalDigit, delay]);
+
+  return (
+    <span className="v2-digit-reel" ref={ref}>
+      <span
+        className="v2-digit-reel-strip"
+        style={{ transform: `translateY(-${offset * DIGIT_ROW_HEIGHT}px)` }}
+      >
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((d) => (
+          <span className="v2-digit-reel-cell" key={d}>{d}</span>
+        ))}
+      </span>
+    </span>
+  );
+};
+
+// Renders a stat like "15+" or "98%" as one animated digit reel per digit,
+// plus the trailing suffix as static text. `startDigits` sets each digit's
+// starting position (defaults to 0, i.e. rolling straight up to its value).
+const OdometerStat = ({ value, startDigits = [] }) => {
+  const match = String(value).match(/^(\d+)(.*)$/);
+  if (!match) return <span>{value}</span>;
+  const digits = match[1].split('');
+  const suffix = match[2] || '';
+  return (
+    <span className="v2-odometer-stat">
+      {digits.map((d, i) => (
+        <DigitReel key={i} finalDigit={parseInt(d, 10)} startDigit={startDigits[i] ?? 0} delay={i * 350} />
+      ))}
+      {suffix && <span className="v2-odometer-suffix">{suffix}</span>}
+    </span>
+  );
+};
 
 // Reusable Tag/Pill Grid (for AI Expertise and Technologies)
 const TagGrid = ({ items }) => (
@@ -63,6 +136,28 @@ const TagGrid = ({ items }) => (
   </div>
 );
 
+// Category eyebrow + icon per service — presentation-only metadata layered
+// on top of the real service content (title/description/link/image already
+// come from content.json), keyed by the item's existing `number` field.
+const SERVICE_CARD_META = {
+  '01': { category: 'Engineering', icon: 'fa-code' },
+  '02': { category: 'Autonomy', icon: 'fa-diagram-project' },
+  '03': { category: 'Infrastructure', icon: 'fa-cloud' },
+  '04': { category: 'Growth', icon: 'fa-globe' },
+  '05': { category: 'Sustainability', icon: 'fa-leaf' },
+  '06': { category: 'Compliance', icon: 'fa-shield-alt' },
+  '07': { category: 'Development', icon: 'fa-microchip' },
+  '08': { category: 'Software', icon: 'fa-laptop-code' },
+  '09': { category: 'Enterprise', icon: 'fa-building' },
+  '10': { category: 'Consulting', icon: 'fa-comments' },
+  '11': { category: 'Automation', icon: 'fa-robot' },
+  '12': { category: 'Transformation', icon: 'fa-bolt' },
+  '13': { category: 'Cloud', icon: 'fa-cloud-arrow-up' },
+  '14': { category: 'Engineering', icon: 'fa-gears' },
+  '15': { category: 'Analytics', icon: 'fa-chart-line' },
+  '16': { category: 'Strategy', icon: 'fa-lightbulb' },
+};
+
 const HomeV2 = () => {
   const { content, loading } = useContent('home');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -71,8 +166,8 @@ const HomeV2 = () => {
     if (loading || !content) return;
 
     const observerOptions = {
-      threshold: 0.05,
-      rootMargin: '0px 0px -60px 0px'
+      threshold: 0.01,
+      rootMargin: '100px 0px 50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -120,75 +215,67 @@ const HomeV2 = () => {
       <HeroV2 content={heroContent} whatsappLink={homeContent.cta?.whatsappLink} />
 
       {/* BENTO SERVICES CARD GRID */}
-      <BentoServices />
+      <BentoServices content={homeContent.bentoServices} />
 
 
-      {/* ABOUT US STATS SECTION */}
-      {homeContent.about && (
-        <section className="v2-about-stats-section">
-          <div className="v2-section-container">
-            <div className="v2-about-split">
-              <div className="v2-about-left v2-reveal-on-scroll v2-reveal-right">
-                <div className="v2-section-badge">
-                  <i className="fas fa-cube"></i>
-                  <RichText html={homeContent.about.badge} as="span" />
-                </div>
-                <h2 className="v2-about-title">{homeContent.about.title}</h2>
-                <p className="v2-about-description">{homeContent.about.description}</p>
-                <div className="v2-about-cta">
-                  <button className="v2-btn v2-btn-secondary" onClick={() => window.location.href = '/about'}>
-                    {homeContent.about.moreAboutButton || 'More About Us'}
-                  </button>
-                  <div className="v2-about-phone">
-                    <i className="fas fa-phone-volume"></i>
-                    <div>
-                      <span>{homeContent.about.getQuoteText}</span>
-                      <strong onClick={() => window.open(homeContent.about.whatsappLink, '_blank')}>
-                        {homeContent.about.phoneNumber}
-                      </strong>
+      {/* Trust + Services share one continuous dark background/glow so there's
+          no visible seam where one section's own background ended and the
+          next began. */}
+      <section className="v2-dark-cluster">
+
+      {/* ABOUT US — TESTIMONIAL + STATS SECTION */}
+      {(() => {
+        const trust = homeContent.trustSection || {};
+        const stats = trust.stats?.length > 0 ? trust.stats : [
+          { value: '15+', label: 'Years of experiences', description: 'Delivering timeless, functional spaces through innovation, precision, and client-focused design excellence.' },
+          { value: '98%', label: 'Client satisfaction rate', description: 'We pride ourselves on delivering excellence, reflected in the high satisfaction of every client.' },
+        ];
+        return (
+          <section className="v2-trust-section">
+            <div className="v2-section-container">
+              <h2 className="v2-trust-heading v2-reveal-on-scroll v2-reveal-up">
+                {trust.heading || 'Supported by many companies around the world'}
+              </h2>
+
+              <div className="v2-trust-grid">
+                <div className="v2-testimonial-card v2-reveal-on-scroll v2-reveal-left">
+                  <span className="v2-testimonial-badge">{trust.badge || "CEO's Words"}</span>
+                  <p className="v2-testimonial-quote">
+                    {trust.quote || '"Working with you was seamless from start to finish. The final design exceeded our expectations. Your attention to detail and ability to adaptable was outstanding throughout the entire process to the world."'}
+                  </p>
+                  <div className="v2-testimonial-footer">
+                    <div className="v2-testimonial-person">
+                      <img
+                        src={trust.avatar || '/images/homev2/68bc8ab3454cbbc5f39299c6_Avater.avif'}
+                        alt={trust.personName || 'Emily R'}
+                        className="v2-testimonial-avatar"
+                      />
+                      <div>
+                        <strong>{trust.personName || 'Emily R'}</strong>
+                        <span>{trust.personRole || 'Co Founder of Metrilo'}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="v2-about-right">
-                <div className="v2-stats-grid">
-                  {homeContent.about.stats?.map((stat, i) => (
-                    <div 
-                      className="v2-stat-card v2-reveal-on-scroll v2-reveal-scale" 
-                      key={i}
-                      style={{ transitionDelay: `${i * 120}ms` }}
-                    >
-                      <div className="v2-stat-icon-wrap">
-                        <img src={stat.icon} alt="" className="v2-stat-icon" />
+
+                <div className="v2-trust-stat-col">
+                  {stats.map((stat, i) => (
+                    <div className="v2-trust-stat-card v2-reveal-on-scroll v2-reveal-right" key={i} style={{ transitionDelay: `${100 + i * 150}ms` }}>
+                      <div className="v2-trust-stat-top">
+                        <h3 className="v2-trust-stat-number"><OdometerStat value={stat.value} /></h3>
+                        <span className="v2-trust-stat-pill">{stat.label}</span>
                       </div>
-                      <h3 className="v2-stat-number">{stat.number}</h3>
-                      <p className="v2-stat-desc">{stat.description}</p>
+                      <p className="v2-trust-stat-desc">
+                        {stat.description}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* 2. HELPING BUSINESSES SECTION */}
-      {homeContent.whyWeHelp && (
-        <section className="v2-section-dark">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.whyWeHelp.badge}
-              title={homeContent.whyWeHelp.title}
-              description={homeContent.whyWeHelp.description}
-            />
-            {homeContent.whyWeHelp.itemsTitle && (
-              <h3 className="v2-grid-subtitle">{homeContent.whyWeHelp.itemsTitle}</h3>
-            )}
-            <ChecklistGrid items={homeContent.whyWeHelp.items} />
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* 3. CORE TECHNOLOGY SERVICES */}
       {homeContent.coreServices && (
@@ -205,7 +292,7 @@ const HomeV2 = () => {
 
       {/* SERVICES CARD GRID */}
       {homeContent.services && (
-        <section className="v2-services-section">
+        <section className="v2-services-section v2-section-dark">
           <div className="v2-section-container">
             <SectionHeader
               badge={homeContent.services.badge}
@@ -213,11 +300,13 @@ const HomeV2 = () => {
               description={homeContent.services.description}
             />
             <div className="v2-services-card-grid">
-              {homeContent.services.items?.map((item, index) => (
-                <div 
-                  className="v2-service-card v2-reveal-on-scroll v2-reveal-up" 
+              {homeContent.services.items?.map((item, index) => {
+                const meta = SERVICE_CARD_META[item.number] || {};
+                return (
+                <div
+                  className="v2-service-card v2-reveal-on-scroll v2-reveal-up"
                   key={item.number}
-                  style={{ transitionDelay: `${index * 120}ms` }}
+                  style={{ transitionDelay: `${index * 50}ms` }}
                   onClick={() => window.location.href = item.link}
                 >
                   <div className="v2-service-card-image">
@@ -225,113 +314,124 @@ const HomeV2 = () => {
                     <div className="v2-service-card-overlay"></div>
                   </div>
                   <div className="v2-service-card-content">
-                    <span className="v2-service-card-num">{item.number}</span>
-                    <h3 className="v2-service-card-title">{item.title}</h3>
-                    <p className="v2-service-card-desc">{item.description}</p>
-                    <div className="v2-service-card-link">
-                      <span>Explore Service</span>
-                      <i className="fas fa-arrow-right-long"></i>
+                    {meta.category && <span className="v2-service-card-category">{meta.category}</span>}
+                    {meta.icon && (
+                      <div className="v2-service-card-icon">
+                        <i className={`fas ${meta.icon}`}></i>
+                      </div>
+                    )}
+                    <div className="v2-service-card-text">
+                      <h3 className="v2-service-card-title">{item.title}</h3>
+                      <p className="v2-service-card-desc">{item.description}</p>
+                      <div className="v2-service-card-link">
+                        <span>Learn more</span>
+                        <i className="fas fa-arrow-right-long"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
-      {/* 4. WHY CHOOSE US SECTION */}
-      {homeContent.whyChooseUs && (
-        <section className="v2-section-dark">
+      {/* 2. HELPING BUSINESSES SECTION — balanced left/right split, enterprise redesign */}
+      {homeContent.whyWeHelp && (
+        <section className="v2-whywehelp-section v2-section-dark">
           <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.whyChooseUs.badge}
-              title={homeContent.whyChooseUs.title}
-              description={homeContent.whyChooseUs.description}
-            />
-            {homeContent.whyChooseUs.itemsTitle && (
-              <h3 className="v2-grid-subtitle">{homeContent.whyChooseUs.itemsTitle}</h3>
-            )}
-            <ChecklistGrid items={homeContent.whyChooseUs.items} />
+            <div className="v2-whywehelp-split">
+              <div className="v2-whywehelp-text v2-reveal-on-scroll v2-reveal-up">
+                <div className="v2-whywehelp-badge">
+                  <span className="v2-whywehelp-badge-dot"></span>
+                  <RichText html={homeContent.whyWeHelp.badge} as="span" />
+                </div>
+                <RichText html={homeContent.whyWeHelp.title} as="h2" className="v2-whywehelp-title" />
+                <RichText html={homeContent.whyWeHelp.description} as="p" className="v2-whywehelp-description" />
+
+                <div className="v2-whywehelp-cta-row">
+                  <button className="v2-btn v2-btn-primary" onClick={() => window.location.href = homeContent.whyWeHelp.ctaLink || '/contact'}>
+                    {homeContent.whyWeHelp.ctaButton || 'Talk to an Expert'}
+                  </button>
+                  <a className="v2-whywehelp-secondary-link" href={homeContent.whyWeHelp.secondaryLinkHref || '/blogs'}>
+                    {homeContent.whyWeHelp.secondaryLink || 'View Case Studies'}
+                    <i className="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+
+                {homeContent.whyWeHelp.stats?.length > 0 && (
+                  <div className="v2-whywehelp-stats">
+                    {homeContent.whyWeHelp.stats.map((stat, i) => (
+                      <div className="v2-whywehelp-stat" key={i}>
+                        <span className="v2-whywehelp-stat-number">{stat.number}</span>
+                        <span className="v2-whywehelp-stat-label">{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="v2-whywehelp-grid">
+                {homeContent.whyWeHelp.items?.map((item, i) => (
+                  <div
+                    className={`v2-whywehelp-card v2-reveal-on-scroll v2-reveal-up${i === 0 ? ' v2-whywehelp-card--featured' : ''}`}
+                    key={i}
+                    style={{ transitionDelay: `${i * 90}ms` }}
+                  >
+                    <div className="v2-whywehelp-card-header">
+                      <div className="v2-whywehelp-card-icon-wrap">
+                        <i className={`far ${item.icon}`}></i>
+                      </div>
+                      <h3 className="v2-whywehelp-card-title">{item.title}</h3>
+                    </div>
+                    <p className="v2-whywehelp-card-desc">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
 
-      {/* 5. AI EXPERTISE SECTION */}
-      {homeContent.aiExpertise && (
-        <section className="v2-section-light">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.aiExpertise.badge}
-              title={homeContent.aiExpertise.title}
-              description={homeContent.aiExpertise.description}
-            />
-            <TagGrid items={homeContent.aiExpertise.items} />
-          </div>
-        </section>
-      )}
+      </section>
 
-      {/* 6. INDUSTRIES WE EMPOWER */}
-      {homeContent.industries && (
-        <section className="v2-section-dark">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.industries.badge}
-              title={homeContent.industries.title}
-              description={homeContent.industries.description}
-            />
-            <FeatureGrid items={homeContent.industries.items} />
-          </div>
-        </section>
-      )}
+      {/* 4. BRAND NEW WHY CHOOSE VENUS GLOBAL TECHNOLOGY SECTION */}
+      <WhyChooseV2 content={homeContent.whyChooseUs} />
 
-      {/* 7. TECHNOLOGIES WE WORK WITH */}
-      {homeContent.technologies && (
-        <section className="v2-section-light">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.technologies.badge}
-              title={homeContent.technologies.title}
-            />
-            <TagGrid items={homeContent.technologies.items} />
-          </div>
-        </section>
-      )}
+      {/* 5. AI SOLUTIONS BUILT FOR REAL BUSINESS OUTCOMES SECTION (Lottie Left, Content Right) */}
+      <AiSolutionsV2 content={homeContent.aiExpertise} />
+
+      {/* 6. INDUSTRIES WE EMPOWER SECTION */}
+      <IndustriesV2 content={homeContent.industries} />
+
+      {/* 7. TECHNOLOGIES WE WORK WITH ORBITAL ECOSYSTEM SECTION */}
+      <TechStackOrbitV2 content={homeContent.technologies} />
 
       {/* 8. WORKING PROCESS SECTION */}
       {homeContent.workingProcess && (
-        <section className="v2-section-dark">
+        <section className="v2-section-light v2-process-section">
           <div className="v2-section-container">
             <SectionHeader
               badge={homeContent.workingProcess.badge}
               title={homeContent.workingProcess.title}
               description={homeContent.workingProcess.description}
             />
-            
+
             <div className="v2-process-timeline">
               {homeContent.workingProcess.steps?.map((step, index) => (
-                <div 
-                  className="v2-process-step v2-reveal-on-scroll v2-reveal-up" 
+                <div
+                  className="v2-process-step v2-reveal-on-scroll v2-reveal-up"
                   key={step.number}
                   style={{ transitionDelay: `${index * 120}ms` }}
                 >
-                  <div className="v2-process-step-header">
-                    <span className="v2-process-num">{step.number}</span>
-                    <div className="v2-process-icon-wrap">
-                      <img src={step.icon} alt="" className="v2-process-icon" />
-                    </div>
-                  </div>
+                  <span className="v2-process-num">{step.number}</span>
                   <h3 className="v2-process-step-title">{step.title}</h3>
                   <p className="v2-process-step-desc">{step.description}</p>
-                  {index < homeContent.workingProcess.steps.length - 1 && (
-                    <div className="v2-process-arrow">
-                      <i className="fas fa-chevron-right"></i>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
-            
+
             <div className="v2-process-cta-wrap">
               <button className="v2-btn v2-btn-primary" onClick={() => window.location.href = '/contact'}>
                 {homeContent.workingProcess.startProjectsButton || 'Start Project'}
@@ -341,62 +441,17 @@ const HomeV2 = () => {
         </section>
       )}
 
-      {/* 9. BUSINESS CONSULTING SECTION */}
-      {homeContent.consultingExpertise && (
-        <section className="v2-section-light">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.consultingExpertise.badge}
-              title={homeContent.consultingExpertise.title}
-              description={homeContent.consultingExpertise.description}
-            />
-            {homeContent.consultingExpertise.itemsTitle && (
-              <h3 className="v2-grid-subtitle">{homeContent.consultingExpertise.itemsTitle}</h3>
-            )}
-            <ChecklistGrid items={homeContent.consultingExpertise.items} />
-          </div>
-        </section>
-      )}
+      {/* 9. BUSINESS TECHNOLOGY BEYOND SOFTWARE DEVELOPMENT SECTION */}
+      <ConsultingShowcaseV2 content={homeContent.consultingExpertise} />
 
-      {/* 10. ESG & COMPLIANCE */}
-      {homeContent.esgCompliance && (
-        <section className="v2-section-dark">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.esgCompliance.badge}
-              title={homeContent.esgCompliance.title}
-              description={homeContent.esgCompliance.description}
-            />
-            {homeContent.esgCompliance.itemsTitle && (
-              <h3 className="v2-grid-subtitle">{homeContent.esgCompliance.itemsTitle}</h3>
-            )}
-            <ChecklistGrid items={homeContent.esgCompliance.items} />
-            
-            {homeContent.esgCompliance.link && (
-              <div className="v2-esg-cta-wrap">
-                <a className="v2-cta-link" href={homeContent.esgCompliance.link}>
-                  {homeContent.esgCompliance.linkText || 'Explore ESG Solutions'}
-                  <i className="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
+      {/* 10. ESG & COMPLIANCE SERVICES SECTION */}
+      <EsgComplianceV2 content={homeContent.esgCompliance} />
 
-      {/* 11. SERVING REGION */}
-      {homeContent.servingRegion && (
-        <section className="v2-section-light">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.servingRegion.badge}
-              title={homeContent.servingRegion.title}
-              description={homeContent.servingRegion.description}
-            />
-            <ChecklistGrid items={homeContent.servingRegion.items} />
-          </div>
-        </section>
-      )}
+      {/* 11. SERVING BUSINESSES ACROSS NORTH AMERICA SECTION */}
+      <NorthAmericaReachV2 content={homeContent.servingRegion} />
+
+      {/* 12. FREQUENTLY ASKED QUESTIONS SECTION */}
+      <FaqV2 content={homeContent.faq} />
 
       {/* SKILLS CAROUSEL MARQUEE */}
       {homeContent.skills && (
@@ -417,78 +472,14 @@ const HomeV2 = () => {
         </section>
       )}
 
-      {/* FINAL CTA SECTION */}
-      {homeContent.cta && (
-        <section className="v2-cta-section">
-          <div className="v2-section-container">
-            <div 
-              className="v2-cta-card v2-reveal-on-scroll v2-reveal-scale"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${homeContent.cta.backgroundImage}')`
-              }}
-            >
-              <span className="v2-cta-badge">{homeContent.cta.prompt}</span>
-              <h2 className="v2-cta-title">{homeContent.cta.title}</h2>
-              <p className="v2-cta-desc">{homeContent.cta.description}</p>
-              <div className="v2-cta-buttons">
-                <button 
-                  className="v2-btn v2-btn-primary" 
-                  onClick={() => window.open(homeContent.cta.whatsappLink, '_blank')}
-                >
-                  {stripHtml(homeContent.cta.button)}
-                </button>
-                {homeContent.cta.secondaryButton && (
-                  <button 
-                    className="v2-btn v2-btn-secondary" 
-                    onClick={() => window.location.href = homeContent.cta.secondaryLink || '/contact'}
-                  >
-                    {stripHtml(homeContent.cta.secondaryButton)}
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* FINAL COSMIC CTA BANNER */}
+      <CtaBannerV2 content={homeContent.cta} />
 
-      {/* OFFICE LOCATIONS */}
-      {homeContent.offices && (
-        <GlobalOffices offices={homeContent.offices} />
-      )}
+      {/* UPFOOTER: GLOBAL OFFICES SECTION */}
+      <UpfooterOfficesV2 offices={homeContent.offices} />
 
-      {/* 12. FAQ ACCORDION */}
-      {homeContent.homeFaq && (
-        <section className="v2-section-dark">
-          <div className="v2-section-container">
-            <SectionHeader
-              badge={homeContent.homeFaq.badge}
-              title={homeContent.homeFaq.title}
-            />
-            <div className="v2-faq-list">
-              {homeContent.homeFaq.items?.map((item, index) => (
-                <div 
-                  className={`v2-faq-item ${openFaqIndex === index ? 'active' : ''}`}
-                  key={index}
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                >
-                  <div className="v2-faq-question">
-                    <h3>{item.question}</h3>
-                    <div className="v2-faq-toggle">
-                      <i className="fas fa-plus"></i>
-                    </div>
-                  </div>
-                  <div className="v2-faq-answer">
-                    <p>{item.answer}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FOOTER */}
-      <Footer />
+      {/* ENTERPRISE SAAS FOOTER */}
+      <FooterV2 />
     </div>
   );
 };

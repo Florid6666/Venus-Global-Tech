@@ -1,0 +1,262 @@
+/* ==========================================================================
+   ESG & Compliance Services - Enterprise Governance Dashboard Modules
+   Pure White Background, 24px Border Radius, Neutral Borders (#e8ecf2)
+   ========================================================================== */
+
+.v2-esg-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+.v2-esg-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   CENTERED HEADER SECTION
+   -------------------------------------------------------------------------- */
+
+.v2-esg-header {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v2-esg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.v2-esg-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2563eb;
+}
+
+.v2-esg-badge-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+.v2-esg-heading {
+  font-size: 3.5rem; /* 56px */
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.v2-esg-paragraph {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* --------------------------------------------------------------------------
+   3 LARGE FEATURE DASHBOARD PANELS
+   -------------------------------------------------------------------------- */
+
+.v2-esg-panels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.v2-esg-panel {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e8ecf2;
+  border-radius: 24px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Panel Header */
+.v2-esg-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.v2-esg-panel-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.v2-esg-module-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 50px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Panel Body */
+.v2-esg-panel-body {
+  flex: 1;
+  margin-bottom: 28px;
+}
+
+.v2-esg-panel-title {
+  font-size: 1.35rem; /* ~22px */
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.v2-esg-panel-desc {
+  font-size: 0.96rem5; /* ~15.5px */
+  line-height: 1.55;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* Panel Bullet List */
+.v2-esg-panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.v2-esg-panel-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.v2-esg-list-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Panel Footer & CTA Link */
+.v2-esg-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f172a;
+  font-size: 0.94rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.v2-esg-cta-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Interaction: translateY(-6px) scale(1.02), shadow elevation, arrow movement */
+.v2-esg-panel:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #cbd5e1;
+  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.12);
+}
+
+.v2-esg-panel:hover .v2-esg-panel-icon-wrap {
+  transform: scale(1.06);
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.v2-esg-panel:hover .v2-esg-panel-footer {
+  color: #2563eb;
+}
+
+.v2-esg-panel:hover .v2-esg-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .v2-esg-panels-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .v2-esg-heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-esg-section {
+    padding: 60px 0 70px;
+  }
+
+  .v2-esg-container {
+    padding: 0 20px;
+  }
+
+  .v2-esg-heading {
+    font-size: 2.15rem;
+  }
+
+  .v2-esg-panel {
+    min-height: auto;
+    padding: 24px 20px;
+  }
+}

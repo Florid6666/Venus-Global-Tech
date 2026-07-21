@@ -699,8 +699,9 @@ async function handleUploadImage(req, res) {
     }
 
     const { filename, mimeType, dataBase64 } = req.body;
-    if (!mimeType.startsWith('image/')) {
-      return res.status(400).json({ error: 'Only image uploads are allowed' });
+    const isLottieJson = mimeType === 'application/json' && /\.json$/i.test(filename);
+    if (!mimeType.startsWith('image/') && !isLottieJson) {
+      return res.status(400).json({ error: 'Only image or Lottie JSON uploads are allowed' });
     }
 
     const ext = path.extname(filename).replace(/[^a-zA-Z0-9.]/g, '') || '.bin';

@@ -1,0 +1,503 @@
+/* ==========================================================================
+   Technologies We Work With - Orbital Technology Ecosystem (Home V2)
+   Pure White Background, 60fps GPU-Accelerated Orbit Animation
+   ========================================================================== */
+
+.v2-orbit-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 0 120px;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+/* Ambient Radial Background Glows */
+.v2-orbit-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.v2-orbit-ambient-glow.glow-1 {
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.v2-orbit-ambient-glow.glow-2 {
+  bottom: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Container */
+.v2-orbit-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER SECTION (~700px Max-Width Centered)
+   -------------------------------------------------------------------------- */
+
+.v2-orbit-header {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v2-orbit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.v2-orbit-badge-icon {
+  color: #2563eb;
+  font-size: 0.82rem;
+}
+
+.v2-orbit-badge-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+/* Heading (56-64px) */
+.v2-orbit-heading {
+  font-size: 3.75rem; /* 60px */
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #0f172a 40%, #1e293b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.v2-orbit-paragraph {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+  max-width: 700px;
+}
+
+/* --------------------------------------------------------------------------
+   ORBITAL ECOSYSTEM MAIN VISUAL WRAPPER
+   -------------------------------------------------------------------------- */
+
+.v2-orbit-visual-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 940px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.v2-orbit-system {
+  position: relative;
+  width: 920px;
+  height: 920px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Fixed Center Node: Venus Global Technology */
+.v2-orbit-center-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.6);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.v2-orbit-center-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.v2-orbit-center-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.v2-center-vgt {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.v2-orbit-center-text strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.v2-orbit-center-text span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #2563eb;
+  letter-spacing: 0.02em;
+}
+
+.v2-orbit-center-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  animation: v2CenterPulse 3s infinite ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes v2CenterPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   ORBITAL RINGS & ROTATION
+   -------------------------------------------------------------------------- */
+
+.v2-orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.v2-orbit-ring.ring-inner {
+  width: 350px;
+  height: 350px;
+  z-index: 5;
+}
+
+.v2-orbit-ring.ring-middle {
+  width: 610px;
+  height: 610px;
+  z-index: 4;
+}
+
+.v2-orbit-ring.ring-outer {
+  width: 870px;
+  height: 870px;
+  z-index: 3;
+}
+
+/* Thin Ring Line */
+.v2-orbit-ring-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(226, 232, 240, 0.9);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.ring-inner .v2-orbit-ring-line { border-color: rgba(37, 99, 235, 0.22); }
+.ring-middle .v2-orbit-ring-line { border-color: rgba(226, 232, 240, 0.9); }
+.ring-outer .v2-orbit-ring-line { border-color: rgba(226, 232, 240, 0.7); }
+
+/* Rotating Ring Wrapper */
+.v2-orbit-ring-rotate {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: v2OrbitRotate 80s linear infinite;
+  will-change: transform;
+}
+
+.v2-orbit-ring-rotate.rotate-reverse {
+  animation: v2OrbitRotateReverse 95s linear infinite;
+}
+
+.v2-orbit-system.is-paused .v2-orbit-ring-rotate {
+  animation-play-state: paused !important;
+}
+
+@keyframes v2OrbitRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes v2OrbitRotateReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* --------------------------------------------------------------------------
+   TECHNOLOGY NODES
+   -------------------------------------------------------------------------- */
+
+.v2-tech-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 62px;
+  height: 62px;
+  margin-top: -31px;
+  margin-left: -31px;
+  pointer-events: auto;
+  outline: none;
+}
+
+/* Node Circle Button */
+.v2-tech-node-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.09), 0 0 0 1px rgba(226, 232, 240, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Counter-Rotate so icon stays upright */
+  animation: v2CounterRotate 80s linear infinite;
+}
+
+.rotate-reverse .v2-tech-node-circle {
+  animation: v2CounterRotateReverse 95s linear infinite;
+}
+
+.v2-orbit-system.is-paused .v2-tech-node-circle {
+  animation-play-state: paused !important;
+}
+
+@keyframes v2CounterRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes v2CounterRotateReverse {
+  0% { transform: rotate(-360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Node Hover Effect */
+.v2-tech-node:hover .v2-tech-node-circle,
+.v2-tech-node:focus .v2-tech-node-circle {
+  transform: scale(1.18);
+  border-color: #2563eb;
+  box-shadow: 0 12px 28px -4px rgba(37, 99, 235, 0.32), 0 0 0 4px rgba(191, 219, 254, 0.5);
+  background: #ffffff;
+  z-index: 30;
+}
+
+/* Node Tooltip System */
+.v2-node-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 14px 30px -6px rgba(15, 23, 42, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 100;
+  text-align: center;
+
+  /* Counter-Rotate so tooltip stays upright */
+  animation: v2CounterRotate 80s linear infinite;
+}
+
+.rotate-reverse .v2-node-tooltip {
+  animation: v2CounterRotateReverse 95s linear infinite;
+}
+
+.v2-orbit-system.is-paused .v2-node-tooltip {
+  animation-play-state: paused !important;
+}
+
+.v2-tech-node:hover .v2-node-tooltip,
+.v2-tech-node:focus .v2-node-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.v2-node-tooltip strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.v2-node-tooltip span {
+  font-size: 0.72rem;
+  color: #93c5fd;
+  display: block;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE ACTIVE TECH BANNER
+   -------------------------------------------------------------------------- */
+
+.v2-active-tech-banner {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 40;
+}
+
+.v2-active-tech-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.v2-active-tech-cat {
+  font-size: 0.8rem;
+  color: #93c5fd;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .v2-orbit-heading {
+    font-size: 3.2rem;
+  }
+
+  .v2-orbit-system {
+    transform: scale(0.85);
+  }
+
+  .v2-orbit-visual-wrapper {
+    min-height: 800px;
+  }
+}
+
+@media (max-width: 860px) {
+  .v2-orbit-heading {
+    font-size: 2.5rem;
+  }
+
+  .v2-orbit-system {
+    transform: scale(0.68);
+  }
+
+  .v2-orbit-visual-wrapper {
+    min-height: 640px;
+  }
+
+  .v2-active-tech-banner {
+    display: block;
+  }
+}
+
+@media (max-width: 580px) {
+  .v2-orbit-section {
+    padding: 60px 0 80px;
+  }
+
+  .v2-orbit-container {
+    padding: 0 16px;
+  }
+
+  .v2-orbit-heading {
+    font-size: 2.1rem;
+  }
+
+  .v2-orbit-paragraph {
+    font-size: 1rem;
+  }
+
+  .v2-orbit-system {
+    transform: scale(0.48);
+  }
+
+  .v2-orbit-visual-wrapper {
+    min-height: 480px;
+  }
+
+  .v2-orbit-center-node {
+    width: 180px;
+    height: 180px;
+  }
+}

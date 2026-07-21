@@ -468,17 +468,19 @@ app.delete('/api/blogs/:id', authenticateAdmin, async (req, res) => {
   }
 });
 
-// Image upload endpoint used by the admin panel (rich text editor + image fields).
-// Accepts a base64-encoded file instead of multipart so the same request shape
-// works against both this Express server and the raw Cloud Function handler.
+// Image/Lottie upload endpoint used by the admin panel (rich text editor,
+// image fields, and Lottie animation fields). Accepts a base64-encoded file
+// instead of multipart so the same request shape works against both this
+// Express server and the raw Cloud Function handler.
 app.post('/api/upload', authenticateAdmin, async (req, res) => {
   try {
     const { filename, mimeType, dataBase64 } = req.body;
     if (!filename || !mimeType || !dataBase64) {
       return res.status(400).json({ error: "Fields 'filename', 'mimeType' and 'dataBase64' are required" });
     }
-    if (!mimeType.startsWith('image/')) {
-      return res.status(400).json({ error: 'Only image uploads are allowed' });
+    const isLottieJson = mimeType === 'application/json' && /\.json$/i.test(filename);
+    if (!mimeType.startsWith('image/') && !isLottieJson) {
+      return res.status(400).json({ error: 'Only image or Lottie JSON uploads are allowed' });
     }
 
     const ext = path.extname(filename).replace(/[^a-zA-Z0-9.]/g, '') || '.bin';

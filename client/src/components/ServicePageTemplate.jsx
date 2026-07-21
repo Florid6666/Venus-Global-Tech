@@ -8,11 +8,26 @@ import { stripHtml } from '../utils/stripHtml';
 
 const iconClass = (icon) => (icon && icon.includes(' ') ? icon : `fas ${icon || ''}`);
 
+// Hardcoded per-page, not content/admin-driven: routing the Lottie file
+// through content.json (fetched via an admin-editable path) hit the CRA
+// dev-proxy bug where any asset path needing URL-encoding (spaces in these
+// filenames) got misrouted to the backend and 404'd. Hardcoding the path
+// here avoids that entirely.
+const LOTTIE_BY_PREFIX = {
+  agentic: { path: '/lottie/actable-ai-landing-page-animation.json', fallbackIcon: 'fa-robot' },
+  esg: { path: '/lottie/esg-environmental-social-governance.json', fallbackIcon: 'fa-leaf' },
+  digital: { path: '/lottie/digital-marketing-services.json', fallbackIcon: 'fa-bullhorn' },
+  'software-data': { path: '/lottie/software-development.json', fallbackIcon: 'fa-code' },
+  cloud: { path: '/lottie/automation-process.json', fallbackIcon: 'fa-cloud' },
+  iatf: { path: '/lottie/hotf-4.json', fallbackIcon: 'fa-clipboard-check' },
+};
+
 // Shared layout for the 6 near-identical service pages (Hero / Benefits /
 // Process / Tools / Why Choose / FAQ / Offices / Footer). Each page supplies
 // its own CSS file (for the `${prefix}-*` class names) and its own content
-// slice from content.services.<key>; only the Lottie path, fallback icon and
-// static hero image differ, and those live on content.hero itself.
+// slice from content.services.<key>; the Lottie animation is hardcoded per
+// prefix above, and the static hero image (used only if there's no Lottie
+// entry for this prefix) lives on content.hero itself.
 const ServicePageTemplate = ({ pageClass, prefix, content }) => {
   const [animationData, setAnimationData] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -25,13 +40,15 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
   const whyChoose = content?.whyChoose || {};
   const faq = content?.faq || {};
 
+  const lottie = LOTTIE_BY_PREFIX[prefix];
+
   useEffect(() => {
-    if (!hero.lottiePath) return;
-    fetch(hero.lottiePath)
+    if (!lottie) return;
+    fetch(encodeURI(lottie.path))
       .then((response) => response.json())
       .then((data) => setAnimationData(data))
       .catch((error) => console.error('Error loading Lottie animation:', error));
-  }, [hero.lottiePath]);
+  }, [lottie]);
 
   const toolRows = [];
   const items = tools.items || [];
@@ -57,7 +74,7 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
               <button className={`${prefix}-hero-button`} onClick={() => window.location.href = '/contact'}>{hero.ctaButton}</button>
             </div>
           </div>
-          {hero.lottiePath ? (
+          {lottie ? (
             <div className={`${prefix}-hero-lottie`}>
               <div className={`${prefix}-lottie-container`}>
                 <Lottie
@@ -70,9 +87,8 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
                 {!animationData && (
                   <div className="lottie-placeholder">
                     <div className="lottie-placeholder-content">
-                      <i className={iconClass(hero.fallbackIcon)}></i>
+                      <i className={iconClass(lottie.fallbackIcon)}></i>
                       <p>Lottie Animation</p>
-                      <small>Add your Lottie JSON file</small>
                     </div>
                   </div>
                 )}

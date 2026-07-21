@@ -37,10 +37,10 @@
 
   /* Reveal start state */
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(20px);
   transition:
-    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s ease;
 }
 
@@ -71,6 +71,21 @@
 
 .bs-card:hover .bs-card-bg {
   transform: scale(1.04);
+}
+
+/* Card 1 & 2 subjects (robot, blob) bleed to one edge of their source art —
+   `cover` cropped into them. `contain` shows the full image; the flat-color
+   fallback fills the resulting letterbox gap so it still reads edge-to-edge. */
+.bs-grid > .bs-card:nth-child(1) .bs-card-bg {
+  background-size: contain;
+  background-position: center top;
+  background-color: rgb(52, 63, 120);
+}
+
+.bs-grid > .bs-card:nth-child(2) .bs-card-bg {
+  background-size: contain;
+  background-position: center bottom;
+  background-color: rgb(86, 97, 158);
 }
 
 /* Card inner content layer */
@@ -236,9 +251,8 @@
 }
 
 .bs-openai-icon {
-  width: 28px;
-  height: 28px;
-  filter: brightness(0) invert(1);
+  font-size: 22px;
+  color: #ffffff;
 }
 
 .bs-openai-logo span {

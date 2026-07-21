@@ -3,6 +3,7 @@ import './Admin.css';
 import { getApiUrl } from '../config/api';
 import RichTextEditor from '../components/admin/RichTextEditor';
 import ImageField from '../components/admin/ImageField';
+import LottieField from '../components/admin/LottieField';
 import StringArrayEditor from '../components/admin/StringArrayEditor';
 import BlockBuilder from '../components/admin/BlockBuilder';
 import BlockRenderer from '../components/BlockRenderer';
@@ -50,13 +51,20 @@ const ArrayEditor = ({ items, fields, onChange, addTemplate, itemLabel, token })
       {list.map((item, index) => (
         <div key={index} className="array-card">
           <div className="field-grid">
-            {fields.map((f) => (
-              f.type === 'image' ? (
-                <ImageField key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} token={token} />
-              ) : (
-                <Field key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} token={token} />
-              )
-            ))}
+            {fields.map((f) => {
+              if (f.type === 'image') {
+                return <ImageField key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} token={token} />;
+              }
+              if (f.type === 'stringArray') {
+                return (
+                  <div key={f.name} className="field-group field-full">
+                    <label className="field-label">{f.label}</label>
+                    <StringArrayEditor items={item[f.name]} onChange={(v) => update(index, f.name, v)} label={f.itemLabel || f.label} />
+                  </div>
+                );
+              }
+              return <Field key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} token={token} />;
+            })}
           </div>
           <button type="button" className="btn-danger-outline" onClick={() => remove(index)}>Remove {itemLabel}</button>
         </div>
@@ -101,13 +109,22 @@ const buildTree = (content) => [
   {
     key: 'home', label: 'Home Page', children: [
       { key: 'hero', label: 'Hero Section' },
-      { key: 'trustedPartners', label: 'Trusted Partners' },
-      { key: 'about', label: 'About Section' },
-      { key: 'services', label: 'Services Section' },
+      { key: 'bentoServices', label: 'Bento Cards (Top Grid)' },
+      { key: 'trustSection', label: 'Testimonial & Stats' },
+      { key: 'whyWeHelp', label: 'Why We Help / Impact' },
+      { key: 'services', label: 'Services Card Grid' },
+      { key: 'whyChooseUs', label: 'Why Choose Us' },
+      { key: 'aiExpertise', label: 'AI Solutions Grid' },
+      { key: 'industries', label: 'Industries We Serve' },
+      { key: 'technologies', label: 'Technologies Orbit' },
       { key: 'workingProcess', label: 'Working Process' },
-      { key: 'skills', label: 'Skills Marquee' },
-      { key: 'cta', label: 'CTA Section' },
+      { key: 'consultingExpertise', label: 'Consulting Showcase' },
+      { key: 'esgCompliance', label: 'ESG & Compliance' },
+      { key: 'servingRegion', label: 'North America Reach' },
+      { key: 'faq', label: 'FAQ Accordion' },
+      { key: 'cta', label: 'Final CTA Banner' },
       { key: 'offices', label: 'Office Locations' },
+      { key: 'skills', label: 'Skills Marquee' },
     ]
   },
   {
@@ -453,6 +470,9 @@ const LeafEditor = ({ path, content, token, onSave, onRegisterSave }) => {
       />
     );
   }
+  if (top === 'home' && sub === 'bentoServices') {
+    return <BentoServicesEditor key="home-bentoServices" content={content.home?.bentoServices} onSave={(data) => onSave('home', 'bentoServices', data)} onRegisterSave={onRegisterSave} token={token} />;
+  }
   if (top === 'home' && sub === 'offices') {
     return <OfficesEditor key="home-offices" items={content.home?.offices} onSave={(data) => onSave('home', 'offices', data)} onRegisterSave={onRegisterSave} token={token} />;
   }
@@ -525,32 +545,87 @@ const LeafEditor = ({ path, content, token, onSave, onRegisterSave }) => {
 
 const SIMPLE_FIELD_CONFIGS = {
   'home.hero': [
-    { name: 'badge', label: 'Badge Text' },
     { name: 'titleLine1', label: 'Title Line 1' },
-    { name: 'titleLine2', label: 'Title Line 2' },
+    { name: 'titleLine2', label: 'Title Line 2 (highlighted)' },
     { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'CTA Button Text' },
-    { name: 'image', label: 'Hero Image', kind: 'image' },
-    { name: 'trailImages', label: 'Mouse-Trail Images', kind: 'stringArray', itemLabel: 'Image Path' },
-    { name: 'backgroundWords', label: 'Scrolling Background Words', kind: 'stringArray', itemLabel: 'Word' },
+    { name: 'ctaButton', label: 'Primary CTA Button Text' },
+    { name: 'secondaryCtaButton', label: 'Secondary CTA Button Text' },
+    { name: 'secondaryCtaLink', label: 'Secondary CTA Link' },
   ],
-  'home.trustedPartners': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'companies', label: 'Companies', kind: 'stringArray', itemLabel: 'Company' },
+  'home.trustSection': [
+    { name: 'heading', label: 'Section Heading' },
+    { name: 'badge', label: "Testimonial Badge (e.g. CEO's Words)" },
+    { name: 'quote', label: 'Testimonial Quote', full: true },
+    { name: 'personName', label: 'Person Name' },
+    { name: 'personRole', label: 'Person Role' },
+    { name: 'avatar', label: 'Person Avatar', kind: 'image' },
+    {
+      name: 'stats', label: 'Stat Cards', kind: 'objectArray', itemLabel: 'Stat',
+      itemFields: [
+        { name: 'value', label: 'Value (e.g. 15+ or 98%)' },
+        { name: 'label', label: 'Label' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { value: '', label: '', description: '' },
+    },
   ],
-  'home.about': [
+  'home.whyWeHelp': [
     { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Title' },
+    { name: 'title', label: 'Heading' },
     { name: 'description', label: 'Description' },
-    { name: 'image', label: 'Image', kind: 'image' },
-    { name: 'moreAboutButton', label: 'More About Button' },
-    { name: 'getQuoteText', label: 'Get Quote Text' },
-    { name: 'phoneNumber', label: 'Phone Number' },
-    { name: 'whatsappLink', label: 'WhatsApp Link' },
+    { name: 'ctaButton', label: 'Primary CTA Text' },
+    { name: 'ctaLink', label: 'Primary CTA Link' },
+    { name: 'secondaryLink', label: 'Secondary Link Text' },
+    { name: 'secondaryLinkHref', label: 'Secondary Link Href' },
     {
       name: 'stats', label: 'Stats', kind: 'objectArray', itemLabel: 'Stat',
-      itemFields: [{ name: 'number', label: 'Number' }, { name: 'description', label: 'Description' }, { name: 'icon', label: 'Icon', type: 'image' }],
-      addTemplate: { number: '', description: '', icon: '' },
+      itemFields: [{ name: 'number', label: 'Value (e.g. 16+)' }, { name: 'label', label: 'Label' }],
+      addTemplate: { number: '', label: '' },
+    },
+    {
+      name: 'items', label: 'Highlight Cards', kind: 'objectArray', itemLabel: 'Highlight',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-lightbulb)' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { icon: 'fa-lightbulb', title: '', description: '' },
+    },
+  ],
+  'home.whyChooseUs': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'primaryCta', label: 'Primary CTA Text' },
+    { name: 'primaryCtaLink', label: 'Primary CTA Link' },
+    { name: 'secondaryCta', label: 'Secondary CTA Text' },
+    { name: 'secondaryCtaLink', label: 'Secondary CTA Link' },
+    { name: 'lottieJson', label: 'Lottie Animation (right visual)', kind: 'lottie' },
+    {
+      name: 'benefits', label: 'Benefit Cards', kind: 'objectArray', itemLabel: 'Benefit',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { icon: 'fa-cube', title: '', description: '' },
+    },
+  ],
+  'home.aiExpertise': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'primaryCta', label: 'Primary CTA Text' },
+    { name: 'secondaryCta', label: 'Secondary CTA Text' },
+    { name: 'lottieJson', label: 'Lottie Animation (left visual)', kind: 'lottie' },
+    {
+      name: 'items', label: 'AI Solutions Cards', kind: 'objectArray', itemLabel: 'Solution',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-brain)' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { icon: 'fa-brain', title: '', description: '' },
     },
   ],
   'home.services': [
@@ -558,30 +633,152 @@ const SIMPLE_FIELD_CONFIGS = {
     { name: 'title', label: 'Title' },
     { name: 'description', label: 'Description' },
     {
-      name: 'items', label: 'Service Items', kind: 'objectArray', itemLabel: 'Service',
+      name: 'items', label: 'Service Cards', kind: 'objectArray', itemLabel: 'Service',
       itemFields: [
-        { name: 'number', label: 'Number' }, { name: 'title', label: 'Title' }, { name: 'description', label: 'Description' },
-        { name: 'link', label: 'Link' }, { name: 'image', label: 'Image', type: 'image' },
+        { name: 'number', label: 'Number / ID' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+        { name: 'link', label: 'Link' },
+        { name: 'image', label: 'Image', type: 'image' },
       ],
-      addTemplate: { number: '', title: '', description: '', link: '', image: '' },
+      addTemplate: { number: '01', title: '', description: '', link: '/services', image: '' },
+    },
+  ],
+  'home.industries': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    {
+      name: 'items', label: 'Industry Cards', kind: 'objectArray', itemLabel: 'Industry',
+      itemFields: [
+        { name: 'title', label: 'Industry Name' },
+        { name: 'description', label: 'Description' },
+        { name: 'image', label: 'Background Image', type: 'image' },
+        { name: 'link', label: 'Link' },
+      ],
+      addTemplate: { title: '', description: '', image: '', link: '/services' },
+    },
+  ],
+  'home.technologies': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    {
+      name: 'innerRing', label: 'Inner Ring (AI & ML)', kind: 'objectArray', itemLabel: 'Node',
+      itemFields: [
+        { name: 'name', label: 'Name' },
+        { name: 'category', label: 'Category' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
+        { name: 'color', label: 'Accent Color (e.g. #10a37f)' },
+      ],
+      addTemplate: { name: '', category: '', icon: 'fa-microchip', iconPrefix: 'fas', color: '#38bdf8' },
+    },
+    {
+      name: 'middleRing', label: 'Middle Ring (Languages & Frameworks)', kind: 'objectArray', itemLabel: 'Node',
+      itemFields: [
+        { name: 'name', label: 'Name' },
+        { name: 'category', label: 'Category' },
+        { name: 'icon', label: 'Icon Class' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
+        { name: 'color', label: 'Accent Color' },
+      ],
+      addTemplate: { name: '', category: '', icon: 'fa-code', iconPrefix: 'fab', color: '#61dafb' },
+    },
+    {
+      name: 'outerRing', label: 'Outer Ring (Cloud & Enterprise Platforms)', kind: 'objectArray', itemLabel: 'Node',
+      itemFields: [
+        { name: 'name', label: 'Name' },
+        { name: 'category', label: 'Category' },
+        { name: 'icon', label: 'Icon Class' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
+        { name: 'color', label: 'Accent Color' },
+      ],
+      addTemplate: { name: '', category: '', icon: 'fa-cloud', iconPrefix: 'fab', color: '#ff9900' },
     },
   ],
   'home.workingProcess': [
     { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Title' },
-    { name: 'startProjectsButton', label: 'Start Projects Button' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'startProjectsButton', label: 'CTA Button Text' },
     {
-      name: 'steps', label: 'Steps', kind: 'objectArray', itemLabel: 'Step',
-      itemFields: [{ name: 'number', label: 'Number' }, { name: 'title', label: 'Title' }, { name: 'description', label: 'Description' }, { name: 'icon', label: 'Icon', type: 'image' }],
-      addTemplate: { number: '', title: '', description: '', icon: '' },
+      name: 'steps', label: 'Process Steps', kind: 'objectArray', itemLabel: 'Step',
+      itemFields: [
+        { name: 'number', label: 'Number' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { number: '', title: '', description: '' },
+    },
+  ],
+  'home.consultingExpertise': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'ctaButton', label: 'CTA Button Text' },
+    {
+      name: 'items', label: 'Capabilities Matrix', kind: 'objectArray', itemLabel: 'Capability',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-brain)' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+      ],
+      addTemplate: { icon: 'fa-brain', title: '', description: '' },
+    },
+  ],
+  'home.esgCompliance': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    {
+      name: 'panels', label: 'Dashboard Panels', kind: 'objectArray', itemLabel: 'Panel',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-seedling)' },
+        { name: 'title', label: 'Title' },
+        { name: 'description', label: 'Description' },
+        { name: 'items', label: 'Bullet Points', type: 'stringArray', itemLabel: 'Bullet' },
+        { name: 'ctaText', label: 'CTA Text' },
+        { name: 'link', label: 'Link' },
+      ],
+      addTemplate: { icon: 'fa-leaf', title: '', description: '', items: [], ctaText: '', link: '/services' },
+    },
+  ],
+  'home.servingRegion': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'ctaButton', label: 'CTA Button Text' },
+    {
+      name: 'categories', label: 'Service Directory', kind: 'objectArray', itemLabel: 'Category',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
+        { name: 'title', label: 'Title' },
+        { name: 'countText', label: 'Count Text (e.g. 4 Specialized Services)' },
+        { name: 'services', label: 'Services', type: 'stringArray', itemLabel: 'Service' },
+      ],
+      addTemplate: { icon: 'fa-robot', title: '', countText: '', services: [] },
+    },
+  ],
+  'home.faq': [
+    { name: 'badge', label: 'Badge' },
+    { name: 'title', label: 'Heading' },
+    { name: 'description', label: 'Description' },
+    { name: 'ctaButton', label: 'CTA Button Text' },
+    {
+      name: 'items', label: 'FAQ Items', kind: 'objectArray', itemLabel: 'FAQ Item',
+      itemFields: [{ name: 'question', label: 'Question' }, { name: 'answer', label: 'Answer' }],
+      addTemplate: { question: '', answer: '' },
     },
   ],
   'home.cta': [
-    { name: 'prompt', label: 'Prompt' },
-    { name: 'title', label: 'Title' },
-    { name: 'button', label: 'Button Text' },
+    { name: 'badge', label: 'Badge' },
+    { name: 'headingMain', label: 'Heading (main part)' },
+    { name: 'headingHighlight', label: 'Heading (highlighted word, e.g. AI?)' },
+    { name: 'description', label: 'Description' },
+    { name: 'primaryBtnText', label: 'Primary Button Text' },
+    { name: 'secondaryBtnText', label: 'Secondary Button Text' },
     { name: 'whatsappLink', label: 'WhatsApp Link' },
-    { name: 'backgroundImage', label: 'Background Image', kind: 'image' },
   ],
   'about.hero': [
     { name: 'title', label: 'Title' },
@@ -688,6 +885,7 @@ const SIMPLE_FIELD_CONFIGS = {
 
 const renderSimpleField = (f, local, set, token) => {
   if (f.kind === 'image') return <ImageField key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} />;
+  if (f.kind === 'lottie') return <LottieField key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} />;
   if (f.kind === 'stringArray') {
     return (
       <div key={f.name} className="field-group field-full">
@@ -704,7 +902,61 @@ const renderSimpleField = (f, local, set, token) => {
       </div>
     );
   }
-  return <Field key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} />;
+  return <Field key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} full={f.full} />;
+};
+
+// ---------------------------------------------------------------------------
+// Bento Services (Home page top grid) — 4 fixed, differently-shaped cards
+// rather than a repeating list, so each gets its own field set.
+// ---------------------------------------------------------------------------
+
+const BentoServicesEditor = ({ content, onSave, onRegisterSave, token }) => {
+  const [local, setLocal] = useState(content || {});
+  useEffect(() => setLocal(content || {}), [content]);
+  useRegisterSave(onRegisterSave, () => onSave(local));
+
+  const set = (card, field, value) => setLocal((prev) => ({ ...prev, [card]: { ...prev[card], [field]: value } }));
+  const agenticAi = local.agenticAi || {};
+  const softwareData = local.softwareData || {};
+  const stat = local.stat || {};
+  const cloud = local.cloud || {};
+
+  return (
+    <div>
+      <h3>Card 1: Agentic AI (tall, pill row)</h3>
+      <div className="field-grid">
+        <ImageField label="Background Image" value={agenticAi.image} onChange={(v) => set('agenticAi', 'image', v)} token={token} />
+        <PlainField label="Link" value={agenticAi.link} onChange={(v) => set('agenticAi', 'link', v)} placeholder="/agentic-ai" />
+        <Field label="Pill 1" value={agenticAi.pillOne} onChange={(v) => set('agenticAi', 'pillOne', v)} token={token} />
+        <Field label="Pill 2" value={agenticAi.pillTwo} onChange={(v) => set('agenticAi', 'pillTwo', v)} token={token} />
+        <Field label="Title" value={agenticAi.title} onChange={(v) => set('agenticAi', 'title', v)} token={token} full />
+      </div>
+
+      <h3>Card 2: Software & Data AI (tall, simple)</h3>
+      <div className="field-grid">
+        <ImageField label="Background Image" value={softwareData.image} onChange={(v) => set('softwareData', 'image', v)} token={token} />
+        <PlainField label="Link" value={softwareData.link} onChange={(v) => set('softwareData', 'link', v)} placeholder="/software-data-ai" />
+        <Field label="Title" value={softwareData.title} onChange={(v) => set('softwareData', 'title', v)} token={token} full />
+        <Field label="Description" value={softwareData.description} onChange={(v) => set('softwareData', 'description', v)} token={token} full />
+      </div>
+
+      <h3>Card 3: Stat Card</h3>
+      <div className="field-grid">
+        <ImageField label="Background Image" value={stat.image} onChange={(v) => set('stat', 'image', v)} token={token} />
+        <PlainField label="Link" value={stat.link} onChange={(v) => set('stat', 'link', v)} placeholder="/about" />
+        <Field label="Number (e.g. 100+)" value={stat.number} onChange={(v) => set('stat', 'number', v)} token={token} />
+        <Field label="Label" value={stat.label} onChange={(v) => set('stat', 'label', v)} token={token} />
+      </div>
+
+      <h3>Card 4: Cloud Services (tag card)</h3>
+      <div className="field-grid">
+        <ImageField label="Background Image" value={cloud.image} onChange={(v) => set('cloud', 'image', v)} token={token} />
+        <PlainField label="Link" value={cloud.link} onChange={(v) => set('cloud', 'link', v)} placeholder="/cloud-service" />
+        <Field label="Title" value={cloud.title} onChange={(v) => set('cloud', 'title', v)} token={token} full />
+        <Field label="Tag Label" value={cloud.tagLabel} onChange={(v) => set('cloud', 'tagLabel', v)} token={token} />
+      </div>
+    </div>
+  );
 };
 
 const SimpleSubsectionEditor = ({ value, fields, onSave, onRegisterSave, token }) => {
@@ -856,9 +1108,7 @@ const ServicePartEditor = ({ content, part, onSave, onRegisterSave, token }) => 
         <Field label="Title Line 2" value={hero.titleLine2} onChange={(v) => set('hero', 'titleLine2', v)} token={token} />
         <Field label="CTA Button" value={hero.ctaButton} onChange={(v) => set('hero', 'ctaButton', v)} token={token} />
         <Field label="Description" value={hero.description} onChange={(v) => set('hero', 'description', v)} token={token} full />
-        <PlainField label="Lottie Animation Path (leave empty to use a static image instead)" value={hero.lottiePath} onChange={(v) => set('hero', 'lottiePath', v)} placeholder="/lottie/example.json" />
-        <PlainField label="Fallback Icon Class (e.g. fa-robot)" value={hero.fallbackIcon} onChange={(v) => set('hero', 'fallbackIcon', v)} placeholder="fa-robot" />
-        <ImageField label="Static Hero Image (used only if no Lottie path)" value={hero.image} onChange={(v) => set('hero', 'image', v)} token={token} />
+        <ImageField label="Hero Image" value={hero.image} onChange={(v) => set('hero', 'image', v)} token={token} />
       </div>
     );
   }

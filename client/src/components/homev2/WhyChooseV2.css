@@ -1,0 +1,525 @@
+/* ==========================================================================
+   Why Choose Venus Global Technology - Homepage V2 (Enterprise SaaS Style)
+   ========================================================================== */
+
+.v2-why-choose-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 0;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+/* Ambient Radial Background Glows */
+.v2-why-choose-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.v2-why-choose-ambient-glow.glow-1 {
+  top: 10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.v2-why-choose-ambient-glow.glow-2 {
+  bottom: 5%;
+  left: -5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Main Container */
+.v2-why-choose-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid Layout */
+.v2-why-choose-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: Content
+   -------------------------------------------------------------------------- */
+
+.v2-why-choose-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Badge */
+.v2-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.v2-why-choose-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 0.8rem;
+  animation: v2-pulse-sparkle 2.5s infinite ease-in-out;
+}
+
+.v2-why-choose-badge-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+@keyframes v2-pulse-sparkle {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Heading */
+.v2-why-choose-heading {
+  font-size: 3.5rem; /* 56px */
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 20px;
+  max-width: 680px;
+  background: linear-gradient(135deg, #0f172a 40%, #1e293b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Paragraph */
+.v2-why-choose-paragraph {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+/* Benefits List */
+.v2-why-choose-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  margin-bottom: 44px;
+}
+
+.v2-why-choose-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+}
+
+.v2-why-choose-benefit-item:hover {
+  background: rgba(248, 250, 252, 0.8);
+  transform: translateX(4px);
+}
+
+.v2-why-choose-benefit-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+  transition: all 0.3s ease;
+}
+
+.v2-why-choose-benefit-item:hover .v2-why-choose-benefit-icon-wrap {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+  transform: scale(1.05);
+}
+
+.v2-why-choose-benefit-content {
+  flex: 1;
+}
+
+.v2-why-choose-benefit-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.v2-why-choose-benefit-desc {
+  font-size: 1rem; /* 16px */
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Call To Action Row */
+.v2-why-choose-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.v2-why-choose-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.v2-why-choose-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -5px rgba(37, 99, 235, 0.45);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+}
+
+.v2-why-choose-btn-primary i {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.v2-why-choose-btn-primary:hover i {
+  transform: translateX(4px);
+}
+
+.v2-why-choose-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 8px;
+  transition: color 0.2s ease;
+}
+
+.v2-why-choose-btn-secondary:hover {
+  color: #2563eb;
+}
+
+.v2-why-choose-arrow {
+  transition: transform 0.2s ease;
+}
+
+.v2-why-choose-btn-secondary:hover .v2-why-choose-arrow {
+  transform: translateX(6px);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: Visual Card & Lottie Container
+   -------------------------------------------------------------------------- */
+
+.v2-why-choose-right {
+  position: relative;
+  width: 100%;
+}
+
+.v2-why-choose-visual-card {
+  position: relative;
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 60%, #eff6ff 100%);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 32px;
+  padding: 40px 32px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  transition: all 0.4s ease;
+}
+
+.v2-why-choose-visual-card:hover {
+  box-shadow: 0 35px 60px -15px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(191, 219, 254, 0.8);
+}
+
+.v2-visual-card-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lottie Player */
+.v2-lottie-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v2-why-choose-lottie {
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  filter: drop-shadow(0 15px 30px rgba(15, 23, 42, 0.06));
+}
+
+/* Lottie Fallback */
+.v2-lottie-fallback {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.v2-lottie-fallback-icon {
+  font-size: 4rem;
+  color: #2563eb;
+}
+
+/* Floating Decorative Badges */
+.v2-floating-badge {
+  position: absolute;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 10px 16px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.badge-top-right {
+  top: -16px;
+  right: -12px;
+  animation: v2-float-badge-1 5s infinite ease-in-out;
+}
+
+.badge-bottom-left {
+  bottom: 24px;
+  left: -20px;
+  animation: v2-float-badge-2 6s infinite ease-in-out 1s;
+}
+
+.badge-bottom-right {
+  bottom: -16px;
+  right: 24px;
+  animation: v2-float-badge-3 5.5s infinite ease-in-out 0.5s;
+}
+
+.v2-floating-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+.v2-floating-badge-icon.icon-ai {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.v2-floating-badge-icon.icon-cloud {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.v2-floating-badge-icon.icon-security {
+  background: #faf5ff;
+  color: #9333ea;
+}
+
+.v2-floating-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.v2-floating-badge-text strong {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.v2-floating-badge-text span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+@keyframes v2-float-badge-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes v2-float-badge-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes v2-float-badge-3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+  .v2-why-choose-heading {
+    font-size: 3rem; /* ~48px */
+  }
+
+  .v2-why-choose-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .v2-why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .v2-why-choose-left {
+    align-items: flex-start;
+  }
+
+  .v2-why-choose-heading {
+    font-size: 2.75rem; /* 44px */
+    max-width: 100%;
+  }
+
+  .v2-why-choose-paragraph {
+    max-width: 100%;
+  }
+
+  .v2-why-choose-visual-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-why-choose-section {
+    padding: 60px 0;
+  }
+
+  .v2-why-choose-container {
+    padding: 0 20px;
+  }
+
+  .v2-why-choose-heading {
+    font-size: 2.15rem; /* 34px */
+  }
+
+  .v2-why-choose-paragraph {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .v2-why-choose-benefit-item {
+    padding: 8px 0;
+    gap: 14px;
+  }
+
+  .v2-why-choose-benefit-icon-wrap {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .v2-why-choose-benefit-title {
+    font-size: 1.1rem;
+  }
+
+  .v2-why-choose-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .v2-why-choose-btn-primary {
+    justify-content: center;
+  }
+
+  .v2-why-choose-btn-secondary {
+    justify-content: center;
+  }
+
+  .v2-why-choose-visual-card {
+    padding: 24px 16px;
+    min-height: 380px;
+  }
+
+  .badge-top-right {
+    top: -12px;
+    right: 4px;
+  }
+
+  .badge-bottom-left {
+    bottom: -12px;
+    left: 4px;
+  }
+
+  .badge-bottom-right {
+    display: none;
+  }
+}

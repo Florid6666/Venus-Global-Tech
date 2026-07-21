@@ -23,14 +23,15 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
+        
+        {/* Left Side Logo */}
         <div className="nav-logo">
           <Link to="/" className="logo-link" onClick={handleLinkClick}>
-            <img src={logo} alt={logoAlt} className="logo-img" />
+            <img src={logo} alt={logoAlt || "Venus Global Tech"} className="logo-img" />
           </Link>
         </div>
 
-        <div className="nav-divider"></div>
-
+        {/* Center Navigation Menu */}
         <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             {menuItems.map((item) => (
@@ -49,7 +50,7 @@ const Navbar = () => {
                   <>
                     <a href="#" className="nav-link">
                       <RichText html={item.label} as="span" />
-                      <i className="fas fa-chevron-down"></i>
+                      <i className="fas fa-chevron-down nav-chevron"></i>
                     </a>
                     {isServicesOpen && (
                       <div className="dropdown-menu">
@@ -74,36 +75,67 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          {/* Mobile-only call option */}
+
+          {/* Mobile-only CTA */}
           <div className="mobile-only">
-            <div className="nav-call">
-              <button className="nav-call-wrap" onClick={() => window.open(whatsappLink, '_blank')}>
-                <i className="fas fa-phone"></i>
-                <span>Call Us</span>
+            <div className="nav-mobile-cta">
+              <button 
+                className="nav-btn-primary full-width" 
+                onClick={() => {
+                  handleLinkClick();
+                  window.open(whatsappLink || 'https://wa.me/16477220837', '_blank');
+                }}
+              >
+                <i className="fas fa-phone-alt"></i>
+                <span>Book a Call</span>
               </button>
             </div>
           </div>
         </div>
 
-        <div className="nav-divider"></div>
+        {/* Right Side Call Info & Book a Call Button */}
+        <div className="nav-right-actions">
+          
+          {/* Call Any Time Block */}
+          <div 
+            className="nav-call-block" 
+            onClick={() => window.open(whatsappLink || 'https://wa.me/16477220837', '_blank')}
+          >
+            <div className="nav-call-icon-badge">
+              <i className="fas fa-phone-alt"></i>
+            </div>
+            <div className="nav-call-text-wrap">
+              <span className="nav-call-label">{callText || 'Call Any Time'}</span>
+              <span className="nav-call-number">{phoneNumber || '647-722-0837'}</span>
+            </div>
+          </div>
 
-        <div className="nav-contact">
-          <div className="contact-info">
-            <div className="contact-text">{callText}</div>
-            <div className="contact-number" onClick={() => window.open(whatsappLink, '_blank')} style={{cursor: 'pointer'}}>{phoneNumber}</div>
-          </div>
-          <div className="contact-icon">
-            <i className="fas fa-phone"></i>
-          </div>
+          {/* Divider */}
+          <div className="nav-action-divider"></div>
+
+          {/* Book a Call CTA Pill Button */}
+          <button 
+            className="nav-btn-primary"
+            onClick={() => window.open(whatsappLink || 'https://wa.me/16477220837', '_blank')}
+          >
+            Book a Call
+          </button>
+
         </div>
 
-        {/* Hamburger Toggle */}
-        <button className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Navigation"
+        >
           <span className="nav-toggle-bar"></span>
           <span className="nav-toggle-bar"></span>
           <span className="nav-toggle-bar"></span>
         </button>
+
       </div>
+
       {isMenuOpen && <div className="nav-overlay" onClick={() => setIsMenuOpen(false)}></div>}
     </nav>
   );
