@@ -123,7 +123,7 @@ const ensureDataBootstrap = async () => {
 const NEW_HOME_KEYS = [
   'bentoServices', 'trustSection', 'whyChooseUs', 'aiExpertise',
   'industries', 'technologies', 'consultingExpertise', 'esgCompliance', 'servingRegion',
-  'whyWeHelp',
+  'whyWeHelp', 'erpShowcase',
 ];
 
 // home.services.items grew from 6 to 16 entries as part of the same

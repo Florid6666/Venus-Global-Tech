@@ -7,6 +7,7 @@ import RichText from '../../components/RichText';
 import { stripHtml } from '../../utils/stripHtml';
 import HeroV2 from '../../components/homev2/HeroV2';
 import BentoServices from '../../components/homev2/BentoServices';
+import ErpShowcaseV2 from '../../components/homev2/ErpShowcaseV2';
 import WhyChooseV2 from '../../components/homev2/WhyChooseV2';
 import AiSolutionsV2 from '../../components/homev2/AiSolutionsV2';
 import IndustriesV2 from '../../components/homev2/IndustriesV2';
@@ -395,6 +396,9 @@ const HomeV2 = () => {
       )}
 
       </section>
+
+      {/* VENUS ERP SUITE — IN-HOUSE PRODUCT SHOWCASE */}
+      <ErpShowcaseV2 content={homeContent.erpShowcase} />
 
       {/* 4. BRAND NEW WHY CHOOSE VENUS GLOBAL TECHNOLOGY SECTION */}
       <WhyChooseV2 content={homeContent.whyChooseUs} />

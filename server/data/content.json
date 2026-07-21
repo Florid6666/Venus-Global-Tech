@@ -849,6 +849,37 @@
           "description": "We pride ourselves on delivering excellence, reflected in the high satisfaction of every client."
         }
       ]
+    },
+    "erpShowcase": {
+      "badge": "BUILT IN-HOUSE BY VENUS GLOBAL TECHNOLOGY",
+      "title": "Venus ERP Suite — Enterprise Automation, Engineered In-House",
+      "description": "We didn't just consult on ERP — we built one. Venus ERP Suite is our own in-house platform, already running in production, unifying automation, HR, finance, and day-to-day operations into a single system of record for businesses across industries.",
+      "image": "/images/homev2/wave-dashboard.png",
+      "ctaButton": "Explore Venus ERP Suite",
+      "ctaLink": "https://brewmaster-ui.vercel.app/",
+      "ctaNote": "Live product walkthrough — opens in a new tab",
+      "features": [
+        {
+          "icon": "fa-robot",
+          "label": "Process Automation"
+        },
+        {
+          "icon": "fa-users",
+          "label": "HR Management"
+        },
+        {
+          "icon": "fa-coins",
+          "label": "Finance & Accounting"
+        },
+        {
+          "icon": "fa-gears",
+          "label": "Operations"
+        },
+        {
+          "icon": "fa-chart-line",
+          "label": "Real-Time Analytics"
+        }
+      ]
     }
   },
   "about": {

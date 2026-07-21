@@ -116,6 +116,7 @@ const buildTree = (content) => [
       { key: 'trustSection', label: 'Testimonial & Stats' },
       { key: 'whyWeHelp', label: 'Why We Help / Impact' },
       { key: 'services', label: 'Services Card Grid' },
+      { key: 'erpShowcase', label: 'Venus ERP Suite' },
       { key: 'whyChooseUs', label: 'Why Choose Us' },
       { key: 'aiExpertise', label: 'AI Solutions Grid' },
       { key: 'industries', label: 'Industries We Serve' },
@@ -602,6 +603,23 @@ const SIMPLE_FIELD_CONFIGS = {
         { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-lightbulb', title: '', description: '' },
+    },
+  ],
+  'home.erpShowcase': [
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'image', label: 'Dashboard Screenshot', kind: 'image' },
+    { name: 'ctaButton', label: 'CTA Button Text', kind: 'plain' },
+    { name: 'ctaLink', label: 'CTA Link (external URL)', kind: 'plain', placeholder: 'https://brewmaster-ui.vercel.app/' },
+    { name: 'ctaNote', label: 'CTA Helper Text', kind: 'plain' },
+    {
+      name: 'features', label: 'Feature Pills', kind: 'objectArray', itemLabel: 'Feature',
+      itemFields: [
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)', type: 'plain' },
+        { name: 'label', label: 'Label', type: 'plain' },
+      ],
+      addTemplate: { icon: 'fa-cube', label: '' },
     },
   ],
   'home.whyChooseUs': [
