@@ -161,6 +161,44 @@ const rewriteRenamedPaths = (value) => {
   return value;
 };
 
+// Fields the admin panel used to expose via the rich-text (CKEditor) editor
+// even though their component renders them as plain text — editing one wraps
+// the value in <p></p> and HTML-encodes characters like `&`, which then show
+// up literally on the page (e.g. "<p>Enterprise AI &amp; Digital...</p>").
+// The admin field type is now fixed (see Admin.jsx, kind/type: 'plain'), but
+// any value already saved through the old buggy field needs a one-time clean.
+const stripCkEditorArtifact = (value) => {
+  if (typeof value !== 'string') return value;
+  const match = value.match(/^<p>([\s\S]*)<\/p>$/i);
+  const inner = match ? match[1] : value;
+  return inner
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .trim();
+};
+
+const HERO_PLAIN_FIELDS = ['titleLine1', 'titleLine2', 'ctaButton', 'secondaryCtaButton', 'secondaryCtaLink'];
+
+const cleanHeroPlainFields = (content) => {
+  const hero = content.home?.hero;
+  if (!hero) return false;
+  let changed = false;
+  for (const key of HERO_PLAIN_FIELDS) {
+    if (typeof hero[key] === 'string') {
+      const cleaned = stripCkEditorArtifact(hero[key]);
+      if (cleaned !== hero[key]) {
+        hero[key] = cleaned;
+        changed = true;
+      }
+    }
+  }
+  return changed;
+};
+
 const migrateContent = async () => {
   let content;
   try {
@@ -170,6 +208,8 @@ const migrateContent = async () => {
   }
 
   let changed = false;
+
+  if (cleanHeroPlainFields(content)) changed = true;
 
   try {
     const seed = JSON.parse(await fs.readFile(path.join(__dirname, 'data-seed', 'content.json'), 'utf8'));

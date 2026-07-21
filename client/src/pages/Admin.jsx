@@ -63,6 +63,9 @@ const ArrayEditor = ({ items, fields, onChange, addTemplate, itemLabel, token })
                   </div>
                 );
               }
+              if (f.type === 'plain') {
+                return <PlainField key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} placeholder={f.placeholder} />;
+              }
               return <Field key={f.name} label={f.label} value={item[f.name]} onChange={(v) => update(index, f.name, v)} token={token} />;
             })}
           </div>
@@ -545,89 +548,100 @@ const LeafEditor = ({ path, content, token, onSave, onRegisterSave }) => {
 
 const SIMPLE_FIELD_CONFIGS = {
   'home.hero': [
-    { name: 'titleLine1', label: 'Title Line 1' },
-    { name: 'titleLine2', label: 'Title Line 2 (highlighted)' },
+    { name: 'titleLine1', label: 'Title Line 1', kind: 'plain' },
+    { name: 'titleLine2', label: 'Title Line 2 (highlighted)', kind: 'plain' },
     { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'Primary CTA Button Text' },
-    { name: 'secondaryCtaButton', label: 'Secondary CTA Button Text' },
-    { name: 'secondaryCtaLink', label: 'Secondary CTA Link' },
+    { name: 'ctaButton', label: 'Primary CTA Button Text', kind: 'plain' },
+    { name: 'secondaryCtaButton', label: 'Secondary CTA Button Text', kind: 'plain' },
+    { name: 'secondaryCtaLink', label: 'Secondary CTA Link', kind: 'plain', placeholder: '/contact' },
   ],
+  // NOTE: none of the v2 home components below render their badge/title/
+  // description/button/item text through the HTML-aware RichText component —
+  // they interpolate the raw string. Editing them via the rich-text (CKEditor)
+  // field wraps the value in <p> tags and HTML-encodes characters like `&`,
+  // which then show up literally on the page instead of being interpreted.
+  // So every field here that isn't rendered via RichText uses kind/type
+  // 'plain' (a bare <input>) instead of the default rich Field.
   'home.trustSection': [
-    { name: 'heading', label: 'Section Heading' },
-    { name: 'badge', label: "Testimonial Badge (e.g. CEO's Words)" },
-    { name: 'quote', label: 'Testimonial Quote', full: true },
-    { name: 'personName', label: 'Person Name' },
-    { name: 'personRole', label: 'Person Role' },
+    { name: 'heading', label: 'Section Heading', kind: 'plain' },
+    { name: 'badge', label: "Testimonial Badge (e.g. CEO's Words)", kind: 'plain' },
+    { name: 'quote', label: 'Testimonial Quote', kind: 'plain', full: true },
+    { name: 'personName', label: 'Person Name', kind: 'plain' },
+    { name: 'personRole', label: 'Person Role', kind: 'plain' },
     { name: 'avatar', label: 'Person Avatar', kind: 'image' },
     {
       name: 'stats', label: 'Stat Cards', kind: 'objectArray', itemLabel: 'Stat',
       itemFields: [
-        { name: 'value', label: 'Value (e.g. 15+ or 98%)' },
-        { name: 'label', label: 'Label' },
-        { name: 'description', label: 'Description' },
+        { name: 'value', label: 'Value (e.g. 15+ or 98%)', type: 'plain' },
+        { name: 'label', label: 'Label', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { value: '', label: '', description: '' },
     },
   ],
+  // whyWeHelp's badge/title/description ARE rendered via RichText in
+  // HomeV2.jsx, so those three stay as the rich-text field.
   'home.whyWeHelp': [
     { name: 'badge', label: 'Badge' },
     { name: 'title', label: 'Heading' },
     { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'Primary CTA Text' },
-    { name: 'ctaLink', label: 'Primary CTA Link' },
-    { name: 'secondaryLink', label: 'Secondary Link Text' },
-    { name: 'secondaryLinkHref', label: 'Secondary Link Href' },
+    { name: 'ctaButton', label: 'Primary CTA Text', kind: 'plain' },
+    { name: 'ctaLink', label: 'Primary CTA Link', kind: 'plain', placeholder: '/contact' },
+    { name: 'secondaryLink', label: 'Secondary Link Text', kind: 'plain' },
+    { name: 'secondaryLinkHref', label: 'Secondary Link Href', kind: 'plain', placeholder: '/blogs' },
     {
       name: 'stats', label: 'Stats', kind: 'objectArray', itemLabel: 'Stat',
-      itemFields: [{ name: 'number', label: 'Value (e.g. 16+)' }, { name: 'label', label: 'Label' }],
+      itemFields: [{ name: 'number', label: 'Value (e.g. 16+)', type: 'plain' }, { name: 'label', label: 'Label', type: 'plain' }],
       addTemplate: { number: '', label: '' },
     },
     {
       name: 'items', label: 'Highlight Cards', kind: 'objectArray', itemLabel: 'Highlight',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-lightbulb)' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-lightbulb)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-lightbulb', title: '', description: '' },
     },
   ],
   'home.whyChooseUs': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
-    { name: 'primaryCta', label: 'Primary CTA Text' },
-    { name: 'primaryCtaLink', label: 'Primary CTA Link' },
-    { name: 'secondaryCta', label: 'Secondary CTA Text' },
-    { name: 'secondaryCtaLink', label: 'Secondary CTA Link' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'primaryCta', label: 'Primary CTA Text', kind: 'plain' },
+    { name: 'primaryCtaLink', label: 'Primary CTA Link', kind: 'plain', placeholder: '/contact' },
+    { name: 'secondaryCta', label: 'Secondary CTA Text', kind: 'plain' },
+    { name: 'secondaryCtaLink', label: 'Secondary CTA Link', kind: 'plain', placeholder: '/services' },
     { name: 'lottieJson', label: 'Lottie Animation (right visual)', kind: 'lottie' },
     {
       name: 'benefits', label: 'Benefit Cards', kind: 'objectArray', itemLabel: 'Benefit',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-cube', title: '', description: '' },
     },
   ],
   'home.aiExpertise': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
-    { name: 'primaryCta', label: 'Primary CTA Text' },
-    { name: 'secondaryCta', label: 'Secondary CTA Text' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'primaryCta', label: 'Primary CTA Text', kind: 'plain' },
+    { name: 'secondaryCta', label: 'Secondary CTA Text', kind: 'plain' },
     { name: 'lottieJson', label: 'Lottie Animation (left visual)', kind: 'lottie' },
     {
       name: 'items', label: 'AI Solutions Cards', kind: 'objectArray', itemLabel: 'Solution',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-brain)' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-brain)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-brain', title: '', description: '' },
     },
   ],
+  // services' own badge/title/description ARE rendered via HomeV2's
+  // SectionHeader (which uses RichText), so those three stay rich-text.
   'home.services': [
     { name: 'badge', label: 'Badge' },
     { name: 'title', label: 'Title' },
@@ -635,150 +649,152 @@ const SIMPLE_FIELD_CONFIGS = {
     {
       name: 'items', label: 'Service Cards', kind: 'objectArray', itemLabel: 'Service',
       itemFields: [
-        { name: 'number', label: 'Number / ID' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
-        { name: 'link', label: 'Link' },
+        { name: 'number', label: 'Number / ID', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
+        { name: 'link', label: 'Link', type: 'plain' },
         { name: 'image', label: 'Image', type: 'image' },
       ],
       addTemplate: { number: '01', title: '', description: '', link: '/services', image: '' },
     },
   ],
   'home.industries': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
     {
       name: 'items', label: 'Industry Cards', kind: 'objectArray', itemLabel: 'Industry',
       itemFields: [
-        { name: 'title', label: 'Industry Name' },
-        { name: 'description', label: 'Description' },
+        { name: 'title', label: 'Industry Name', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
         { name: 'image', label: 'Background Image', type: 'image' },
-        { name: 'link', label: 'Link' },
+        { name: 'link', label: 'Link', type: 'plain' },
       ],
       addTemplate: { title: '', description: '', image: '', link: '/services' },
     },
   ],
   'home.technologies': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
     {
       name: 'innerRing', label: 'Inner Ring (AI & ML)', kind: 'objectArray', itemLabel: 'Node',
       itemFields: [
-        { name: 'name', label: 'Name' },
-        { name: 'category', label: 'Category' },
-        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
-        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
-        { name: 'color', label: 'Accent Color (e.g. #10a37f)' },
+        { name: 'name', label: 'Name', type: 'plain' },
+        { name: 'category', label: 'Category', type: 'plain' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)', type: 'plain' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)", type: 'plain' },
+        { name: 'color', label: 'Accent Color (e.g. #10a37f)', type: 'plain' },
       ],
       addTemplate: { name: '', category: '', icon: 'fa-microchip', iconPrefix: 'fas', color: '#38bdf8' },
     },
     {
       name: 'middleRing', label: 'Middle Ring (Languages & Frameworks)', kind: 'objectArray', itemLabel: 'Node',
       itemFields: [
-        { name: 'name', label: 'Name' },
-        { name: 'category', label: 'Category' },
-        { name: 'icon', label: 'Icon Class' },
-        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
-        { name: 'color', label: 'Accent Color' },
+        { name: 'name', label: 'Name', type: 'plain' },
+        { name: 'category', label: 'Category', type: 'plain' },
+        { name: 'icon', label: 'Icon Class', type: 'plain' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)", type: 'plain' },
+        { name: 'color', label: 'Accent Color', type: 'plain' },
       ],
       addTemplate: { name: '', category: '', icon: 'fa-code', iconPrefix: 'fab', color: '#61dafb' },
     },
     {
       name: 'outerRing', label: 'Outer Ring (Cloud & Enterprise Platforms)', kind: 'objectArray', itemLabel: 'Node',
       itemFields: [
-        { name: 'name', label: 'Name' },
-        { name: 'category', label: 'Category' },
-        { name: 'icon', label: 'Icon Class' },
-        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)" },
-        { name: 'color', label: 'Accent Color' },
+        { name: 'name', label: 'Name', type: 'plain' },
+        { name: 'category', label: 'Category', type: 'plain' },
+        { name: 'icon', label: 'Icon Class', type: 'plain' },
+        { name: 'iconPrefix', label: "Icon Style ('fas' or 'fab' for brand logos)", type: 'plain' },
+        { name: 'color', label: 'Accent Color', type: 'plain' },
       ],
       addTemplate: { name: '', category: '', icon: 'fa-cloud', iconPrefix: 'fab', color: '#ff9900' },
     },
   ],
+  // workingProcess's own badge/title/description ARE rendered via HomeV2's
+  // SectionHeader (RichText), so those three stay rich-text.
   'home.workingProcess': [
     { name: 'badge', label: 'Badge' },
     { name: 'title', label: 'Heading' },
     { name: 'description', label: 'Description' },
-    { name: 'startProjectsButton', label: 'CTA Button Text' },
+    { name: 'startProjectsButton', label: 'CTA Button Text', kind: 'plain' },
     {
       name: 'steps', label: 'Process Steps', kind: 'objectArray', itemLabel: 'Step',
       itemFields: [
-        { name: 'number', label: 'Number' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'number', label: 'Number', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { number: '', title: '', description: '' },
     },
   ],
   'home.consultingExpertise': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'CTA Button Text' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'ctaButton', label: 'CTA Button Text', kind: 'plain' },
     {
       name: 'items', label: 'Capabilities Matrix', kind: 'objectArray', itemLabel: 'Capability',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-brain)' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-brain)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-brain', title: '', description: '' },
     },
   ],
   'home.esgCompliance': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
     {
       name: 'panels', label: 'Dashboard Panels', kind: 'objectArray', itemLabel: 'Panel',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-seedling)' },
-        { name: 'title', label: 'Title' },
-        { name: 'description', label: 'Description' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-seedling)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'description', label: 'Description', type: 'plain' },
         { name: 'items', label: 'Bullet Points', type: 'stringArray', itemLabel: 'Bullet' },
-        { name: 'ctaText', label: 'CTA Text' },
-        { name: 'link', label: 'Link' },
+        { name: 'ctaText', label: 'CTA Text', type: 'plain' },
+        { name: 'link', label: 'Link', type: 'plain' },
       ],
       addTemplate: { icon: 'fa-leaf', title: '', description: '', items: [], ctaText: '', link: '/services' },
     },
   ],
   'home.servingRegion': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'CTA Button Text' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'ctaButton', label: 'CTA Button Text', kind: 'plain' },
     {
       name: 'categories', label: 'Service Directory', kind: 'objectArray', itemLabel: 'Category',
       itemFields: [
-        { name: 'icon', label: 'Icon Class (e.g. fa-robot)' },
-        { name: 'title', label: 'Title' },
-        { name: 'countText', label: 'Count Text (e.g. 4 Specialized Services)' },
+        { name: 'icon', label: 'Icon Class (e.g. fa-robot)', type: 'plain' },
+        { name: 'title', label: 'Title', type: 'plain' },
+        { name: 'countText', label: 'Count Text (e.g. 4 Specialized Services)', type: 'plain' },
         { name: 'services', label: 'Services', type: 'stringArray', itemLabel: 'Service' },
       ],
       addTemplate: { icon: 'fa-robot', title: '', countText: '', services: [] },
     },
   ],
   'home.faq': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Heading' },
-    { name: 'description', label: 'Description' },
-    { name: 'ctaButton', label: 'CTA Button Text' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'title', label: 'Heading', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'ctaButton', label: 'CTA Button Text', kind: 'plain' },
     {
       name: 'items', label: 'FAQ Items', kind: 'objectArray', itemLabel: 'FAQ Item',
-      itemFields: [{ name: 'question', label: 'Question' }, { name: 'answer', label: 'Answer' }],
+      itemFields: [{ name: 'question', label: 'Question', type: 'plain' }, { name: 'answer', label: 'Answer', type: 'plain' }],
       addTemplate: { question: '', answer: '' },
     },
   ],
   'home.cta': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'headingMain', label: 'Heading (main part)' },
-    { name: 'headingHighlight', label: 'Heading (highlighted word, e.g. AI?)' },
-    { name: 'description', label: 'Description' },
-    { name: 'primaryBtnText', label: 'Primary Button Text' },
-    { name: 'secondaryBtnText', label: 'Secondary Button Text' },
-    { name: 'whatsappLink', label: 'WhatsApp Link' },
+    { name: 'badge', label: 'Badge', kind: 'plain' },
+    { name: 'headingMain', label: 'Heading (main part)', kind: 'plain' },
+    { name: 'headingHighlight', label: 'Heading (highlighted word, e.g. AI?)', kind: 'plain' },
+    { name: 'description', label: 'Description', kind: 'plain', full: true },
+    { name: 'primaryBtnText', label: 'Primary Button Text', kind: 'plain' },
+    { name: 'secondaryBtnText', label: 'Secondary Button Text', kind: 'plain' },
+    { name: 'whatsappLink', label: 'WhatsApp Link', kind: 'plain' },
   ],
   'about.hero': [
     { name: 'title', label: 'Title' },
@@ -886,6 +902,7 @@ const SIMPLE_FIELD_CONFIGS = {
 const renderSimpleField = (f, local, set, token) => {
   if (f.kind === 'image') return <ImageField key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} />;
   if (f.kind === 'lottie') return <LottieField key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} token={token} />;
+  if (f.kind === 'plain') return <PlainField key={f.name} label={f.label} value={local[f.name]} onChange={(v) => set(f.name, v)} full={f.full} placeholder={f.placeholder} />;
   if (f.kind === 'stringArray') {
     return (
       <div key={f.name} className="field-group field-full">
@@ -927,33 +944,33 @@ const BentoServicesEditor = ({ content, onSave, onRegisterSave, token }) => {
       <div className="field-grid">
         <ImageField label="Background Image" value={agenticAi.image} onChange={(v) => set('agenticAi', 'image', v)} token={token} />
         <PlainField label="Link" value={agenticAi.link} onChange={(v) => set('agenticAi', 'link', v)} placeholder="/agentic-ai" />
-        <Field label="Pill 1" value={agenticAi.pillOne} onChange={(v) => set('agenticAi', 'pillOne', v)} token={token} />
-        <Field label="Pill 2" value={agenticAi.pillTwo} onChange={(v) => set('agenticAi', 'pillTwo', v)} token={token} />
-        <Field label="Title" value={agenticAi.title} onChange={(v) => set('agenticAi', 'title', v)} token={token} full />
+        <PlainField label="Pill 1" value={agenticAi.pillOne} onChange={(v) => set('agenticAi', 'pillOne', v)} />
+        <PlainField label="Pill 2" value={agenticAi.pillTwo} onChange={(v) => set('agenticAi', 'pillTwo', v)} />
+        <PlainField label="Title" value={agenticAi.title} onChange={(v) => set('agenticAi', 'title', v)} full />
       </div>
 
       <h3>Card 2: Software & Data AI (tall, simple)</h3>
       <div className="field-grid">
         <ImageField label="Background Image" value={softwareData.image} onChange={(v) => set('softwareData', 'image', v)} token={token} />
         <PlainField label="Link" value={softwareData.link} onChange={(v) => set('softwareData', 'link', v)} placeholder="/software-data-ai" />
-        <Field label="Title" value={softwareData.title} onChange={(v) => set('softwareData', 'title', v)} token={token} full />
-        <Field label="Description" value={softwareData.description} onChange={(v) => set('softwareData', 'description', v)} token={token} full />
+        <PlainField label="Title" value={softwareData.title} onChange={(v) => set('softwareData', 'title', v)} full />
+        <PlainField label="Description" value={softwareData.description} onChange={(v) => set('softwareData', 'description', v)} full />
       </div>
 
       <h3>Card 3: Stat Card</h3>
       <div className="field-grid">
         <ImageField label="Background Image" value={stat.image} onChange={(v) => set('stat', 'image', v)} token={token} />
         <PlainField label="Link" value={stat.link} onChange={(v) => set('stat', 'link', v)} placeholder="/about" />
-        <Field label="Number (e.g. 100+)" value={stat.number} onChange={(v) => set('stat', 'number', v)} token={token} />
-        <Field label="Label" value={stat.label} onChange={(v) => set('stat', 'label', v)} token={token} />
+        <PlainField label="Number (e.g. 100+)" value={stat.number} onChange={(v) => set('stat', 'number', v)} />
+        <PlainField label="Label" value={stat.label} onChange={(v) => set('stat', 'label', v)} />
       </div>
 
       <h3>Card 4: Cloud Services (tag card)</h3>
       <div className="field-grid">
         <ImageField label="Background Image" value={cloud.image} onChange={(v) => set('cloud', 'image', v)} token={token} />
         <PlainField label="Link" value={cloud.link} onChange={(v) => set('cloud', 'link', v)} placeholder="/cloud-service" />
-        <Field label="Title" value={cloud.title} onChange={(v) => set('cloud', 'title', v)} token={token} full />
-        <Field label="Tag Label" value={cloud.tagLabel} onChange={(v) => set('cloud', 'tagLabel', v)} token={token} />
+        <PlainField label="Title" value={cloud.title} onChange={(v) => set('cloud', 'title', v)} full />
+        <PlainField label="Tag Label" value={cloud.tagLabel} onChange={(v) => set('cloud', 'tagLabel', v)} />
       </div>
     </div>
   );
