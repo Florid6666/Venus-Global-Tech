@@ -10,9 +10,9 @@
       "secondaryCtaLink": "/contact",
       "image": "/images/01.png",
       "trailImages": [
-        "/images/Software & Data.jpg",
-        "/images/Agentic AI.jpg",
-        "/images/AI & Cloud.jpg",
+        "/images/software-data.jpg",
+        "/images/agentic-ai.jpg",
+        "/images/ai-cloud.jpg",
         "/images/ESG.jpg",
         "/slider/Team Venus at US thanks giving dinner at AMCHAM Gala Event.jpg",
         "/slider/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
@@ -1187,7 +1187,7 @@
         "industry": {
           "label": "Industry 4.0 & Smart Manufacturing",
           "icon": "fas fa-industry",
-          "image": "/images/AI & Cloud.jpg",
+          "image": "/images/ai-cloud.jpg",
           "color": "#ff6b35",
           "items": [
             "Artificial Intelligence and Machine Learning",

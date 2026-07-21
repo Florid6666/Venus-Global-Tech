@@ -114,6 +114,86 @@ const ensureDataBootstrap = async () => {
   await seedFileIfMissing(BLOGS_FILE, path.join(__dirname, 'data-seed', 'blogs.json'), 'blogs.json');
 };
 
+// content.json already exists on the production volume, so seedFileIfMissing
+// above never touches it — a code deploy alone can't add new home-page
+// sections or fix renamed asset paths on an already-seeded volume. This runs
+// once at boot to patch those gaps without touching any existing admin-edited
+// content. Some of these (whyWeHelp) predate this dev cycle but were only
+// ever saved locally/uncommitted until now, so production never got them either.
+const NEW_HOME_KEYS = [
+  'bentoServices', 'trustSection', 'whyChooseUs', 'aiExpertise',
+  'industries', 'technologies', 'consultingExpertise', 'esgCompliance', 'servingRegion',
+  'whyWeHelp',
+];
+
+// home.services.items grew from 6 to 16 entries as part of the same
+// uncommitted local work — production's array is shorter. Append the missing
+// tail entries by index rather than replacing the array, so any admin edits
+// made to the existing entries are preserved.
+const extendServiceItems = (content, seed) => {
+  const current = content.home?.services?.items;
+  const seedItems = seed.home?.services?.items;
+  if (!Array.isArray(current) || !Array.isArray(seedItems)) return false;
+  if (current.length >= seedItems.length) return false;
+  content.home.services.items = [...current, ...seedItems.slice(current.length)];
+  return true;
+};
+
+// Filenames that used to contain spaces/`&` and were renamed to fix a
+// URL-encoding bug where such paths 404'd under the local dev proxy.
+const RENAMED_ASSET_PATHS = {
+  '/images/Agentic AI.jpg': '/images/agentic-ai.jpg',
+  '/images/AI & Cloud.jpg': '/images/ai-cloud.jpg',
+  '/images/Software & Data.jpg': '/images/software-data.jpg',
+  '/images/esganimation.jpg': '/images/ESG.jpg',
+  '/images/homev2/Hovering laptop girl.json': '/images/homev2/hovering-laptop-girl.json',
+  '/images/homev2/Live chatbot.json': '/images/homev2/live-chatbot.json',
+};
+
+const rewriteRenamedPaths = (value) => {
+  if (Array.isArray(value)) return value.map(rewriteRenamedPaths);
+  if (value && typeof value === 'object') {
+    const next = {};
+    for (const k of Object.keys(value)) next[k] = rewriteRenamedPaths(value[k]);
+    return next;
+  }
+  if (typeof value === 'string' && RENAMED_ASSET_PATHS[value]) return RENAMED_ASSET_PATHS[value];
+  return value;
+};
+
+const migrateContent = async () => {
+  let content;
+  try {
+    content = JSON.parse(await fs.readFile(CONTENT_FILE, 'utf8'));
+  } catch (error) {
+    return; // missing entirely — seedFileIfMissing already handled that case
+  }
+
+  let changed = false;
+
+  try {
+    const seed = JSON.parse(await fs.readFile(path.join(__dirname, 'data-seed', 'content.json'), 'utf8'));
+    for (const key of NEW_HOME_KEYS) {
+      if (content.home && content.home[key] === undefined && seed.home?.[key] !== undefined) {
+        content.home[key] = seed.home[key];
+        changed = true;
+      }
+    }
+    if (extendServiceItems(content, seed)) changed = true;
+  } catch (error) {
+    console.log('Content migration: no seed available to backfill new home sections.');
+  }
+
+  const before = JSON.stringify(content);
+  content = rewriteRenamedPaths(content);
+  if (JSON.stringify(content) !== before) changed = true;
+
+  if (changed) {
+    await fs.writeFile(CONTENT_FILE, JSON.stringify(content, null, 2), 'utf8');
+    console.log('Migrated content.json: backfilled new home sections and/or rewrote renamed asset paths.');
+  }
+};
+
 // JWT-based authentication middleware
 const authenticateAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -616,6 +696,7 @@ try {
 }
 
 Promise.all([ensureAdminBootstrap(), ensureDataBootstrap()])
+  .then(() => migrateContent())
   .catch((error) => console.error('Startup bootstrap failed:', error))
   .finally(() => {
     app.listen(PORT, () => {
