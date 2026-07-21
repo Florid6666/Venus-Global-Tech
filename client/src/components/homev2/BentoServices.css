@@ -219,7 +219,7 @@
 /* Giant outlined number */
 .bs-stat-number {
   font-family: 'Outfit', 'Inter', sans-serif;
-  font-size: 4.8rem;
+  font-size: clamp(2.8rem, 2rem + 4vw, 4.8rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;

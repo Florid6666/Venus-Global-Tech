@@ -92,7 +92,7 @@
 
 /* Heading (56px) */
 .v2-industries-heading {
-  font-size: 3.5rem; /* 56px */
+  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -273,20 +273,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-
-  .v2-industries-heading {
-    font-size: 3rem; /* ~48px */
-  }
 }
 
 @media (max-width: 900px) {
   .v2-industries-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-
-  .v2-industries-heading {
-    font-size: 2.5rem; /* 40px */
   }
 }
 
@@ -301,10 +293,6 @@
 
   .v2-industries-header {
     margin-bottom: 40px;
-  }
-
-  .v2-industries-heading {
-    font-size: 2.15rem; /* ~34px */
   }
 
   .v2-industries-paragraph {

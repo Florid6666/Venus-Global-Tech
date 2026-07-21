@@ -65,7 +65,7 @@
 
 /* Heading (58px) */
 .v2-faq-heading {
-  font-size: 3.6rem; /* ~58px */
+  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.6rem);
   font-weight: 800;
   line-height: 1.14;
   letter-spacing: -0.03em;
@@ -203,7 +203,7 @@
 }
 
 .v2-faq-card.is-open .v2-faq-answer-wrapper {
-  max-height: 350px;
+  max-height: 800px;
   opacity: 1;
 }
 
@@ -235,10 +235,6 @@
     position: static;
   }
 
-  .v2-faq-heading {
-    font-size: 3rem;
-  }
-
   .v2-faq-paragraph {
     max-width: 100%;
   }
@@ -251,10 +247,6 @@
 
   .v2-faq-container {
     padding: 0 20px;
-  }
-
-  .v2-faq-heading {
-    font-size: 2.15rem;
   }
 
   .v2-faq-question-btn {

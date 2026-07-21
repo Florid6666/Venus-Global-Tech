@@ -258,7 +258,7 @@
 
 /* Heading */
 .v2-ai-solutions-heading {
-  font-size: 3.35rem; /* ~54px */
+  font-size: clamp(2.05rem, 1.45rem + 2.9vw, 3.35rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -414,10 +414,6 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1200px) {
-  .v2-ai-solutions-heading {
-    font-size: 2.85rem; /* ~46px */
-  }
-
   .v2-ai-solutions-grid {
     gap: 40px;
   }
@@ -433,10 +429,6 @@
     max-width: 580px;
     margin: 0 auto;
   }
-
-  .v2-ai-solutions-heading {
-    font-size: 2.6rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -446,10 +438,6 @@
 
   .v2-ai-solutions-container {
     padding: 0 20px;
-  }
-
-  .v2-ai-solutions-heading {
-    font-size: 2.1rem;
   }
 
   .v2-ai-expertise-grid {
@@ -489,5 +477,21 @@
 
   .badge-ai-bottom-right {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .v2-ai-solutions-visual-card {
+    padding: 20px 12px;
+    min-height: 300px;
+  }
+
+  .v2-ai-lottie-fallback {
+    width: 190px;
+    height: 190px;
+  }
+
+  .v2-ai-fallback-icon {
+    font-size: 2.8rem;
   }
 }

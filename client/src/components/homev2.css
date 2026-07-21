@@ -103,7 +103,7 @@
 }
 
 .v2-section-title {
-  font-size: 2.8rem;
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
@@ -114,7 +114,7 @@
 }
 
 .v2-section-description {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.15rem);
   line-height: 1.6;
   color: var(--v2-text-muted-dark);
 }
@@ -600,7 +600,7 @@
 .v2-trust-heading {
   text-align: center;
   color: #ffffff;
-  font-size: 2.8rem;
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem);
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.02em;
@@ -709,7 +709,7 @@
 }
 
 .v2-trust-stat-number {
-  font-size: 3.4rem;
+  font-size: clamp(2.2rem, 1.6rem + 2.5vw, 3.4rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1;
@@ -763,7 +763,6 @@
 
 @media (max-width: 968px) {
   .v2-trust-grid { grid-template-columns: 1fr; }
-  .v2-trust-heading { font-size: 2.2rem; }
 }
 
 @media (max-width: 480px) {
@@ -1081,7 +1080,7 @@
 /* Heading is the primary focal point — larger, with deliberate breathing
    room before the paragraph beneath it. */
 .v2-whywehelp-title {
-  font-size: 2.75rem;
+  font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.75rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;

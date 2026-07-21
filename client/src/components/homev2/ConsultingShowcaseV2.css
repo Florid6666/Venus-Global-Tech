@@ -64,7 +64,7 @@
 }
 
 .v2-consulting-heading {
-  font-size: 3.5rem; /* 56px */
+  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -205,10 +205,6 @@
     gap: 40px;
   }
 
-  .v2-consulting-heading {
-    font-size: 3rem;
-  }
-
   .v2-consulting-paragraph {
     max-width: 100%;
   }
@@ -221,10 +217,6 @@
 
   .v2-consulting-container {
     padding: 0 20px;
-  }
-
-  .v2-consulting-heading {
-    font-size: 2.15rem;
   }
 
   .v2-capability-matrix {

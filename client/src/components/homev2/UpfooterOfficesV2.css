@@ -76,7 +76,7 @@
 
 /* Heading (56px) */
 .v2-upfooter-heading {
-  font-size: 3.5rem; /* 56px */
+  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -417,10 +417,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
-
-  .v2-upfooter-heading {
-    font-size: 3rem;
-  }
 }
 
 @media (max-width: 900px) {
@@ -441,10 +437,6 @@
 
   .v2-upfooter-container {
     padding: 0 20px;
-  }
-
-  .v2-upfooter-heading {
-    font-size: 2.15rem;
   }
 
   .v2-upfooter-paragraph {

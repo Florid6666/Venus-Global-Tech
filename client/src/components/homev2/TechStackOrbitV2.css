@@ -87,7 +87,7 @@
 
 /* Heading (56-64px) */
 .v2-orbit-heading {
-  font-size: 3.75rem; /* 60px */
+  font-size: clamp(2.1rem, 1.4rem + 3.4vw, 3.75rem);
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -440,10 +440,6 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1100px) {
-  .v2-orbit-heading {
-    font-size: 3.2rem;
-  }
-
   .v2-orbit-system {
     transform: scale(0.85);
   }
@@ -454,10 +450,6 @@
 }
 
 @media (max-width: 860px) {
-  .v2-orbit-heading {
-    font-size: 2.5rem;
-  }
-
   .v2-orbit-system {
     transform: scale(0.68);
   }
@@ -480,10 +472,6 @@
     padding: 0 16px;
   }
 
-  .v2-orbit-heading {
-    font-size: 2.1rem;
-  }
-
   .v2-orbit-paragraph {
     font-size: 1rem;
   }
@@ -499,5 +487,15 @@
   .v2-orbit-center-node {
     width: 180px;
     height: 180px;
+  }
+}
+
+@media (max-width: 400px) {
+  .v2-orbit-system {
+    transform: scale(0.38);
+  }
+
+  .v2-orbit-visual-wrapper {
+    min-height: 380px;
   }
 }

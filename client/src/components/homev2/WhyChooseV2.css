@@ -100,7 +100,7 @@
 
 /* Heading */
 .v2-why-choose-heading {
-  font-size: 3.5rem; /* 56px */
+  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -422,10 +422,6 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1200px) {
-  .v2-why-choose-heading {
-    font-size: 3rem; /* ~48px */
-  }
-
   .v2-why-choose-grid {
     gap: 40px;
   }
@@ -442,7 +438,6 @@
   }
 
   .v2-why-choose-heading {
-    font-size: 2.75rem; /* 44px */
     max-width: 100%;
   }
 
@@ -463,10 +458,6 @@
 
   .v2-why-choose-container {
     padding: 0 20px;
-  }
-
-  .v2-why-choose-heading {
-    font-size: 2.15rem; /* 34px */
   }
 
   .v2-why-choose-paragraph {
@@ -521,5 +512,21 @@
 
   .badge-bottom-right {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .v2-why-choose-visual-card {
+    padding: 20px 12px;
+    min-height: 320px;
+  }
+
+  .v2-lottie-fallback {
+    width: 200px;
+    height: 200px;
+  }
+
+  .v2-lottie-fallback-icon {
+    font-size: 3rem;
   }
 }
