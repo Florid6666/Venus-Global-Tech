@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/blogs.css';
-import Footer from '../components/Footer';
+import FooterV2 from '../components/homev2/FooterV2';
+import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import { getApiUrl } from '../config/api';
 import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
@@ -9,6 +10,7 @@ import RichText from '../components/RichText';
 
 const Blogs = () => {
   const { content } = useContent('blogsPage');
+  const { content: home } = useContent('home');
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -146,7 +148,8 @@ const Blogs = () => {
         </div>
       </section>
 
-      <Footer />
+      <UpfooterOfficesV2 offices={home?.offices} />
+      <FooterV2 />
     </div>
   );
 };

@@ -1,0 +1,1856 @@
+/* ERP AI Page Styles */
+.erp-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+}
+
+/* Hero Section - styled after the home page hero (dark theme, spotlight
+   glows, grid overlay, gradient title, pill CTA) */
+.erp-hero-v2 {
+  position: relative;
+  min-height: 100vh;
+  background-color: #060813;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 140px 0 80px;
+}
+
+.erp-hero-v2-spotlight {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(60px);
+  border-radius: 50%;
+  mix-blend-mode: plus-lighter;
+  opacity: 0.8;
+}
+
+.erp-hero-v2-spotlight.spotlight-indigo {
+  top: -15%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(129, 140, 248, 0.06) 50%, transparent 70%);
+  animation: erp-glow-pulse 10s ease-in-out infinite alternate;
+}
+
+.erp-hero-v2-spotlight.spotlight-violet {
+  bottom: -10%;
+  left: -15%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.18) 0%, rgba(99, 102, 241, 0.03) 50%, transparent 70%);
+  animation: erp-glow-pulse 12s ease-in-out infinite alternate-reverse;
+}
+
+.erp-hero-v2-spotlight.spotlight-cyan {
+  top: 8%;
+  left: 30%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, transparent 65%);
+  animation: erp-glow-pulse 8s ease-in-out infinite alternate;
+}
+
+.erp-hero-v2-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.erp-hero-v2-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.erp-hero-v2-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.erp-hero-v2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a5b4fc;
+  margin-bottom: 24px;
+}
+
+.erp-hero-v2-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+}
+
+.erp-hero-v2-title span {
+  display: block;
+}
+
+.erp-hero-v2-title-highlight {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.erp-hero-v2-supporting {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0 0 40px 0;
+  max-width: 560px;
+}
+
+.erp-hero-v2-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.erp-hero-v2-btn-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 8px 8px 30px;
+  background: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Satoshi', Arial, sans-serif;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.erp-hero-v2-btn-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
+  filter: brightness(1.08);
+}
+
+.erp-hero-v2-btn-arrow-circle {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  color: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.erp-hero-v2-btn-pill:hover .erp-hero-v2-btn-arrow-circle {
+  transform: rotate(-45deg);
+}
+
+.erp-hero-v2-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.erp-hero-v2-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 5;
+  animation: erp-float-image 6s ease-in-out infinite;
+}
+
+.erp-hero-v2-image-glow {
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(56, 189, 248, 0.12) 45%, transparent 75%);
+  filter: blur(30px);
+  z-index: 0;
+  animation: erp-glow-pulse 5s ease-in-out infinite alternate;
+}
+
+.erp-hero-v2-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes erp-glow-pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+@keyframes erp-float-image {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+/* Benefits Section - section header styled after the home page's section
+   header system (uppercase pulsing badge, gradient title, muted description) */
+.erp-benefits {
+  padding: 120px 0;
+  background: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.erp-benefits::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 10% 85%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.erp-benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.erp-benefits-header {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto 60px;
+}
+
+.erp-benefits-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6366f1;
+  margin-bottom: 20px;
+}
+
+.erp-benefits-badge i {
+  font-size: 12px;
+  animation: erp-badge-pulse 2s infinite;
+}
+
+@keyframes erp-badge-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.erp-benefits-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.erp-benefits-description {
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.15rem);
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.erp-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Benefit cards - same card design as the home page's feature/service grid
+   (icon-top card, gradient top edge on hover, lift on hover) */
+.erp-benefit-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.erp-benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.erp-benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+.erp-benefit-card:hover::before {
+  opacity: 1;
+}
+
+.erp-benefit-card-icon {
+  width: 54px;
+  height: 54px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.erp-benefit-card:hover .erp-benefit-card-icon {
+  background: #6366f1;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.erp-benefit-card-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 750;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.erp-benefit-card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* Process Section - card grid styled after the home page's "Working
+   Process" section (number-badge cards linked by a thin connecting line) */
+.erp-process {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.erp-process-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.erp-process-header {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto 60px;
+}
+
+.erp-process-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6366f1;
+  margin-bottom: 20px;
+}
+
+.erp-process-badge i {
+  font-size: 12px;
+  animation: erp-badge-pulse 2s infinite;
+}
+
+.erp-process-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px 0;
+  background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.erp-process-description {
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.15rem);
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.erp-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.erp-process-step {
+  background: linear-gradient(145deg, #ffffff 0%, #f1f0fb 100%);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 24px;
+  padding: 32px 28px;
+  position: relative;
+  text-align: left;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.erp-process-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+/* Thin connecting line bridging each card to the next, at the number
+   badge's vertical center. */
+.erp-process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 52px;
+  right: -32px;
+  width: 32px;
+  height: 2px;
+  background: rgba(99, 102, 241, 0.3);
+}
+
+.erp-process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 24px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #6366f1;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.erp-process-step-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.erp-process-step-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .erp-process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .erp-process-step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .erp-process-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tools Section */
+.erp-tools {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.erp-tools-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.erp-tools-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.erp-tools-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6366f1;
+  margin-bottom: 24px;
+}
+
+.erp-tools-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.erp-tools-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.erp-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.erp-tools-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.erp-tools-row:first-child {
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.erp-tools-row:last-child {
+  justify-content: center;
+  max-width: 480px;
+}
+
+.erp-tool-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.erp-tool-icon {
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.erp-tool-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #000000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.erp-tool-item:hover .erp-tool-icon::before {
+  width: 120px;
+  height: 120px;
+}
+
+.erp-tool-icon i {
+  font-size: 24px;
+  color: #6366f1;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.erp-tool-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666666;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.erp-tool-item:hover .erp-tool-icon i,
+.erp-tool-item:hover .erp-tool-name {
+  color: #ffffff;
+}
+
+/* Industries Section - styled after the home page's "Industries We
+   Empower" section (photo tiles that reveal a description on hover) */
+.erp-industries-section {
+  position: relative;
+  background-color: #ffffff;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+.erp-industries-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.erp-industries-ambient-glow.glow-top {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.erp-industries-ambient-glow.glow-bottom {
+  bottom: 0;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.erp-industries-container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.erp-industries-header {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.erp-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.erp-industry-card {
+  position: relative;
+  background-color: #0f172a;
+  border-radius: 20px;
+  height: 300px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.erp-industry-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  filter: brightness(0.92);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, filter 0.5s ease;
+  z-index: 0;
+}
+
+.erp-industry-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(7, 9, 14, 0.85) 100%);
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+.erp-industry-card-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 28px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.erp-industry-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.erp-industry-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(16px);
+  overflow: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.35s ease;
+}
+
+.erp-industry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.45);
+}
+
+.erp-industry-card:hover .erp-industry-card-bg {
+  transform: scale(1.12);
+  filter: brightness(1);
+}
+
+.erp-industry-card:hover .erp-industry-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.88) 45%, rgba(7, 9, 14, 0.97) 100%);
+}
+
+.erp-industry-card:hover .erp-industry-card-desc {
+  opacity: 1;
+  max-height: 90px;
+  transform: translateY(0);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1200px) {
+  .erp-industries-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .erp-industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .erp-industries-section {
+    padding: 60px 0 70px;
+  }
+
+  .erp-industries-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .erp-industry-card {
+    height: 260px;
+  }
+}
+
+/* Why Choose ERP AI Section */
+.erp-why-choose {
+  padding: 0;
+  background: #ffffff;
+}
+
+.erp-why-choose-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 0;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.erp-why-choose-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.erp-why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.erp-why-choose-content {
+  background: #1a1a1a;
+  padding: 60px 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.erp-why-choose-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.erp-why-choose-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.erp-why-choose-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin: 0 0 32px 0;
+}
+
+.erp-why-choose-divider {
+  width: 100%;
+  height: 1px;
+  background: #333333;
+  margin: 32px 0;
+}
+
+.erp-why-choose-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.erp-why-choose-benefit-flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.erp-why-choose-benefit-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.erp-why-choose-benefit-flip-card:hover .erp-why-choose-benefit-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.erp-why-choose-benefit-flip-front,
+.erp-why-choose-benefit-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.erp-why-choose-benefit-flip-front {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.erp-why-choose-benefit-flip-back {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  transform: rotateY(180deg);
+  color: #ffffff;
+}
+
+.erp-why-choose-benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.erp-why-choose-benefit-icon i {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.erp-why-choose-benefit-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.erp-why-choose-benefit-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Why Partner Section - styled after the home page's "Why We Help" / Impact
+   section: a dark split layout, badge + title + CTA on the left, a grid of
+   glassmorphic value-prop cards on the right. */
+.erp-why-partner {
+  background:
+    radial-gradient(circle at 12% 25%, rgba(99, 102, 241, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 92% 75%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+    #07090e;
+  padding: 100px 0;
+}
+
+.erp-why-partner-container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.erp-why-partner-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.erp-why-partner-text {
+  position: sticky;
+  top: 100px;
+}
+
+.erp-why-partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px 8px 14px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a5b4fc;
+}
+
+.erp-why-partner-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6366f1;
+  box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6);
+  animation: erp-badge-dot-pulse 2.2s ease-out infinite;
+}
+
+@keyframes erp-badge-dot-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); }
+  100% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+}
+
+.erp-why-partner-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: clamp(1.9rem, 1.4rem + 1.9vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 24px 0;
+  max-width: 480px;
+}
+
+.erp-why-partner-description {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  max-width: 440px;
+  margin: 0;
+}
+
+.erp-why-partner-cta {
+  margin-top: 40px;
+}
+
+.erp-why-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.erp-why-partner-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.erp-why-partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), 0 0 30px rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.35);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.erp-why-partner-card-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.erp-why-partner-card:hover .erp-why-partner-card-icon {
+  transform: scale(1.1);
+  background: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+}
+
+.erp-why-partner-card-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+@media (max-width: 968px) {
+  .erp-why-partner-split {
+    grid-template-columns: 1fr;
+  }
+
+  .erp-why-partner-text {
+    position: static;
+  }
+
+  .erp-why-partner-title,
+  .erp-why-partner-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .erp-why-partner-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ Section */
+.erp-faq {
+  padding: 120px 0;
+  background: #f8f9fa;
+}
+
+.erp-faq-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.erp-faq-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.erp-faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6366f1;
+  margin-bottom: 24px;
+}
+
+.erp-faq-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.erp-faq-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.erp-faq-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.erp-faq-contact {
+  position: sticky;
+  top: 120px;
+}
+
+.erp-faq-contact-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.erp-faq-contact-title {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #000000;
+}
+
+.erp-faq-contact-divider {
+  width: 60px;
+  height: 2px;
+  background: #6366f1;
+  margin: 0 auto 24px;
+}
+
+.erp-faq-contact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0 0 32px 0;
+}
+
+.erp-faq-contact-button {
+  padding: 16px 32px;
+  background: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Satoshi', Arial, sans-serif;
+}
+
+.erp-faq-contact-button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+
+.erp-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.erp-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.erp-faq-item:hover {
+  border-color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.erp-faq-question {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.erp-faq-question h4 {
+  font-family: 'Satoshi', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000000;
+}
+
+.erp-faq-question i {
+  font-size: 16px;
+  color: #6366f1;
+  transition: all 0.3s ease;
+}
+
+.erp-faq-item.active .erp-faq-question i {
+  transform: rotate(45deg);
+}
+
+.erp-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.erp-faq-item.active .erp-faq-answer {
+  max-height: 200px;
+  padding: 0 24px 24px;
+}
+
+.erp-faq-answer p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+/* Laptop View - 4-3 Layout */
+@media (min-width: 1025px) {
+  .erp-tools-row:first-child {
+    justify-content: space-between;
+    max-width: 600px;
+  }
+  
+  .erp-tools-row:last-child {
+    justify-content: center;
+    max-width: 480px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .erp-hero-v2-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .erp-hero-v2-left {
+    align-items: center;
+  }
+
+  .erp-hero-v2-supporting {
+    max-width: 100%;
+  }
+
+  .erp-hero-v2-cta {
+    justify-content: center;
+  }
+
+  .erp-hero-v2-image-wrapper {
+    max-width: 380px;
+  }
+
+  .erp-benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .erp-why-choose-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .erp-why-choose-image {
+    min-height: 400px;
+  }
+  
+  .erp-why-choose-content {
+    padding: 50px 40px;
+  }
+  
+  .erp-why-choose-title {
+    font-size: 36px;
+  }
+  
+  .erp-faq-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .erp-faq-contact {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .erp-hero-v2 {
+    padding: 100px 0 60px;
+  }
+
+  .erp-hero-v2-container {
+    padding: 0 20px;
+  }
+
+  .erp-benefits,
+  .erp-process,
+  .erp-tools,
+  .erp-faq {
+    padding: 80px 0;
+  }
+  
+  .erp-benefits-container,
+  .erp-process-container,
+  .erp-tools-container,
+  .erp-faq-container {
+    padding: 0 20px;
+  }
+  
+  .erp-benefits-title,
+  .erp-process-title,
+  .erp-tools-title,
+  .erp-faq-title {
+    font-size: 36px;
+  }
+  
+  .erp-benefits-description,
+  .erp-process-description,
+  .erp-tools-description,
+  .erp-faq-description {
+    font-size: 16px;
+  }
+  
+  .erp-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .erp-process-step {
+    padding: 24px 20px;
+  }
+
+  .erp-tools-row {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .erp-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .erp-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  .erp-tool-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .erp-tool-item:hover .erp-tool-icon::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .erp-why-choose-image {
+    min-height: 300px;
+  }
+  
+  .erp-why-choose-content {
+    padding: 40px 30px;
+  }
+  
+  .erp-why-choose-title {
+    font-size: 32px;
+  }
+  
+  .erp-why-choose-description {
+    font-size: 16px;
+  }
+  
+  .erp-why-choose-benefit-title {
+    font-size: 18px;
+  }
+  
+  .erp-why-choose-benefit-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .erp-hero-v2 {
+    padding: 90px 0 50px;
+  }
+
+  .erp-hero-v2-container {
+    padding: 0 16px;
+  }
+
+  .erp-hero-v2-btn-pill {
+    padding: 8px 8px 8px 20px;
+  }
+
+  .erp-benefits,
+  .erp-process,
+  .erp-tools,
+  .erp-faq {
+    padding: 60px 0;
+  }
+  
+  .erp-benefits-container,
+  .erp-process-container,
+  .erp-tools-container,
+  .erp-faq-container {
+    padding: 0 16px;
+  }
+  
+  .erp-benefits-title,
+  .erp-process-title,
+  .erp-tools-title,
+  .erp-faq-title {
+    font-size: 32px;
+  }
+  
+  .erp-benefits-description,
+  .erp-process-description,
+  .erp-tools-description,
+  .erp-faq-description {
+    font-size: 15px;
+  }
+  
+  .erp-benefit-card {
+    padding: 24px 20px;
+  }
+
+  .erp-benefit-card-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
+
+  .erp-benefit-card-title {
+    font-size: 18px;
+  }
+
+  .erp-benefit-card-description {
+    font-size: 14px;
+  }
+
+  .erp-process-step {
+    padding: 20px 16px;
+  }
+
+  .erp-process-num {
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
+
+  .erp-process-step-title {
+    font-size: 16px;
+  }
+
+  .erp-tools-row {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .erp-tools-row:first-child {
+    max-width: 100%;
+  }
+  
+  .erp-tools-row:last-child {
+    max-width: 100%;
+  }
+  
+  /* Create 2-2-2-1 layout by controlling item width */
+  .erp-tool-item {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+  
+  /* For the 7th item (last one), center it */
+  .erp-tool-item:nth-child(7) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .erp-tool-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .erp-tool-item:hover .erp-tool-icon::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .erp-tool-icon i {
+    font-size: 20px;
+  }
+  
+  .erp-tool-name {
+    font-size: 10px;
+  }
+  
+  .erp-why-choose-image {
+    min-height: 250px;
+  }
+  
+  .erp-why-choose-content {
+    padding: 30px 20px;
+  }
+  
+  .erp-why-choose-title {
+    font-size: 28px;
+  }
+  
+  .erp-why-choose-benefit-item {
+    gap: 12px;
+  }
+  
+  .erp-why-choose-benefit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .erp-why-choose-benefit-icon i {
+    font-size: 10px;
+  }
+  
+  .erp-faq-contact-card {
+    padding: 30px 24px;
+  }
+  
+  .erp-faq-contact-title {
+    font-size: 20px;
+  }
+  
+  .erp-faq-contact-description {
+    font-size: 14px;
+  }
+  
+  .erp-faq-contact-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  
+  .erp-faq-question {
+    padding: 20px;
+  }
+  
+  .erp-faq-question h4 {
+    font-size: 16px;
+  }
+  
+  .erp-faq-item.active .erp-faq-answer {
+    padding: 0 20px 20px;
+  }
+  
+  .erp-faq-answer p {
+    font-size: 14px;
+  }
+}
+
+/* Upper Footer Section */
+.upper-footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.upper-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.upper-footer-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.upper-footer-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.upper-footer-header p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.office-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.office-flag {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.office-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.office-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.office-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.office-address,
+.office-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.office-address i,
+.office-phone i {
+  color: #22c55e;
+  width: 16px;
+  text-align: center;
+}
+
+.office-phone a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.office-phone a:hover {
+  color: #22c55e;
+}
+
+.office-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design for Upper Footer */
+@media (max-width: 768px) {
+  .upper-footer {
+    padding: 60px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 2rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 1rem;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .office-card {
+    padding: 25px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .office-flag {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upper-footer {
+    padding: 50px 0;
+  }
+  
+  .upper-footer-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .upper-footer-header p {
+    font-size: 0.9rem;
+  }
+  
+  .office-card {
+    padding: 20px;
+  }
+  
+  .office-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .office-company {
+    font-size: 1rem;
+  }
+  
+  .office-address,
+  .office-phone {
+    font-size: 0.9rem;
+  }
+}

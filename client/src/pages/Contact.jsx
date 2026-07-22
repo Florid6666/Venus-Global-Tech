@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../components/contact.css';
-import Footer from '../components/Footer';
-import GlobalOffices from '../components/GlobalOffices';
+import FooterV2 from '../components/homev2/FooterV2';
+import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
 import { getApiUrl } from '../config/api';
@@ -213,9 +213,9 @@ const Contact = () => {
       </section>
 
       {/* Global Offices Section */}
-      <GlobalOffices offices={home?.offices} />
+      <UpfooterOfficesV2 offices={home?.offices} />
 
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };

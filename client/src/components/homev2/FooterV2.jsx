@@ -28,6 +28,7 @@ const DEFAULT_FOOTER = {
     { label: 'Cloud Transformation', url: '/services' },
     { label: 'Business Technology Consulting', url: '#business-technology-consulting' },
     { label: 'IATF 16949 Auditing', url: '/iatf-auditing' },
+    { label: 'ERP Development & AI', url: '/erp-ai' },
     { label: 'Data & Machine Learning', url: '/services' }
   ],
   contact: {

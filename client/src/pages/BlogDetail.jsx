@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../components/blog-detail.css';
-import Footer from '../components/Footer';
+import FooterV2 from '../components/homev2/FooterV2';
+import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import { getApiUrl } from '../config/api';
 import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
@@ -12,6 +13,7 @@ import TableOfContents from '../components/TableOfContents';
 const BlogDetail = () => {
   const { slug } = useParams();
   const { content } = useContent('blogsPage');
+  const { content: home } = useContent('home');
   const [blog, setBlog] = useState(null);
   const [relatedBlogs, setRelatedBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -88,7 +90,7 @@ const BlogDetail = () => {
           <h1>Loading...</h1>
           <p>Please wait while we load the blog post.</p>
         </div>
-        <Footer />
+        <FooterV2 />
       </div>
     );
   }
@@ -101,7 +103,7 @@ const BlogDetail = () => {
           <p>{error || "The blog post you're looking for doesn't exist."}</p>
           <Link to="/blogs" className="back-to-blogs">Back to Blogs</Link>
         </div>
-        <Footer />
+        <FooterV2 />
       </div>
     );
   }
@@ -256,7 +258,8 @@ const BlogDetail = () => {
         </section>
       )}
 
-      <Footer />
+      <UpfooterOfficesV2 offices={home?.offices} />
+      <FooterV2 />
     </div>
   );
 };

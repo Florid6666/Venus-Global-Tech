@@ -255,6 +255,13 @@
           "description": "Align technology investments with business goals through strategic planning and digital innovation.",
           "link": "/contact",
           "image": "/images/software-data.jpg"
+        },
+        {
+          "number": "17",
+          "title": "ERP Development & AI Solutions",
+          "description": "Custom ERP development, implementation, and AI-powered automation that connect finance, inventory, HR, and operations into one intelligent, scalable platform.",
+          "link": "/erp-ai",
+          "image": "/images/homev2/Enterprise-Cloud-Engineering-Services.webp"
         }
       ]
     },
@@ -1004,6 +1011,10 @@
             "path": "/iatf-auditing"
           },
           {
+            "label": "ERP AI",
+            "path": "/erp-ai"
+          },
+          {
             "label": "Investment",
             "path": "/investment"
           }
@@ -1100,6 +1111,10 @@
         {
           "label": "IATF Auditing",
           "url": "/iatf-auditing"
+        },
+        {
+          "label": "ERP AI",
+          "url": "/erp-ai"
         }
       ]
     },
@@ -2220,6 +2235,303 @@
         "contactCard": {
           "title": "Still Have More Questions?",
           "description": "If you're curious about IATF auditing or need more information, feel free to reach out—we're here to help!",
+          "buttonText": "Contact Us Now"
+        }
+      }
+    },
+    "erpAI": {
+      "hero": {
+        "badge": "ERP Development",
+        "titleLine1": "Intelligent ERP",
+        "titleLine2": "for Enterprise Growth",
+        "description": "Enterprise Resource Planning (ERP) is the foundation of efficient business operations. We help organizations streamline workflows, automate processes, and connect every department through intelligent, scalable, and AI-powered ERP solutions.",
+        "ctaButton": "Get Started",
+        "image": "/images/homev2/Enterprise-Cloud-Engineering-Services.webp"
+      },
+      "benefits": {
+        "badge": "Benefits",
+        "title": "Why Choose Our ERP Solutions?",
+        "description": "Discover the transformative benefits that a modern, AI-powered ERP platform brings to your business operations and decision-making.",
+        "items": [
+          {
+            "icon": "fa-layer-group",
+            "title": "Centralized Operations",
+            "description": "Unify finance, inventory, procurement, HR, and sales into a single connected platform with complete business visibility."
+          },
+          {
+            "icon": "fa-robot",
+            "title": "Workflow Automation",
+            "description": "Eliminate manual busywork with intelligent automation across approvals, reporting, and everyday operational processes."
+          },
+          {
+            "icon": "fa-chart-line",
+            "title": "Real-Time Reporting",
+            "description": "Make faster, confident decisions with live dashboards and up-to-the-minute business intelligence across every department."
+          },
+          {
+            "icon": "fa-brain",
+            "title": "AI-Powered Insights",
+            "description": "Predictive analytics and machine learning forecast demand, flag risks, and surface opportunities before they become problems."
+          },
+          {
+            "icon": "fa-cloud",
+            "title": "Scalable Cloud Architecture",
+            "description": "Cloud-native ERP infrastructure built to grow with your business without costly rework or downtime."
+          },
+          {
+            "icon": "fa-dollar-sign",
+            "title": "Reduced Operational Costs",
+            "description": "Streamlined processes and smarter resource allocation cut waste and lower the total cost of running your business."
+          }
+        ]
+      },
+      "process": {
+        "badge": "Our Process",
+        "title": "How We Build Your ERP Solution",
+        "description": "Our proven process ensures your ERP implementation is tailored to your operations and delivers measurable results.",
+        "steps": [
+          {
+            "number": "01",
+            "icon": "fa-search",
+            "title": "Discovery &amp; ERP Consulting",
+            "description": "Understand your operations, evaluate existing systems, and design an ERP roadmap aligned with your goals."
+          },
+          {
+            "number": "02",
+            "icon": "fa-drafting-compass",
+            "title": "Architecture &amp; Custom Development",
+            "description": "Build a secure, scalable ERP platform tailored to your workflows, departments, and reporting needs."
+          },
+          {
+            "number": "03",
+            "icon": "fa-plug",
+            "title": "Integration, Migration &amp; Testing",
+            "description": "Connect ERP with your existing business applications and validate performance, security, and data accuracy."
+          },
+          {
+            "number": "04",
+            "icon": "fa-rocket",
+            "title": "Deployment &amp; Continuous Optimization",
+            "description": "Launch with minimal disruption, then continuously optimize performance through analytics and AI."
+          }
+        ]
+      },
+      "tools": {
+        "badge": "ERP Technology",
+        "title": "Platforms & Technologies We Work With",
+        "description": "We build and integrate ERP solutions using leading enterprise platforms, cloud infrastructure, and AI frameworks for performance, security, and scale.",
+        "items": [
+          {
+            "icon": "fa-building",
+            "name": "SAP"
+          },
+          {
+            "icon": "fa-cubes",
+            "name": "Oracle NetSuite"
+          },
+          {
+            "icon": "fab fa-microsoft",
+            "name": "Microsoft Dynamics 365"
+          },
+          {
+            "icon": "fa-cube",
+            "name": "Odoo"
+          },
+          {
+            "icon": "fab fa-salesforce",
+            "name": "Salesforce"
+          },
+          {
+            "icon": "fab fa-aws",
+            "name": "AWS Cloud"
+          },
+          {
+            "icon": "fa-chart-pie",
+            "name": "Power BI"
+          }
+        ]
+      },
+      "industries": {
+        "badge": "INDUSTRIES WE SERVE",
+        "title": "ERP Solutions Built for Every Industry",
+        "description": "Our ERP solutions support organizations across multiple industries. Each platform is customized to industry-specific workflows and compliance requirements.",
+        "items": [
+          {
+            "id": "manufacturing",
+            "title": "Manufacturing",
+            "description": "ERP for production planning, shop-floor visibility, inventory control, and quality management.",
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "healthcare",
+            "title": "Healthcare",
+            "description": "ERP for patient billing, supply and asset tracking, and compliant financial operations.",
+            "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "retail",
+            "title": "Retail",
+            "description": "ERP connecting point-of-sale, inventory, and omnichannel fulfillment in real time.",
+            "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "wholesale-distribution",
+            "title": "Wholesale Distribution",
+            "description": "ERP for multi-warehouse inventory, order processing, and distributor pricing.",
+            "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "logistics",
+            "title": "Logistics",
+            "description": "ERP for fleet, shipment tracking, and end-to-end logistics visibility.",
+            "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "supply-chain",
+            "title": "Supply Chain",
+            "description": "ERP connecting procurement, demand planning, and vendor collaboration.",
+            "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "construction",
+            "title": "Construction",
+            "description": "ERP for project costing, resource scheduling, and subcontractor management.",
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "automotive",
+            "title": "Automotive",
+            "description": "ERP for IATF-aligned production, supplier quality, and parts traceability.",
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "education",
+            "title": "Education",
+            "description": "ERP for admissions, finance, HR, and campus resource management.",
+            "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "financial-services",
+            "title": "Financial Services",
+            "description": "ERP for financial reporting, compliance, and risk-aware operations.",
+            "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "government",
+            "title": "Government",
+            "description": "ERP for public-sector budgeting, procurement, and citizen service operations.",
+            "image": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "energy-utilities",
+            "title": "Energy & Utilities",
+            "description": "ERP for asset management, field operations, and regulatory reporting.",
+            "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "professional-services",
+            "title": "Professional Services",
+            "description": "ERP for project billing, resource utilization, and client engagement tracking.",
+            "image": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80"
+          }
+        ]
+      },
+      "whyChoose": {
+        "badge": "Benefits",
+        "title": "Why Choose Venus Global Technology for ERP",
+        "description": "Get ERP systems designed around your business — not the other way around. We combine ERP consulting, software engineering, AI, and cloud expertise to deliver solutions that scale with your organization.",
+        "image": "/images/homev2/attachment-16547enterprise-ai-data-analysis-presentation.jpg",
+        "items": [
+          {
+            "icon": "fa-check",
+            "title": "Industry-Specific ERP Expertise",
+            "description": "We design ERP systems around your workflows, departments, and compliance requirements instead of forcing off-the-shelf software to fit."
+          },
+          {
+            "icon": "fa-check",
+            "title": "AI-Driven &amp; Cloud-Native",
+            "description": "Every ERP platform we build combines enterprise engineering with AI automation and secure, scalable cloud infrastructure."
+          }
+        ]
+      },
+      "whyPartner": {
+        "badge": "OUR ADVANTAGE",
+        "title": "Why Businesses Partner With Us",
+        "description": "We build ERP systems designed around your business — not the other way around, combining ERP consulting, software engineering, AI, and cloud technologies to deliver solutions that scale with your organization.",
+        "ctaButton": "Talk to an ERP Expert",
+        "ctaLink": "/contact",
+        "items": [
+          {
+            "icon": "fa-award",
+            "text": "Experienced ERP Development Company"
+          },
+          {
+            "icon": "fa-industry",
+            "text": "Industry-specific ERP expertise"
+          },
+          {
+            "icon": "fa-sliders-h",
+            "text": "Custom ERP solutions"
+          },
+          {
+            "icon": "fa-robot",
+            "text": "AI-driven automation"
+          },
+          {
+            "icon": "fa-cloud",
+            "text": "Cloud ERP specialists"
+          },
+          {
+            "icon": "fa-shield-alt",
+            "text": "Enterprise-grade security"
+          },
+          {
+            "icon": "fa-bolt",
+            "text": "Agile implementation"
+          },
+          {
+            "icon": "fa-headset",
+            "text": "Dedicated support"
+          },
+          {
+            "icon": "fa-comments",
+            "text": "Transparent communication"
+          },
+          {
+            "icon": "fa-handshake",
+            "text": "Long-term technology partnership"
+          }
+        ]
+      },
+      "faq": {
+        "badge": "FAQS",
+        "title": "Frequently Asked Questions",
+        "description": "We combine ERP consulting, software engineering, and AI to deliver enterprise platforms built for performance, scalability, and seamless integration.",
+        "items": [
+          {
+            "question": "What is Enterprise Resource Planning (ERP)?",
+            "answer": "ERP is software that integrates business functions such as finance, inventory, HR, procurement, warehouse management, CRM, and supply chain into a unified platform, enabling organizations to manage operations more efficiently."
+          },
+          {
+            "question": "Why is ERP important for growing businesses?",
+            "answer": "ERP eliminates disconnected systems, automates workflows, improves collaboration, provides real-time reporting, and enables data-driven decision-making that supports business growth."
+          },
+          {
+            "question": "Can ERP integrate with CRM and other business applications?",
+            "answer": "Yes. Modern ERP systems can integrate with CRM platforms, HR software, accounting tools, e-commerce platforms, payment gateways, warehouse systems, and third-party applications using secure APIs."
+          },
+          {
+            "question": "Do you provide cloud ERP solutions?",
+            "answer": "Yes. We offer cloud ERP implementation, migration, customization, integration, and ongoing support using secure, scalable cloud infrastructure."
+          },
+          {
+            "question": "How does AI improve ERP systems?",
+            "answer": "AI enhances ERP by enabling predictive analytics, intelligent automation, demand forecasting, anomaly detection, automated reporting, and smarter business decision-making."
+          }
+        ],
+        "contactCard": {
+          "title": "Still Have More Questions?",
+          "description": "If you're curious about ERP or AI-powered ERP solutions, feel free to reach out—we're here to help!",
           "buttonText": "Contact Us Now"
         }
       }

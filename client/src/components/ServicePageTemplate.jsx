@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
-import Footer from './Footer';
-import GlobalOffices from './GlobalOffices';
+import FooterV2 from './homev2/FooterV2';
+import UpfooterOfficesV2 from './homev2/UpfooterOfficesV2';
 import RichText from './RichText';
 import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
@@ -303,8 +303,8 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
         </div>
       </section>
 
-      <GlobalOffices offices={home?.offices} />
-      <Footer />
+      <UpfooterOfficesV2 offices={home?.offices} />
+      <FooterV2 />
     </div>
   );
 };

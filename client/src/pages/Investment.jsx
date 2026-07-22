@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './investment.css';
-import Footer from '../components/Footer';
-import GlobalOffices from '../components/GlobalOffices';
+import FooterV2 from '../components/homev2/FooterV2';
+import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
 
@@ -208,8 +208,8 @@ const Investment = () => {
         </div>
       </section>
 
-      <GlobalOffices offices={home?.offices} />
-      <Footer />
+      <UpfooterOfficesV2 offices={home?.offices} />
+      <FooterV2 />
     </div>
   );
 };

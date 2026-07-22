@@ -1,7 +1,7 @@
 import React from 'react';
 import '../components/aboutus.css';
-import Footer from '../components/Footer';
-import GlobalOffices from '../components/GlobalOffices';
+import FooterV2 from '../components/homev2/FooterV2';
+import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
 
@@ -177,9 +177,9 @@ const About = () => {
       </section>
 
       {/* Global Offices */}
-      <GlobalOffices offices={homeContent.offices} />
+      <UpfooterOfficesV2 offices={homeContent.offices} />
 
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };

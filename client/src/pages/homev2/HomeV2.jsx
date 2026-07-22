@@ -157,6 +157,7 @@ const SERVICE_CARD_META = {
   '14': { category: 'Engineering', icon: 'fa-gears' },
   '15': { category: 'Analytics', icon: 'fa-chart-line' },
   '16': { category: 'Strategy', icon: 'fa-lightbulb' },
+  '17': { category: 'Enterprise', icon: 'fa-sitemap' },
 };
 
 const HomeV2 = () => {

@@ -9,6 +9,7 @@ import DigitalReach from './pages/DigitalReach';
 import SoftwareDataAI from './pages/SoftwareDataAI';
 import CloudService from './pages/CloudService';
 import IATFAuditing from './pages/IATFAuditing';
+import ErpAI from './pages/ErpAI';
 import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail';
@@ -58,6 +59,7 @@ function AnimatedRoutes() {
         <Route path="/software-data-ai" element={<SoftwareDataAI />} />
         <Route path="/cloud-service" element={<CloudService />} />
         <Route path="/iatf-auditing" element={<IATFAuditing />} />
+        <Route path="/erp-ai" element={<ErpAI />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />

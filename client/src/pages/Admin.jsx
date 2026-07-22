@@ -94,6 +94,7 @@ const SERVICE_LABELS = {
   agenticAI: 'Agentic AI',
   cloudService: 'Cloud Service',
   digitalReach: 'Digital Reach',
+  erpAI: 'ERP AI',
   esg: 'ESG',
   iatfAuditing: 'IATF Auditing',
   softwareDataAI: 'Software & Data AI',
