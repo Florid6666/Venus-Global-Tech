@@ -1001,6 +1001,10 @@
           {
             "label": "Cloud Service",
             "path": "/cloud-service"
+          },
+          {
+            "label": "IATF Auditing",
+            "path": "/iatf-auditing"
           }
         ]
       },
