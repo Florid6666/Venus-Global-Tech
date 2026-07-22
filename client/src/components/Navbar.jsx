@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContent } from '../hooks/useContent';
 import RichText from './RichText';
@@ -9,9 +9,35 @@ const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const closeTimeoutRef = useRef(null);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
+  };
+
+  // Closing on a short delay (instead of the instant mouseleave) makes the
+  // dropdown forgiving of the brief moment the cursor crosses the gap
+  // between the "Services" link and the menu below it while moving toward it.
+  const openServicesMenu = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setIsServicesOpen(true);
+  };
+
+  const closeServicesMenu = () => {
+    closeTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 250);
+  };
+
+  // Tapping/clicking (mobile, or a deliberate desktop click) should toggle
+  // right away — only the passive mouseleave gets the forgiving delay above.
+  const toggleServicesMenu = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setIsServicesOpen((prev) => !prev);
   };
 
   if (!content) {
@@ -40,9 +66,9 @@ const Navbar = () => {
                 className={`nav-item ${item.submenu ? 'dropdown' : ''} ${location.pathname === item.path ? 'active' : ''}`}
                 {...(item.submenu
                   ? {
-                      onMouseEnter: () => setIsServicesOpen(true),
-                      onMouseLeave: () => setIsServicesOpen(false),
-                      onClick: () => setIsServicesOpen(!isServicesOpen),
+                      onMouseEnter: openServicesMenu,
+                      onMouseLeave: closeServicesMenu,
+                      onClick: toggleServicesMenu,
                     }
                   : {})}
               >
@@ -52,20 +78,18 @@ const Navbar = () => {
                       <RichText html={item.label} as="span" />
                       <i className="fas fa-chevron-down nav-chevron"></i>
                     </a>
-                    {isServicesOpen && (
-                      <div className="dropdown-menu">
-                        {item.submenu.map((sub) => (
-                          <Link
-                            key={sub.label}
-                            to={sub.path}
-                            className="dropdown-item"
-                            onClick={handleLinkClick}
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                    <div className={`dropdown-menu ${isServicesOpen ? 'open' : ''}`}>
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          to={sub.path}
+                          className="dropdown-item"
+                          onClick={handleLinkClick}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
                   </>
                 ) : (
                   <Link to={item.path} className="nav-link" onClick={handleLinkClick}>

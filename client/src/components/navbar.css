@@ -135,12 +135,13 @@
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu — always in the DOM; `.open` drives a fade/slide transition
+   instead of an abrupt mount/unmount so both opening and closing are smooth. */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(8px);
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
@@ -148,12 +149,29 @@
   min-width: 230px;
   padding: 8px;
   z-index: 1001;
-  animation: v2NavDropdownFade 0.25s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
 }
 
-@keyframes v2NavDropdownFade {
-  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Invisible strip bridging the 12px gap above the menu (matching `top`) so
+   moving the cursor from the "Services" link down into the menu never
+   crosses empty space — closing the dead zone that made the menu vanish. */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 .dropdown-item {
@@ -397,6 +415,17 @@
     width: 100%;
     box-sizing: border-box;
     margin-top: 6px;
+    /* Hover isn't in play on touch; visibility here is opacity-only so the
+       menu doesn't take up layout space (and misalign the bridge) while closed. */
+    display: none;
+  }
+
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  .dropdown-menu::before {
+    content: none;
   }
 
   .nav-overlay {
