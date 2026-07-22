@@ -33,8 +33,24 @@ const OUTER_RING_NODES = [
 
 const withIcon = (node) => ({ ...node, isBrand: node.iconPrefix ? node.iconPrefix === 'fab' : node.isBrand });
 
+// Light tint of the node's brand color for the mobile card's icon badge
+// background, without needing color-mix() (not supported in older Safari).
+const hexToRgba = (hex, alpha) => {
+  const clean = hex?.replace('#', '');
+  if (!clean || clean.length !== 6) return `rgba(37, 99, 235, ${alpha})`;
+  const r = parseInt(clean.slice(0, 2), 16);
+  const g = parseInt(clean.slice(2, 4), 16);
+  const b = parseInt(clean.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+const TECH_GROUPS = [
+  { key: 'inner', title: 'AI & Machine Learning', icon: 'fa-brain' },
+  { key: 'middle', title: 'Languages & Frameworks', icon: 'fa-code' },
+  { key: 'outer', title: 'Cloud & Enterprise Platforms', icon: 'fa-cloud' },
+];
+
 const TechStackOrbitV2 = ({ content }) => {
-  const [hoveredNode, setHoveredNode] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const badgeText = content?.badge || 'TECHNOLOGY STACK';
@@ -44,16 +60,10 @@ const TechStackOrbitV2 = ({ content }) => {
   const innerNodes = (content?.innerRing?.length > 0 ? content.innerRing : INNER_RING_NODES).map(withIcon);
   const middleNodes = (content?.middleRing?.length > 0 ? content.middleRing : MIDDLE_RING_NODES).map(withIcon);
   const outerNodes = (content?.outerRing?.length > 0 ? content.outerRing : OUTER_RING_NODES).map(withIcon);
+  const nodesByGroup = { inner: innerNodes, middle: middleNodes, outer: outerNodes };
 
-  const handleNodeMouseEnter = (node) => {
-    setHoveredNode(node);
-    setIsPaused(true);
-  };
-
-  const handleNodeMouseLeave = () => {
-    setHoveredNode(null);
-    setIsPaused(false);
-  };
+  const handleNodeMouseEnter = () => setIsPaused(true);
+  const handleNodeMouseLeave = () => setIsPaused(false);
 
   // Helper to compute node position on ring (in percentages or angles)
   const getNodeStyle = (index, total, radius) => {
@@ -199,14 +209,35 @@ const TechStackOrbitV2 = ({ content }) => {
 
           </div>
 
-          {/* ACTIVE HOVERED TECH BANNER (For Mobile & Touch Accessibility) */}
-          {hoveredNode && (
-            <div className="v2-active-tech-banner">
-              <span className="v2-active-tech-name">{hoveredNode.name}</span>
-              <span className="v2-active-tech-cat">{hoveredNode.category}</span>
-            </div>
-          )}
+        </div>
 
+        {/* MOBILE / TABLET LAYOUT — the orbit's fixed pixel-radius rings and
+            hover-only tooltips don't work on touch screens, so below 860px
+            this stacked, tappable card grid replaces it entirely (see CSS). */}
+        <div className="v2-tech-stack-mobile">
+          {TECH_GROUPS.map((group) => (
+            <div className="v2-tech-mobile-group" key={group.key}>
+              <h3 className="v2-tech-mobile-group-title">
+                <i className={`fas ${group.icon}`}></i> {group.title}
+              </h3>
+              <div className="v2-tech-mobile-grid">
+                {nodesByGroup[group.key].map((node) => (
+                  <div className="v2-tech-mobile-card" key={node.id || node.name}>
+                    <span
+                      className="v2-tech-mobile-icon"
+                      style={{ color: node.color, backgroundColor: hexToRgba(node.color, 0.12) }}
+                    >
+                      <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`}></i>
+                    </span>
+                    <span className="v2-tech-mobile-info">
+                      <strong>{node.name}</strong>
+                      <span>{node.category}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
