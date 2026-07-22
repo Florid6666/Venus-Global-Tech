@@ -100,14 +100,26 @@ const SERVICE_LABELS = {
   softwareDataAI: 'Software & Data AI',
 };
 
-const SERVICE_PARTS = [
-  { key: 'hero', label: 'Hero' },
-  { key: 'benefits', label: 'Benefits' },
-  { key: 'process', label: 'Process' },
-  { key: 'tools', label: 'Tools' },
-  { key: 'whyChoose', label: 'Why Choose Us' },
-  { key: 'faq', label: 'FAQ' },
-];
+const SERVICE_PART_LABELS = {
+  hero: 'Hero',
+  benefits: 'Benefits',
+  process: 'Process',
+  tools: 'Tools',
+  industries: 'Industries We Serve',
+  whyChoose: 'Why Choose Us',
+  whyPartner: 'Why Partner / Advantage',
+  faq: 'FAQ',
+};
+
+// Fixed display order; only the parts actually present in a given service's
+// content are shown, so most services keep their usual 6 tabs while ERP AI
+// (which also has `industries` and `whyPartner`) shows all 8.
+const SERVICE_PART_ORDER = ['hero', 'benefits', 'process', 'tools', 'industries', 'whyChoose', 'whyPartner', 'faq'];
+
+const servicePartsFor = (serviceContent) =>
+  SERVICE_PART_ORDER
+    .filter((k) => serviceContent && Object.prototype.hasOwnProperty.call(serviceContent, k))
+    .map((k) => ({ key: k, label: SERVICE_PART_LABELS[k] }));
 
 const buildTree = (content) => [
   {
@@ -150,7 +162,7 @@ const buildTree = (content) => [
   { key: 'footer', label: 'Footer' },
   {
     key: 'services', label: 'Service Pages', children: Object.keys(content?.services || {}).map((sk) => ({
-      key: sk, label: SERVICE_LABELS[sk] || sk, children: SERVICE_PARTS,
+      key: sk, label: SERVICE_LABELS[sk] || sk, children: servicePartsFor(content.services[sk]),
     }))
   },
   {
@@ -1206,6 +1218,55 @@ const ServicePartEditor = ({ content, part, onSave, onRegisterSave, token }) => 
             itemLabel="Tool"
             token={token}
             onChange={(v) => set('tools', 'items', v)}
+          />
+        </div>
+      </div>
+    );
+  }
+  if (part === 'industries') {
+    const industries = local.industries || {};
+    return (
+      <div className="field-grid">
+        <Field label="Badge" value={industries.badge} onChange={(v) => set('industries', 'badge', v)} token={token} />
+        <Field label="Title" value={industries.title} onChange={(v) => set('industries', 'title', v)} token={token} />
+        <Field label="Description" value={industries.description} onChange={(v) => set('industries', 'description', v)} token={token} full />
+        <div className="field-group field-full">
+          <label className="field-label">Industry Cards</label>
+          <ArrayEditor
+            items={industries.items}
+            fields={[
+              { name: 'id', label: 'ID (slug)', type: 'plain' },
+              { name: 'title', label: 'Title' },
+              { name: 'description', label: 'Description' },
+              { name: 'image', label: 'Image', type: 'image' },
+            ]}
+            addTemplate={{ id: '', title: '', description: '', image: '' }}
+            itemLabel="Industry"
+            token={token}
+            onChange={(v) => set('industries', 'items', v)}
+          />
+        </div>
+      </div>
+    );
+  }
+  if (part === 'whyPartner') {
+    const whyPartner = local.whyPartner || {};
+    return (
+      <div className="field-grid">
+        <Field label="Badge" value={whyPartner.badge} onChange={(v) => set('whyPartner', 'badge', v)} token={token} />
+        <Field label="Title" value={whyPartner.title} onChange={(v) => set('whyPartner', 'title', v)} token={token} />
+        <Field label="Description" value={whyPartner.description} onChange={(v) => set('whyPartner', 'description', v)} token={token} full />
+        <Field label="CTA Button" value={whyPartner.ctaButton} onChange={(v) => set('whyPartner', 'ctaButton', v)} token={token} />
+        <PlainField label="CTA Link" value={whyPartner.ctaLink} onChange={(v) => set('whyPartner', 'ctaLink', v)} placeholder="/contact" />
+        <div className="field-group field-full">
+          <label className="field-label">Advantage Items</label>
+          <ArrayEditor
+            items={whyPartner.items}
+            fields={[{ name: 'icon', label: 'Icon Class (e.g. fa-award)' }, { name: 'text', label: 'Text' }]}
+            addTemplate={{ icon: '', text: '' }}
+            itemLabel="Item"
+            token={token}
+            onChange={(v) => set('whyPartner', 'items', v)}
           />
         </div>
       </div>
