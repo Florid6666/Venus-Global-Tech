@@ -987,6 +987,10 @@
         "path": "#",
         "submenu": [
           {
+            "label": "ERP AI",
+            "path": "/erp-ai"
+          },
+          {
             "label": "Agentic AI",
             "path": "/agentic-ai"
           },
@@ -995,30 +999,10 @@
             "path": "/esg"
           },
           {
-            "label": "Digital Reach",
-            "path": "/digital-reach"
-          },
-          {
-            "label": "Software & Data AI",
-            "path": "/software-data-ai"
-          },
-          {
             "label": "Cloud Service",
             "path": "/cloud-service"
-          },
-          {
-            "label": "IATF Auditing",
-            "path": "/iatf-auditing"
-          },
-          {
-            "label": "ERP AI",
-            "path": "/erp-ai"
           }
         ]
-      },
-      {
-        "label": "Investment",
-        "path": "/investment"
       },
       {
         "label": "Contact Us",
@@ -1163,139 +1147,6 @@
       "primaryButton": "Get Free Consultation",
       "secondaryButton": "Contact Us",
       "whatsappLink": "https://wa.me/16477220837"
-    }
-  },
-  "investment": {
-    "hero": {
-      "badge": "Strategic Investment",
-      "badgeIcon": "fas fa-chart-line",
-      "titleLine1": "Investing in the",
-      "titleAccent": "Future of Innovation",
-      "subtitle": "Strategic Investments for Tomorrow's Industries",
-      "description": "At Venus Global Technology, we believe that breakthrough innovations deserve visionary partners. As a strategic investor, we actively seek opportunities to support ambitious entrepreneurs, disruptive startups, and growth-stage companies developing technologies that shape the future.",
-      "primaryButton": "Partner With Us",
-      "secondaryButton": "Explore Focus Areas",
-      "backgroundImage": "/images/AI & Cloud (1).jpg"
-    },
-    "stats": [
-      {
-        "number": "3+",
-        "label": "Core Investment Sectors"
-      },
-      {
-        "number": "Global",
-        "label": "Network & Reach"
-      },
-      {
-        "number": "Tech",
-        "label": "Expertise & Guidance"
-      },
-      {
-        "number": "Long-term",
-        "label": "Sustainable Growth"
-      }
-    ],
-    "focus": {
-      "badge": "Investment Focus",
-      "title": "Our Investment Focus Areas",
-      "description": "Our investment focus is centered on industries where innovation creates lasting impact.",
-      "sectors": {
-        "food": {
-          "label": "Food Technology",
-          "icon": "fas fa-seedling",
-          "image": "/images/03.jpg",
-          "color": "#4caf50",
-          "items": [
-            "Smart food processing and automation",
-            "Sustainable food production",
-            "AgriTech and precision agriculture",
-            "Food safety, traceability, and supply chain innovation",
-            "Alternative proteins and next-generation food solutions"
-          ]
-        },
-        "pharma": {
-          "label": "Pharmaceutical & Healthcare",
-          "icon": "fas fa-heartbeat",
-          "image": "/images/ESG.jpg",
-          "color": "#2196f3",
-          "items": [
-            "Digital health platforms",
-            "Pharmaceutical manufacturing innovations",
-            "Medical devices and diagnostics",
-            "Biotechnology and life sciences",
-            "AI-driven healthcare solutions"
-          ]
-        },
-        "industry": {
-          "label": "Industry 4.0 & Smart Manufacturing",
-          "icon": "fas fa-industry",
-          "image": "/images/ai-cloud.jpg",
-          "color": "#ff6b35",
-          "items": [
-            "Artificial Intelligence and Machine Learning",
-            "Industrial Automation and Robotics",
-            "Internet of Things (IoT)",
-            "Smart factories and digital transformation",
-            "Predictive maintenance and intelligent manufacturing systems",
-            "Industrial software and data analytics"
-          ]
-        }
-      }
-    },
-    "moreThanCapital": {
-      "badge": "More Than Capital",
-      "titleLine1": "We're Partners,",
-      "titleLine2": "Not Just Investors",
-      "description": "We partner with visionary founders by providing more than financial investment. Through our global network, technical expertise, and strategic guidance, we help innovative companies accelerate product development, expand into new markets, and achieve sustainable long-term growth.",
-      "mainImage": "/images/Venus Global Tech with Team RBC.jpg",
-      "secondaryImage": "/images/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
-      "pillars": [
-        {
-          "icon": "fas fa-globe",
-          "title": "Global Network",
-          "description": "Access to international markets and industry connections"
-        },
-        {
-          "icon": "fas fa-microchip",
-          "title": "Technical Expertise",
-          "description": "Deep domain knowledge across technology verticals"
-        },
-        {
-          "icon": "fas fa-chess",
-          "title": "Strategic Guidance",
-          "description": "Executive mentorship and go-to-market strategy"
-        }
-      ]
-    },
-    "gallery": {
-      "badge": "Our Presence",
-      "title": "Venus Global at the World Stage",
-      "description": "From global conferences to industry summits, we are where innovation happens.",
-      "items": [
-        {
-          "image": "/images/Venus Global Tech at CES Las Vegas Nevada.jpg",
-          "caption": "CES Las Vegas, Nevada",
-          "size": "large"
-        },
-        {
-          "image": "/images/Team Venus at US thanks giving dinner at AMCHAM Gala Event.jpg",
-          "caption": "AMCHAM Gala Event",
-          "size": "regular"
-        },
-        {
-          "image": "/images/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
-          "caption": "NMSDC Conference, Baltimore",
-          "size": "regular"
-        }
-      ]
-    },
-    "cta": {
-      "badge": "Partner With Us",
-      "title": "Ready to Build the Future Together?",
-      "description": "We are continuously exploring investment opportunities in high-potential technology companies that align with our vision of creating smarter, more sustainable, and digitally connected industries.",
-      "subNote": "If your company is building the future of <strong>FoodTech</strong>, <strong>Pharmaceutical Technology</strong>, or <strong>Industry 4.0</strong>, we would welcome the opportunity to explore how we can grow together.",
-      "buttonText": "Get In Touch",
-      "note": "Confidential discussions welcome"
     }
   },
   "services": {

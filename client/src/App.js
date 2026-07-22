@@ -14,7 +14,6 @@ import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail';
 import Admin from './pages/Admin';
-import Investment from './pages/Investment';
 import './App.css';
 
 function ScrollToTop() {
@@ -63,7 +62,6 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
-        <Route path="/investment" element={<Investment />} />
       </Routes>
     </div>
   );

@@ -157,37 +157,35 @@ const backfillMissingServices = (content, seed) => {
 
 // navbar.menuItems' Services submenu is served straight from content.json
 // with no client-side fallback (unlike the footer's service links, which are
-// hardcoded in FooterV2.jsx and don't need this), so a new service page's
-// nav link needs the same kind of backfill on an already-seeded volume.
-const backfillNavbarSubmenu = (content, seed) => {
-  const currentItems = content.navbar?.menuItems;
-  const seedItems = seed.navbar?.menuItems;
-  if (!Array.isArray(currentItems) || !Array.isArray(seedItems)) return false;
-  let changed = false;
-  for (const seedItem of seedItems) {
-    if (!Array.isArray(seedItem.submenu)) continue;
-    const currentItem = currentItems.find((i) => i.label === seedItem.label && Array.isArray(i.submenu));
-    if (!currentItem) continue;
-    for (const seedSub of seedItem.submenu) {
-      if (!currentItem.submenu.some((s) => s.path === seedSub.path)) {
-        currentItem.submenu.push({ ...seedSub });
-        changed = true;
-      }
-    }
-  }
-  return changed;
+// hardcoded in FooterV2.jsx and don't need this). It's a deliberately
+// curated, ordered list rather than "every service that exists" — so on an
+// already-seeded volume it's replaced wholesale to match the seed (fixing
+// membership and order together) instead of incrementally adding entries.
+const syncServicesSubmenu = (content, seed) => {
+  const current = content.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
+  const seedItem = seed.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
+  if (!current || !seedItem) return false;
+  if (JSON.stringify(current.submenu) === JSON.stringify(seedItem.submenu)) return false;
+  current.submenu = seedItem.submenu.map((s) => ({ ...s }));
+  return true;
 };
 
-// The Services dropdown used to also list "Investment" (it's already its own
-// top-level nav item) — a one-time removal of that duplicate from an
-// already-seeded volume, since content.json edits don't propagate there
-// automatically (see backfillNavbarSubmenu above, which only adds).
-const removeServicesInvestmentDuplicate = (content) => {
-  const servicesItem = content.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
-  if (!servicesItem) return false;
-  const before = servicesItem.submenu.length;
-  servicesItem.submenu = servicesItem.submenu.filter((s) => s.path !== '/investment');
-  return servicesItem.submenu.length !== before;
+// The Investment page (and its top-level nav link) was removed entirely —
+// strip the link and its now-orphaned page content from an already-seeded
+// volume too, since content.json edits here don't propagate there on their own.
+const removeInvestmentPage = (content) => {
+  let changed = false;
+  const items = content.navbar?.menuItems;
+  if (Array.isArray(items)) {
+    const before = items.length;
+    content.navbar.menuItems = items.filter((i) => i.path !== '/investment');
+    if (content.navbar.menuItems.length !== before) changed = true;
+  }
+  if (content.investment !== undefined) {
+    delete content.investment;
+    changed = true;
+  }
+  return changed;
 };
 
 // Filenames that used to contain spaces/`&` and were renamed to fix a
@@ -261,7 +259,7 @@ const migrateContent = async () => {
   let changed = false;
 
   if (cleanHeroPlainFields(content)) changed = true;
-  if (removeServicesInvestmentDuplicate(content)) changed = true;
+  if (removeInvestmentPage(content)) changed = true;
 
   try {
     const seed = JSON.parse(await fs.readFile(path.join(__dirname, 'data-seed', 'content.json'), 'utf8'));
@@ -273,7 +271,7 @@ const migrateContent = async () => {
     }
     if (extendServiceItems(content, seed)) changed = true;
     if (backfillMissingServices(content, seed)) changed = true;
-    if (backfillNavbarSubmenu(content, seed)) changed = true;
+    if (syncServicesSubmenu(content, seed)) changed = true;
   } catch (error) {
     console.log('Content migration: no seed available to backfill new home sections.');
   }

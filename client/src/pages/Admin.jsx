@@ -166,16 +166,6 @@ const buildTree = (content) => [
     }))
   },
   {
-    key: 'investment', label: 'Investment Page', children: [
-      { key: 'hero', label: 'Hero' },
-      { key: 'stats', label: 'Stats' },
-      { key: 'focus', label: 'Investment Focus' },
-      { key: 'moreThanCapital', label: 'More Than Capital' },
-      { key: 'gallery', label: 'Event Gallery' },
-      { key: 'cta', label: 'Partner CTA' },
-    ]
-  },
-  {
     key: 'blogsPage', label: 'Blogs Page', children: [
       { key: 'hero', label: 'Hero' },
       { key: 'categories', label: 'Category Filters' },
@@ -514,25 +504,8 @@ const LeafEditor = ({ path, content, token, onSave, onRegisterSave }) => {
       />
     );
   }
-  if (top === 'investment' && sub === 'stats') {
-    return (
-      <WholeObjectArrayEditor
-        key="investment-stats"
-        items={content.investment?.stats}
-        fields={[{ name: 'number', label: 'Number' }, { name: 'label', label: 'Label' }]}
-        addTemplate={{ number: '', label: '' }}
-        itemLabel="Stat"
-        onSave={(data) => onSave('investment', 'stats', data)}
-        onRegisterSave={onRegisterSave}
-        token={token}
-      />
-    );
-  }
   if (top === 'contact' && sub === 'image') {
     return <WholeImageEditor key="contact-image" value={content.contact?.image} onSave={(data) => onSave('contact', 'image', data)} onRegisterSave={onRegisterSave} token={token} />;
-  }
-  if (top === 'investment' && sub === 'focus') {
-    return <InvestmentFocusEditor key="investment-focus" content={content.investment?.focus} onSave={(data) => onSave('investment', 'focus', data)} onRegisterSave={onRegisterSave} token={token} />;
   }
   if (top === 'blogsPage' && sub === 'categories') {
     return <WholeStringArrayEditor key="blogsPage-categories" label="Category" items={content.blogsPage?.categories} onSave={(data) => onSave('blogsPage', 'categories', data)} onRegisterSave={onRegisterSave} />;
@@ -868,48 +841,6 @@ const SIMPLE_FIELD_CONFIGS = {
     { name: 'successMessage', label: 'Success Message' },
     { name: 'errorMessage', label: 'Error Message' },
   ],
-  'investment.hero': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'badgeIcon', label: 'Badge Icon Class' },
-    { name: 'titleLine1', label: 'Title Line 1' },
-    { name: 'titleAccent', label: 'Title Accent' },
-    { name: 'subtitle', label: 'Subtitle' },
-    { name: 'description', label: 'Description' },
-    { name: 'primaryButton', label: 'Primary Button' },
-    { name: 'secondaryButton', label: 'Secondary Button' },
-    { name: 'backgroundImage', label: 'Background Image', kind: 'image' },
-  ],
-  'investment.moreThanCapital': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'titleLine1', label: 'Title Line 1' },
-    { name: 'titleLine2', label: 'Title Line 2' },
-    { name: 'description', label: 'Description' },
-    { name: 'mainImage', label: 'Main Image', kind: 'image' },
-    { name: 'secondaryImage', label: 'Secondary Image', kind: 'image' },
-    {
-      name: 'pillars', label: 'Pillars', kind: 'objectArray', itemLabel: 'Pillar',
-      itemFields: [{ name: 'icon', label: 'Icon Class' }, { name: 'title', label: 'Title' }, { name: 'description', label: 'Description' }],
-      addTemplate: { icon: '', title: '', description: '' },
-    },
-  ],
-  'investment.gallery': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Title' },
-    { name: 'description', label: 'Description' },
-    {
-      name: 'items', label: 'Gallery Items', kind: 'objectArray', itemLabel: 'Item',
-      itemFields: [{ name: 'image', label: 'Image', type: 'image' }, { name: 'caption', label: 'Caption' }],
-      addTemplate: { image: '', caption: '', size: 'regular' },
-    },
-  ],
-  'investment.cta': [
-    { name: 'badge', label: 'Badge' },
-    { name: 'title', label: 'Title' },
-    { name: 'description', label: 'Description' },
-    { name: 'subNote', label: 'Sub Note' },
-    { name: 'buttonText', label: 'Button Text' },
-    { name: 'note', label: 'Note' },
-  ],
   'blogsPage.hero': [
     { name: 'title', label: 'Title' },
     { name: 'description', label: 'Description' },
@@ -1090,46 +1021,6 @@ const OfficesEditor = ({ items, onSave, onRegisterSave, token }) => {
         </div>
       ))}
       <button type="button" className="btn-add" onClick={() => setOffices([...offices, { country: '', city: '', flag: '', address: '', phones: [] }])}>+ Add Office</button>
-    </div>
-  );
-};
-
-// ---------------------------------------------------------------------------
-// Investment Focus — badge/title/description + sectors keyed object
-// ---------------------------------------------------------------------------
-
-const SECTOR_LABELS = { food: 'Food Technology', pharma: 'Pharmaceutical & Healthcare', industry: 'Industry 4.0' };
-
-const InvestmentFocusEditor = ({ content, onSave, onRegisterSave, token }) => {
-  const [local, setLocal] = useState(content || {});
-  useEffect(() => setLocal(content || {}), [content]);
-  useRegisterSave(onRegisterSave, () => onSave(local));
-
-  const set = (field, value) => setLocal((prev) => ({ ...prev, [field]: value }));
-  const updateSector = (key, field, value) => {
-    setLocal((prev) => ({ ...prev, sectors: { ...prev.sectors, [key]: { ...prev.sectors[key], [field]: value } } }));
-  };
-
-  return (
-    <div>
-      <div className="field-grid">
-        <Field label="Badge" value={local.badge} onChange={(v) => set('badge', v)} token={token} />
-        <Field label="Title" value={local.title} onChange={(v) => set('title', v)} token={token} />
-        <Field label="Description" value={local.description} onChange={(v) => set('description', v)} token={token} full />
-      </div>
-      {Object.keys(local.sectors || {}).map((key) => (
-        <div key={key} className="array-card">
-          <h4>{SECTOR_LABELS[key] || key}</h4>
-          <div className="field-grid">
-            <Field label="Label" value={local.sectors[key].label} onChange={(v) => updateSector(key, 'label', v)} token={token} />
-            <Field label="Icon Class" value={local.sectors[key].icon} onChange={(v) => updateSector(key, 'icon', v)} token={token} />
-            <ImageField label="Image" value={local.sectors[key].image} onChange={(v) => updateSector(key, 'image', v)} token={token} />
-            <Field label="Color (hex)" value={local.sectors[key].color} onChange={(v) => updateSector(key, 'color', v)} token={token} />
-          </div>
-          <label className="field-label">Focus Areas</label>
-          <StringArrayEditor label="Item" items={local.sectors[key].items} onChange={(v) => updateSector(key, 'items', v)} />
-        </div>
-      ))}
     </div>
   );
 };
