@@ -71,7 +71,7 @@
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
@@ -223,7 +223,7 @@
 /* Benefits Section - section header styled after the home page's section
    header system (uppercase pulsing badge, gradient title, muted description) */
 .erp-benefits {
-  padding: 120px 0;
+  padding: 100px 0 110px;
   background: #f8fafc;
   position: relative;
   overflow: hidden;
@@ -241,7 +241,7 @@
 .erp-benefits-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
   position: relative;
 }
 
@@ -377,14 +377,14 @@
 /* Process Section - card grid styled after the home page's "Working
    Process" section (number-badge cards linked by a thin connecting line) */
 .erp-process {
-  padding: 120px 0;
+  padding: 100px 0 110px;
   background: #ffffff;
 }
 
 .erp-process-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .erp-process-header {
@@ -518,14 +518,14 @@
 
 /* Tools Section */
 .erp-tools {
-  padding: 120px 0;
+  padding: 100px 0 110px;
   background: #f8f9fa;
 }
 
 .erp-tools-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .erp-tools-header {
@@ -696,7 +696,7 @@
   max-width: 1320px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
   position: relative;
   z-index: 1;
 }
@@ -1005,7 +1005,7 @@
   max-width: 1320px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .erp-why-partner-split {
@@ -1149,14 +1149,14 @@
 
 /* FAQ Section */
 .erp-faq {
-  padding: 120px 0;
+  padding: 100px 0 120px;
   background: #f8f9fa;
 }
 
 .erp-faq-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .erp-faq-header {
@@ -1403,13 +1403,15 @@
   .erp-process,
   .erp-tools,
   .erp-faq {
-    padding: 80px 0;
+    padding: 60px 0 70px;
   }
-  
+
   .erp-benefits-container,
   .erp-process-container,
   .erp-tools-container,
-  .erp-faq-container {
+  .erp-faq-container,
+  .erp-industries-container,
+  .erp-why-partner-container {
     padding: 0 20px;
   }
   
@@ -1498,17 +1500,12 @@
     padding: 8px 8px 8px 20px;
   }
 
-  .erp-benefits,
-  .erp-process,
-  .erp-tools,
-  .erp-faq {
-    padding: 60px 0;
-  }
-  
   .erp-benefits-container,
   .erp-process-container,
   .erp-tools-container,
-  .erp-faq-container {
+  .erp-faq-container,
+  .erp-industries-container,
+  .erp-why-partner-container {
     padding: 0 16px;
   }
   
