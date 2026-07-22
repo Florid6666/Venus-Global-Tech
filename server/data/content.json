@@ -1013,10 +1013,6 @@
           {
             "label": "ERP AI",
             "path": "/erp-ai"
-          },
-          {
-            "label": "Investment",
-            "path": "/investment"
           }
         ]
       },

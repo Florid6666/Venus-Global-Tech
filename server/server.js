@@ -178,6 +178,18 @@ const backfillNavbarSubmenu = (content, seed) => {
   return changed;
 };
 
+// The Services dropdown used to also list "Investment" (it's already its own
+// top-level nav item) — a one-time removal of that duplicate from an
+// already-seeded volume, since content.json edits don't propagate there
+// automatically (see backfillNavbarSubmenu above, which only adds).
+const removeServicesInvestmentDuplicate = (content) => {
+  const servicesItem = content.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
+  if (!servicesItem) return false;
+  const before = servicesItem.submenu.length;
+  servicesItem.submenu = servicesItem.submenu.filter((s) => s.path !== '/investment');
+  return servicesItem.submenu.length !== before;
+};
+
 // Filenames that used to contain spaces/`&` and were renamed to fix a
 // URL-encoding bug where such paths 404'd under the local dev proxy.
 const RENAMED_ASSET_PATHS = {
@@ -249,6 +261,7 @@ const migrateContent = async () => {
   let changed = false;
 
   if (cleanHeroPlainFields(content)) changed = true;
+  if (removeServicesInvestmentDuplicate(content)) changed = true;
 
   try {
     const seed = JSON.parse(await fs.readFile(path.join(__dirname, 'data-seed', 'content.json'), 'utf8'));
