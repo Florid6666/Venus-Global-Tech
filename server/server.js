@@ -139,6 +139,45 @@ const extendServiceItems = (content, seed) => {
   return true;
 };
 
+// The ERP AI service page (and any future new service) is a whole new key
+// under content.services that doesn't exist on an already-seeded volume —
+// unlike NEW_HOME_KEYS this walks all of seed.services generically so a
+// future new service doesn't need its own migration entry.
+const backfillMissingServices = (content, seed) => {
+  if (!content.services || !seed.services) return false;
+  let changed = false;
+  for (const key of Object.keys(seed.services)) {
+    if (content.services[key] === undefined) {
+      content.services[key] = seed.services[key];
+      changed = true;
+    }
+  }
+  return changed;
+};
+
+// navbar.menuItems' Services submenu is served straight from content.json
+// with no client-side fallback (unlike the footer's service links, which are
+// hardcoded in FooterV2.jsx and don't need this), so a new service page's
+// nav link needs the same kind of backfill on an already-seeded volume.
+const backfillNavbarSubmenu = (content, seed) => {
+  const currentItems = content.navbar?.menuItems;
+  const seedItems = seed.navbar?.menuItems;
+  if (!Array.isArray(currentItems) || !Array.isArray(seedItems)) return false;
+  let changed = false;
+  for (const seedItem of seedItems) {
+    if (!Array.isArray(seedItem.submenu)) continue;
+    const currentItem = currentItems.find((i) => i.label === seedItem.label && Array.isArray(i.submenu));
+    if (!currentItem) continue;
+    for (const seedSub of seedItem.submenu) {
+      if (!currentItem.submenu.some((s) => s.path === seedSub.path)) {
+        currentItem.submenu.push({ ...seedSub });
+        changed = true;
+      }
+    }
+  }
+  return changed;
+};
+
 // Filenames that used to contain spaces/`&` and were renamed to fix a
 // URL-encoding bug where such paths 404'd under the local dev proxy.
 const RENAMED_ASSET_PATHS = {
@@ -220,6 +259,8 @@ const migrateContent = async () => {
       }
     }
     if (extendServiceItems(content, seed)) changed = true;
+    if (backfillMissingServices(content, seed)) changed = true;
+    if (backfillNavbarSubmenu(content, seed)) changed = true;
   } catch (error) {
     console.log('Content migration: no seed available to backfill new home sections.');
   }
