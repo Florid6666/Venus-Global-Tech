@@ -54,6 +54,64 @@ const BlogDetail = () => {
     };
   }, [blog]);
 
+  // Structured data (JSON-LD) for SEO — an Article schema for every post,
+  // plus a FAQPage schema when the post has FAQ items, built entirely from
+  // fields already in the admin panel so nothing needs adding per-post.
+  // Injected as <script> tags the same way the meta description above is,
+  // since this is a client-rendered page; removed on unmount so navigating
+  // to another post (or away from this one) doesn't leave stale schema.
+  useEffect(() => {
+    if (!blog) return;
+
+    const canonicalUrl = window.location.href;
+    const absoluteImage = blog.image
+      ? (/^https?:\/\//.test(blog.image) ? blog.image : `${window.location.origin}${blog.image}`)
+      : undefined;
+
+    const schemas = [{
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: stripHtml(blog.title),
+      description: blog.metaDescription || stripHtml(blog.excerpt),
+      image: absoluteImage ? [absoluteImage] : undefined,
+      author: { '@type': 'Person', name: stripHtml(blog.author) },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Venus Global Technology',
+        logo: { '@type': 'ImageObject', url: `${window.location.origin}/images/02.png` },
+      },
+      articleSection: blog.category,
+      datePublished: blog.date,
+      dateModified: blog.date,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    }];
+
+    if (blog.faq && blog.faq.length > 0) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: blog.faq.map((item) => ({
+          '@type': 'Question',
+          name: stripHtml(item.question),
+          // Google's FAQPage spec allows basic HTML (links, lists, etc.) in
+          // the answer text, so this is left as the sanitized HTML already
+          // stored rather than stripped to plain text.
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      });
+    }
+
+    const scriptEls = schemas.map((schema) => {
+      const el = document.createElement('script');
+      el.type = 'application/ld+json';
+      el.text = JSON.stringify(schema);
+      document.head.appendChild(el);
+      return el;
+    });
+
+    return () => scriptEls.forEach((el) => el.remove());
+  }, [blog]);
+
   const loadBlog = async () => {
     setLoading(true);
     setError(null);
