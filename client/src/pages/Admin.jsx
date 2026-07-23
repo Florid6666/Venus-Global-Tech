@@ -463,7 +463,14 @@ const LeafEditor = ({ path, content, token, onSave, onRegisterSave }) => {
     return <FooterEditor key="footer" content={content.footer} token={token} onSave={(data) => onSave('footer', null, data)} onRegisterSave={onRegisterSave} />;
   }
   if (top === 'blogs') {
-    return <BlogEditor key="blogs" token={token} />;
+    return (
+      <BlogEditor
+        key="blogs"
+        token={token}
+        categories={content.blogsPage?.categories || []}
+        onCategoriesChange={(data) => onSave('blogsPage', 'categories', data)}
+      />
+    );
   }
   if (top === 'services' && sub) {
     return (
@@ -1359,7 +1366,7 @@ const FooterEditor = ({ content, onSave, onRegisterSave, token }) => {
 // Blog Editor (individual posts) — its own CRUD UI, not a simple field form
 // ---------------------------------------------------------------------------
 
-const BlogEditor = ({ token }) => {
+const BlogEditor = ({ token, categories, onCategoriesChange }) => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingBlog, setEditingBlog] = useState(null);
@@ -1370,8 +1377,28 @@ const BlogEditor = ({ token }) => {
     metaTitle: '', metaDescription: '', faq: [],
   });
   const [saveStatus, setSaveStatus] = useState('');
+  const [isAddingCategory, setIsAddingCategory] = useState(false);
+  const [newCategoryInput, setNewCategoryInput] = useState('');
 
-  const categories = ['AI & Technology', 'ESG', 'Digital Strategy', 'Cloud Services', 'Software Development'];
+  // "All" is the public blog listing's wildcard filter, not a real category
+  // to assign to a post. Defensively include the post's current category
+  // even if it's since been renamed/removed from the shared list, so the
+  // select doesn't silently show the wrong value.
+  const selectableCategories = Array.from(new Set([
+    ...(categories || []).filter((c) => c !== 'All'),
+    formData.category,
+  ].filter(Boolean)));
+
+  const addCategory = () => {
+    const trimmed = newCategoryInput.trim();
+    if (!trimmed) { setIsAddingCategory(false); return; }
+    handleInputChange('category', trimmed);
+    if (!(categories || []).includes(trimmed)) {
+      onCategoriesChange([...(categories || []), trimmed]);
+    }
+    setNewCategoryInput('');
+    setIsAddingCategory(false);
+  };
 
   useEffect(() => { loadBlogs(); }, []);
 
@@ -1524,9 +1551,30 @@ const BlogEditor = ({ token }) => {
             <Field label="Author" value={formData.author} onChange={(v) => handleInputChange('author', v)} token={token} />
             <div className="field-group">
               <label className="field-label">Category</label>
-              <select value={formData.category} onChange={(e) => handleInputChange('category', e.target.value)}>
-                {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
-              </select>
+              {isAddingCategory ? (
+                <div className="blog-category-add-row">
+                  <input
+                    type="text"
+                    autoFocus
+                    value={newCategoryInput}
+                    onChange={(e) => setNewCategoryInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') { e.preventDefault(); addCategory(); }
+                      if (e.key === 'Escape') { setIsAddingCategory(false); setNewCategoryInput(''); }
+                    }}
+                    placeholder="New category name"
+                  />
+                  <button type="button" className="btn-save" onClick={addCategory}>Add</button>
+                  <button type="button" className="btn-logout" onClick={() => { setIsAddingCategory(false); setNewCategoryInput(''); }}>Cancel</button>
+                </div>
+              ) : (
+                <div className="blog-category-add-row">
+                  <select value={formData.category} onChange={(e) => handleInputChange('category', e.target.value)}>
+                    {selectableCategories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
+                  </select>
+                  <button type="button" className="btn-add" onClick={() => setIsAddingCategory(true)}>+ New Category</button>
+                </div>
+              )}
             </div>
             <ImageField label="Image" value={formData.image} onChange={(v) => handleInputChange('image', v)} token={token} />
             <div className="field-group">

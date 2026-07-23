@@ -418,6 +418,25 @@
 
 .blogs-table-wrap { overflow-x: auto; }
 
+.blog-category-add-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-category-add-row select,
+.blog-category-add-row input[type="text"] {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-category-add-row .btn-add,
+.blog-category-add-row .btn-save,
+.blog-category-add-row .btn-logout {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .blogs-table {
   width: 100%;
   border-collapse: collapse;
