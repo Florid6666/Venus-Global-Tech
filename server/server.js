@@ -286,6 +286,28 @@ const migrateContent = async () => {
   }
 };
 
+// blogs.json is a separate store from content.json, so the asset-path
+// rewrite above never touched it — a blog post authored (or its seed data
+// written) before an image was renamed can still point at the old path,
+// which then silently falls through to the catch-all SPA route and serves
+// index.html instead of a real 404, rendering as a broken image with no
+// obvious error.
+const migrateBlogs = async () => {
+  let blogs;
+  try {
+    blogs = JSON.parse(await fs.readFile(BLOGS_FILE, 'utf8'));
+  } catch (error) {
+    return; // missing entirely — seedFileIfMissing already handled that case
+  }
+
+  const before = JSON.stringify(blogs);
+  const rewritten = rewriteRenamedPaths(blogs);
+  if (JSON.stringify(rewritten) !== before) {
+    await fs.writeFile(BLOGS_FILE, JSON.stringify(rewritten, null, 2), 'utf8');
+    console.log('Migrated blogs.json: rewrote renamed asset paths.');
+  }
+};
+
 // JWT-based authentication middleware
 const authenticateAdmin = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -788,7 +810,7 @@ try {
 }
 
 Promise.all([ensureAdminBootstrap(), ensureDataBootstrap()])
-  .then(() => migrateContent())
+  .then(() => Promise.all([migrateContent(), migrateBlogs()]))
   .catch((error) => console.error('Startup bootstrap failed:', error))
   .finally(() => {
     app.listen(PORT, () => {

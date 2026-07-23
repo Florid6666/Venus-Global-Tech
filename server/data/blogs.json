@@ -21,7 +21,7 @@
       },
       {
         "type": "image",
-        "url": "/images/Agentic AI.jpg",
+        "url": "/images/agentic-ai.jpg",
         "caption": "Agentic AI systems plan, act, and adjust — closer to a junior team member than a search box."
       },
       {
@@ -69,7 +69,7 @@
       },
       {
         "type": "image",
-        "url": "/images/Software & Data.jpg",
+        "url": "/images/software-data.jpg",
         "caption": "Agentic workflows plug into the systems you already run — CRMs, ticketing queues, data pipelines — rather than replacing them."
       },
       {
@@ -104,7 +104,7 @@
     ],
     "author": "Venus Tech Team",
     "category": "AI & Technology",
-    "image": "/images/Agentic AI.jpg",
+    "image": "/images/agentic-ai.jpg",
     "featured": true,
     "metaTitle": "Agentic AI for the Enterprise: A Practical Guide",
     "metaDescription": "A practical guide to agentic AI for enterprises: what it is, how it differs from automation, real use cases, and how to start implementing it.",

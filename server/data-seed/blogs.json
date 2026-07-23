@@ -9,7 +9,7 @@
       { "type": "paragraph", "html": "<p>Over the past two years, \"AI\" in the enterprise has mostly meant chatbots and copilots — tools that respond when asked. Agentic AI is a different category: systems that can take a goal, break it into steps, use tools or APIs along the way, and carry a task through to completion with minimal human supervision. This guide covers what agentic AI actually is, how it differs from the automation you already run, where it delivers real value today, and how to start adopting it without over-promising to your stakeholders.</p>" },
       { "type": "heading", "level": 2, "text": "What Is Agentic AI?" },
       { "type": "paragraph", "html": "<p>An agentic AI system is built around a loop: it receives a goal, plans a sequence of actions, executes those actions (often by calling tools, APIs, or other software), observes the result, and adjusts its plan if something didn't go as expected. That loop — plan, act, observe, adjust — is what separates an \"agent\" from a single-shot AI response. A chatbot answers a question. An agent can be told to get something done, and keep working until it is.</p>" },
-      { "type": "image", "url": "/images/Agentic AI.jpg", "caption": "Agentic AI systems plan, act, and adjust — closer to a junior team member than a search box." },
+      { "type": "image", "url": "/images/agentic-ai.jpg", "caption": "Agentic AI systems plan, act, and adjust — closer to a junior team member than a search box." },
       { "type": "heading", "level": 2, "text": "How Agentic AI Differs From Traditional Automation" },
       { "type": "paragraph", "html": "<p>Traditional automation (RPA, scripted workflows) is deterministic: it follows a fixed sequence of steps and breaks the moment reality deviates from the script. Agentic AI is built to handle that deviation — it can reason about an unexpected result and decide what to try next, rather than simply failing. That flexibility is the entire value proposition, and also the entire risk: an agent that can improvise needs guardrails, logging, and human checkpoints that a fixed script never required.</p>" },
       { "type": "heading", "level": 2, "text": "Key Business Benefits" },
@@ -27,7 +27,7 @@
         "Sales operations agents that enrich and qualify inbound leads against CRM and firmographic data before a rep ever sees them",
         "Compliance and audit agents that cross-reference documentation against a checklist and flag exactly what's missing, not just that something is"
       ] },
-      { "type": "image", "url": "/images/Software & Data.jpg", "caption": "Agentic workflows plug into the systems you already run — CRMs, ticketing queues, data pipelines — rather than replacing them." },
+      { "type": "image", "url": "/images/software-data.jpg", "caption": "Agentic workflows plug into the systems you already run — CRMs, ticketing queues, data pipelines — rather than replacing them." },
       { "type": "heading", "level": 2, "text": "Implementation Best Practices" },
       { "type": "paragraph", "html": "<p>Agentic AI projects tend to succeed or fail based on scope discipline, not model quality. A few practices consistently separate the ones that ship from the ones that stall in a demo:</p>" },
       { "type": "list", "ordered": true, "items": [
@@ -42,7 +42,7 @@
     ],
     "author": "Venus Tech Team",
     "category": "AI & Technology",
-    "image": "/images/Agentic AI.jpg",
+    "image": "/images/agentic-ai.jpg",
     "featured": true,
     "metaTitle": "Agentic AI for the Enterprise: A Practical Guide",
     "metaDescription": "A practical guide to agentic AI for enterprises: what it is, how it differs from automation, real use cases, and how to start implementing it.",
