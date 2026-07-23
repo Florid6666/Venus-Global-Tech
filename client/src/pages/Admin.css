@@ -594,6 +594,11 @@
   gap: 0.75rem;
 }
 
+.block-heading-level-select {
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+
 .block-card input[type="text"],
 .block-card select {
   width: 100%;

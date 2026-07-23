@@ -16,7 +16,7 @@ const unwrapSingleParagraph = (html) => {
 // Renders CMS content that was authored as rich text (HTML) in the admin panel.
 // Content is sanitized server-side on save; DOMPurify here is a second layer of
 // defense in case older/unsanitized data is still present.
-const RichText = ({ html, as: Tag = 'div', className }) => {
+const RichText = ({ html, as: Tag = 'div', className, id }) => {
   if (!html) return null;
   let sanitized = DOMPurify.sanitize(html);
   if (BLOCK_INCOMPATIBLE_TAGS.has(Tag)) {
@@ -24,6 +24,7 @@ const RichText = ({ html, as: Tag = 'div', className }) => {
   }
   return (
     <Tag
+      id={id}
       className={className}
       dangerouslySetInnerHTML={{ __html: sanitized }}
     />

@@ -82,18 +82,22 @@ const BlockBuilder = ({ blocks, onChange, token }) => {
           )}
 
           {block.type === 'heading' && (
-            <div className="block-field-grid">
-              <select value={block.level || 2} onChange={(e) => updateBlock(index, { level: Number(e.target.value) })}>
+            <>
+              <select
+                className="block-heading-level-select"
+                value={block.level || 2}
+                onChange={(e) => updateBlock(index, { level: Number(e.target.value) })}
+              >
                 <option value={2}>Heading 2</option>
                 <option value={3}>Heading 3</option>
               </select>
-              <input
-                type="text"
+              <RichTextEditor
                 value={block.text}
-                onChange={(e) => updateBlock(index, { text: e.target.value })}
+                onChange={(v) => updateBlock(index, { text: v })}
+                token={token}
                 placeholder="Heading text"
               />
-            </div>
+            </>
           )}
 
           {block.type === 'paragraph' && (
