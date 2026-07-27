@@ -28,7 +28,12 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.use(express.json({ limit: '50mb' }));
+// strict: false allows a top-level JSON value that isn't an object/array —
+// several admin content fields (e.g. WholeImageEditor) PUT a bare string as
+// the entire request body, which express.json()'s default strict mode
+// rejects outright (before any route handler even runs), previously
+// crashing to an HTML error page instead of saving.
+app.use(express.json({ limit: '50mb', strict: false }));
 // Serve React app from client build (if built)
 const buildPath = path.join(__dirname, '..', 'client', 'build');
 if (require('fs').existsSync(buildPath)) {
@@ -796,6 +801,17 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// JSON 404 for any unmatched /api/* route (any method), and a global JSON
+// error handler for anything that throws before a route's own try/catch can
+// run (e.g. express.json() rejecting a malformed/oversized body). Without
+// these, Express's defaults for both cases are HTML pages — every fetch
+// call in the admin panel expects JSON back, so that surfaces client-side
+// as a confusing "Unexpected token '<' ... is not valid JSON" instead of a
+// readable error.
+app.use('/api', (req, res) => {
+  res.status(404).json({ error: `Not found: ${req.method} ${req.originalUrl}` });
+});
+
 // Serve React app (catch-all route must be last)
 // Only serve index.html for non-API routes (only if build folder exists)
 const clientBuildPath = path.join(__dirname, '..', 'client', 'build', 'index.html');
@@ -808,6 +824,12 @@ try {
 } catch (error) {
   console.log('Client build folder not found - API server only mode');
 }
+
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  if (res.headersSent) return next(err);
+  res.status(err.status || 500).json({ error: err.message || 'Internal server error' });
+});
 
 Promise.all([ensureAdminBootstrap(), ensureDataBootstrap()])
   .then(() => Promise.all([migrateContent(), migrateBlogs()]))

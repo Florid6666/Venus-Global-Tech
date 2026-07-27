@@ -9,6 +9,21 @@ import BlockBuilder from '../components/admin/BlockBuilder';
 import BlockRenderer from '../components/BlockRenderer';
 import { stripHtml } from '../utils/stripHtml';
 
+// A response that fails to parse as JSON almost always means something
+// upstream of the route handler served an HTML page instead (a proxy/gateway
+// error, an unmatched route, a body-parser rejection) — response.json()
+// throws a native "Unexpected token '<' ... is not valid JSON" in that case,
+// which is meaningless to whoever sees the alert. Read as text first so a
+// failure can report the actual status and a snippet of what came back.
+const parseJsonResponse = async (response) => {
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Server returned an unexpected response (status ${response.status}): ${text.slice(0, 150) || '(empty)'}`);
+  }
+};
+
 // ---------------------------------------------------------------------------
 // Small reusable field/array editors shared by every leaf editor below. Every
 // text field uses RichTextEditor (CKEditor) so content is authored and stored
@@ -313,8 +328,8 @@ const Admin = () => {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(data),
       });
+      const result = await parseJsonResponse(response);
       if (response.ok) {
-        const result = await response.json();
         setContent((prev) => {
           const next = { ...prev };
           if (subsection) {
@@ -327,9 +342,8 @@ const Admin = () => {
         setSaveStatus('success');
         setTimeout(() => setSaveStatus(''), 3000);
       } else {
-        const error = await response.json();
         setSaveStatus('error');
-        alert(error.error || 'Failed to save');
+        alert(result.error || 'Failed to save');
       }
     } catch (error) {
       setSaveStatus('error');
