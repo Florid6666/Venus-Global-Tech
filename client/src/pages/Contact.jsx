@@ -87,130 +87,172 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero">
-        <div className="contact-hero-container">
-          <h1 className="contact-hero-title">{contact?.hero?.title}</h1>
-          <RichText html={contact?.hero?.description} as="p" className="contact-hero-description" />
-        </div>
-      </section>
+      {/* Hero + form share one continuous dark background (spotlight glows,
+          grid overlay) so there's no seam between them — same technique used
+          on the home page's dark cluster and the ERP AI hero. */}
+      <div className="contact-dark-cluster">
+        <div className="contact-glow glow-indigo"></div>
+        <div className="contact-glow glow-cyan"></div>
+        <div className="contact-grid-overlay"></div>
 
-      {/* Contact Form Section */}
-      <section className="contact-form-section">
-        <div className="contact-form-container">
-          <div className="contact-form-image">
-            <img src={contact?.image} alt="Contact Us" />
+        {/* Hero Section */}
+        <section className="contact-hero">
+          <div className="contact-hero-container">
+            <div className="contact-hero-badge">
+              <span className="contact-hero-badge-dot"></span>
+              <span>Get in Touch</span>
+            </div>
+            <h1 className="contact-hero-title">{contact?.hero?.title}</h1>
+            <RichText html={contact?.hero?.description} as="p" className="contact-hero-description" />
           </div>
-          <div className="contact-form-content">
-            <div className="contact-form-header">
-              <div className="contact-form-badge">
-                <i className="fas fa-cube"></i>
-                <RichText html={form.badge} as="span" />
+        </section>
+
+        {/* Contact Form Section */}
+        <section className="contact-form-section">
+          <div className="contact-form-container">
+            <div className="contact-form-visual">
+              <div className="contact-frame">
+                <div className="contact-frame-topbar">
+                  <div className="contact-frame-dots"><span></span><span></span><span></span></div>
+                  <div className="contact-frame-url">
+                    <i className="fas fa-lock"></i>
+                    <span>venusglobaltech.com/contact</span>
+                  </div>
+                </div>
+                <div className="contact-frame-body">
+                  <img src={contact?.image} alt="Get in touch with Venus Global Technology" />
+                </div>
               </div>
-              <h2 className="contact-form-title">{form.title}</h2>
-              <div className="contact-form-divider"></div>
             </div>
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name" className="form-label">{form.nameLabel}</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-input"
-                    placeholder={form.namePlaceholder}
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
+            <div className="contact-form-content">
+              <div className="contact-form-header">
+                <div className="contact-form-badge">
+                  <i className="fas fa-cube"></i>
+                  <RichText html={form.badge} as="span" />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="email" className="form-label">{form.emailLabel}</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="form-input"
-                    placeholder={form.emailPlaceholder}
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
+                <h2 className="contact-form-title">{form.title}</h2>
               </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone" className="form-label">{form.phoneLabel}</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="form-input"
-                    placeholder={form.phonePlaceholder}
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                  />
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="contact-form-row">
+                  <div className="contact-form-group">
+                    <label htmlFor="name" className="contact-form-label">{form.nameLabel}</label>
+                    <div className="contact-input-wrap">
+                      <i className="fas fa-user contact-input-icon"></i>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="contact-form-input"
+                        placeholder={form.namePlaceholder}
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="contact-form-group">
+                    <label htmlFor="email" className="contact-form-label">{form.emailLabel}</label>
+                    <div className="contact-input-wrap">
+                      <i className="fas fa-envelope contact-input-icon"></i>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="contact-form-input"
+                        placeholder={form.emailPlaceholder}
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="budget" className="form-label">{form.budgetLabel}</label>
-                  <input
-                    type="text"
-                    id="budget"
-                    name="budget"
-                    className="form-input"
-                    placeholder={form.budgetPlaceholder}
-                    value={formData.budget}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-              </div>
 
-              <div className="form-row">
-                <div className="form-group full-width">
-                  <label htmlFor="inquiry" className="form-label">{form.inquiryLabel}</label>
-                  <textarea
-                    id="inquiry"
-                    name="inquiry"
-                    className="form-textarea"
-                    placeholder={form.inquiryPlaceholder}
-                    rows="4"
-                    value={formData.inquiry}
-                    onChange={handleInputChange}
-                    required
-                  ></textarea>
+                <div className="contact-form-row">
+                  <div className="contact-form-group">
+                    <label htmlFor="phone" className="contact-form-label">{form.phoneLabel}</label>
+                    <div className="contact-input-wrap">
+                      <i className="fas fa-phone contact-input-icon"></i>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="contact-form-input"
+                        placeholder={form.phonePlaceholder}
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="contact-form-group">
+                    <label htmlFor="budget" className="contact-form-label">{form.budgetLabel}</label>
+                    <div className="contact-input-wrap">
+                      <i className="fas fa-sack-dollar contact-input-icon"></i>
+                      <input
+                        type="text"
+                        id="budget"
+                        name="budget"
+                        className="contact-form-input"
+                        placeholder={form.budgetPlaceholder}
+                        value={formData.budget}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {submitStatus === 'success' && (
-                <div className="form-success">
-                  <i className="fas fa-check-circle"></i>
-                  <span>{form.successMessage}</span>
+                <div className="contact-form-row">
+                  <div className="contact-form-group contact-field-full">
+                    <label htmlFor="inquiry" className="contact-form-label">{form.inquiryLabel}</label>
+                    <div className="contact-input-wrap contact-input-wrap-textarea">
+                      <i className="fas fa-comment-dots contact-input-icon"></i>
+                      <textarea
+                        id="inquiry"
+                        name="inquiry"
+                        className="contact-form-textarea"
+                        placeholder={form.inquiryPlaceholder}
+                        rows="4"
+                        value={formData.inquiry}
+                        onChange={handleInputChange}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
                 </div>
-              )}
 
-              {submitStatus === 'error' && (
-                <div className="form-error">
-                  <i className="fas fa-exclamation-circle"></i>
-                  <span>{form.errorMessage}</span>
-                </div>
-              )}
+                {submitStatus === 'success' && (
+                  <div className="contact-form-success">
+                    <i className="fas fa-check-circle"></i>
+                    <span>{form.successMessage}</span>
+                  </div>
+                )}
 
-              <button
-                type="submit"
-                className="contact-form-button"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? form.submittingButton : form.submitButton}
-              </button>
-            </form>
+                {submitStatus === 'error' && (
+                  <div className="contact-form-error">
+                    <i className="fas fa-exclamation-circle"></i>
+                    <span>{form.errorMessage}</span>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="contact-form-button"
+                  disabled={isSubmitting}
+                >
+                  <span>{isSubmitting ? form.submittingButton : form.submitButton}</span>
+                  <span className="contact-form-button-arrow">
+                    <i className="fas fa-arrow-right"></i>
+                  </span>
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Global Offices Section */}
       <UpfooterOfficesV2 offices={home?.offices} />
