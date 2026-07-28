@@ -263,6 +263,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 10px 24px;
   background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
   color: #ffffff;
@@ -449,11 +450,10 @@
   }
 
   .nav-overlay {
+    /* Invisible tap-outside-to-close catcher only — no dim/blur effect. */
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(4px);
     z-index: 998;
   }
 }

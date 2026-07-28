@@ -4,6 +4,16 @@ import { useContent } from '../hooks/useContent';
 import RichText from './RichText';
 import './navbar.css';
 
+// Touch browsers commonly fire a synthetic mouseenter right before click (for
+// :hover compatibility), so wiring both hover-to-open and click-to-toggle on
+// the same element made a single tap open then immediately re-close itself —
+// the dropdown only ever seemed to respond on the second tap. Only wire up
+// the hover handlers on devices that actually have a real pointer to hover
+// with; touch-only devices get pure click/tap toggling with no interference.
+const supportsHover = typeof window !== 'undefined' && window.matchMedia
+  ? window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  : true;
+
 const Navbar = () => {
   const { content } = useContent('navbar');
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -66,8 +76,7 @@ const Navbar = () => {
                 className={`nav-item ${item.submenu ? 'dropdown' : ''} ${location.pathname === item.path ? 'active' : ''}`}
                 {...(item.submenu
                   ? {
-                      onMouseEnter: openServicesMenu,
-                      onMouseLeave: closeServicesMenu,
+                      ...(supportsHover ? { onMouseEnter: openServicesMenu, onMouseLeave: closeServicesMenu } : {}),
                       onClick: toggleServicesMenu,
                     }
                   : {})}
