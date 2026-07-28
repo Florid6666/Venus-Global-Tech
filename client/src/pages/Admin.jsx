@@ -51,20 +51,42 @@ const PlainField = ({ label, value, onChange, full, placeholder }) => (
 // Generic editor for an array of objects, e.g. benefit cards, FAQ items,
 // process steps. `fields` describes each object's shape:
 // { name, label, type: 'text' | 'image' }
+//
+// Rows are keyed by a stable id generated once per row (see rowKeys below),
+// never by array index. Removing a row from the middle used to shift every
+// later row's position — since each row's <Field> holds a CKEditor
+// instance, React (keyed by index) would hand the CKEditor at the removed
+// slot a different row's data instead of unmounting it, which sent CKEditor
+// and React into a re-render loop (Maximum update depth exceeded) instead
+// of cleanly removing the row.
+let arrayEditorKeySeq = 0;
+const nextArrayEditorKey = () => `ak${Date.now()}_${arrayEditorKeySeq++}`;
+
 const ArrayEditor = ({ items, fields, onChange, addTemplate, itemLabel, token }) => {
   const list = items || [];
+  const rowKeysRef = useRef([]);
+  if (rowKeysRef.current.length !== list.length) {
+    rowKeysRef.current = list.map((_, i) => rowKeysRef.current[i] || nextArrayEditorKey());
+  }
+
   const update = (index, field, value) => {
     const next = [...list];
     next[index] = { ...next[index], [field]: value };
     onChange(next);
   };
-  const add = () => onChange([...list, { ...addTemplate }]);
-  const remove = (index) => onChange(list.filter((_, i) => i !== index));
+  const add = () => {
+    rowKeysRef.current = [...rowKeysRef.current, nextArrayEditorKey()];
+    onChange([...list, { ...addTemplate }]);
+  };
+  const remove = (index) => {
+    rowKeysRef.current = rowKeysRef.current.filter((_, i) => i !== index);
+    onChange(list.filter((_, i) => i !== index));
+  };
 
   return (
     <div>
       {list.map((item, index) => (
-        <div key={index} className="array-card">
+        <div key={rowKeysRef.current[index]} className="array-card">
           <div className="field-grid">
             {fields.map((f) => {
               if (f.type === 'image') {
