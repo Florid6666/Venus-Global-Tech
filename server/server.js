@@ -161,11 +161,10 @@ const backfillMissingServices = (content, seed) => {
 };
 
 // navbar.menuItems' Services submenu is served straight from content.json
-// with no client-side fallback (unlike the footer's service links, which are
-// hardcoded in FooterV2.jsx and don't need this). It's a deliberately
-// curated, ordered list rather than "every service that exists" — so on an
-// already-seeded volume it's replaced wholesale to match the seed (fixing
-// membership and order together) instead of incrementally adding entries.
+// with no client-side fallback. It's a deliberately curated, ordered list
+// rather than "every service that exists" — so on an already-seeded volume
+// it's replaced wholesale to match the seed (fixing membership and order
+// together) instead of incrementally adding entries.
 const syncServicesSubmenu = (content, seed) => {
   const current = content.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
   const seedItem = seed.navbar?.menuItems?.find((i) => i.label === 'Services' && Array.isArray(i.submenu));
@@ -173,6 +172,57 @@ const syncServicesSubmenu = (content, seed) => {
   if (JSON.stringify(current.submenu) === JSON.stringify(seedItem.submenu)) return false;
   current.submenu = seedItem.submenu.map((s) => ({ ...s }));
   return true;
+};
+
+// footer.quickLinks/services/bottomLinks/titles are genuinely admin-editable
+// ongoing content (unlike syncServicesSubmenu's nav structure, which is
+// code-owned) — so this must NEVER behave like a sync-to-seed that reapplies
+// on every boot, or it would silently undo any edit (including a deliberate
+// deletion) the next time the server restarts. A first cut of this used an
+// "add whatever's missing by URL" backfill, which seemed safe but actually
+// resurrects anything an admin deletes — caught by testing an admin trimming
+// quickLinks down to one custom link and finding the rest reappear.
+//
+// The safe version only ever replaces a field when its current *set* of
+// URLs exactly matches the known old default — i.e. provably untouched by
+// an admin. The moment anything changes (by this fix or a real edit), the
+// set stops matching and every check below becomes a permanent no-op for
+// that field, so it can never fight a future edit or resurrect a deletion.
+const sameUrlSet = (list, expectedUrls) => {
+  if (!Array.isArray(list)) return false;
+  const actual = list.map((l) => l.url).slice().sort().join('|');
+  const expected = expectedUrls.slice().sort().join('|');
+  return actual === expected;
+};
+
+const OLD_DEFAULT_QUICKLINK_URLS = ['/', '/about', '/contact', 'https://wa.me/16477616277'];
+const OLD_DEFAULT_BOTTOM_LINK_URLS = ['#privacy', '#terms', '#cookies'];
+const OLD_DEFAULT_FOOTER_TITLES = { quickLinks: 'Quick Links', services: 'Our Services' };
+
+const fixFooterLinks = (content, seed) => {
+  if (!content.footer || !seed.footer) return false;
+  let changed = false;
+
+  if (sameUrlSet(content.footer.bottomLinks, OLD_DEFAULT_BOTTOM_LINK_URLS)) {
+    content.footer.bottomLinks = JSON.parse(JSON.stringify(seed.footer.bottomLinks));
+    changed = true;
+  }
+
+  if (sameUrlSet(content.footer.quickLinks?.links, OLD_DEFAULT_QUICKLINK_URLS)) {
+    content.footer.quickLinks.links = JSON.parse(JSON.stringify(seed.footer.quickLinks.links));
+    changed = true;
+  }
+
+  // footer.services.links already covered every real page before this
+  // change, so it needs no backfill — nothing to fix there.
+
+  for (const key of ['quickLinks', 'services']) {
+    if (content.footer[key]?.title === OLD_DEFAULT_FOOTER_TITLES[key]) {
+      content.footer[key].title = seed.footer[key].title;
+      changed = true;
+    }
+  }
+  return changed;
 };
 
 // The Investment page (and its top-level nav link) was removed entirely —
@@ -277,6 +327,7 @@ const migrateContent = async () => {
     if (extendServiceItems(content, seed)) changed = true;
     if (backfillMissingServices(content, seed)) changed = true;
     if (syncServicesSubmenu(content, seed)) changed = true;
+    if (fixFooterLinks(content, seed)) changed = true;
   } catch (error) {
     console.log('Content migration: no seed available to backfill new home sections.');
   }

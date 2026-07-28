@@ -14,22 +14,29 @@ const DEFAULT_FOOTER = {
       { platform: 'LinkedIn', icon: 'fab fa-linkedin-in', url: 'https://linkedin.com' }
     ]
   },
+  // Fallback only for before content.json loads — kept identical in shape and
+  // content to the real (admin-editable) footer.quickLinks/services/bottomLinks
+  // data below, so there's no flash of different links. Every url here must
+  // resolve to a real route or a real anchor id on the home page — no
+  // placeholder pages (e.g. a bare /services or /privacy that doesn't exist).
   companyLinks: [
+    { label: 'Home', url: '/' },
     { label: 'About Us', url: '/about' },
-    { label: 'Why Choose Us', url: '#why-choose-us' },
-    { label: 'Working Process', url: '#strategy-to-technology' },
-    { label: 'Technologies', url: '#technology-stack' },
-    { label: 'ESG & Compliance', url: '#esg-compliance-services' },
-    { label: 'Contact Us', url: '/contact' }
+    { label: 'Why Choose Us', url: '/#why-choose-us' },
+    { label: 'Working Process', url: '/#strategy-to-technology' },
+    { label: 'Technologies', url: '/#technology-stack' },
+    { label: 'ESG & Compliance', url: '/#esg-compliance-services' },
+    { label: 'Contact Us', url: '/contact' },
+    { label: 'Get Free Quote', url: 'https://wa.me/16477616277' }
   ],
   serviceLinks: [
-    { label: 'Agentic AI Solutions', url: '/services' },
-    { label: 'Custom Software Engineering', url: '/services' },
-    { label: 'Cloud Transformation', url: '/services' },
-    { label: 'Business Technology Consulting', url: '#business-technology-consulting' },
-    { label: 'IATF 16949 Auditing', url: '/iatf-auditing' },
-    { label: 'ERP Development & AI', url: '/erp-ai' },
-    { label: 'Data & Machine Learning', url: '/services' }
+    { label: 'Software & Data AI', url: '/software-data-ai' },
+    { label: 'Agentic AI Solutions', url: '/agentic-ai' },
+    { label: 'Cloud Services', url: '/cloud-service' },
+    { label: 'Digital Marketing', url: '/digital-reach' },
+    { label: 'ESG Solutions', url: '/esg' },
+    { label: 'IATF Auditing', url: '/iatf-auditing' },
+    { label: 'ERP AI', url: '/erp-ai' }
   ],
   contact: {
     email: 'info@venusglobaltech.com',
@@ -39,9 +46,7 @@ const DEFAULT_FOOTER = {
   },
   copyright: '© 2024 Venus Global Technology. All rights reserved.',
   legalLinks: [
-    { label: 'Privacy Policy', url: '/privacy' },
-    { label: 'Terms of Service', url: '/terms' },
-    { label: 'Security & Compliance', url: '#esg-compliance-services' }
+    { label: 'Security & Compliance', url: '/#esg-compliance-services' }
   ]
 };
 
@@ -50,11 +55,11 @@ const FooterV2 = () => {
   const { content: navbarContent } = useContent('navbar');
 
   const brand = footerContent?.brand || DEFAULT_FOOTER.brand;
-  const companyLinks = DEFAULT_FOOTER.companyLinks;
-  const serviceLinks = DEFAULT_FOOTER.serviceLinks;
+  const companyLinks = footerContent?.quickLinks?.links?.length > 0 ? footerContent.quickLinks.links : DEFAULT_FOOTER.companyLinks;
+  const serviceLinks = footerContent?.services?.links?.length > 0 ? footerContent.services.links : DEFAULT_FOOTER.serviceLinks;
   const contact = footerContent?.contact || DEFAULT_FOOTER.contact;
   const copyright = footerContent?.copyright || DEFAULT_FOOTER.copyright;
-  const legalLinks = DEFAULT_FOOTER.legalLinks;
+  const legalLinks = footerContent?.bottomLinks?.length > 0 ? footerContent.bottomLinks : DEFAULT_FOOTER.legalLinks;
 
   const logoImg = footerContent?.brand?.logo || footerContent?.brand?.logoImg || navbarContent?.logo;
 
@@ -117,7 +122,7 @@ const FooterV2 = () => {
 
           {/* Column 2: Company Links */}
           <div className="v2-footer-col">
-            <h4 className="v2-footer-col-title">Company</h4>
+            <h4 className="v2-footer-col-title">{footerContent?.quickLinks?.title || 'Company'}</h4>
             <ul className="v2-footer-links-list">
               {companyLinks.map((link, idx) => (
                 <li key={idx}>
@@ -131,7 +136,7 @@ const FooterV2 = () => {
 
           {/* Column 3: Solutions & Services */}
           <div className="v2-footer-col">
-            <h4 className="v2-footer-col-title">Solutions & Services</h4>
+            <h4 className="v2-footer-col-title">{footerContent?.services?.title || 'Solutions & Services'}</h4>
             <ul className="v2-footer-links-list">
               {serviceLinks.map((link, idx) => (
                 <li key={idx}>
@@ -169,8 +174,8 @@ const FooterV2 = () => {
 
               {/* Direct Strategy Whatsapp CTA */}
               <div className="v2-footer-wa-badge">
-                <a 
-                  href={contact.whatsapp || 'https://wa.me/16477220837'} 
+                <a
+                  href={contact.phoneWhatsapp || contact.whatsapp || 'https://wa.me/16477220837'}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="v2-wa-chat-btn"

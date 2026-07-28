@@ -415,7 +415,7 @@ const HomeV2 = () => {
 
       {/* 8. WORKING PROCESS SECTION */}
       {homeContent.workingProcess && (
-        <section className="v2-section-light v2-process-section">
+        <section className="v2-section-light v2-process-section" id="strategy-to-technology">
           <div className="v2-section-container">
             <SectionHeader
               badge={homeContent.workingProcess.badge}

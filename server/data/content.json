@@ -1049,7 +1049,7 @@
       ]
     },
     "quickLinks": {
-      "title": "Quick Links",
+      "title": "Company",
       "links": [
         {
           "label": "Home",
@@ -1058,6 +1058,22 @@
         {
           "label": "About Us",
           "url": "/about"
+        },
+        {
+          "label": "Why Choose Us",
+          "url": "/#why-choose-us"
+        },
+        {
+          "label": "Working Process",
+          "url": "/#strategy-to-technology"
+        },
+        {
+          "label": "Technologies",
+          "url": "/#technology-stack"
+        },
+        {
+          "label": "ESG & Compliance",
+          "url": "/#esg-compliance-services"
         },
         {
           "label": "Contact Us",
@@ -1070,7 +1086,7 @@
       ]
     },
     "services": {
-      "title": "Our Services",
+      "title": "Solutions & Services",
       "links": [
         {
           "label": "Software & Data AI",
@@ -1112,16 +1128,8 @@
     "copyright": "© 2024 Venus Global Technology. All rights reserved.",
     "bottomLinks": [
       {
-        "label": "Privacy Policy",
-        "url": "#privacy"
-      },
-      {
-        "label": "Terms of Service",
-        "url": "#terms"
-      },
-      {
-        "label": "Cookie Policy",
-        "url": "#cookies"
+        "label": "Security & Compliance",
+        "url": "/#esg-compliance-services"
       }
     ]
   },
