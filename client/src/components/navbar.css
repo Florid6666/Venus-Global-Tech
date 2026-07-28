@@ -422,6 +422,14 @@
 
   .dropdown-menu.open {
     display: block;
+    /* The desktop .dropdown-menu.open rule (two classes, higher specificity
+       than this file's own mobile .dropdown-menu reset) sets a translateX/Y
+       transform for its floating-popover position. Specificity wins over
+       source order and media-query scoping, so without redeclaring it here
+       — on the exact selector it's losing to — the open mobile menu still
+       got shifted sideways by that desktop transform instead of sitting
+       in its normal static-flow position. */
+    transform: none;
   }
 
   .dropdown-menu::before {
