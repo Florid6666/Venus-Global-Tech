@@ -110,8 +110,8 @@ const Navbar = () => {
                   window.open(whatsappLink || 'https://wa.me/16477220837', '_blank');
                 }}
               >
-                <i className="fas fa-phone-alt"></i>
                 <span>Book a Call</span>
+                <i className="fas fa-phone-alt"></i>
               </button>
             </div>
           </div>

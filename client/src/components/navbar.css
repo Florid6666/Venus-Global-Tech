@@ -43,6 +43,11 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  /* Same reason as .nav-toggle's z-index: .nav-overlay is a sibling inside
+     .nav-container and, being positioned with its own z-index, would
+     otherwise paint above this plain in-flow element and wash it out. */
+  position: relative;
+  z-index: 1000;
 }
 
 .logo-link {
@@ -297,6 +302,13 @@
   cursor: pointer;
   gap: 5px;
   padding: 0;
+  /* .nav-overlay lives inside .nav-container too (see Navbar.jsx), and as a
+     positioned element with a z-index it paints above any plain in-flow
+     sibling regardless of DOM order — this toggle needs its own z-index
+     above the overlay's, or the open (X) state gets visually washed out
+     under the blur instead of staying clickable and visible. */
+  position: relative;
+  z-index: 1000;
 }
 
 .nav-toggle-bar {
