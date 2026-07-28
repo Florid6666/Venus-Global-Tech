@@ -148,8 +148,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <button 
-          className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} 
+        <button
+          className={`nav-toggle ${isMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Navigation"
         >
@@ -158,9 +158,16 @@ const Navbar = () => {
           <span className="nav-toggle-bar"></span>
         </button>
 
-      </div>
+        {/* Must stay inside .nav-container: that element's backdrop-filter
+            creates its own stacking context, which traps .nav-menu's
+            z-index inside it. As a sibling of .nav-container instead (both
+            direct children of .navbar), this overlay would paint above the
+            entire container — menu included — no matter how high the
+            menu's z-index is, since that number only competes against other
+            elements sharing its own stacking context. */}
+        {isMenuOpen && <div className="nav-overlay" onClick={() => setIsMenuOpen(false)}></div>}
 
-      {isMenuOpen && <div className="nav-overlay" onClick={() => setIsMenuOpen(false)}></div>}
+      </div>
     </nav>
   );
 };
