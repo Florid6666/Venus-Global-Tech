@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VGT ERP AI - Industries & Solutions</title>
+  <meta name="description" content="Explore our industry solutions. Powering growth with innovation, built to scale with your business.">
+  <link rel="stylesheet" href="index.css?v=3.0">
+  <link rel="stylesheet" href="industries.css?v=2.3">
+</head>
+<body class="industries-theme">
+
+  <!-- ==========================================
+       1. HEADER / NAVIGATION BAR
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;" id="nav-logo">
+        <img src="logo.png" alt="VGT ERP AI" style="height: 38px; width: auto; object-fit: contain;">
+        <span>VGT ERP AI</span>
+      </a>
+      
+      <nav class="nav" id="main-nav">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#features" class="nav-link">Services</a>
+        <a href="index.html#pricing" class="nav-link">Pricing</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="industries.html" class="nav-link active">Industries</a>
+        <a href="contact.html" class="btn btn-primary nav-mobile-cta" style="margin-top: 16px; width: 100%; text-align: center;" id="nav-mobile-cta-btn">Contact Now</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="contact.html" class="btn btn-dark" style="padding: 10px 24px;" id="nav-desktop-cta-btn">Contact Now</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ==========================================
+       2. HERO SECTION
+       ========================================== -->
+  <section class="ind-hero" id="ind-hero-section">
+    <div class="container ind-hero-content">
+      <!-- Centered Pill Tag -->
+      <div class="pill-tag-container">
+        <span class="pill-tag" id="hero-badge">Industries</span>
+      </div>
+
+      <!-- Main Heading (H1) -->
+      <h1 class="ind-hero-title" id="hero-heading">
+        Powering growth with innovation
+      </h1>
+
+      <!-- Subheading -->
+      <p class="ind-hero-subtitle" id="hero-subheading">
+        Explore the capabilities that make our platform smarter, faster, and built to scale with your business.
+      </p>
+
+      <!-- CTA Button -->
+      <div class="ind-hero-ctas">
+        <a href="contact.html" class="btn btn-indigo btn-lift" id="hero-book-meeting-btn">
+          Book a 1:1 meeting <span class="arrow">&gt;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         HERO FEATURE GRID LAYOUT
+         ========================================== -->
+    <div class="container ind-grid-container">
+      <div class="ind-asymmetric-grid" id="hero-grid">
+        
+        <!-- Left Column wrapper -->
+        <div class="grid-left-col">
+          
+          <!-- Top-Left Dark Stat Card -->
+          <div class="ind-card dark-stat-card" id="stat-card">
+            <div class="stat-value">50M+</div>
+            <div class="stat-label">Users empowered worldwide with scalable solutions</div>
+          </div>
+
+          <!-- Bottom-Left Developer Card -->
+          <div class="ind-card developer-card" id="developer-card" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.85) 100%), url('developer_desk.png');">
+            <!-- App Icon Overlay Group -->
+            <div class="tech-icons-overlay">
+              <div class="tech-icon" title="API Sync">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div class="tech-icon" title="Cloud Database">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+              </div>
+              <div class="tech-icon" title="Integrations">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              </div>
+              <div class="tech-icon" title="Security Key">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+            </div>
+            
+            <div class="dev-card-content">
+              <h3>Get API access for developers</h3>
+              <a href="contact.html" class="btn btn-indigo btn-sm btn-lift" id="developer-explore-btn">
+                Explore Integration <span class="arrow">&gt;</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Portrait Woman Card -->
+        <div class="ind-card portrait-woman-card" id="woman-card" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0) 60%, rgba(15, 23, 42, 0.7) 100%), url('professional_woman_office.png');">
+          <div class="woman-card-content">
+            <span class="badge">Enterprise Ready</span>
+            <p class="woman-card-quote">"Scaling operations cross-border has never been simpler."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       3. KEY FEATURES SECTION (3x2 Grid)
+       ========================================== -->
+  <section class="ind-features" id="key-features-section">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header centered">
+        <h2 id="features-heading">Industries We Worked With</h2>
+        <p class="section-subtitle" id="features-subheading">
+          Simple, scalable, and ready for any industry. Our platform helps you launch faster, operate smarter, and grow without barriers.
+        </p>
+      </div>
+
+      <!-- Grid of 6 industry image cards -->
+      <div class="features-grid-3x2" id="key-features-grid">
+        
+        <!-- Card 1: Manufacturing -->
+        <div class="industry-card" id="ind-card-1" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_manufacturing.png');">
+          <h3 class="industry-card-title">Manufacturing</h3>
+        </div>
+
+        <!-- Card 2: Logistics -->
+        <div class="industry-card" id="ind-card-2" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_logistics.png');">
+          <h3 class="industry-card-title">Logistics & Supply Chain</h3>
+        </div>
+
+        <!-- Card 3: Retail -->
+        <div class="industry-card" id="ind-card-3" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_retail.png');">
+          <h3 class="industry-card-title">Retail & E-commerce</h3>
+        </div>
+
+        <!-- Card 4: Healthcare -->
+        <div class="industry-card" id="ind-card-4" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_healthcare.png');">
+          <h3 class="industry-card-title">Healthcare & Pharma</h3>
+        </div>
+
+        <!-- Card 5: Finance -->
+        <div class="industry-card" id="ind-card-5" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_finance.png');">
+          <h3 class="industry-card-title">Finance & Banking</h3>
+        </div>
+
+        <!-- Card 6: Energy -->
+        <div class="industry-card" id="ind-card-6" style="background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%), url('ind_energy.png');">
+          <h3 class="industry-card-title">Energy & Utilities</h3>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- ==========================================
+       TESTIMONIAL CAROUSEL (DARK BANNER)
+       ========================================== -->
+  <section class="testimonial" id="testimonials">
+    <!-- Wavy background decorations -->
+    <div class="testimonial-bg-waves">
+      <svg width="100%" height="100%" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+        <path d="M800,0 C1000,180 1200,80 1440,240 L1440,0 Z" fill="#0B2545" opacity="0.35"></path>
+        <path d="M0,420 C180,520 350,460 550,600 L0,600 Z" fill="#0B2545" opacity="0.35"></path>
+      </svg>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 10;">
+      <div class="testimonial-carousel-container" id="testimonial-carousel">
+        
+        <!-- Slide 1 (Henry D. Suza) -->
+        <div class="testimonial-slide active">
+          <div class="testimonial-left-col">
+            <div class="testimonial-img-wrapper">
+              <img src="reviewer_portrait.png" alt="Henry D. Suza Headshot">
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <svg width="48" height="38" viewBox="0 0 48 38"><path d="M0 22.285c0-10.457 7.026-17.653 18.067-22.285l2.428 4.34c-6.857 2.972-10.485 7.6-10.885 13.915h9.743v19.745h-19.353v-15.715zm27.026 0c0-10.457 7.026-17.653 18.068-22.285l2.427 4.34c-6.856 2.972-10.485 7.6-10.885 13.915h9.744v19.745h-19.354v-15.715z"/></svg>
+            </div>
+            <div class="testimonial-logo-badge">
+              <!-- Waves Logoipsum -->
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="12" fill="#0066FF"/>
+                <path d="M8 12 Q12 10 16 12 T24 12 M8 16 Q12 14 16 16 T24 16 M8 20 Q12 18 16 20 T24 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span>Logoipsum</span>
+            </div>
+            <blockquote class="testimonial-quote-text">
+              "VGT ERP AI exceeded expectations. The autonomous agents, real-time telemetry, and plant scheduling modules elevated our operational efficiency by over 40%!"
+            </blockquote>
+            <div class="testimonial-meta">
+              <span class="meta-name">Henry D. Suza</span>
+              <span class="meta-role">Founder & CEO at HBAC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 (Sarah Jenkins) -->
+        <div class="testimonial-slide">
+          <div class="testimonial-left-col">
+            <div class="testimonial-img-wrapper">
+              <img src="client_portrait_2.png" alt="Sarah Jenkins Headshot">
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <svg width="48" height="38" viewBox="0 0 48 38"><path d="M0 22.285c0-10.457 7.026-17.653 18.067-22.285l2.428 4.34c-6.857 2.972-10.485 7.6-10.885 13.915h9.743v19.745h-19.353v-15.715zm27.026 0c0-10.457 7.026-17.653 18.068-22.285l2.427 4.34c-6.856 2.972-10.485 7.6-10.885 13.915h9.744v19.745h-19.354v-15.715z"/></svg>
+            </div>
+            <div class="testimonial-logo-badge">
+              <!-- Waves Logoipsum -->
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="12" fill="#0066FF"/>
+                <path d="M8 12 Q12 10 16 12 T24 12 M8 16 Q12 14 16 16 T24 16 M8 20 Q12 18 16 20 T24 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span>Logoipsum</span>
+            </div>
+            <blockquote class="testimonial-quote-text">
+              "Deploying separated environment instances for our global clients has never been easier. Security audits now pass seamlessly thanks to the multi-tenancy architecture."
+            </blockquote>
+            <div class="testimonial-meta">
+              <span class="meta-name">Sarah Jenkins</span>
+              <span class="meta-role">Chief Technology Officer at Veloce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 (Marcus Aurelius) -->
+        <div class="testimonial-slide">
+          <div class="testimonial-left-col">
+            <div class="testimonial-img-wrapper">
+              <img src="client_portrait_3.png" alt="Marcus Aurelius Headshot">
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <svg width="48" height="38" viewBox="0 0 48 38"><path d="M0 22.285c0-10.457 7.026-17.653 18.067-22.285l2.428 4.34c-6.857 2.972-10.485 7.6-10.885 13.915h9.743v19.745h-19.353v-15.715zm27.026 0c0-10.457 7.026-17.653 18.068-22.285l2.427 4.34c-6.856 2.972-10.485 7.6-10.885 13.915h9.744v19.745h-19.354v-15.715z"/></svg>
+            </div>
+            <div class="testimonial-logo-badge">
+              <!-- Waves Logoipsum -->
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="12" fill="#0066FF"/>
+                <path d="M8 12 Q12 10 16 12 T24 12 M8 16 Q12 14 16 16 T24 16 M8 20 Q12 18 16 20 T24 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span>Logoipsum</span>
+            </div>
+            <blockquote class="testimonial-quote-text">
+              "The localized language translates instantaneously, enabling our teams across Europe to manage POS inventory natively. A game-changer for international retail chains."
+            </blockquote>
+            <div class="testimonial-meta">
+              <span class="meta-name">Marcus Aurelius</span>
+              <span class="meta-role">Head of Operations at Nova Trade</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 (Jessica Chen) -->
+        <div class="testimonial-slide">
+          <div class="testimonial-left-col">
+            <div class="testimonial-img-wrapper">
+              <img src="client_portrait_4.png" alt="Jessica Chen Headshot">
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <svg width="48" height="38" viewBox="0 0 48 38"><path d="M0 22.285c0-10.457 7.026-17.653 18.067-22.285l2.428 4.34c-6.857 2.972-10.485 7.6-10.885 13.915h9.743v19.745h-19.353v-15.715zm27.026 0c0-10.457 7.026-17.653 18.068-22.285l2.427 4.34c-6.856 2.972-10.485 7.6-10.885 13.915h9.744v19.745h-19.354v-15.715z"/></svg>
+            </div>
+            <div class="testimonial-logo-badge">
+              <!-- Waves Logoipsum -->
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="12" fill="#0066FF"/>
+                <path d="M8 12 Q12 10 16 12 T24 12 M8 16 Q12 14 16 16 T24 16 M8 20 Q12 18 16 20 T24 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <span>Logoipsum</span>
+            </div>
+            <blockquote class="testimonial-quote-text">
+              "Setting up the automated Stripe billing portal helped us scale our SaaS monetization models in days. The developer API documentation is incredibly clear."
+            </blockquote>
+            <div class="testimonial-meta">
+              <span class="meta-name">Jessica Chen</span>
+              <span class="meta-role">Director of Product at Apex Corp</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Centered Carousel Controls -->
+      <div class="testimonial-controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Previous Testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <button class="carousel-btn" id="carousel-next" aria-label="Next Testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. HOW IT WORKS SECTION (PROCESS WORKFLOW)
+       ========================================== -->
+  <section class="ind-workflow" id="workflow-section">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header centered">
+        <h2 id="workflow-heading">Here's how It works</h2>
+        <p class="section-desc" id="workflow-desc">
+          Set up and scale your digital presence in minutes - no complexity, just clarity.
+        </p>
+      </div>
+
+      <!-- Horizontal workflow grid -->
+      <div class="workflow-grid" id="workflow-cards-container">
+        
+        <!-- Step 1 -->
+        <div class="workflow-card-wrapper">
+          <div class="workflow-card" id="work-card-1">
+            <div class="workflow-icon-box">
+              <svg class="workflow-icon" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Share your vision</h3>
+            <p>We start by understanding your goals and what success looks like for you.</p>
+            <ul class="workflow-bullets">
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Clear discovery session</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Define objectives & challenges</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Align on strategy direction</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Premium Arrow Connector -->
+          <div class="workflow-connector">
+            <svg class="connector-arrow" viewBox="0 0 60 24" fill="none">
+              <line x1="0" y1="12" x2="48" y2="12" stroke="#93C5FD" stroke-width="2.5" stroke-dasharray="4 4" />
+              <polyline points="42 6 48 12 42 18" fill="none" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-card-wrapper">
+          <div class="workflow-card" id="work-card-2">
+            <div class="workflow-icon-box">
+              <svg class="workflow-icon" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.54 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <h3>Create the solution</h3>
+            <p>Our team designs, develops, and crafts solutions tailored to your needs.</p>
+            <ul class="workflow-bullets">
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom strategy & roadmap</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Creative design & development</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Scalable, future-ready build</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Premium Arrow Connector -->
+          <div class="workflow-connector">
+            <svg class="connector-arrow" viewBox="0 0 60 24" fill="none">
+              <line x1="0" y1="12" x2="48" y2="12" stroke="#93C5FD" stroke-width="2.5" stroke-dasharray="4 4" />
+              <polyline points="42 6 48 12 42 18" fill="none" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-card-wrapper last">
+          <div class="workflow-card" id="work-card-3">
+            <div class="workflow-icon-box">
+              <svg class="workflow-icon" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </div>
+            <h3>Launch & support</h3>
+            <p>We deliver, optimize, and stay by your side long after launch.</p>
+            <ul class="workflow-bullets">
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Smooth implementation</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Continuous improvements</span>
+              </li>
+              <li>
+                <svg class="checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated support team</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. FOOTER CTA BANNER
+       ========================================== -->
+  <section class="ind-cta-banner" id="ind-cta-banner-section">
+    <div class="container ind-cta-container">
+      <h2 id="cta-heading">Ready to make the switch?</h2>
+      <p id="cta-subheading">Future-proof your business with a platform built to adapt, scale,<br>and deliver results across every industry.</p>
+      <a href="contact.html" class="btn btn-indigo-square" id="cta-book-meeting-btn">
+        Book a 1:1 meeting <span class="arrow">&gt;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER SECTION
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-top">
+        
+        <!-- Column 1: Brand & Subscription -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo footer-logo" style="display: flex; align-items: center; gap: 10px;" id="footer-logo">
+            <img src="logo.png" alt="VGT ERP AI" style="height: 38px; width: auto; object-fit: contain;">
+            <span>VGT ERP AI</span>
+          </a>
+          <p style="font-size: 14px; line-height: 1.5; color: #64748B;">
+            Autonomous AI-Powered Cloud ERP Suite enabling manufacturers and enterprises to streamline plant operations, smart logistics, predictive procurement, and global telemetry.
+          </p>
+          
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="newsletter-input-box">
+              <input type="email" class="newsletter-input" placeholder="Join our newsletter..." required>
+              <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+            <label class="newsletter-agreement">
+              <input type="checkbox" required>
+              <span>I agree to receive communications and accept the Privacy Policy.</span>
+            </label>
+          </form>
+        </div>
+
+        <!-- Column 2: Main Pages -->
+        <div class="footer-column">
+          <h4>Main Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home Page</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#features">Features Suite</a></li>
+            <li><a href="index.html#pricing">Pricing Plans</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Utility Pages -->
+        <div class="footer-column">
+          <h4>Utility Pages</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Licenses Guide</a></li>
+            <li><a href="#">Changelog logs</a></li>
+            <li><a href="#">Error Page</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Social Media links -->
+        <div class="footer-column">
+          <h4>Social Media</h4>
+          <ul class="footer-links">
+            <li><a href="#" style="display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              Facebook
+            </a></li>
+            <li><a href="#" style="display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              Instagram
+            </a></li>
+            <li><a href="#" style="display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              LinkedIn
+            </a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Watermark Background -->
+      <div class="footer-watermark">VGT ERP AI</div>
+
+      <div class="footer-bottom">
+        <span>&copy; Rights reserved by VGT ERP AI</span>
+        <span>Design and Developed by Pixcora</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toast-message">
+    <div class="toast-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <span id="toast-text">Message sent successfully!</span>
+  </div>
+
+  <script src="industries.js?v=1.2"></script>
+</body>
+</html>
