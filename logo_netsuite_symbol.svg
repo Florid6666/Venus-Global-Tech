@@ -1,0 +1,17 @@
+<svg width="36" height="28" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0, -2)">
+    <!-- Outer Infinity Mobius Loop -->
+    <path d="M 28 22 C 18 2, 4 6, 4 22 C 4 38, 18 42, 28 22 C 38 2, 52 6, 52 22 C 52 38, 38 42, 28 22 Z" fill="#2B687B" stroke="#FFFFFF" stroke-width="1.8"/>
+    
+    <!-- Gold Wave Accent -->
+    <path d="M 12 24 C 16 12, 24 16, 28 22 C 22 28, 16 30, 12 24 Z" fill="#E6C46A" stroke="#FFFFFF" stroke-width="1.2"/>
+    <path d="M 32 22 C 36 14, 44 16, 48 22 C 42 30, 36 30, 32 22 Z" fill="#E6C46A" stroke="#FFFFFF" stroke-width="1.2"/>
+    
+    <!-- Light Sky Blue Wave Accent -->
+    <path d="M 30 20 C 34 10, 42 12, 46 20 C 40 26, 34 26, 30 20 Z" fill="#75BCD5" stroke="#FFFFFF" stroke-width="1.2"/>
+    <path d="M 10 30 C 18 36, 24 32, 28 22 C 22 20, 16 24, 10 30 Z" fill="#75BCD5" stroke="#FFFFFF" stroke-width="1.2"/>
+    
+    <!-- Dark Slate Accent -->
+    <path d="M 6 20 C 8 8, 20 10, 26 20 C 18 26, 10 28, 6 20 Z" fill="#1C4B59" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+</svg>
