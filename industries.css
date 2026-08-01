@@ -366,6 +366,8 @@
   width: 90%;
 }
 
+
+
 /* ==========================================
    4. HOW IT WORKS SECTION (PROCESS WORKFLOW)
    ========================================== */
@@ -576,45 +578,70 @@
 
 @media (max-width: 768px) {
   .ind-hero {
-    padding: 100px 0 60px 0;
+    padding: 90px 0 40px 0;
   }
   .ind-hero-title {
-    font-size: 36px;
+    font-size: 32px;
+    line-height: 1.25;
   }
   .ind-hero-subtitle {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 24px;
   }
   .dark-stat-card {
-    padding: 32px;
+    padding: 24px 20px;
   }
   .dark-stat-card .stat-value {
-    font-size: 48px;
+    font-size: 40px;
   }
   .developer-card {
-    padding: 32px;
-    height: 300px;
+    padding: 24px 20px;
+    height: auto;
+    min-height: 250px;
   }
   .portrait-woman-card {
-    padding: 32px;
-    min-height: 400px;
+    padding: 24px 20px;
+    min-height: 340px;
   }
   .ind-features {
-    padding: 80px 0;
+    padding: 60px 0;
   }
   .features-grid-3x2 {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   .ind-workflow {
-    padding: 80px 0;
+    padding: 60px 0;
   }
   .cta-banner-card {
-    padding: 60px 24px;
+    padding: 40px 20px;
   }
   .cta-banner-card h2 {
-    font-size: 30px;
+    font-size: 26px;
   }
   .cta-banner-card p {
-    font-size: 16px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ind-hero-title {
+    font-size: 26px;
+  }
+  .ind-hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .developer-card {
+    min-height: 220px;
+  }
+  .portrait-woman-card {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .ind-hero-title {
+    font-size: 24px;
   }
 }

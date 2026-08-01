@@ -39,38 +39,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.nav');
   const overlay = document.getElementById('nav-overlay');
 
-  mobileToggle.addEventListener('click', () => {
-    mobileToggle.classList.toggle('open');
-    nav.classList.toggle('open');
-    overlay.classList.toggle('open');
-  });
+  if (mobileToggle && nav) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileToggle.classList.toggle('open');
+      nav.classList.toggle('open');
+      if (overlay) overlay.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
 
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      mobileToggle.classList.remove('open');
-      nav.classList.remove('open');
-      overlay.classList.remove('open');
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        mobileToggle.classList.remove('open');
+        nav.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      });
+    }
+
+    // Close nav when clicking any link inside the drawer (good UX on mobile)
+    const drawerLinks = nav.querySelectorAll('a');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('open');
+        nav.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    // Reset menu display on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        mobileToggle.classList.remove('open');
+        nav.classList.remove('open');
+        if (overlay) overlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      }
     });
   }
-
-  // Close nav when clicking any link inside the drawer (good UX on mobile)
-  const drawerLinks = nav.querySelectorAll('a');
-  drawerLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileToggle.classList.remove('open');
-      nav.classList.remove('open');
-      if (overlay) overlay.classList.remove('open');
-    });
-  });
-
-  // Reset menu display on resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      mobileToggle.classList.remove('open');
-      nav.classList.remove('open');
-      if (overlay) overlay.classList.remove('open');
-    }
-  });
 
   // ==========================================
   // 4. ANIMATING HERO DASHBOARD CHART ON LOAD

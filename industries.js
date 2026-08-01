@@ -23,15 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileToggle && nav && overlay) {
     mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('open');
+      const isOpen = mobileToggle.classList.toggle('open');
       nav.classList.toggle('open');
       overlay.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
     });
 
     overlay.addEventListener('click', () => {
       mobileToggle.classList.remove('open');
       nav.classList.remove('open');
       overlay.classList.remove('open');
+      document.body.classList.remove('menu-open');
     });
 
     // Close nav when clicking any link inside the drawer
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.classList.remove('open');
         nav.classList.remove('open');
         overlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
       });
     });
 
@@ -50,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.classList.remove('open');
         nav.classList.remove('open');
         overlay.classList.remove('open');
+        document.body.classList.remove('menu-open');
       }
     });
   }

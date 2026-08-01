@@ -13,28 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileToggle && nav && overlay) {
     function toggleMobileMenu() {
-      mobileToggle.classList.toggle('open');
+      const isOpen = mobileToggle.classList.toggle('open');
       nav.classList.toggle('open');
       overlay.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+    }
+
+    function closeMobileMenu() {
+      mobileToggle.classList.remove('open');
+      nav.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.classList.remove('menu-open');
     }
 
     mobileToggle.addEventListener('click', toggleMobileMenu);
-    overlay.addEventListener('click', toggleMobileMenu);
+    overlay.addEventListener('click', closeMobileMenu);
 
-    const navLinks = nav.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileToggle.classList.remove('open');
-        nav.classList.remove('open');
-        overlay.classList.remove('open');
-      });
+    const drawerLinks = nav.querySelectorAll('a');
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
     });
 
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
-        mobileToggle.classList.remove('open');
-        nav.classList.remove('open');
-        overlay.classList.remove('open');
+        closeMobileMenu();
       }
     });
   }
