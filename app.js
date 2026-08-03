@@ -282,4 +282,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ==========================================
+  // 10. DASHBOARD SIDEBAR TAB INTERACTIVITY
+  // ==========================================
+  const dbListItems = document.querySelectorAll('.db-list-item');
+  dbListItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sidebarMenu = item.closest('.db-sidebar-menu');
+      if (sidebarMenu) {
+        sidebarMenu.querySelectorAll('.db-list-item').forEach(i => i.classList.remove('active'));
+      }
+      item.classList.add('active');
+    });
+  });
+
+  const dbIconBtns = document.querySelectorAll('.db-icon-btn');
+  dbIconBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      dbIconBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
 });
+
+

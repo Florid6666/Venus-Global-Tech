@@ -328,4 +328,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // 6. DASHBOARD SIDEBAR & METRIC INTERACTIVITY
+  // ==========================================
+  const dbListItems = document.querySelectorAll('.db-list-item');
+  dbListItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sidebarMenu = item.closest('.db-sidebar-menu');
+      if (sidebarMenu) {
+        sidebarMenu.querySelectorAll('.db-list-item').forEach(i => i.classList.remove('active'));
+      }
+      item.classList.add('active');
+    });
+  });
+
+  const sparklineCards = document.querySelectorAll('.db-sparkline-card');
+  sparklineCards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        card.style.transform = 'scale(1)';
+      }, 150);
+    });
+  });
+
+  const dbIconBtns = document.querySelectorAll('.db-icon-btn');
+  dbIconBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      dbIconBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
 });
+
+
