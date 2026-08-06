@@ -482,7 +482,7 @@ section {
   bottom: -40px;
   left: 0;
   width: 100%;
-  background: url('vgt_3d_pattern.png') no-repeat center;
+  background: url('images/vgt_3d_pattern.png') no-repeat center;
   background-size: cover;
   opacity: 0.12;
   z-index: 1;
@@ -528,6 +528,35 @@ section {
   overflow: hidden;
   position: relative;
   z-index: 20;
+}
+
+.hero-scroll-container {
+  max-height: 580px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: var(--radius-xl);
+  scroll-behavior: smooth;
+}
+
+.hero-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+.hero-scroll-container::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 4px;
+}
+.hero-scroll-container::-webkit-scrollbar-thumb {
+  background: #0066FF;
+  border-radius: 4px;
+}
+.hero-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #0052CC;
+}
+
+.hero-showcase-full-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Floating Card Overlays */

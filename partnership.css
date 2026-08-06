@@ -5,65 +5,81 @@
 /* 1. Hero Section */
 .partnership-hero {
   position: relative;
-  padding: 130px 0 90px;
-  background: #0B0F19;
+  padding: 140px 0 100px;
+  background: #080C14;
   color: #FFFFFF;
   overflow: hidden;
 }
 
 .hero-glow-left {
   position: absolute;
-  top: 10%;
-  left: -10%;
-  width: 550px;
-  height: 550px;
+  top: 5%;
+  left: -12%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(0, 164, 239, 0.22) 0%, rgba(0, 102, 255, 0.08) 45%, transparent 70%);
   pointer-events: none;
+  filter: blur(40px);
 }
 
 .hero-glow-right {
   position: absolute;
-  bottom: 10%;
-  right: -10%;
-  width: 550px;
-  height: 550px;
+  bottom: 5%;
+  right: -12%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(127, 186, 0, 0.18) 0%, rgba(242, 80, 34, 0.1) 45%, transparent 70%);
   pointer-events: none;
+  filter: blur(45px);
 }
 
 .partnership-hero-badge {
-  background: rgba(0, 164, 239, 0.15) !important;
-  color: #00A4EF !important;
+  background: rgba(0, 164, 239, 0.12) !important;
+  color: #38BDF8 !important;
   border: 1px solid rgba(0, 164, 239, 0.35) !important;
-  box-shadow: 0 0 20px rgba(0, 164, 239, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 164, 239, 0.2);
   font-size: 13px;
   font-weight: 800;
-  padding: 6px 16px;
+  padding: 8px 20px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 26px;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.partnership-hero-badge:hover {
+  border-color: rgba(0, 164, 239, 0.6) !important;
+  box-shadow: 0 6px 25px rgba(0, 164, 239, 0.35);
+  transform: translateY(-1px);
 }
 
 .hero-ms-text {
-  background: linear-gradient(135deg, #00A4EF 0%, #0066FF 50%, #7FBA00 100%) !important;
+  background: linear-gradient(135deg, #00A4EF 0%, #0066FF 35%, #7FBA00 70%, #FFB900 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   display: inline-block;
+  padding-right: 2px;
 }
 
 .partnership-hero-subhead {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: #38BDF8;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
 }
 
 .partnership-hero-desc {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.7;
   color: #CBD5E1;
-  max-width: 820px;
-  margin-bottom: 32px;
+  max-width: 840px;
+  margin-bottom: 34px;
+  font-weight: 450;
 }
 
 /* Split 2-Column Hero Layout */
