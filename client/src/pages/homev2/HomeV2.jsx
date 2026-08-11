@@ -14,7 +14,6 @@ import RecentAchievementsV2 from '../../components/homev2/RecentAchievementsV2';
 import IndustriesV2 from '../../components/homev2/IndustriesV2';
 import TechStackOrbitV2 from '../../components/homev2/TechStackOrbitV2';
 import IntegrationsBannerV2 from '../../components/homev2/IntegrationsBannerV2';
-import ConsultingShowcaseV2 from '../../components/homev2/ConsultingShowcaseV2';
 import EsgComplianceV2 from '../../components/homev2/EsgComplianceV2';
 import NorthAmericaReachV2 from '../../components/homev2/NorthAmericaReachV2';
 import FaqV2 from '../../components/homev2/FaqV2';
@@ -409,9 +408,6 @@ const HomeV2 = () => {
       {/* 5. AI PROJECTS PORTFOLIO CAROUSEL SECTION */}
       <AiProjectsPortfolioV2 content={homeContent.aiProjectsPortfolio} />
 
-      {/* RECENT ACHIEVEMENTS IN IT SOLUTIONS SHOWCASE SECTION */}
-      <RecentAchievementsV2 content={homeContent.recentAchievements} />
-
       {/* 6. INDUSTRIES WE EMPOWER SECTION */}
       <IndustriesV2 content={homeContent.industries} />
 
@@ -452,7 +448,7 @@ const HomeV2 = () => {
       )}
 
       {/* 9. BUSINESS TECHNOLOGY BEYOND SOFTWARE DEVELOPMENT SECTION */}
-      <ConsultingShowcaseV2 content={homeContent.consultingExpertise} />
+      <RecentAchievementsV2 content={homeContent.recentAchievements} />
 
       {/* 10. ESG & COMPLIANCE SERVICES SECTION */}
       <EsgComplianceV2 content={homeContent.esgCompliance} />

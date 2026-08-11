@@ -33,39 +33,56 @@
       ]
     },
     "recentAchievements": {
-      "badge": "OUR PROJECTS LIST",
       "title": "Business Technology Beyond Software Development",
-      "description": "When your audience visits your website, it gives them their first impression of your business. They will judge your business within seconds in these first few seconds",
+      "subheading": "We are more than a software development firm—Venus Global Technology serves as a trusted technology consulting partner. We bridge the gap between strategic vision and scalable engineering to drive long-term business value.",
       "items": [
         {
           "id": "1",
-          "title": "App Virtual Reality",
-          "image": "/images/homev2/project_vr_app.png"
+          "title": "Technology Strategy",
+          "description": "Strategic roadmaps aligned with business growth objectives and ROI.",
+          "image": "/images/homev2/achieve_card1_amber.png"
         },
         {
           "id": "2",
-          "title": "Analysis of Security",
-          "image": "/images/homev2/project_security_analysis.png"
+          "title": "Digital Innovation",
+          "description": "Emerging tech integration and transformative digital business models.",
+          "image": "/images/homev2/achieve_card2_emerald.png"
         },
         {
           "id": "3",
-          "title": "Social Marketing",
-          "image": "/images/homev2/project_social_marketing.png"
+          "title": "Enterprise Architecture",
+          "description": "Scalable systems design built for complex enterprise ecosystems.",
+          "image": "/images/homev2/achieve_card3_purple.png"
         },
         {
           "id": "4",
-          "title": "Basics Project",
-          "image": "/images/homev2/project_basics_project.png"
+          "title": "Cloud Modernization",
+          "description": "Legacy migration and cloud-native infrastructure optimization.",
+          "image": "/images/homev2/achieve_card4_cyan.png"
         },
         {
           "id": "5",
-          "title": "Ecommerce Website",
-          "image": "/images/homev2/project_ecommerce_website.png"
+          "title": "AI Adoption",
+          "description": "Enterprise-wide AI strategy, governance, and agentic enablement.",
+          "image": "/images/homev2/achieve_card5_rose.png"
         },
         {
           "id": "6",
-          "title": "Social Media App",
-          "image": "/images/homev2/project_social_media_app.png"
+          "title": "Business Technology",
+          "description": "End-to-end process optimization and automated digital workflows.",
+          "image": "/images/homev2/achieve_card6_orange.png"
+        },
+        {
+          "id": "7",
+          "title": "Enterprise Software",
+          "description": "Custom mission-critical platforms and seamless API integrations.",
+          "image": "/images/homev2/achieve_card7_sage.png"
+        },
+        {
+          "id": "8",
+          "title": "Digital Business Solutions",
+          "description": "Data-driven analytics and executive business intelligence systems.",
+          "image": "/images/homev2/achieve_card8_cobalt.png"
         }
       ]
     },
