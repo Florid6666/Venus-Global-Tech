@@ -10,6 +10,7 @@ import BentoServices from '../../components/homev2/BentoServices';
 import ErpShowcaseV2 from '../../components/homev2/ErpShowcaseV2';
 import WhyChooseV2 from '../../components/homev2/WhyChooseV2';
 import AiProjectsPortfolioV2 from '../../components/homev2/AiProjectsPortfolioV2';
+import RecentAchievementsV2 from '../../components/homev2/RecentAchievementsV2';
 import IndustriesV2 from '../../components/homev2/IndustriesV2';
 import TechStackOrbitV2 from '../../components/homev2/TechStackOrbitV2';
 import IntegrationsBannerV2 from '../../components/homev2/IntegrationsBannerV2';
@@ -407,6 +408,9 @@ const HomeV2 = () => {
 
       {/* 5. AI PROJECTS PORTFOLIO CAROUSEL SECTION */}
       <AiProjectsPortfolioV2 content={homeContent.aiProjectsPortfolio} />
+
+      {/* RECENT ACHIEVEMENTS IN IT SOLUTIONS SHOWCASE SECTION */}
+      <RecentAchievementsV2 content={homeContent.recentAchievements} />
 
       {/* 6. INDUSTRIES WE EMPOWER SECTION */}
       <IndustriesV2 content={homeContent.industries} />

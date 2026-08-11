@@ -8,17 +8,6 @@
       "ctaButton": "Book a Free AI Strategy Session",
       "secondaryCtaButton": "Talk to Our Experts",
       "secondaryCtaLink": "/contact",
-      "image": "/images/01.png",
-      "trailImages": [
-        "/images/software-data.jpg",
-        "/images/agentic-ai.jpg",
-        "/images/ai-cloud.jpg",
-        "/images/ESG.jpg",
-        "/slider/Team Venus at US thanks giving dinner at AMCHAM Gala Event.jpg",
-        "/slider/Venus Consultancy at Baltimore US for NMSDC Conference.jpg",
-        "/slider/Venus Global Tech at CES Las Vegas Nevada.jpg",
-        "/slider/Venus Global Tech with Team RBC.jpg"
-      ],
       "backgroundWords": [
         "SOFTWARE DEVELOPMENT & DATA AI",
         "AGENTIC AI SOLUTIONS",
@@ -41,6 +30,43 @@
         "AI",
         "CLOUD",
         "COMPLIANCE"
+      ]
+    },
+    "recentAchievements": {
+      "badge": "OUR PROJECTS LIST",
+      "title": "Recent achievements in IT solutions",
+      "description": "When your audience visits your website, it gives them their first impression of your business. They will judge your business within seconds in these first few seconds",
+      "items": [
+        {
+          "id": "1",
+          "title": "App Virtual Reality",
+          "image": "/images/homev2/project_vr_app.png"
+        },
+        {
+          "id": "2",
+          "title": "Analysis of Security",
+          "image": "/images/homev2/project_security_analysis.png"
+        },
+        {
+          "id": "3",
+          "title": "Social Marketing",
+          "image": "/images/homev2/project_social_marketing.png"
+        },
+        {
+          "id": "4",
+          "title": "Basics Project",
+          "image": "/images/homev2/project_basics_project.png"
+        },
+        {
+          "id": "5",
+          "title": "Ecommerce Website",
+          "image": "/images/homev2/project_ecommerce_website.png"
+        },
+        {
+          "id": "6",
+          "title": "Social Media App",
+          "image": "/images/homev2/project_social_media_app.png"
+        }
       ]
     },
     "trustedPartners": {

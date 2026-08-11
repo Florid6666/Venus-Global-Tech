@@ -13,6 +13,7 @@ export { default as IndustriesV2 } from './IndustriesV2';
 export { default as IntegrationsBannerV2 } from './IntegrationsBannerV2';
 export { default as NorthAmericaReachV2 } from './NorthAmericaReachV2';
 export { default as ProcessPipelineV2 } from './ProcessPipelineV2';
+export { default as RecentAchievementsV2 } from './RecentAchievementsV2';
 export { default as TechStackOrbitV2 } from './TechStackOrbitV2';
 export { default as UpfooterOfficesV2 } from './UpfooterOfficesV2';
 export { default as WhyChooseV2 } from './WhyChooseV2';
