@@ -164,16 +164,16 @@ const RecentAchievementsV2 = ({ content }) => {
           <div className="achievements-v2-title-col">
             <div className="achievements-v2-badge-row">
               <span className="achievements-v2-accent-bar" />
-              <span className="achievements-v2-badge-text">OUR PROJECTS LIST</span>
+              <span className="achievements-v2-badge-text">{content?.badge || "OUR PROJECTS LIST"}</span>
             </div>
             <h2 className="achievements-v2-heading">
-              Recent achievements in IT solutions
+              {content?.title || "Business Technology Beyond Software Development"}
             </h2>
           </div>
 
           <div className="achievements-v2-subtext-col">
             <p className="achievements-v2-paragraph">
-              When your audience visits your website, it gives them their first impression of your business. They will judge your business within seconds in these first few seconds
+              {content?.description || "When your audience visits your website, it gives them their first impression of your business. They will judge your business within seconds in these first few seconds"}
             </p>
           </div>
         </div>
