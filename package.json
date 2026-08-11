@@ -4,6 +4,7 @@
   "description": "Venus Global Technology - Full Stack Application",
   "private": true,
   "scripts": {
+    "build": "cd client && npm install && npm run build",
     "client:install": "cd client && npm install",
     "server:install": "cd server && npm install",
     "install:all": "npm run client:install && npm run server:install",
