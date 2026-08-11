@@ -3,7 +3,14 @@ import './HeroV2.css';
 import RichText from '../RichText';
 
 const HeroV2 = ({ content, whatsappLink }) => {
-  if (!content) return null;
+  const heroData = {
+    titleLine1: content?.titleLine1 || 'AI Development Company for',
+    titleLine2: content?.titleLine2 || 'Enterprise AI & Digital Transformation',
+    description: content?.description || 'Transform your business with intelligent technology built for growth. Venus Global Technology helps startups, SMBs, and enterprises build secure, scalable, and future-ready digital solutions that improve efficiency, reduce costs, and accelerate innovation.',
+    ctaButton: content?.ctaButton || 'Book a Free AI Strategy Session',
+    secondaryCtaButton: content?.secondaryCtaButton,
+    secondaryCtaLink: content?.secondaryCtaLink || '/contact'
+  };
 
   const handlePrimaryClick = () => {
     if (whatsappLink) {
@@ -14,7 +21,7 @@ const HeroV2 = ({ content, whatsappLink }) => {
   };
 
   const handleSecondaryClick = () => {
-    window.location.href = content.secondaryCtaLink || '/contact';
+    window.location.href = heroData.secondaryCtaLink;
   };
 
   return (
@@ -30,30 +37,30 @@ const HeroV2 = ({ content, whatsappLink }) => {
         {/* Left Content Side */}
         <div className="v2-hero-chatbot-left">
           <h1 className="v2-hero-chatbot-title">
-            <span className="v2-hero-title-main">{content.titleLine1}</span>
-            <span className="v2-hero-title-highlight">{content.titleLine2}</span>
+            <span className="v2-hero-title-main">{heroData.titleLine1}</span>
+            <span className="v2-hero-title-highlight">{heroData.titleLine2}</span>
           </h1>
 
           <div className="v2-hero-chatbot-supporting">
-            <RichText html={content.description} as="div" />
+            <RichText html={heroData.description} as="div" />
           </div>
 
           <div className="v2-hero-chatbot-cta">
             {/* Primary Gradient Pill Button */}
             <button className="v2-hero-btn-pill" onClick={handlePrimaryClick}>
-              <span className="v2-hero-btn-text">{content.ctaButton || 'Book a Free AI Strategy Session'}</span>
+              <span className="v2-hero-btn-text">{heroData.ctaButton}</span>
               <span className="v2-hero-btn-arrow-circle">
                 <i className="fas fa-arrow-right"></i>
               </span>
             </button>
 
             {/* Secondary circular play button */}
-            {content.secondaryCtaButton && (
+            {heroData.secondaryCtaButton && (
               <button className="v2-hero-btn-play" onClick={handleSecondaryClick}>
                 <span className="v2-hero-btn-play-circle">
                   <i className="fas fa-play"></i>
                 </span>
-                <span className="v2-hero-btn-play-text">{content.secondaryCtaButton}</span>
+                <span className="v2-hero-btn-play-text">{heroData.secondaryCtaButton}</span>
               </button>
             )}
           </div>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { getApiUrl } from '../config/api';
+import defaultContent from '../data/defaultContent.json';
 
 export const useContent = (section = null) => {
-  const [content, setContent] = useState(null);
+  const fallback = section ? defaultContent[section] || null : defaultContent;
+  const [content, setContent] = useState(fallback);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -23,8 +25,11 @@ export const useContent = (section = null) => {
         setContent(data);
         setError(null);
       } catch (err) {
+        console.warn('[useContent] Error fetching content, using fallback:', err);
         setError(err.message);
-        console.error('[useContent] Error fetching content:', err);
+        if (fallback) {
+          setContent(fallback);
+        }
       } finally {
         setLoading(false);
       }
@@ -33,7 +38,7 @@ export const useContent = (section = null) => {
     fetchContent();
   }, [section]);
 
-  return { content, loading, error };
+  return { content: content || fallback, loading: false, error };
 };
 
 
