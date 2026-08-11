@@ -1,310 +1,278 @@
 /* ==========================================================================
-   Industries We Empower - Homepage V2
-   Normal State: Full Unsplash Image + Industry Name & Icon
-   Hover State: Dark Overlay Reveal + Description & Action Button Slide In
+   INDUSTRIES WE SERVE SECTION (V2 Design System)
+   Deep Dark Theme (#0B0E14), Bright Coral Red (#FF3B30) Hover Title Transition
    ========================================================================== */
 
-.v2-industries-section {
+.industries-serve-section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #0b0e14;
+  color: #ffffff;
   padding: 100px 0 110px;
   overflow: hidden;
-  color: #0f172a;
-}
-
-/* Subtle Ambient Glows */
-.v2-industries-ambient-glow {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  opacity: 0.35;
-}
-
-.v2-industries-ambient-glow.glow-top {
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-.v2-industries-ambient-glow.glow-bottom {
-  bottom: 0;
-  right: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-/* Container */
-.v2-industries-container {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
-  position: relative;
-  z-index: 1;
-}
-
-/* --------------------------------------------------------------------------
-   TOP SECTION: Centered Header (~700px max-width)
-   -------------------------------------------------------------------------- */
-
-.v2-industries-header {
-  max-width: 720px;
-  margin: 0 auto 60px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Badge */
-.v2-industries-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  border-radius: 50px;
-  margin-bottom: 24px;
-}
-
-.v2-industries-badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #2563eb;
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
-}
-
-.v2-industries-badge-text {
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #1d4ed8;
-}
-
-/* Heading (56px) */
-.v2-industries-heading {
-  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #0f172a;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #0f172a 40%, #1e293b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Paragraph (18px) */
-.v2-industries-paragraph {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.65;
-  color: #475569;
-  margin: 0;
-  max-width: 680px;
-}
-
-/* --------------------------------------------------------------------------
-   BOTTOM SECTION: 2x4 Industry Solution Grid
-   -------------------------------------------------------------------------- */
-
-.v2-industries-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  width: 100%;
-}
-
-/* Base Industry Card Tile */
-.v2-industry-card {
-  position: relative;
-  background-color: #0f172a;
-  border: none;
-  border-radius: 20px;
-  height: 330px;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.12);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Unsplash Background Image (Normal State: Fully Visible) */
-.v2-industry-card-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.9;
-  filter: brightness(0.92);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, filter 0.5s ease;
-  z-index: 0;
-}
-
-/* Resting Overlay (Light Bottom Gradient for Title Readability) */
-.v2-industry-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(7, 9, 14, 0.85) 100%);
-  z-index: 1;
-  transition: background 0.4s ease;
-}
-
-/* Inner Content Stack */
-.v2-industry-card-inner {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  padding: 32px 28px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   box-sizing: border-box;
 }
 
-/* Card Body */
-.v2-industry-card-body {
-  margin-top: auto;
-  margin-bottom: 4px;
+.industries-serve-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
-/* Industry Title (Always Visible) */
-.v2-industry-card-title {
-  font-size: 1.35rem; /* 22px */
+/* Diagonal Ambient Glowing Light Effects (Top-Left & Bottom-Right) */
+.industries-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-diagonal-left {
+  width: 680px;
+  height: 520px;
+  top: -120px;
+  left: -140px;
+  background: radial-gradient(circle at 35% 35%, rgba(99, 102, 241, 0.22) 0%, rgba(56, 189, 248, 0.14) 45%, rgba(37, 99, 235, 0.06) 70%, transparent 85%);
+  filter: blur(75px);
+}
+
+.glow-diagonal-right {
+  width: 720px;
+  height: 540px;
+  bottom: -140px;
+  right: -140px;
+  background: radial-gradient(circle at 65% 65%, rgba(37, 99, 235, 0.22) 0%, rgba(168, 85, 247, 0.14) 45%, rgba(56, 189, 248, 0.06) 70%, transparent 85%);
+  filter: blur(80px);
+}
+
+/* --------------------------------------------------------------------------
+   A. HEADER SECTION
+   -------------------------------------------------------------------------- */
+.industries-serve-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 52px;
+}
+
+.industries-serve-header-left {
+  max-width: 840px;
+}
+
+.industries-category-eyebrow {
+  display: inline-block;
+  font-size: 0.88rem;
   font-weight: 700;
+  text-transform: uppercase;
+  color: #3b82f6;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.industries-serve-title {
+  font-size: clamp(2.2rem, 1.8rem + 2vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: #ffffff;
-  margin: 0 0 6px 0;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.35s ease;
-}
-
-/* Description (Hidden in Normal State, Fades & Slides In on Hover) */
-.v2-industry-card-desc {
-  font-size: 0.92rem; /* 15px */
-  line-height: 1.45;
-  color: #cbd5e1;
   margin: 0;
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(16px);
-  overflow: hidden;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.35s ease;
+  max-width: 840px;
 }
 
-/* Card Footer Button / Action Link (Hidden in Normal State, Appears on Hover) */
-.v2-industry-card-footer {
+.desktop-br {
+  display: inline;
+}
+
+/* CAROUSEL NAVIGATION CONTROLS */
+.industries-nav-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #38bdf8; /* Sky Blue */
-  font-size: 0.92rem;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+  gap: 14px;
 }
 
-.v2-industry-arrow {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.industries-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #161b26;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --------------------------------------------------------------------------
-   HOVER INTERACTION: Dark Overlay Expansion + Description & Button Reveal
-   -------------------------------------------------------------------------- */
-
-.v2-industry-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.45);
+.industries-nav-btn:hover:not(.is-disabled) {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
 }
 
-/* Background Zoom */
-.v2-industry-card:hover .v2-industry-card-bg {
-  transform: scale(1.12);
-  filter: brightness(1);
-}
-
-/* Rich Dark Gradient Overlay Expansion */
-.v2-industry-card:hover .v2-industry-card-overlay {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.88) 45%, rgba(7, 9, 14, 0.97) 100%);
-}
-
-/* Reveal Description & Button */
-.v2-industry-card:hover .v2-industry-card-desc {
-  opacity: 1;
-  max-height: 90px;
-  transform: translateY(0);
-  margin-bottom: 12px;
-}
-
-.v2-industry-card:hover .v2-industry-card-footer {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.v2-industry-card:hover .v2-industry-arrow {
-  transform: translateX(6px);
-}
-
-.v2-industry-card:hover .v2-industry-arrow {
-  transform: translateX(6px);
-}
-
-/* Featured Card Style */
-.v2-industry-card.card-featured {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 14px 35px -10px rgba(37, 99, 235, 0.15);
+.industries-nav-btn.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(22, 27, 38, 0.5);
+  color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN
+   B. CAROUSEL CARD STRUCTURE
    -------------------------------------------------------------------------- */
+.industries-slider-window {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
+.industries-slider-track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  will-change: transform;
+  padding: 10px 0 20px;
+}
+
+.industries-slider-track.transition-enabled {
+  transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Individual Card (Vertical Stack inside card) */
+.industries-card {
+  flex: 0 0 calc((100% - 72px) / 4);
+  min-width: 280px;
+  background-color: #131720;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.4);
+}
+
+.industries-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 99, 235, 0.2);
+}
+
+/* 1. Top Image Container */
+.industries-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #0b0e14;
+}
+
+.industries-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.industries-card:hover .industries-card-img {
+  transform: scale(1.04);
+}
+
+/* Numbered Badge (Top Right of Image) */
+.industries-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 5px 14px;
+  background: rgba(11, 14, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Card Content Block */
+.industries-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+/* Title: Default White (#FFFFFF) -> Transitions to Electric Blue (#3B82F6) on Card Hover */
+.industries-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0;
+  transition: color 0.35s ease;
+}
+
+.industries-card:hover .industries-card-title {
+  color: #3b82f6;
+}
+
+/* Description: Muted Light Gray (#94A3B8) */
+.industries-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-  .v2-industries-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  .industries-card {
+    flex: 0 0 calc((100% - 48px) / 3);
   }
 }
 
-@media (max-width: 900px) {
-  .v2-industries-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+@media (max-width: 960px) {
+  .industries-card {
+    flex: 0 0 calc((100% - 24px) / 2);
   }
 }
 
-@media (max-width: 600px) {
-  .v2-industries-section {
-    padding: 60px 0 70px;
+@media (max-width: 640px) {
+  .industries-serve-section {
+    padding: 70px 0 80px;
   }
 
-  .v2-industries-container {
+  .industries-serve-container {
     padding: 0 20px;
   }
 
-  .v2-industries-header {
-    margin-bottom: 40px;
+  .industries-serve-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 
-  .v2-industries-paragraph {
-    font-size: 1rem;
-  }
-
-  .v2-industries-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .v2-industry-card {
-    height: 290px;
+  .industries-card {
+    flex: 0 0 88%;
+    min-width: 270px;
   }
 }

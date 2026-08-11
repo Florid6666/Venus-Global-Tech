@@ -399,6 +399,15 @@
 }
 
 @media (max-width: 968px) {
+  .v2-hero-spotlight.spotlight-blue,
+  .v2-hero-spotlight.spotlight-purple,
+  .v2-hero-spotlight.spotlight-teal,
+  .v2-hero-spotlight.spotlight-indigo {
+    width: 100vw;
+    height: 100vw;
+    max-width: 420px;
+    max-height: 420px;
+  }
   .v2-hero-chatbot {
     flex-direction: column;
     padding: 100px 0 60px;

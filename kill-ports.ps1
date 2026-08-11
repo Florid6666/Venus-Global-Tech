@@ -30,7 +30,7 @@ foreach ($port in $Ports) {
                         Stop-Process -Id $pid -Force -ErrorAction Stop
                     }
                 } catch {
-                    Write-Host "  Could not kill PID $pid: $_" -ForegroundColor Yellow
+                    Write-Host "  Could not kill PID ${pid}: $($_.Exception.Message)" -ForegroundColor Yellow
                 }
             }
         }
@@ -53,11 +53,12 @@ foreach ($port in $Ports) {
     $inUse = netstat -ano | findstr ":$port.*LISTENING"
     Write-Host "Port $port : " -NoNewline
     if ($inUse) {
-        Write-Host "STILL IN USE ✗" -ForegroundColor Red
+        Write-Host "STILL IN USE [X]" -ForegroundColor Red
     } else {
-        Write-Host "FREE ✓" -ForegroundColor Green
+        Write-Host "FREE [OK]" -ForegroundColor Green
     }
 }
 
 Write-Host "`nDone!" -ForegroundColor Green
+
 

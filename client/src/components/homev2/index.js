@@ -1,0 +1,21 @@
+export { default as AiProjectsPortfolioV2 } from './AiProjectsPortfolioV2';
+export { default as AiSolutionsV2 } from './AiSolutionsV2';
+export { default as BentoServices } from './BentoServices';
+export { default as ConsultingShowcaseV2 } from './ConsultingShowcaseV2';
+export { default as CtaBannerV2 } from './CtaBannerV2';
+export { default as ErpShowcaseV2 } from './ErpShowcaseV2';
+export { default as ErpShowcaseSection } from './ErpShowcaseSection';
+export { default as EsgComplianceV2 } from './EsgComplianceV2';
+export { default as FaqV2 } from './FaqV2';
+export { default as FooterV2 } from './FooterV2';
+export { default as HeroV2 } from './HeroV2';
+export { default as IndustriesV2 } from './IndustriesV2';
+export { default as IntegrationsBannerV2 } from './IntegrationsBannerV2';
+export { default as NorthAmericaReachV2 } from './NorthAmericaReachV2';
+export { default as ProcessPipelineV2 } from './ProcessPipelineV2';
+export { default as TechStackOrbitV2 } from './TechStackOrbitV2';
+export { default as UpfooterOfficesV2 } from './UpfooterOfficesV2';
+export { default as WhyChooseV2 } from './WhyChooseV2';
+export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as WorkingProcessV2 } from './WorkingProcessV2';
+

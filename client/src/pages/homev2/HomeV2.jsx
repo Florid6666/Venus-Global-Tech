@@ -9,9 +9,10 @@ import HeroV2 from '../../components/homev2/HeroV2';
 import BentoServices from '../../components/homev2/BentoServices';
 import ErpShowcaseV2 from '../../components/homev2/ErpShowcaseV2';
 import WhyChooseV2 from '../../components/homev2/WhyChooseV2';
-import AiSolutionsV2 from '../../components/homev2/AiSolutionsV2';
+import AiProjectsPortfolioV2 from '../../components/homev2/AiProjectsPortfolioV2';
 import IndustriesV2 from '../../components/homev2/IndustriesV2';
 import TechStackOrbitV2 from '../../components/homev2/TechStackOrbitV2';
+import IntegrationsBannerV2 from '../../components/homev2/IntegrationsBannerV2';
 import ConsultingShowcaseV2 from '../../components/homev2/ConsultingShowcaseV2';
 import EsgComplianceV2 from '../../components/homev2/EsgComplianceV2';
 import NorthAmericaReachV2 from '../../components/homev2/NorthAmericaReachV2';
@@ -404,14 +405,14 @@ const HomeV2 = () => {
       {/* 4. BRAND NEW WHY CHOOSE VENUS GLOBAL TECHNOLOGY SECTION */}
       <WhyChooseV2 content={homeContent.whyChooseUs} />
 
-      {/* 5. AI SOLUTIONS BUILT FOR REAL BUSINESS OUTCOMES SECTION (Lottie Left, Content Right) */}
-      <AiSolutionsV2 content={homeContent.aiExpertise} />
+      {/* 5. AI PROJECTS PORTFOLIO CAROUSEL SECTION */}
+      <AiProjectsPortfolioV2 content={homeContent.aiProjectsPortfolio} />
 
       {/* 6. INDUSTRIES WE EMPOWER SECTION */}
       <IndustriesV2 content={homeContent.industries} />
 
-      {/* 7. TECHNOLOGIES WE WORK WITH ORBITAL ECOSYSTEM SECTION */}
-      <TechStackOrbitV2 content={homeContent.technologies} />
+      {/* TECHNOLOGIES WE WORK WITH BANNER */}
+      <IntegrationsBannerV2 title="Technologies We Work With" />
 
       {/* 8. WORKING PROCESS SECTION */}
       {homeContent.workingProcess && (

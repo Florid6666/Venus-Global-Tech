@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './TechStackOrbitV2.css';
 
 const INNER_RING_NODES = [
-  { id: 'openai', name: 'OpenAI', category: 'Generative AI • LLM Orchestration', icon: 'fa-robot', color: '#10a37f' },
+  { id: 'openai', name: 'OpenAI', category: 'Generative AI • LLM Orchestration', icon: 'fa-robot', color: '#10a37f', iconUrl: '/images/homev2/tech_openai.png' },
   { id: 'python', name: 'Python', category: 'AI Models • Data Engineering', icon: 'fa-python', color: '#3776ab', isBrand: true },
-  { id: 'langchain', name: 'LangChain', category: 'Agentic AI • RAG Pipelines', icon: 'fa-diagram-project', color: '#2563eb' },
-  { id: 'azure-ai', name: 'Azure AI', category: 'Enterprise AI & Cognitive Services', icon: 'fa-brain', color: '#0078d4' },
+  { id: 'langchain', name: 'LangChain', category: 'Agentic AI • RAG Pipelines', icon: 'fa-diagram-project', color: '#2563eb', iconUrl: '/images/homev2/tech_langchain.png' },
+  { id: 'azure-ai', name: 'Azure AI', category: 'Enterprise AI & Cognitive Services', icon: 'fa-brain', color: '#0078d4', iconUrl: '/images/homev2/tech_azure_ai.png' },
   { id: 'vector-db', name: 'Vector DBs', category: 'Semantic Search • Embeddings', icon: 'fa-database', color: '#9333ea' },
   { id: 'ml', name: 'Machine Learning', category: 'Predictive Analytics & Deep Learning', icon: 'fa-microchip', color: '#0891b2' }
 ];
@@ -15,7 +15,7 @@ const MIDDLE_RING_NODES = [
   { id: 'nodejs', name: 'Node.js', category: 'Scalable Microservices & APIs', icon: 'fa-node-js', color: '#68a063', isBrand: true },
   { id: 'angular', name: 'Angular', category: 'Enterprise Web Applications', icon: 'fa-angular', color: '#dd0031', isBrand: true },
   { id: 'java', name: 'Java', category: 'Mission-Critical Backend Systems', icon: 'fa-java', color: '#f89820', isBrand: true },
-  { id: 'dotnet', name: '.NET', category: 'Enterprise Software Architecture', icon: 'fa-cubes', color: '#512bd4' },
+  { id: 'dotnet', name: '.NET', category: 'Enterprise Software Architecture', icon: 'fa-cubes', color: '#512bd4', iconUrl: '/images/homev2/tech_dotnet.png' },
   { id: 'docker', name: 'Docker', category: 'Containerization & Dev Ops', icon: 'fa-docker', color: '#2496ed', isBrand: true },
   { id: 'kubernetes', name: 'Kubernetes', category: 'Cloud Container Orchestration', icon: 'fa-dharmachakra', color: '#326ce5' },
   { id: 'devops', name: 'DevOps', category: 'CI/CD & Infrastructure Automation', icon: 'fa-infinity', color: '#ea580c' }
@@ -26,15 +26,13 @@ const OUTER_RING_NODES = [
   { id: 'azure', name: 'Microsoft Azure', category: 'Enterprise Cloud & Hybrid Infra', icon: 'fa-microsoft', color: '#0078d4', isBrand: true },
   { id: 'gcp', name: 'Google Cloud', category: 'Big Data & AI Infrastructure', icon: 'fa-google', color: '#4285f4', isBrand: true },
   { id: 'salesforce', name: 'Salesforce', category: 'CRM & Enterprise Platforms', icon: 'fa-salesforce', color: '#00a1e0', isBrand: true },
-  { id: 'sap', name: 'SAP', category: 'Enterprise Resource Planning', icon: 'fa-layer-group', color: '#008fd3' },
-  { id: 'powerbi', name: 'Power BI', category: 'Business Intelligence & Analytics', icon: 'fa-chart-pie', color: '#f2c811' },
-  { id: 'dynamics', name: 'Microsoft Dynamics', category: 'Intelligent Business Applications', icon: 'fa-grip-vertical', color: '#002050' }
+  { id: 'sap', name: 'SAP', category: 'Enterprise Resource Planning', icon: 'fa-layer-group', color: '#008fd3', iconUrl: '/images/homev2/tech_sap.png' },
+  { id: 'powerbi', name: 'Power BI', category: 'Business Intelligence & Analytics', icon: 'fa-chart-pie', color: '#f2c811', iconUrl: '/images/homev2/tech_powerbi.png' },
+  { id: 'dynamics', name: 'Microsoft Dynamics', category: 'Intelligent Business Applications', icon: 'fa-grip-vertical', color: '#002050', iconUrl: '/images/homev2/tech_dynamics.png' }
 ];
 
 const withIcon = (node) => ({ ...node, isBrand: node.iconPrefix ? node.iconPrefix === 'fab' : node.isBrand });
 
-// Light tint of the node's brand color for the mobile card's icon badge
-// background, without needing color-mix() (not supported in older Safari).
 const hexToRgba = (hex, alpha) => {
   const clean = hex?.replace('#', '');
   if (!clean || clean.length !== 6) return `rgba(37, 99, 235, ${alpha})`;
@@ -65,11 +63,9 @@ const TechStackOrbitV2 = ({ content }) => {
   const handleNodeMouseEnter = () => setIsPaused(true);
   const handleNodeMouseLeave = () => setIsPaused(false);
 
-  // Helper to compute node position on ring (in percentages or angles)
   const getNodeStyle = (index, total, radius) => {
     const angle = (index / total) * 360;
     const rad = (angle * Math.PI) / 180;
-    // Calculate x and y offset from center
     const x = radius * Math.cos(rad);
     const y = radius * Math.sin(rad);
 
@@ -80,13 +76,11 @@ const TechStackOrbitV2 = ({ content }) => {
 
   return (
     <section className="v2-orbit-section" id="technology-stack">
-      {/* Background Radial Glow Effects */}
       <div className="v2-orbit-ambient-glow glow-1"></div>
       <div className="v2-orbit-ambient-glow glow-2"></div>
 
       <div className="v2-orbit-container">
         
-        {/* HEADER SECTION */}
         <div className="v2-orbit-header v2-reveal-on-scroll v2-reveal-up">
           <div className="v2-orbit-badge">
             <span className="v2-orbit-badge-icon">
@@ -104,12 +98,10 @@ const TechStackOrbitV2 = ({ content }) => {
           </p>
         </div>
 
-        {/* ORBITAL ECOSYSTEM MAIN VISUAL */}
         <div className="v2-orbit-visual-wrapper v2-reveal-on-scroll v2-reveal-scale">
           
           <div className={`v2-orbit-system ${isPaused ? 'is-paused' : ''}`}>
 
-            {/* FIXED CENTER CONTAINER: Venus Global Technology */}
             <div className="v2-orbit-center-node">
               <div className="v2-orbit-center-inner">
                 <div className="v2-orbit-center-logo">
@@ -123,7 +115,6 @@ const TechStackOrbitV2 = ({ content }) => {
               <div className="v2-orbit-center-pulse"></div>
             </div>
 
-            {/* INNER ORBITAL RING (AI & ML) */}
             <div className="v2-orbit-ring ring-inner">
               <div className="v2-orbit-ring-line"></div>
               <div className="v2-orbit-ring-rotate">
@@ -138,10 +129,13 @@ const TechStackOrbitV2 = ({ content }) => {
                     aria-label={`${node.name} - ${node.category}`}
                   >
                     <div className="v2-tech-node-circle">
-                      <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      {node.iconUrl ? (
+                        <img src={node.iconUrl} alt={node.name} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                      ) : (
+                        <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      )}
                     </div>
 
-                    {/* Node Hover Tooltip */}
                     <div className="v2-node-tooltip">
                       <strong>{node.name}</strong>
                       <span>{node.category}</span>
@@ -151,7 +145,6 @@ const TechStackOrbitV2 = ({ content }) => {
               </div>
             </div>
 
-            {/* MIDDLE ORBITAL RING (Languages & Frameworks) */}
             <div className="v2-orbit-ring ring-middle">
               <div className="v2-orbit-ring-line"></div>
               <div className="v2-orbit-ring-rotate rotate-reverse">
@@ -166,10 +159,13 @@ const TechStackOrbitV2 = ({ content }) => {
                     aria-label={`${node.name} - ${node.category}`}
                   >
                     <div className="v2-tech-node-circle">
-                      <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      {node.iconUrl ? (
+                        <img src={node.iconUrl} alt={node.name} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                      ) : (
+                        <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      )}
                     </div>
 
-                    {/* Node Hover Tooltip */}
                     <div className="v2-node-tooltip">
                       <strong>{node.name}</strong>
                       <span>{node.category}</span>
@@ -179,7 +175,6 @@ const TechStackOrbitV2 = ({ content }) => {
               </div>
             </div>
 
-            {/* OUTER ORBITAL RING (Cloud & Enterprise Platforms) */}
             <div className="v2-orbit-ring ring-outer">
               <div className="v2-orbit-ring-line"></div>
               <div className="v2-orbit-ring-rotate">
@@ -194,10 +189,13 @@ const TechStackOrbitV2 = ({ content }) => {
                     aria-label={`${node.name} - ${node.category}`}
                   >
                     <div className="v2-tech-node-circle">
-                      <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      {node.iconUrl ? (
+                        <img src={node.iconUrl} alt={node.name} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                      ) : (
+                        <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`} style={{ color: node.color }}></i>
+                      )}
                     </div>
 
-                    {/* Node Hover Tooltip */}
                     <div className="v2-node-tooltip">
                       <strong>{node.name}</strong>
                       <span>{node.category}</span>
@@ -211,9 +209,6 @@ const TechStackOrbitV2 = ({ content }) => {
 
         </div>
 
-        {/* MOBILE / TABLET LAYOUT — the orbit's fixed pixel-radius rings and
-            hover-only tooltips don't work on touch screens, so below 860px
-            this stacked, tappable card grid replaces it entirely (see CSS). */}
         <div className="v2-tech-stack-mobile">
           {TECH_GROUPS.map((group) => (
             <div className="v2-tech-mobile-group" key={group.key}>
@@ -227,7 +222,11 @@ const TechStackOrbitV2 = ({ content }) => {
                       className="v2-tech-mobile-icon"
                       style={{ color: node.color, backgroundColor: hexToRgba(node.color, 0.12) }}
                     >
-                      <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`}></i>
+                      {node.iconUrl ? (
+                        <img src={node.iconUrl} alt={node.name} style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                      ) : (
+                        <i className={`${node.isBrand ? 'fab' : 'fas'} ${node.icon}`}></i>
+                      )}
                     </span>
                     <span className="v2-tech-mobile-info">
                       <strong>{node.name}</strong>

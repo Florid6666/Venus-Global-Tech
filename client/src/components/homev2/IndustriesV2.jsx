@@ -1,138 +1,216 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './IndustriesV2.css';
 
 const DEFAULT_INDUSTRIES = [
   {
-    id: 'healthcare',
-    title: 'Healthcare',
-    description: 'Digital healthcare platforms, AI diagnostics, patient engagement, and HIPAA-compliant workflow automation.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
+    id: '01',
+    title: 'Aerospace',
+    description: 'Cleared, certified, and compliance-ready aerospace design engineers, avionics, and flight systems talent.',
+    image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'manufacturing',
-    title: 'Manufacturing',
-    description: 'Smart factories, Industry 4.0, predictive maintenance, and operational intelligence platforms.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
+    id: '02',
+    title: 'AutoTech',
+    description: 'Bridging software innovation with automotive hardware to build the connected vehicles of tomorrow.',
+    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'fintech',
-    title: 'Financial Services',
+    id: '03',
+    title: 'Customer Service & Tech Support',
+    description: 'Tier 1-3 support specialists and customer success directors focused on retention and satisfaction.',
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: '04',
+    title: 'C-Suite & Executive',
+    description: 'Retained and confidential executive search for visionary CEOs, CTOs, CFOs, and Board Directors.',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: '05',
+    title: 'Clinical Research',
+    description: 'Pharma, biotech, and clinical trial managers ensuring regulatory compliance and trial excellence.',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: '06',
+    title: 'E-commerce & Supply Chain',
+    description: 'End-to-end logistics, warehouse automation, and omnichannel fulfillment operational experts.',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: '07',
+    title: 'Manufacturing & Skilled Trade',
+    description: 'Skilled tradespeople, millwrights, CNC programmers, and industrial plant operations leaders.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: '08',
+    title: 'Financial Services & Fintech',
     description: 'FinTech platforms, AI-powered risk analysis, automated fraud detection, and regulatory compliance.',
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'retail',
-    title: 'Retail & eCommerce',
-    description: 'Personalized shopping experiences, recommendation engines, customer analytics, and retail automation.',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
+    id: '09',
+    title: 'Healthcare & Life Sciences',
+    description: 'Digital healthcare platforms, AI diagnostics, patient engagement, and HIPAA-compliant workflow automation.',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'logistics',
-    title: 'Logistics',
-    description: 'Fleet intelligence, warehouse automation, supply chain optimization, and real-time shipment tracking.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
-  },
-  {
-    id: 'education',
-    title: 'Education',
-    description: 'Next-gen Learning Management Systems, AI tutoring, virtual classrooms, and EdTech platforms.',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
-  },
-  {
-    id: 'government',
-    title: 'Government',
-    description: 'Digital public services, citizen engagement portals, and secure enterprise cloud platforms.',
-    image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
-  },
-  {
-    id: 'energy',
-    title: 'Energy & Utilities',
+    id: '10',
+    title: 'Energy & CleanTech',
     description: 'IoT monitoring, predictive grid maintenance, sustainability analytics, and smart infrastructure.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
-    link: '/services'
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
 const IndustriesV2 = ({ content }) => {
-  const badgeText = content?.badge || 'INDUSTRIES WE EMPOWER';
-  const headingText = content?.title || 'Technology Solutions Built for Every Industry';
-  const paragraphText = content?.description || 'Every industry faces distinct digital challenges. Venus Global Technology engineers custom AI, cloud, automation, and software solutions tailored to solve domain-specific problems and accelerate business outcomes.';
-  const industries = content?.items || DEFAULT_INDUSTRIES;
+  const headingText = content?.title || 'Industries We Serve';
+  const rawItems = content?.items || DEFAULT_INDUSTRIES;
+  
+  const baseIndustries = rawItems.map((item, idx) => ({
+    ...item,
+    displayNum: item.id || String(idx + 1).padStart(2, '0')
+  }));
+  const cardsCount = baseIndustries.length;
 
-  const handleCardClick = (link) => {
-    window.location.href = link || '/services';
+  // Tripled array for infinite seamless looping [Set 1, Set 2, Set 3]
+  const extendedIndustries = [...baseIndustries, ...baseIndustries, ...baseIndustries];
+
+  // Start at middle group index (10)
+  const [currentIndex, setCurrentIndex] = useState(cardsCount);
+  const [withTransition, setWithTransition] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const trackRef = useRef(null);
+  const [stepWidth, setStepWidth] = useState(320);
+
+  // Measure card width + gap for smooth sliding
+  const updateLayout = () => {
+    if (trackRef.current && trackRef.current.children.length > 0) {
+      const firstChild = trackRef.current.children[0];
+      const gap = 24; // 1.5rem
+      setStepWidth(firstChild.offsetWidth + gap);
+    }
   };
 
-  return (
-    <section className="v2-industries-section" id="industries-we-empower">
-      {/* Subtle Ambient Glows */}
-      <div className="v2-industries-ambient-glow glow-top"></div>
-      <div className="v2-industries-ambient-glow glow-bottom"></div>
+  useEffect(() => {
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+    return () => window.removeEventListener('resize', updateLayout);
+  }, []);
 
-      <div className="v2-industries-container">
+  const handleNext = () => {
+    setWithTransition(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    setWithTransition(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  // Seamless boundary wrap when passing set limits
+  useEffect(() => {
+    if (currentIndex >= cardsCount * 2) {
+      const timer = setTimeout(() => {
+        setWithTransition(false);
+        setCurrentIndex(cardsCount);
+      }, 500);
+      return () => clearTimeout(timer);
+    } else if (currentIndex < cardsCount) {
+      const timer = setTimeout(() => {
+        setWithTransition(false);
+        setCurrentIndex(cardsCount * 2 - 1);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, cardsCount]);
+
+  // Autoplay slide right-to-left every 2.2 seconds (short time duration)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused, cardsCount]);
+
+  return (
+    <section className="industries-serve-section" id="industries-we-serve">
+      {/* Diagonal Ambient Light Glows (Top-Left & Bottom-Right) */}
+      <div className="industries-ambient-glow glow-diagonal-left" aria-hidden="true"></div>
+      <div className="industries-ambient-glow glow-diagonal-right" aria-hidden="true"></div>
+
+      <div className="industries-serve-container">
         
-        {/* TOP SECTION: Centered Header (~700px max-width) */}
-        <div className="v2-industries-header v2-reveal-on-scroll v2-reveal-up">
-          <div className="v2-industries-badge">
-            <span className="v2-industries-badge-dot"></span>
-            <span className="v2-industries-badge-text">{badgeText}</span>
+        {/* A. HEADER SECTION */}
+        <div className="industries-serve-header">
+          <div className="industries-serve-header-left">
+            <span className="industries-category-eyebrow">INDUSTRIES</span>
+            <h2 className="industries-serve-title">
+              Technology Solutions Built<br className="desktop-br" /> for Every Industry
+            </h2>
           </div>
 
-          <h2 className="v2-industries-heading">
-            {headingText}
-          </h2>
-
-          <p className="v2-industries-paragraph">
-            {paragraphText}
-          </p>
+          {/* TOP CAROUSEL NAVIGATION CONTROLS */}
+          <div className="industries-nav-controls">
+            <button
+              className="industries-nav-btn"
+              onClick={handlePrev}
+              aria-label="Previous Industries"
+            >
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            <button
+              className="industries-nav-btn"
+              onClick={handleNext}
+              aria-label="Next Industries"
+            >
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
 
-        {/* BOTTOM SECTION: Unsplash Image Cards (Clean, No Colored Borders) */}
-        <div className="v2-industries-grid">
-          {industries.map((item, index) => {
-            const imageUrl = item.image || DEFAULT_INDUSTRIES[index % DEFAULT_INDUSTRIES.length].image;
-            return (
-              <div 
-                className="v2-industry-card v2-reveal-on-scroll v2-reveal-up"
-                key={item.id || index}
-                style={{ transitionDelay: `${index * 50}ms` }}
-                onClick={() => handleCardClick(item.link)}
+        {/* B. CAROUSEL CARD STRUCTURE */}
+        <div className="industries-slider-window">
+          <div
+            className={`industries-slider-track ${withTransition ? 'transition-enabled' : ''}`}
+            ref={trackRef}
+            style={{ transform: `translateX(-${currentIndex * stepWidth}px)` }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {extendedIndustries.map((item, idx) => (
+              <div
+                key={`${item.id || item.title}-${idx}`}
+                className="industries-card"
+                onClick={() => {
+                  window.location.href = '/services';
+                }}
               >
-                {/* Background Unsplash Image */}
-                <div 
-                  className="v2-industry-card-bg"
-                  style={{ backgroundImage: `url('${imageUrl}')` }}
-                ></div>
-
-                {/* Dark Gradient Overlay for Hover Reveal */}
-                <div className="v2-industry-card-overlay"></div>
-
-                {/* Inner Card Content */}
-                <div className="v2-industry-card-inner">
-                  
-                  {/* Card Body */}
-                  <div className="v2-industry-card-body">
-                    <h3 className="v2-industry-card-title">{item.title}</h3>
-                    <p className="v2-industry-card-desc">{item.description}</p>
+                {/* 1. Top Image Container */}
+                <div className="industries-card-img-wrap">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="industries-card-img"
+                    loading="lazy"
+                  />
+                  {/* Numbered Badge (Top Right of Image) */}
+                  <div className="industries-card-badge">
+                    {item.displayNum}
                   </div>
+                </div>
 
-                  {/* Card Footer: Animated Link */}
-                  <div className="v2-industry-card-footer">
-                    <span className="v2-industry-link-text">Explore Solution</span>
-                    <i className="fas fa-arrow-right-long v2-industry-arrow"></i>
-                  </div>
-
+                {/* 2. Card Content Block */}
+                <div className="industries-card-content">
+                  <h3 className="industries-card-title">{item.title}</h3>
+                  <p className="industries-card-desc">{item.description}</p>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
       </div>

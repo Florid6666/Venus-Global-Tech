@@ -1,0 +1,270 @@
+/* =========================================================
+   ENTERPRISE INTEGRATIONS BANNER V2 - PIXEL PERFECT STYLES
+   ========================================================= */
+
+.v2-integrations-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 3.5rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Outer Card Shell with Asymmetrical SVG Background Mask */
+.v2-integrations-card-outer {
+  position: relative;
+  width: 100%;
+  min-height: 160px;
+  box-sizing: border-box;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Background Asymmetrical SVG Path geometry */
+.v2-integrations-card-svg-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Foreground Content Inner Layout */
+.v2-integrations-content-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2rem 2.75rem 3rem 2.75rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Left Headline Container - Vertically Centered in 120px Left Notch */
+.v2-integrations-left-col {
+  flex: 0 0 340px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  transform: translateY(-22px);
+}
+
+/* Indigo Badge Pill */
+.v2-integrations-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.v2-integrations-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #A5B4FC;
+  box-shadow: 0 0 8px #A5B4FC;
+  animation: v2Pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes v2Pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.v2-integrations-badge-text {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #818CF8;
+}
+
+/* Headline Typography */
+.v2-integrations-headline {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.28;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Right Icon Infinite Marquee Container */
+.v2-integrations-right-col {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  padding: 0.25rem 0;
+}
+
+.v2-integrations-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marqueeLeftToRight 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.v2-brand-fa-icon {
+  font-size: 1.5rem;
+  display: block;
+}
+
+/* Individual Icon Tile Item Stack - Fixed Uniform Width for Equal Box Spacing */
+.v2-integration-tile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: default;
+  flex-shrink: 0;
+  flex: 0 0 100px;
+  width: 100px;
+}
+
+/* White Solid Squircle Tile */
+.v2-integration-squircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+.v2-brand-svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+  object-fit: contain;
+}
+
+.v2-brand-img {
+  width: 34px;
+  height: 34px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.v2-brand-fallback {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1E222D;
+}
+
+/* Tile Label Typography */
+.v2-integration-tile-label {
+  margin-top: 8px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  color: #94A3B8;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .v2-integrations-card-outer {
+    filter: none;
+  }
+
+  .v2-integrations-card-svg-bg {
+    display: none;
+  }
+
+  .v2-integrations-card-outer {
+    background: linear-gradient(135deg, #1E222D 0%, #12141A 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  .v2-integrations-content-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.75rem;
+    gap: 2rem;
+  }
+
+  .v2-integrations-left-col {
+    flex: initial;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .v2-integrations-icon-row {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-integrations-section {
+    padding: 0 1rem;
+    margin: 2rem auto;
+  }
+
+  .v2-integrations-card-outer {
+    border-radius: 20px;
+  }
+
+  .v2-integrations-content-inner {
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .v2-integrations-headline {
+    font-size: 1.35rem;
+  }
+
+  .v2-integration-squircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    padding: 0.6rem;
+  }
+
+  .v2-brand-svg, .v2-brand-img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .v2-integration-tile-label {
+    font-size: 0.75rem;
+  }
+}

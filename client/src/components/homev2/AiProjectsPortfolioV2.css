@@ -1,0 +1,569 @@
+/* ==========================================================================
+   AI PROJECTS PORTFOLIO SECTION (V2 Design System)
+   White Section Background, Dark Cards with Rich Shadow Effect
+   ========================================================================== */
+
+.portfolio-v2-section {
+  position: relative;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+.portfolio-v2-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Giant Floating White Card Container */
+.portfolio-floating-card {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid #e2e8f0;
+  padding: 60px 48px 48px 48px;
+  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.06), 0 4px 18px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden; /* Strictly contains ambient glows inside the white card */
+  box-sizing: border-box;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-floating-card:hover {
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.08), 0 6px 22px rgba(15, 23, 42, 0.04);
+}
+
+/* Subtle Premium Top Ambient Glowing Light Effects (Visibly Luminous & Strictly inside white card) */
+.portfolio-card-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-top-left {
+  width: 650px;
+  height: 380px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(56, 189, 248, 0.15) 45%, rgba(168, 85, 247, 0.08) 70%, transparent 85%);
+  filter: blur(50px);
+}
+
+.glow-top-right {
+  width: 580px;
+  height: 340px;
+  top: -100px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, rgba(14, 165, 233, 0.14) 45%, rgba(99, 102, 241, 0.06) 70%, transparent 85%);
+  filter: blur(45px);
+}
+
+.glow-top-center {
+  width: 800px;
+  height: 220px;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(99, 102, 241, 0.14) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 80%);
+  filter: blur(40px);
+}
+
+/* --------------------------------------------------------------------------
+   A. SECTION HEADER
+   -------------------------------------------------------------------------- */
+.portfolio-v2-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 64px;
+}
+
+.portfolio-v2-header-left {
+  max-width: 820px;
+}
+
+.portfolio-category-eyebrow {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2563eb;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.portfolio-v2-headline {
+  font-size: clamp(2rem, 1.6rem + 2.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* Stat Accent Counter (200+ Stroke Only) */
+.portfolio-v2-stat-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.portfolio-stat-stroke-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(4.5rem, 3.5rem + 3vw, 7rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2.5px #2563eb;
+  filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.25));
+}
+
+.portfolio-stat-label-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 30px;
+}
+
+.portfolio-stat-vertical-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #64748b;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   B. DYNAMIC PROJECT CAROUSEL / SLIDER (INFINITE SLIDING TRACK)
+   -------------------------------------------------------------------------- */
+.portfolio-slider-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.portfolio-slider-track {
+  display: flex;
+  gap: 28px;
+  width: 100%;
+  padding: 45px 16px 45px 16px;
+  margin-top: -20px;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+.portfolio-slider-track.transition-enabled {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Light Theme Realistic Photographic Card Anatomy */
+.portfolio-card {
+  position: relative;
+  flex: 0 0 calc(25% - 21px);
+  min-width: 310px;
+  min-height: 440px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.2);
+}
+
+/* Card Hover Variations per theme */
+.portfolio-card.gradient-teal-cyan:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2);
+}
+
+.portfolio-card.gradient-purple-blue:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.2);
+}
+
+.portfolio-card.gradient-emerald-cyan:hover {
+  border-color: #10b981;
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.2);
+}
+
+.portfolio-card.gradient-indigo-violet:hover {
+  border-color: #6366f1;
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
+}
+
+/* Charcoal Base & Photo Layers */
+.portfolio-card-charcoal-base {
+  position: absolute;
+  inset: 0;
+  background: #f8fafc;
+  z-index: 1;
+}
+
+.portfolio-card-photo-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.portfolio-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(6px);
+  transform: scale(1.05);
+  opacity: 1;
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light & Gradient Overlay for Sharp Photo Display and High Text Legibility */
+.portfolio-card-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.25) 0%,
+    rgba(15, 23, 42, 0.05) 35%,
+    rgba(15, 23, 42, 0.6) 65%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+  opacity: 1;
+  transition: background 0.4s ease;
+}
+
+/* Hover State: Crystal Clear Unblur + Zoom */
+.portfolio-card:hover .portfolio-card-photo {
+  filter: blur(0px);
+  transform: scale(1.08);
+}
+
+.portfolio-card:hover .portfolio-card-vignette {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.3) 0%,
+    rgba(15, 23, 42, 0.02) 35%,
+    rgba(15, 23, 42, 0.65) 65%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+}
+
+/* Card Content: High-contrast Tag Pill & Crisp Content */
+.portfolio-card-top {
+  position: relative;
+  z-index: 4;
+}
+
+.portfolio-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-tag-pill {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+}
+
+.portfolio-card-bottom {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portfolio-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card-desc {
+  color: #ffffff;
+}
+
+.portfolio-card-action {
+  margin-top: 6px;
+}
+
+.portfolio-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-explore-btn .arrow-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-explore-btn {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45);
+}
+
+.portfolio-card:hover .portfolio-explore-btn .arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+/* --------------------------------------------------------------------------
+   C. BOTTOM CONTROLS & NAVIGATION
+   -------------------------------------------------------------------------- */
+.portfolio-v2-controls-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.portfolio-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.portfolio-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portfolio-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+.portfolio-nav-btn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.portfolio-progress-container {
+  width: 220px;
+}
+
+.portfolio-progress-track {
+  width: 100%;
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Explore AI Solutions Blue Pill CTA Button */
+.portfolio-explore-cta-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-explore-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px -4px rgba(37, 99, 235, 0.45);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.portfolio-explore-cta-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -4px rgba(37, 99, 235, 0.6);
+  color: #ffffff;
+}
+
+.portfolio-explore-cta-btn i {
+  font-size: 0.88rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-explore-cta-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .portfolio-card {
+    flex: 0 0 calc(33.333% - 19px);
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-floating-card {
+    padding: 40px 24px 32px 24px;
+    border-radius: 24px;
+  }
+
+  .portfolio-v2-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .portfolio-card {
+    flex: 0 0 calc(50% - 14px);
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-v2-section {
+    padding: 40px 0 50px;
+  }
+
+  .portfolio-v2-container {
+    padding: 0 12px;
+  }
+
+  .portfolio-floating-card {
+    padding: 24px 16px 20px 16px;
+    border-radius: 20px;
+  }
+
+  .portfolio-card {
+    flex: 0 0 calc(100% - 12px);
+    min-width: 250px;
+    max-width: 100%;
+    min-height: 380px;
+    padding: 24px;
+  }
+
+  .portfolio-v2-controls-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .portfolio-controls-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .portfolio-explore-cta-wrap {
+    width: 100%;
+  }
+
+  .portfolio-explore-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .portfolio-stat-stroke-num {
+    font-size: 4rem;
+  }
+
+  .portfolio-progress-container {
+    width: 120px;
+  }
+}
