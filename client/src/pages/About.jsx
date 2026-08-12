@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../components/aboutus.css';
 import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
@@ -19,14 +20,36 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* About Us Section */}
-      <section className="about-hero-section">
+      {/* REDESIGNED ABOUT HERO SECTION (MATCHING REFERENCE IMAGE) */}
+      <section className="about-hero-section" style={{ backgroundImage: "url('/images/team/software_engineering.jpg')" }}>
+        <div className="about-hero-bg-overlay"></div>
+        
         <div className="about-hero-container">
-          <h1 className="about-hero-title">{aboutContent.hero?.title}</h1>
-          <RichText html={aboutContent.hero?.description} as="p" className="about-hero-description" />
-          <div className="about-hero-buttons">
-            <button className="about-hero-button primary" onClick={() => window.location.href = '/#services'}>{aboutContent.hero?.servicesButton}</button>
-            <button className="about-hero-button secondary" onClick={() => window.open(aboutContent.hero?.consultationLink, '_blank')}>{aboutContent.hero?.consultationButton}</button>
+          <div className="about-hero-content">
+            <h1 className="about-hero-title">About</h1>
+            
+            <div className="about-hero-breadcrumb">
+              <Link to="/" className="breadcrumb-item breadcrumb-link">Home</Link>
+              <span className="breadcrumb-arrow">→</span>
+              <span className="breadcrumb-item breadcrumb-current">About</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Left Brand Pill Badge (as seen in reference image) */}
+        <div className="about-hero-badge">
+          <div className="about-badge-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="14" cy="14" r="12" fill="url(#aboutBrandGrad)"/>
+              <path d="M10 14L13 17L19 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <defs>
+                <linearGradient id="aboutBrandGrad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#0052FF"/>
+                  <stop offset="0.5" stopColor="#E11D48"/>
+                  <stop offset="1" stopColor="#F59E0B"/>
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
         </div>
       </section>
@@ -55,7 +78,7 @@ const About = () => {
           <div className="about-content-grid">
             <div className="about-content-image">
               <div className="about-image-wrapper">
-                <img src={aboutContent.content?.image} alt="About Us Team" className="about-content-img" />
+                <img src={aboutContent.content?.image || '/images/team/software_engineering.jpg'} alt="About Us Team" className="about-content-img" />
               </div>
             </div>
 
@@ -83,10 +106,10 @@ const About = () => {
                 onClick={() => {
                   const subject = encodeURIComponent('Project Inquiry - Start New Project');
                   const body = encodeURIComponent('Hello,\n\nI am interested in starting a new project with Venus Global Technology. Please provide me with more information about your services and how we can work together.\n\nThank you!');
-                  window.location.href = `mailto:${footer?.contact?.email}?subject=${subject}&body=${body}`;
+                  window.location.href = `mailto:${footer?.contact?.email || 'contact@venustech.com'}?subject=${subject}&body=${body}`;
                 }}
               >
-                {aboutContent.content?.startProjectsButton}
+                {aboutContent.content?.startProjectsButton || 'Start Project'}
               </button>
             </div>
           </div>
