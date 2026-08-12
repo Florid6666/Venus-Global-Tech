@@ -6,6 +6,29 @@ import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
 
+const DEFAULT_STATS = [
+  {
+    icon: 'fa-folder-open',
+    number: '10+',
+    description: 'Great Works'
+  },
+  {
+    icon: 'fa-briefcase',
+    number: '16+',
+    description: 'Years Experience'
+  },
+  {
+    icon: 'fa-trophy',
+    number: '2',
+    description: 'Award-Winning Work'
+  },
+  {
+    icon: 'fa-users',
+    number: '100+',
+    description: 'We have happy Clients worldwide'
+  }
+];
+
 const About = () => {
   const { content: about, loading: aboutLoading } = useContent('about');
   const { content: home, loading: homeLoading } = useContent('home');
@@ -17,6 +40,7 @@ const About = () => {
 
   const aboutContent = about || {};
   const homeContent = home || {};
+  const statsList = (aboutContent.stats && aboutContent.stats.length > 0) ? aboutContent.stats : DEFAULT_STATS;
 
   return (
     <div className="about-page">
@@ -35,21 +59,99 @@ const About = () => {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Bottom Left Brand Pill Badge (as seen in reference image) */}
-        <div className="about-hero-badge">
-          <div className="about-badge-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="14" cy="14" r="12" fill="url(#aboutBrandGrad)"/>
-              <path d="M10 14L13 17L19 11" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <defs>
-                <linearGradient id="aboutBrandGrad" x1="2" y1="2" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#0052FF"/>
-                  <stop offset="0.5" stopColor="#E11D48"/>
-                  <stop offset="1" stopColor="#F59E0B"/>
-                </linearGradient>
-              </defs>
-            </svg>
+      {/* ABOUT COMPANY / YOUR PARTNER FOR SOFTWARE INNOVATION SECTION */}
+      <section className="about-partner-section">
+        <div className="about-partner-container">
+          <div className="about-partner-grid">
+            
+            {/* LEFT COLUMN: OVERLAPPING DUAL IMAGE COMPOSITION */}
+            <div className="about-partner-left">
+              <div className="about-image-composition">
+                
+                {/* Dot Pattern Accent */}
+                <div className="about-dots-pattern"></div>
+                
+                {/* Blue Vertical Bar Accent */}
+                <div className="about-blue-bar"></div>
+
+                {/* Primary Top Main Image */}
+                <div className="about-img-primary-wrap">
+                  <img 
+                    src="/images/team/michael.jpg" 
+                    alt="Software Engineer Coding" 
+                    className="about-img-primary" 
+                  />
+                </div>
+
+                {/* Secondary Overlapping Front Image */}
+                <div className="about-img-secondary-wrap">
+                  <img 
+                    src="/images/team/cloud_transformation.jpg" 
+                    alt="Engineering Team Collaboration" 
+                    className="about-img-secondary" 
+                  />
+                </div>
+
+                {/* Floating Blue Badge */}
+                <div className="about-badge-card">
+                  <div className="about-badge-rocket">
+                    <i className="fas fa-rocket"></i>
+                  </div>
+                  <span className="about-badge-text">The Best IT Service Provider</span>
+                </div>
+
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: TEXT CONTENT & FEATURE LIST */}
+            <div className="about-partner-right">
+              {/* Eyebrow Header */}
+              <div className="about-eyebrow-wrap">
+                <span className="about-eyebrow-line"></span>
+                <span className="about-eyebrow-text">ABOUT COMPANY</span>
+              </div>
+
+              <h2 className="about-partner-title">
+                Your partner for software innovation
+              </h2>
+
+              <p className="about-partner-desc">
+                Venus Global Technology is the partner of choice for many of the world's leading enterprises, SMEs and technology challengers. We help businesses elevate their value through custom software development, product design, QA and consultancy services.
+              </p>
+
+              {/* Feature List (2 Rows) */}
+              <div className="about-features-list">
+                {/* Feature Item 1 */}
+                <div className="about-feature-row">
+                  <div className="about-feature-icon-box">
+                    <i className="fas fa-globe"></i>
+                  </div>
+                  <div className="about-feature-content">
+                    <h3 className="about-feature-title">End to End Development</h3>
+                    <p className="about-feature-desc">
+                      Knowledge of technologies rules better than anyone which we apply in our daily work to deliver high-performance enterprise systems.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature Item 2 */}
+                <div className="about-feature-row">
+                  <div className="about-feature-icon-box">
+                    <i className="fas fa-laptop-code"></i>
+                  </div>
+                  <div className="about-feature-content">
+                    <h3 className="about-feature-title">Software IT Outsource</h3>
+                    <p className="about-feature-desc">
+                      Dedicated engineering pods and strategic technology consulting tailored to accelerate digital transformation for modern market leaders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
@@ -58,16 +160,25 @@ const About = () => {
       <section className="stats-section">
         <div className="stats-container">
           <div className="stats-grid">
-            {aboutContent.stats?.map((stat) => (
-              <div className="stat-card" key={stat.number}>
-                <div className="stat-card-header">
-                  <img src={stat.icon} alt="" className="stat-icon" />
-                  <div className="stat-number">{stat.number}</div>
+            {statsList.map((stat, idx) => {
+              const iconVal = stat.icon || DEFAULT_STATS[idx % DEFAULT_STATS.length].icon;
+              return (
+                <div className="stat-card" key={idx}>
+                  <div className="stat-card-header">
+                    {typeof iconVal === 'string' && (iconVal.startsWith('http') || iconVal.startsWith('/') || iconVal.includes('.png') || iconVal.includes('.svg')) ? (
+                      <img src={iconVal} alt="" className="stat-icon" />
+                    ) : (
+                      <div className="stat-icon-wrap">
+                        <i className={`far ${iconVal} stat-fa-icon`}></i>
+                      </div>
+                    )}
+                    <div className="stat-number">{stat.number}</div>
+                  </div>
+                  <div className="stat-divider"></div>
+                  <p className="stat-description">{stat.description}</p>
                 </div>
-                <div className="stat-divider"></div>
-                <p className="stat-description">{stat.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
