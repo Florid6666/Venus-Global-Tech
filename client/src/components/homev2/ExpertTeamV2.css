@@ -1,0 +1,421 @@
+/* ==========================================================================
+   Meet Our Technology Expert / Interactive Specialized Services Section
+   ========================================================================== */
+
+.expert-team-section {
+  background-color: #ffffff;
+  padding: 96px 24px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'absans', 'AB Sans', 'ABSans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.expert-team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 1. Header Architecture: Left Text & Right Button Split */
+.expert-team-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 56px;
+  text-align: left;
+}
+
+.expert-team-header-left {
+  max-width: 840px;
+  flex: 1;
+}
+
+.expert-team-subtitle {
+  display: inline-block;
+  font-size: 0.75rem; /* 12px */
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.expert-team-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.expert-team-description {
+  font-size: 1.0625rem; /* 17px */
+  color: #64748b;
+  margin: 12px 0 0 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.expert-team-cta-wrap {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.expert-team-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #0f172a;
+  color: #ffffff !important;
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3), 0 4px 10px -2px rgba(15, 23, 42, 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.expert-team-cta-btn:hover {
+  background-color: #0052ff;
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.4);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.expert-cta-arrow {
+  font-size: 1.125rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+.expert-team-cta-btn:hover .expert-cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* 2. Layout Structure (Two-Column Interactive Grid) */
+.expert-team-grid {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* Left Column: Dynamic Member Preview Card */
+.expert-team-preview-col {
+  width: 100%;
+  position: sticky;
+  top: 100px;
+}
+
+.expert-team-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: #f8fafc;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+}
+
+.expert-team-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.expert-team-portrait {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.expert-team-portrait.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Right Column: Interactive Category Cards */
+.expert-team-list-col {
+  width: 100%;
+}
+
+.expert-team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expert-team-card-row {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  outline: none;
+  overflow: hidden;
+}
+
+.expert-team-card-row:hover,
+.expert-team-card-row.active {
+  border-color: #0052ff;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.08), 0 0 0 1px #0052ff;
+  background-color: #ffffff;
+}
+
+/* Header Row inside Card */
+.expert-team-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+}
+
+.expert-team-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.expert-team-card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.expert-team-card-row:hover .expert-team-card-title,
+.expert-team-card-row.active .expert-team-card-title {
+  color: #0052ff;
+}
+
+.expert-team-badge {
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.expert-team-card-row:hover .expert-team-badge,
+.expert-team-card-row.active .expert-team-badge {
+  color: #0052ff;
+  background-color: rgba(0, 82, 255, 0.1);
+}
+
+.expert-team-row-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-decoration: none;
+  background-color: #f8fafc;
+  transition: all 0.25s ease;
+}
+
+.expert-team-row-action:hover {
+  background-color: #0052ff;
+}
+
+.expert-team-arrow {
+  font-size: 1.125rem; /* 18px */
+  color: #94a3b8;
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.expert-team-row-action:hover .expert-team-arrow {
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+.expert-team-card-row:hover .expert-team-arrow,
+.expert-team-card-row.active .expert-team-arrow {
+  color: #0052ff;
+}
+
+.expert-team-card-row:hover .expert-team-row-action:hover .expert-team-arrow {
+  color: #ffffff;
+}
+
+/* Expandable Content Panel (Sub-services List) */
+.expert-team-card-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+
+.expert-team-card-row:hover .expert-team-card-content,
+.expert-team-card-row.active .expert-team-card-content {
+  max-height: 350px;
+  opacity: 1;
+  padding: 0 24px 22px 24px;
+}
+
+.expert-team-subservices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 16px;
+}
+
+/* Sub-service Interactive Clickable Link Pill */
+.expert-subservice-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.expert-subservice-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.expert-subservice-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #0052ff;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.expert-subservice-text {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.expert-subservice-arrow {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.expert-subservice-pill:hover {
+  background-color: #eff6ff;
+  border-color: #0052ff;
+  box-shadow: 0 4px 14px rgba(0, 82, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.expert-subservice-pill:hover .expert-subservice-dot {
+  transform: scale(1.4);
+  background-color: #0052ff;
+}
+
+.expert-subservice-pill:hover .expert-subservice-text {
+  color: #0052ff;
+  font-weight: 600;
+}
+
+.expert-subservice-pill:hover .expert-subservice-arrow {
+  color: #0052ff;
+  opacity: 1;
+  transform: translate(3px, -3px);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 868px) {
+  .expert-team-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .expert-team-cta-wrap {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .expert-team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .expert-team-preview-col {
+    max-width: 440px;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .expert-team-section {
+    padding: 64px 16px;
+  }
+
+  .expert-team-title {
+    font-size: 1.6rem;
+    white-space: normal;
+  }
+
+  .expert-team-card-header {
+    padding: 18px 16px;
+  }
+
+  .expert-team-card-title {
+    font-size: 1.1rem; /* 17.6px */
+  }
+
+  .expert-team-card-content {
+    padding: 0 16px;
+  }
+
+  .expert-team-card-row:hover .expert-team-card-content,
+  .expert-team-card-row.active .expert-team-card-content {
+    padding: 0 16px 18px 16px;
+  }
+
+  .expert-team-subservices-grid {
+    grid-template-columns: 1fr;
+  }
+}

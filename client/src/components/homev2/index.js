@@ -18,5 +18,6 @@ export { default as TechStackOrbitV2 } from './TechStackOrbitV2';
 export { default as UpfooterOfficesV2 } from './UpfooterOfficesV2';
 export { default as WhyChooseV2 } from './WhyChooseV2';
 export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as ExpertTeamV2 } from './ExpertTeamV2';
 export { default as WorkingProcessV2 } from './WorkingProcessV2';
 

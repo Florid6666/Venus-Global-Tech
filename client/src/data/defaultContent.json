@@ -1,5 +1,59 @@
 {
   "home": {
+    "expertTeam": {
+      "subtitle": "SPECIALIZED SERVICES",
+      "title": "Serving Businesses Across North America",
+      "description": "Delivering enterprise software engineering, AI consulting, and digital transformation for market-leading organizations across the United States and Canada.",
+      "ctaText": "Connect with Our Regional Teams",
+      "ctaLink": "/contact",
+      "categories": [
+        {
+          "id": "1",
+          "title": "AI Solutions",
+          "badge": "4 Specialized Services",
+          "image": "/images/team/ai_solutions.jpg",
+          "services": [
+            "AI Development Company USA",
+            "AI Development Company Canada",
+            "AI Consulting Company USA",
+            "Enterprise AI & Automation"
+          ]
+        },
+        {
+          "id": "2",
+          "title": "Software Engineering",
+          "badge": "3 Specialized Services",
+          "image": "/images/team/software_engineering.jpg",
+          "services": [
+            "Software Development USA",
+            "Software Development Canada",
+            "Custom Enterprise Software"
+          ]
+        },
+        {
+          "id": "3",
+          "title": "Cloud & Transformation",
+          "badge": "3 Specialized Services",
+          "image": "/images/team/cloud_transformation.jpg",
+          "services": [
+            "Cloud Consulting Company USA",
+            "Digital Transformation Company USA",
+            "Hybrid Cloud Architecture"
+          ]
+        },
+        {
+          "id": "4",
+          "title": "Enterprise Services",
+          "badge": "3 Specialized Services",
+          "image": "/images/team/enterprise_services.jpg",
+          "services": [
+            "Custom AI Solutions",
+            "AI Automation Company",
+            "Enterprise System Integration"
+          ]
+        }
+      ]
+    },
     "hero": {
       "badge": "AI Development Company",
       "titleLine1": "AI Development Company for",

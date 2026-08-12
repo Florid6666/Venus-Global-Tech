@@ -10,6 +10,7 @@ import BentoServices from '../../components/homev2/BentoServices';
 import ErpShowcaseV2 from '../../components/homev2/ErpShowcaseV2';
 import WhyChooseV2 from '../../components/homev2/WhyChooseV2';
 import AiProjectsPortfolioV2 from '../../components/homev2/AiProjectsPortfolioV2';
+import ExpertTeamV2 from '../../components/homev2/ExpertTeamV2';
 import RecentAchievementsV2 from '../../components/homev2/RecentAchievementsV2';
 import IndustriesV2 from '../../components/homev2/IndustriesV2';
 import TechStackOrbitV2 from '../../components/homev2/TechStackOrbitV2';
@@ -454,7 +455,7 @@ const HomeV2 = () => {
       <EsgComplianceV2 content={homeContent.esgCompliance} />
 
       {/* 11. SERVING BUSINESSES ACROSS NORTH AMERICA SECTION */}
-      <NorthAmericaReachV2 content={homeContent.servingRegion} />
+      <ExpertTeamV2 content={homeContent.expertTeam} />
 
       {/* 12. FREQUENTLY ASKED QUESTIONS SECTION */}
       <FaqV2 content={homeContent.faq} />

@@ -1,449 +1,454 @@
 /* ==========================================================================
-   Global Office Locations - Upfooter Component (Home V2)
-   Pure White Background, Interactive Map Deck, 24px Border Radius
+   Our Global Office Locations Section — Split Two-Column Layout (Light White Theme)
    ========================================================================== */
 
 .v2-upfooter-section {
-  position: relative;
   background-color: #ffffff;
-  padding: 100px 0 110px;
-  overflow: hidden;
   color: #0f172a;
-}
-
-.v2-upfooter-glow {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  opacity: 0.35;
-}
-
-.v2-upfooter-glow.glow-center {
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  padding: 96px 24px;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
 }
 
 .v2-upfooter-container {
-  max-width: 1280px;
-  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 32px;
-  position: relative;
-  z-index: 1;
+  width: 100%;
 }
 
-/* --------------------------------------------------------------------------
-   HEADER SECTION (~700px Centered)
-   -------------------------------------------------------------------------- */
+/* 1. Two-Column Split Grid Architecture */
+.v2-upfooter-grid {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 56px;
+  align-items: center;
+}
 
-.v2-upfooter-header {
-  max-width: 720px;
-  margin: 0 auto 50px;
-  text-align: center;
+/* 2. Left Column: Text Content & Location Selector */
+.v2-upfooter-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .v2-upfooter-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  border-radius: 50px;
-  margin-bottom: 24px;
-}
-
-.v2-upfooter-badge-icon {
-  font-size: 0.85rem;
-}
-
-.v2-upfooter-badge-text {
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #1d4ed8;
-}
-
-/* Heading (56px) */
-.v2-upfooter-heading {
-  font-size: clamp(2.1rem, 1.5rem + 3vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  color: #0f172a;
+  padding: 6px 16px;
+  background: rgba(0, 82, 255, 0.08);
+  border: 1px solid rgba(0, 82, 255, 0.2);
+  border-radius: 999px;
   margin-bottom: 20px;
 }
 
-.v2-upfooter-paragraph {
-  font-size: 1.125rem; /* 18px */
-  line-height: 1.65;
-  color: #475569;
-  margin: 0;
-  max-width: 680px;
+.v2-upfooter-badge-icon {
+  font-size: 14px;
 }
 
-/* --------------------------------------------------------------------------
-   INTERACTIVE MAP DECK CANVAS
-   -------------------------------------------------------------------------- */
-
-.v2-upfooter-map-wrapper {
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.v2-map-card-canvas {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #0b0f19 0%, #111827 60%, #0f172a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 45px -10px rgba(7, 9, 14, 0.4);
-  overflow: hidden;
-}
-
-.v2-map-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.5;
-}
-
-/* World Map SVG Overlay */
-.v2-world-map-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.v2-map-landmass {
-  fill: rgba(255, 255, 255, 0.08);
-  stroke: rgba(255, 255, 255, 0.14);
-  stroke-width: 1;
-  transition: fill 0.3s ease;
-}
-
-.v2-map-arc-line {
-  stroke: rgba(56, 189, 248, 0.4);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 6;
-  animation: v2ArcDash 20s linear infinite;
-}
-
-@keyframes v2ArcDash {
-  to { stroke-dashoffset: -100; }
-}
-
-/* Map Pins */
-.v2-map-pins-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-}
-
-.v2-map-pin {
-  position: absolute;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.v2-pin-pulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(56, 189, 248, 0.35);
-  animation: v2MapPinPulse 2.5s infinite ease-out;
-  pointer-events: none;
-}
-
-@keyframes v2MapPinPulse {
-  0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-}
-
-.v2-pin-head {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #2563eb;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.6);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.v2-map-pin:hover .v2-pin-head,
-.v2-map-pin.pin-active .v2-pin-head {
-  background: #38bdf8;
-  color: #0f172a;
-  transform: scale(1.25);
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.8);
-}
-
-/* Tooltip on Pin Hover */
-.v2-pin-tooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.25s ease;
-  pointer-events: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.v2-tooltip-flag {
-  width: 18px;
-  height: 12px;
-  border-radius: 2px;
-  object-fit: cover;
-}
-
-.v2-pin-tooltip strong {
-  font-size: 0.8rem;
+.v2-upfooter-badge-text {
+  font-size: 0.75rem; /* 12px */
+  letter-spacing: 0.15em;
   font-weight: 700;
+  color: #0052ff;
+  text-transform: uppercase;
 }
 
-.v2-map-pin:hover .v2-pin-tooltip,
-.v2-map-pin.pin-active .v2-pin-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
+/* Bigger Heading to fill unnecessary gaps */
+.v2-upfooter-heading {
+  font-size: clamp(2.25rem, 3.2vw, 3rem); /* 36px to 48px */
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
 }
 
-/* --------------------------------------------------------------------------
-   3-COLUMN OFFICE LOCATION CARDS GRID
-   -------------------------------------------------------------------------- */
+.v2-upfooter-paragraph {
+  font-size: 1.0625rem; /* 17px */
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
 
-.v2-offices-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* Location Selection Pills Stack */
+.v2-office-tabs-col {
   width: 100%;
-}
-
-.v2-office-card {
-  position: relative;
-  background-color: #ffffff;
-  border: 1px solid #e8ecf2;
-  border-radius: 24px;
-  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 330px;
-  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-sizing: border-box;
+  gap: 10px;
 }
 
-/* Card Header */
-.v2-office-card-header {
+.v2-tabs-header-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 6px;
 }
 
-.v2-office-flag-container {
-  width: 44px;
-  height: 30px;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+.v2-tabs-label {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.v2-auto-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 600;
+  color: #0052ff;
+  background-color: rgba(0, 82, 255, 0.08);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 82, 255, 0.18);
+}
+
+.v2-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #0052ff;
+  box-shadow: 0 0 6px rgba(0, 82, 255, 0.6);
+  animation: v2PulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes v2PulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.v2-auto-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0052ff;
+  background: none;
+  border: 1px solid rgba(0, 82, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.v2-auto-resume-btn:hover {
+  background-color: #0052ff;
+  color: #ffffff;
+}
+
+.v2-nearest-tag {
+  font-size: 0.6875rem; /* 11px */
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0052ff;
+  background-color: rgba(0, 82, 255, 0.1);
+  padding: 2px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.v2-office-tab-btn.active .v2-nearest-tag {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.v2-office-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.v2-office-tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  color: #475569;
+  font-size: 0.96875rem; /* 15.5px */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.v2-tab-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.v2-tab-name {
+  font-size: 0.96875rem;
+  font-weight: 600;
+}
+
+.v2-tab-arrow {
+  font-size: 13px;
+  color: #94a3b8;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.v2-office-tab-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.v2-office-tab-btn:hover .v2-tab-arrow {
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+.v2-office-tab-btn.active {
+  background-color: #0052ff;
+  color: #ffffff;
+  border-color: #0052ff;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.35);
+}
+
+.v2-office-tab-btn.active .v2-tab-arrow {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.v2-flag-img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
 }
 
-.v2-office-flag-img {
+.v2-tab-flag {
+  font-size: 18px;
+}
+
+/* 3. Right Column: Active Location Details Card Panel */
+.v2-upfooter-right {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-.v2-office-title-wrap {
-  flex: 1;
+.v2-office-main-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
-.v2-office-city {
-  font-size: 1.35rem; /* ~22px */
+.v2-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.v2-panel-title {
+  font-size: 1.375rem; /* 22px */
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 2px 0;
-  line-height: 1.25;
+  margin: 0;
 }
 
-.v2-office-region {
-  font-size: 0.86rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
-/* Card Body */
-.v2-office-card-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* Details Grid (2 Columns inside Card) */
+.v2-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
   margin-bottom: 24px;
 }
 
-.v2-office-info-row {
+.v2-panel-info-block {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: #475569;
+  flex-direction: column;
 }
 
-.v2-info-icon {
-  width: 20px;
-  color: #2563eb;
-  font-size: 0.95rem;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-
-.v2-info-text {
-  flex: 1;
-}
-
-.phones-row {
+.v2-info-label-wrap {
+  display: flex;
   align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
-.v2-phones-list {
+.v2-panel-icon {
+  color: #0052ff;
+  font-size: 14px;
+}
+
+.v2-panel-label {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.v2-panel-value {
+  font-size: 0.96875rem; /* 15.5px */
+  color: #0f172a;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.v2-panel-phones {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.v2-phone-link {
+.v2-panel-phone-link {
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.96875rem;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #0f172a;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.92rem;
   transition: color 0.2s ease;
 }
 
-.v2-phone-link:hover {
-  color: #10b981; /* WhatsApp green */
+.v2-panel-phone-link:hover {
+  color: #0052ff;
 }
 
-.v2-wa-icon {
-  color: #10b981;
-  font-size: 1rem;
+.v2-panel-phone-link .fa-whatsapp {
+  color: #16a34a;
+  font-size: 15px;
 }
 
-/* Card Footer Action */
-.v2-office-card-footer {
-  border-top: 1px solid #f1f5f9;
-  padding-top: 18px;
+/* Business Hours & Status Strip */
+.v2-panel-hours-strip {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.v2-office-map-btn {
+.v2-hours-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem; /* 14px */
+  color: #334155;
+}
+
+.v2-clock-icon {
+  color: #0052ff;
+  font-size: 15px;
+}
+
+.v2-status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #2563eb;
-  font-size: 0.92rem;
+  padding: 5px 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 999px;
+  color: #059669;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+}
+
+.v2-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #059669;
+  box-shadow: 0 0 6px rgba(5, 150, 105, 0.4);
+}
+
+/* Full-width CTA Button */
+.v2-panel-cta-wrap {
+  width: 100%;
+}
+
+.v2-panel-map-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background-color: #0052ff;
+  color: #ffffff !important;
+  font-size: 0.9375rem; /* 15px */
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 12px;
   text-decoration: none;
-  transition: transform 0.25s ease, color 0.25s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.v2-office-map-btn i {
-  font-size: 0.82rem;
-  transition: transform 0.25s ease;
+.v2-panel-map-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
-.v2-office-card:hover .v2-office-map-btn i {
-  transform: translate(3px, -3px);
-}
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
 
-/* Hover Interaction: translateY(-6px), border-color brand blue (#2563eb), depth shadow */
-.v2-office-card:hover,
-.v2-office-card.is-hovered {
-  transform: translateY(-6px);
-  border-color: rgba(37, 99, 235, 0.4);
-  box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.14), 0 0 0 1px rgba(191, 219, 254, 0.5);
-}
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN
-   -------------------------------------------------------------------------- */
-
-@media (max-width: 1100px) {
-  .v2-offices-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-}
-
-@media (max-width: 900px) {
-  .v2-offices-cards-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-  }
-
-  .v2-office-card {
-    min-height: auto;
+@media (max-width: 992px) {
+  .v2-upfooter-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
 @media (max-width: 640px) {
   .v2-upfooter-section {
-    padding: 60px 0 70px;
+    padding: 64px 16px;
   }
 
-  .v2-upfooter-container {
-    padding: 0 20px;
+  .v2-office-main-panel {
+    padding: 24px 18px;
   }
 
-  .v2-upfooter-paragraph {
-    font-size: 1rem;
+  .v2-panel-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .v2-map-card-canvas {
-    height: 180px;
+  .v2-panel-hours-strip {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

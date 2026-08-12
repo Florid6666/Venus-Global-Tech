@@ -24,7 +24,7 @@
    Global Page Styles & Setup
    ----------------------------------------- */
 .v2-home-page {
-  font-family: 'Inter', sans-serif;
+  font-family: 'absans', 'AB Sans', 'ABSans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--v2-text-dark);
   background: var(--v2-bg-light);
   overflow-x: hidden;
