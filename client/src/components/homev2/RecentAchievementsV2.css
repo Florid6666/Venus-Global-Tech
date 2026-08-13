@@ -13,10 +13,28 @@
 }
 
 .achievements-v2-container {
-  max-width: 1380px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 120px;
   box-sizing: border-box;
+}
+
+@media (max-width: 1600px) {
+  .achievements-v2-container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .achievements-v2-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .achievements-v2-container {
+    padding: 0 18px;
+  }
 }
 
 /* --------------------------------------------------------------------------

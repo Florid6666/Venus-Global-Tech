@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../components/aboutus.css';
 import '../components/contact.css';
 import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
@@ -87,172 +89,179 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* Hero + form share one continuous dark background (spotlight glows,
-          grid overlay) so there's no seam between them — same technique used
-          on the home page's dark cluster and the ERP AI hero. */}
-      <div className="contact-dark-cluster">
-        <div className="contact-glow glow-indigo"></div>
-        <div className="contact-glow glow-cyan"></div>
-        <div className="contact-grid-overlay"></div>
-
-        {/* Hero Section */}
-        <section className="contact-hero">
-          <div className="contact-hero-container">
-            <div className="contact-hero-badge">
-              <span className="contact-hero-badge-dot"></span>
-              <span>Get in Touch</span>
+      {/* EXACT ABOUT US HERO BANNER WITH CONTACT US TITLE */}
+      <section className="about-hero-section" style={{ backgroundImage: "url('/images/team/software_engineering.jpg')" }}>
+        <div className="about-hero-bg-overlay"></div>
+        
+        <div className="about-hero-container">
+          <div className="about-hero-content">
+            <h1 className="about-hero-title">Contact Us</h1>
+            
+            <div className="about-hero-breadcrumb">
+              <Link to="/" className="breadcrumb-item breadcrumb-link">Home</Link>
+              <span className="breadcrumb-arrow">→</span>
+              <span className="breadcrumb-item breadcrumb-current">Contact Us</span>
             </div>
-            <h1 className="contact-hero-title">{contact?.hero?.title}</h1>
-            <RichText html={contact?.hero?.description} as="p" className="contact-hero-description" />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Contact Form Section */}
-        <section className="contact-form-section">
-          <div className="contact-form-container">
-            <div className="contact-form-visual">
-              <div className="contact-frame">
-                <div className="contact-frame-topbar">
-                  <div className="contact-frame-dots"><span></span><span></span><span></span></div>
-                  <div className="contact-frame-url">
-                    <i className="fas fa-lock"></i>
-                    <span>venusglobaltech.com/contact</span>
-                  </div>
-                </div>
-                <div className="contact-frame-body">
-                  <img src={contact?.image} alt="Get in touch with Venus Global Technology" />
-                </div>
-              </div>
-            </div>
-
-            <div className="contact-form-content">
-              <div className="contact-form-header">
-                <div className="contact-form-badge">
-                  <i className="fas fa-cube"></i>
-                  <RichText html={form.badge} as="span" />
-                </div>
-                <h2 className="contact-form-title">{form.title}</h2>
+      {/* 2-COLUMN CLEAN WHITE CONTACT SECTION */}
+      <section className="v2-contact-section">
+        <div className="v2-contact-container">
+          <div className="v2-contact-grid">
+            
+            {/* LEFT COLUMN: EMAIL & MESSAGE FORM */}
+            <div className="v2-contact-left">
+              <div className="v2-contact-eyebrow-wrap">
+                <span className="v2-contact-eyebrow-line"></span>
+                <span className="v2-contact-eyebrow-text">SEND US EMAIL</span>
               </div>
 
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="contact-form-row">
-                  <div className="contact-form-group">
-                    <label htmlFor="name" className="contact-form-label">{form.nameLabel}</label>
-                    <div className="contact-input-wrap">
-                      <i className="fas fa-user contact-input-icon"></i>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="contact-form-input"
-                        placeholder={form.namePlaceholder}
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
+              <h2 className="v2-contact-heading">Feel free to write</h2>
+
+              <form className="v2-contact-form" onSubmit={handleSubmit}>
+                {/* Row 1: Your Name */}
+                <div className="v2-contact-field-wrap">
+                  <input
+                    type="text"
+                    name="name"
+                    className="v2-contact-input"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+
+                {/* Row 2: Email Address */}
+                <div className="v2-contact-field-wrap">
+                  <input
+                    type="email"
+                    name="email"
+                    className="v2-contact-input"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+
+                {/* Row 3: Enter Subject & Enter Phone */}
+                <div className="v2-contact-row-split">
+                  <div className="v2-contact-field-wrap">
+                    <input
+                      type="text"
+                      name="budget"
+                      className="v2-contact-input"
+                      placeholder="Enter Subject"
+                      value={formData.budget}
+                      onChange={handleInputChange}
+                    />
                   </div>
-                  <div className="contact-form-group">
-                    <label htmlFor="email" className="contact-form-label">{form.emailLabel}</label>
-                    <div className="contact-input-wrap">
-                      <i className="fas fa-envelope contact-input-icon"></i>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="contact-form-input"
-                        placeholder={form.emailPlaceholder}
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
+                  <div className="v2-contact-field-wrap">
+                    <input
+                      type="tel"
+                      name="phone"
+                      className="v2-contact-input"
+                      placeholder="Enter Phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
 
-                <div className="contact-form-row">
-                  <div className="contact-form-group">
-                    <label htmlFor="phone" className="contact-form-label">{form.phoneLabel}</label>
-                    <div className="contact-input-wrap">
-                      <i className="fas fa-phone contact-input-icon"></i>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className="contact-form-input"
-                        placeholder={form.phonePlaceholder}
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="contact-form-group">
-                    <label htmlFor="budget" className="contact-form-label">{form.budgetLabel}</label>
-                    <div className="contact-input-wrap">
-                      <i className="fas fa-sack-dollar contact-input-icon"></i>
-                      <input
-                        type="text"
-                        id="budget"
-                        name="budget"
-                        className="contact-form-input"
-                        placeholder={form.budgetPlaceholder}
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="contact-form-row">
-                  <div className="contact-form-group contact-field-full">
-                    <label htmlFor="inquiry" className="contact-form-label">{form.inquiryLabel}</label>
-                    <div className="contact-input-wrap contact-input-wrap-textarea">
-                      <i className="fas fa-comment-dots contact-input-icon"></i>
-                      <textarea
-                        id="inquiry"
-                        name="inquiry"
-                        className="contact-form-textarea"
-                        placeholder={form.inquiryPlaceholder}
-                        rows="4"
-                        value={formData.inquiry}
-                        onChange={handleInputChange}
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
+                {/* Row 4: Write a Message */}
+                <div className="v2-contact-field-wrap">
+                  <textarea
+                    name="inquiry"
+                    className="v2-contact-textarea"
+                    placeholder="Write a Message"
+                    rows="5"
+                    value={formData.inquiry}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
                 </div>
 
                 {submitStatus === 'success' && (
-                  <div className="contact-form-success">
+                  <div className="v2-contact-status success">
                     <i className="fas fa-check-circle"></i>
-                    <span>{form.successMessage}</span>
+                    <span>Message sent successfully! We will get back to you soon.</span>
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
-                  <div className="contact-form-error">
+                  <div className="v2-contact-status error">
                     <i className="fas fa-exclamation-circle"></i>
-                    <span>{form.errorMessage}</span>
+                    <span>Failed to send message. Please try again.</span>
                   </div>
                 )}
 
+                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="contact-form-button"
+                  className="v2-contact-submit-btn"
                   disabled={isSubmitting}
                 >
-                  <span>{isSubmitting ? form.submittingButton : form.submitButton}</span>
-                  <span className="contact-form-button-arrow">
-                    <i className="fas fa-arrow-right"></i>
-                  </span>
+                  {isSubmitting ? 'SENDING...' : 'SEND A MESSAGE'}
                 </button>
               </form>
             </div>
+
+            {/* RIGHT COLUMN: GET IN TOUCH DETAILS */}
+            <div className="v2-contact-right">
+              <div className="v2-contact-eyebrow-wrap">
+                <span className="v2-contact-eyebrow-line"></span>
+                <span className="v2-contact-eyebrow-text">NEED ANY HELP?</span>
+              </div>
+
+              <h2 className="v2-contact-heading">Get in touch with us</h2>
+
+              <p className="v2-contact-desc">
+                Whether you have a question about services, pricing, technical solutions, or enterprise consulting, our team is ready to answer all your questions.
+              </p>
+
+              {/* 3 Contact Info Rows */}
+              <div className="v2-contact-info-list">
+                {/* Info Card 1: Question / Phone */}
+                <div className="v2-contact-info-item">
+                  <div className="v2-contact-info-icon-box">
+                    <i className="fas fa-phone-alt"></i>
+                  </div>
+                  <div className="v2-contact-info-content">
+                    <h3 className="v2-contact-info-title">Have any question?</h3>
+                    <p className="v2-contact-info-text">Free +1 (647) 722-0837</p>
+                  </div>
+                </div>
+
+                {/* Info Card 2: Write email */}
+                <div className="v2-contact-info-item">
+                  <div className="v2-contact-info-icon-box">
+                    <i className="fas fa-envelope"></i>
+                  </div>
+                  <div className="v2-contact-info-content">
+                    <h3 className="v2-contact-info-title">Write email</h3>
+                    <p className="v2-contact-info-text">info@venusglobaltech.com</p>
+                  </div>
+                </div>
+
+                {/* Info Card 3: Visit anytime */}
+                <div className="v2-contact-info-item">
+                  <div className="v2-contact-info-icon-box">
+                    <i className="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div className="v2-contact-info-content">
+                    <h3 className="v2-contact-info-title">Visit anytime</h3>
+                    <p className="v2-contact-info-text">Toronto, ON, Canada</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* Global Offices Section */}
       <UpfooterOfficesV2 offices={home?.offices} />

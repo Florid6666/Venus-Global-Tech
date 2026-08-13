@@ -20,11 +20,29 @@ const ErpShowcaseSection = ({ onExploreClick }) => {
           font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           position: relative;
           width: 100%;
-          padding: 80px 48px 100px 48px;
+          padding: 80px 120px 100px 120px;
           background: linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #ffffff 100%);
           overflow: hidden;
           box-sizing: border-box;
           color: #0f172a;
+        }
+
+        @media (max-width: 1600px) {
+          .erp-showcase-v2-container {
+            padding: 80px 80px 100px 80px;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .erp-showcase-v2-container {
+            padding: 60px 30px 80px 30px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .erp-showcase-v2-container {
+            padding: 50px 18px 60px 18px;
+          }
         }
 
         /* Ambient Glow Backgrounds */

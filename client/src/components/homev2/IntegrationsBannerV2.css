@@ -4,10 +4,28 @@
 
 .v2-integrations-section {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1540px;
   margin: 3.5rem auto;
-  padding: 0 1.5rem;
+  padding: 0 120px;
   box-sizing: border-box;
+}
+
+@media (max-width: 1600px) {
+  .v2-integrations-section {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .v2-integrations-section {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-integrations-section {
+    padding: 0 18px;
+  }
 }
 
 /* Outer Card Shell with Asymmetrical SVG Background Mask */

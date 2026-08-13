@@ -91,12 +91,30 @@ const WhyChooseUsSection = ({
 
         .why-choose-v2-container {
           font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          position: relative;
           width: 100%;
-          padding: 100px 32px 120px 32px;
-          background-color: #ffffff;
-          box-sizing: border-box;
-          color: #0f172a;
+          padding: 100px 120px 120px 120px;
+          background: #ffffff;
           overflow: hidden;
+          box-sizing: border-box;
+        }
+
+        @media (max-width: 1600px) {
+          .why-choose-v2-container {
+            padding: 100px 80px 120px 80px;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .why-choose-v2-container {
+            padding: 80px 30px 100px 30px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .why-choose-v2-container {
+            padding: 60px 18px 80px 18px;
+          }
         }
 
         .why-choose-v2-inner {

@@ -10,22 +10,40 @@
   right: 0;
   z-index: 1000;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 120px;
   box-sizing: border-box;
   background: transparent;
   border: none;
   pointer-events: none;
 }
 
+@media (max-width: 1600px) {
+  .navbar {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0 18px;
+  }
+}
+
 .nav-container {
   pointer-events: auto;
-  max-width: 1240px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 12px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);

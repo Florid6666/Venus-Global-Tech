@@ -5,10 +5,28 @@
 .v2-upfooter-section {
   background-color: #ffffff;
   color: #0f172a;
-  padding: 96px 24px;
+  padding: 96px 120px;
   position: relative;
   overflow: hidden;
   font-family: inherit;
+}
+
+@media (max-width: 1600px) {
+  .v2-upfooter-section {
+    padding: 80px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .v2-upfooter-section {
+    padding: 64px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-upfooter-section {
+    padding: 48px 18px;
+  }
 }
 
 .v2-upfooter-container {

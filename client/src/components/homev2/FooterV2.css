@@ -50,12 +50,30 @@
 
 /* Container */
 .v2-footer-container {
-  max-width: 1280px;
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 1600px) {
+  .v2-footer-container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .v2-footer-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-footer-container {
+    padding: 0 18px;
+  }
 }
 
 /* --------------------------------------------------------------------------

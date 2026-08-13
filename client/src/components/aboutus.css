@@ -54,12 +54,30 @@
 }
 
 .about-hero-container {
-  max-width: 1200px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   width: 100%;
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 1600px) {
+  .about-hero-container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-hero-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-hero-container {
+    padding: 0 18px;
+  }
 }
 
 .about-hero-content {
@@ -119,10 +137,28 @@
 
 .about-partner-section {
   background-color: #ffffff;
-  padding: 120px 32px;
+  padding: 120px 120px;
   position: relative;
   overflow: hidden;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@media (max-width: 1600px) {
+  .about-partner-section {
+    padding: 100px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-partner-section {
+    padding: 80px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-partner-section {
+    padding: 60px 18px;
+  }
 }
 
 .about-partner-container {

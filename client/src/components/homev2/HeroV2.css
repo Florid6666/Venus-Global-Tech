@@ -99,13 +99,31 @@
 .v2-hero-chatbot-container {
   position: relative;
   z-index: 3; /* Sits above spotlights and grid lines */
-  max-width: 1400px; /* Increased to 1400px to expand layout space */
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 120px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+@media (max-width: 1600px) {
+  .v2-hero-chatbot-container {
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .v2-hero-chatbot-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-hero-chatbot-container {
+    padding: 0 18px;
+  }
 }
 
 /* -----------------------------------------

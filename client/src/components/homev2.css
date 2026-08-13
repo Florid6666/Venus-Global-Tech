@@ -31,15 +31,27 @@
 }
 
 .v2-section-container {
-  max-width: 1200px;
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 80px 120px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1600px) {
   .v2-section-container {
-    padding: 60px 20px;
+    padding: 80px 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .v2-section-container {
+    padding: 60px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-section-container {
+    padding: 40px 18px;
   }
 }
 
