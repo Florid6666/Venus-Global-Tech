@@ -505,36 +505,49 @@ const plainTextFromBlocks = (blocks) => {
     .trim();
 };
 
-// Email configuration (optional - only if email credentials are provided)
-let transporter = null;
-const emailUser = process.env.EMAIL_USER;
-const emailPass = process.env.EMAIL_PASS;
+// Email configuration (supports custom SMTP host/port or Gmail/service auth)
+const createEmailTransporter = () => {
+  const host = process.env.SMTP_HOST || process.env.EMAIL_HOST;
+  const port = parseInt(process.env.SMTP_PORT || process.env.EMAIL_PORT || '587', 10);
+  const user = process.env.SMTP_USER || process.env.EMAIL_USER;
+  const pass = process.env.SMTP_PASS || process.env.EMAIL_PASS;
+  const service = process.env.SMTP_SERVICE || process.env.EMAIL_SERVICE;
+  const secure = process.env.SMTP_SECURE === 'true' || port === 465;
 
-if (emailUser && emailPass && emailUser !== 'your-email@gmail.com' && emailPass !== 'your-app-password') {
-  try {
-    transporter = nodemailer.createTransport({
-      service: 'gmail', // You can use other services like Outlook, Yahoo, etc.
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      }
-    });
-
-    // Verify email configuration
-    transporter.verify((error, success) => {
-      if (error) {
-        console.log('Email configuration error:', error.message);
-        console.log('Email functionality will be disabled');
-      } else {
-        console.log('Email server is ready to send messages');
-      }
-    });
-  } catch (error) {
-    console.log('Email configuration error:', error.message);
-    console.log('Email functionality will be disabled');
+  if (!user || !pass || user.includes('your-email') || pass.includes('your-app-password')) {
+    return null;
   }
+
+  if (host) {
+    console.log(`Configuring custom SMTP: ${host}:${port} (User: ${user})`);
+    return nodemailer.createTransport({
+      host,
+      port,
+      secure,
+      auth: { user, pass },
+      tls: { rejectUnauthorized: false }
+    });
+  }
+
+  console.log(`Configuring service email: ${service || 'gmail'} (User: ${user})`);
+  return nodemailer.createTransport({
+    service: service || 'gmail',
+    auth: { user, pass }
+  });
+};
+
+let transporter = createEmailTransporter();
+if (transporter) {
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log('Email SMTP configuration error:', error.message);
+      console.log('Email functionality will log to console fallback');
+    } else {
+      console.log('✅ Email SMTP server is connected and ready to send messages');
+    }
+  });
 } else {
-  console.log('Email not configured - contact form emails will be disabled');
+  console.log('Email not configured in .env - contact submissions will be logged to server console');
 }
 
 // Disable caching for all API routes
@@ -804,51 +817,96 @@ app.put('/api/admin/credentials', authenticateAdmin, async (req, res) => {
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   try {
-    const { name, email, phone, budget, inquiry } = req.body;
+    const { name, email, phone, projectType, company, subjectType, budget, inquiry } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !phone || !budget || !inquiry) {
-      return res.status(400).json({ error: 'All fields are required' });
+    // Validate minimum required fields
+    if (!name || !email || !inquiry) {
+      return res.status(400).json({ error: 'Name, Email, and Message are required fields' });
     }
 
-    // Check if email is configured
+    const senderEmail = process.env.SMTP_USER || process.env.EMAIL_USER || 'no-reply@venusglobaltech.com';
+    const recipientEmail = process.env.RECIPIENT_EMAIL || senderEmail;
+
+    // Check if email transporter is initialized
     if (!transporter) {
-      console.log('Contact form submission received but email is not configured:');
+      console.log('📬 Contact form submission received (Console Fallback):');
+      console.log('--------------------------------------------------');
       console.log('Name:', name);
       console.log('Email:', email);
-      console.log('Phone:', phone);
-      console.log('Budget:', budget);
-      console.log('Inquiry:', inquiry);
+      console.log('Phone:', phone || 'N/A');
+      console.log('Company:', company || 'N/A');
+      console.log('Project Type:', projectType || budget || 'N/A');
+      console.log('Subject Type:', subjectType || 'N/A');
+      console.log('Message:', inquiry);
+      console.log('--------------------------------------------------');
       return res.status(200).json({ 
-        message: 'Form submitted successfully (email not configured - check server logs)' 
+        message: 'Form submitted successfully (logged to server console until SMTP credentials are set in .env)' 
       });
     }
 
-    // Email content
+    // Professional HTML Email Layout
     const mailOptions = {
-      from: emailUser,
-      to: process.env.RECIPIENT_EMAIL || emailUser,
-      subject: `New Contact Form Submission from ${name}`,
+      from: `"${name}" <${senderEmail}>`,
+      replyTo: email,
+      to: recipientEmail,
+      subject: `New Inquiry from ${name} - Venus Global Tech`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Budget:</strong> ${budget}</p>
-        <p><strong>Inquiry:</strong></p>
-        <p>${inquiry.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><em>This message was sent from your website contact form.</em></p>
+        <div style="font-family: 'Inter', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+          <div style="background-color: #0052ff; padding: 24px 32px; color: #ffffff;">
+            <h2 style="margin: 0; font-size: 20px; font-weight: 700;">New Website Inquiry</h2>
+            <p style="margin: 4px 0 0 0; font-size: 14px; opacity: 0.9;">Venus Global Tech Contact Form</p>
+          </div>
+          
+          <div style="padding: 32px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #1e293b;">
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; width: 140px; color: #64748b;">Full Name:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; color: #64748b;">Email Address:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${email}" style="color: #0052ff; text-decoration: none; font-weight: 600;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; color: #64748b;">Phone Number:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600;">${phone || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; color: #64748b;">Company Name:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600;">${company || 'Not provided'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; color: #64748b;">Type of Project:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600; color: #0052ff;">${projectType || budget || 'Not specified'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; color: #64748b;">Type of Subject:</td>
+                <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600; color: #0052ff;">${subjectType || 'Not specified'}</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 24px;">
+              <p style="font-weight: 700; color: #64748b; font-size: 14px; margin-bottom: 8px;">Message:</p>
+              <div style="background-color: #f8fafc; border: 1px solid #f1f5f9; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; color: #0f172a;">
+                ${inquiry.replace(/\n/g, '<br>')}
+              </div>
+            </div>
+          </div>
+          
+          <div style="background-color: #f8fafc; padding: 16px 32px; border-top: 1px solid #f1f5f9; text-align: center; font-size: 12px; color: #94a3b8;">
+            Sent automatically from <a href="https://venusglobaltech.com" style="color: #64748b;">Venus Global Tech</a> website.
+          </div>
+        </div>
       `
     };
 
-    // Send email
+    // Send email via nodemailer
     await transporter.sendMail(mailOptions);
 
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ error: 'Failed to send email' });
+    console.error('Error sending email via SMTP:', error);
+    res.status(500).json({ error: `Failed to send email: ${error.message}` });
   }
 });
 
