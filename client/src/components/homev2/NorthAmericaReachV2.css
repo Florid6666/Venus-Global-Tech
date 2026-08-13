@@ -85,22 +85,24 @@
   align-items: center;
   gap: 12px;
   padding: 16px 36px;
-  background: #0f172a;
-  color: #ffffff;
+  background: #ffffff;
+  color: #2563eb;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 12px;
-  border: none;
+  border: 2px solid #2563eb;
   cursor: pointer;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.12);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 40px;
 }
 
 .v2-reach-btn:hover {
   transform: translateY(-2px);
-  background: #1e293b;
-  box-shadow: 0 16px 32px -5px rgba(15, 23, 42, 0.3);
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 16px 32px -5px rgba(37, 99, 235, 0.35);
 }
 
 .v2-reach-btn i {

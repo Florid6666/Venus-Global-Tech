@@ -84,31 +84,37 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 36px;
-  background: #0f172a;
-  color: #ffffff;
+  padding: 14px 30px;
+  background: #ffffff;
+  color: #0052ff;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: 12px;
-  border: none;
+  border-radius: 14px;
+  border: 2px solid #0052ff;
   cursor: pointer;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.12);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
 .v2-consulting-btn:hover {
   transform: translateY(-2px);
-  background: #1e293b;
-  box-shadow: 0 16px 32px -5px rgba(15, 23, 42, 0.3);
+  background: #0052ff;
+  color: #ffffff;
+  border-color: #0052ff;
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.35);
 }
 
 .v2-consulting-btn i {
   font-size: 0.9rem;
-  transition: transform 0.2s ease;
+  line-height: 1;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  transform: rotate(-45deg);
 }
 
 .v2-consulting-btn:hover i {
-  transform: translateX(4px);
+  transform: rotate(-45deg) translate(2px, -2px);
 }
 
 /* --------------------------------------------------------------------------

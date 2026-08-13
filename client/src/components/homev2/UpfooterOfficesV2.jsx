@@ -129,11 +129,6 @@ const UpfooterOfficesV2 = ({ offices }) => {
           
           {/* LEFT COLUMN: Text Content & Location Selector */}
           <div className="v2-upfooter-left">
-            <div className="v2-upfooter-badge">
-              <span className="v2-upfooter-badge-icon">🌐</span>
-              <span className="v2-upfooter-badge-text">GLOBAL PRESENCE</span>
-            </div>
-
             <h2 className="v2-upfooter-heading">
               Our Global Office Locations
             </h2>
@@ -142,25 +137,10 @@ const UpfooterOfficesV2 = ({ offices }) => {
               Connect with our principal AI engineers, cloud architects, and technology leaders across North America and Asia.
             </p>
 
-            {/* Location Selector Header Row with Auto/Manual Status */}
+            {/* Location Selector Header Row */}
             <div className="v2-office-tabs-col">
               <div className="v2-tabs-header-row">
                 <span className="v2-tabs-label">SELECT LOCATION</span>
-                {!isManual ? (
-                  <span className="v2-auto-status-pill" title="Automatically detected & cycling. Click any tab for manual control.">
-                    <span className="v2-pulse-dot"></span>
-                    <span>Auto-Detected {detectedHub ? `(${detectedHub})` : ''}</span>
-                  </span>
-                ) : (
-                  <button 
-                    className="v2-auto-resume-btn" 
-                    onClick={handleToggleAuto}
-                    title="Switch back to automatic location cycling"
-                  >
-                    <i className="fas fa-play v2-play-icon"></i>
-                    <span>Resume Auto</span>
-                  </button>
-                )}
               </div>
 
               {/* Location Selector Tabs List */}
@@ -240,18 +220,6 @@ const UpfooterOfficesV2 = ({ offices }) => {
                 </div>
               </div>
 
-              {/* Business Hours & Status Strip */}
-              <div className="v2-panel-hours-strip">
-                <div className="v2-hours-left">
-                  <i className="far fa-clock v2-clock-icon"></i>
-                  <span><strong>Business Hours:</strong> {currentOffice.hours}</span>
-                </div>
-                <div className="v2-status-badge">
-                  <span className="v2-status-dot"></span>
-                  <span>{currentOffice.status || 'Open Now'}</span>
-                </div>
-              </div>
-
               {/* Full-width CTA Button */}
               <div className="v2-panel-cta-wrap">
                 <a
@@ -262,7 +230,7 @@ const UpfooterOfficesV2 = ({ offices }) => {
                 >
                   <i className="fas fa-location-arrow"></i>
                   <span>GET DIRECTIONS</span>
-                  <i className="fas fa-arrow-up-right"></i>
+                  <i className="fas fa-arrow-right" style={{ transform: 'rotate(-45deg)', display: 'inline-block' }}></i>
                 </a>
               </div>
             </div>

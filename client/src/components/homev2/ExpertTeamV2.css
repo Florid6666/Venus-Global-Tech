@@ -70,22 +70,23 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background-color: #0f172a;
-  color: #ffffff !important;
+  background-color: #ffffff;
+  color: #0052ff !important;
   font-size: 1rem; /* 16px */
   font-weight: 600;
   padding: 14px 30px;
   border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3), 0 4px 10px -2px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.12);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
+  border: 2px solid #0052ff;
   white-space: nowrap;
 }
 
 .expert-team-cta-btn:hover {
   background-color: #0052ff;
-  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.4);
+  border-color: #0052ff;
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.35);
   transform: translateY(-2px);
   color: #ffffff !important;
 }
@@ -230,39 +231,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   text-decoration: none;
-  background-color: #f8fafc;
-  transition: all 0.25s ease;
-}
-
-.expert-team-row-action:hover {
-  background-color: #0052ff;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .expert-team-arrow {
-  font-size: 1.125rem; /* 18px */
-  color: #94a3b8;
-  display: inline-block;
+  font-size: 0.95rem; /* 15px */
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.25s ease, color 0.25s ease;
-  font-weight: 600;
   line-height: 1;
 }
 
-.expert-team-row-action:hover .expert-team-arrow {
-  color: #ffffff;
-  transform: translate(2px, -2px);
+/* Arrow rotation for up-right direction */
+.expert-team-arrow i,
+.expert-cta-arrow i,
+.expert-subservice-arrow i {
+  transform: rotate(-45deg);
+  display: inline-block;
+}
+
+/* Active or hovered card circle styling */
+.expert-team-card-row:hover .expert-team-row-action,
+.expert-team-card-row.active .expert-team-row-action {
+  background-color: #0052ff;
+  border-color: #0052ff;
+  box-shadow: 0 4px 12px rgba(0, 82, 255, 0.25);
 }
 
 .expert-team-card-row:hover .expert-team-arrow,
 .expert-team-card-row.active .expert-team-arrow {
-  color: #0052ff;
+  color: #ffffff;
 }
 
-.expert-team-card-row:hover .expert-team-row-action:hover .expert-team-arrow {
-  color: #ffffff;
+.expert-team-row-action:hover {
+  transform: scale(1.08);
+}
+
+.expert-team-row-action:hover .expert-team-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* Expandable Content Panel (Sub-services List) */

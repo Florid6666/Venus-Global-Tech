@@ -621,7 +621,7 @@
 
 .services-badge i {
   font-size: 0.8rem;
-  color: #ff6b35;
+  color: #0052ff;
 }
 
 .services-title {
@@ -715,7 +715,7 @@
 .service-card-number {
   font-size: 1rem;
   font-weight: 700;
-  color: #ff6b35;
+  color: #0052ff;
   margin-bottom: 0.5rem;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -769,7 +769,7 @@
 
 .service-card-arrow span {
   font-size: 1.5rem;
-  color: #ff6b35;
+  color: #0052ff;
   font-weight: bold;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

@@ -73,7 +73,7 @@ const ExpertTeamV2 = ({ content }) => {
           <div className="expert-team-cta-wrap">
             <Link to={ctaLink} className="expert-team-cta-btn" title={ctaText}>
               <span>{ctaText}</span>
-              <span className="expert-cta-arrow"><i className="fas fa-arrow-up-right"></i></span>
+              <span className="expert-cta-arrow"><i className="fas fa-arrow-right"></i></span>
             </Link>
           </div>
         </div>
@@ -124,7 +124,7 @@ const ExpertTeamV2 = ({ content }) => {
                         title={`Contact Us for ${cat.title}`}
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <span className="expert-team-arrow"><i className="fas fa-arrow-up-right"></i></span>
+                        <span className="expert-team-arrow"><i className="fas fa-arrow-right"></i></span>
                       </Link>
                     </div>
 
@@ -146,7 +146,7 @@ const ExpertTeamV2 = ({ content }) => {
                                 <span className="expert-subservice-dot"></span>
                                 <span className="expert-subservice-text">{serviceName}</span>
                               </div>
-                              <span className="expert-subservice-arrow"><i className="fas fa-arrow-up-right"></i></span>
+                              <span className="expert-subservice-arrow"><i className="fas fa-arrow-right"></i></span>
                             </Link>
                           );
                         })}

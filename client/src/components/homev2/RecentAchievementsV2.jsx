@@ -71,14 +71,14 @@ const RecentAchievementsV2 = ({ content }) => {
             <p className="achievements-v2-subheading">
               {content?.subheading || "We are more than a software development firm—Venus Global Technology serves as a trusted technology consulting partner. We bridge the gap between strategic vision and scalable engineering to drive long-term business value."}
             </p>
-            
-            {/* CTA BUTTON ON LEFT COLUMN */}
-            <div className="achievements-v2-left-cta-wrap">
-              <a href="/contact" className="achievements-v2-btn-cta">
-                <span>Schedule a Strategy Session</span>
-                <i className="fas fa-arrow-right"></i>
-              </a>
-            </div>
+          </div>
+
+          {/* CTA BUTTON ON RIGHT COLUMN */}
+          <div className="achievements-v2-cta-col">
+            <a href="/contact" className="achievements-v2-btn-cta">
+              <span>Schedule a Strategy Session</span>
+              <i className="fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
 

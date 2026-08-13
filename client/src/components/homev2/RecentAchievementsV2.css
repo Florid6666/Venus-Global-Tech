@@ -32,7 +32,15 @@
 
 .achievements-v2-title-col {
   flex: 1;
-  max-width: 820px;
+  max-width: 780px;
+}
+
+.achievements-v2-cta-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-bottom: 4px;
 }
 
 .achievements-v2-heading {
@@ -52,7 +60,7 @@
   color: #475569;
   font-weight: 500;
   margin: 16px 0 0 0;
-  max-width: 780px;
+  max-width: 740px;
 }
 
 .achievements-v2-paragraph {
@@ -63,7 +71,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Infinite Right-to-Left Marquee Track (Zero Gap, No Curved Corners)
+   Infinite Right-to-Left Marquee Track (White Merging Gradient Edges)
    -------------------------------------------------------------------------- */
 .achievements-v2-slider-viewport {
   position: relative;
@@ -75,6 +83,28 @@
   overflow: hidden;
   user-select: none;
   cursor: default;
+}
+
+/* White Merging Gradient Effects on Both Side Edges */
+.achievements-v2-slider-viewport::before,
+.achievements-v2-slider-viewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.achievements-v2-slider-viewport::before {
+  left: 0;
+  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0.5) 65%, rgba(255, 255, 255, 0) 100%);
+}
+
+.achievements-v2-slider-viewport::after {
+  right: 0;
+  background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0.5) 65%, rgba(255, 255, 255, 0) 100%);
 }
 
 .achievements-v2-slider-track {
@@ -343,30 +373,36 @@
 .achievements-v2-btn-cta {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  background-color: #0B1220;
-  color: #FFFFFF;
-  font-size: 1.05rem;
-  font-weight: 700;
-  padding: 16px 36px;
-  border-radius: 12px;
+  gap: 12px;
+  background-color: #ffffff;
+  color: #0052ff !important;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(11, 18, 32, 0.22);
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #0052ff;
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 255, 0.12);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
 .achievements-v2-btn-cta:hover {
-  background-color: #1E293B;
-  color: #FFFFFF;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(11, 18, 32, 0.35);
+  background-color: #0052ff;
+  border-color: #0052ff;
+  box-shadow: 0 14px 30px -5px rgba(0, 82, 255, 0.35);
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
 .achievements-v2-btn-cta i {
-  font-size: 0.95rem;
-  transition: transform 0.3s ease;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+  display: inline-block;
+  transform: rotate(-45deg);
 }
 
 .achievements-v2-btn-cta:hover i {
-  transform: translateX(5px);
+  transform: rotate(-45deg) translate(2px, -2px);
 }

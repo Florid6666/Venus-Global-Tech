@@ -161,10 +161,6 @@ const IntegrationsBannerV2 = ({
               <stop offset="0%" stopColor="#1E222D" />
               <stop offset="100%" stopColor="#12141A" />
             </linearGradient>
-
-            <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="120%">
-              <feDropShadow dx="0" dy="20" stdDeviation="15" floodColor="#000000" floodOpacity="0.5" />
-            </filter>
           </defs>
 
           {/* Asymmetrical Shell Path with S-Curve Notch at Bottom Left */}
