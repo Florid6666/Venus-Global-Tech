@@ -157,9 +157,11 @@
 
 .hero-join-btn {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-  color: #FFFFFF;
-  border: none;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #2563EB;
+  border: 1.5px solid rgba(37, 99, 235, 0.3);
   border-radius: 14px;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 15px;
@@ -169,12 +171,15 @@
   align-items: center;
   gap: 8px;
   box-shadow: none;
-  transition: box-shadow 0.3s ease, background 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-join-btn:hover {
-  box-shadow: 0 0 24px rgba(59, 130, 246, 0.8), 0 0 45px rgba(37, 99, 235, 0.5);
-  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: none;
 }
 
 .btn-chevron {
