@@ -168,13 +168,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 10px 24px -4px rgba(37, 99, 235, 0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .hero-join-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px -4px rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.8), 0 0 45px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
 }
 
 .btn-chevron {
