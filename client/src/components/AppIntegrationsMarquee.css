@@ -1,0 +1,223 @@
+/* Dual-Row Infinite App Integration Carousel Section */
+
+.app-integrations-section {
+  width: 100%;
+  background-color: #FAFCFF; /* Clean minimalist light background */
+  padding: 90px 0 80px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.app-integrations-container {
+  max-width: 1560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 80px);
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 64px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Left Column: Messaging & Text Stack */
+.app-integrations-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  max-width: 460px;
+  width: 100%;
+}
+
+.app-integrations-headline {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(34px, 3.4vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0F172A; /* Bold slate dark */
+  margin: 0 0 24px 0;
+  letter-spacing: -0.025em;
+}
+
+.app-integrations-highlight {
+  color: #1E293B;
+}
+
+.app-integrations-subtitle {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #64748B; /* Muted secondary text */
+  margin: 0;
+  max-width: 420px;
+}
+
+/* Right Column: Marquee Viewport & Counter */
+.app-integrations-right-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Marquee Viewport with Edge Fade Mask */
+.app-integrations-marquee-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 12px 0;
+  /* Smooth gradient fade mask on left and right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.app-integrations-marquee-row {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Continuous Infinite Marquee Track */
+.app-integrations-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  will-change: transform;
+}
+
+.track-left-to-right {
+  animation: marquee-scroll-right 35s linear infinite;
+}
+
+.track-right-to-left {
+  animation: marquee-scroll-left 35s linear infinite;
+}
+
+.app-integrations-track:hover {
+  animation-play-state: paused;
+}
+
+/* Icon Squircle Anatomy - Scaled up from 56px to 68px */
+.app-icon-squircle {
+  width: 68px;
+  height: 68px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+  user-select: none;
+}
+
+.app-icon-squircle svg {
+  width: 34px;
+  height: 34px;
+}
+
+.app-icon-squircle:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+  border-color: #CBD5E1;
+}
+
+.app-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+/* Bottom-Right Counter Note */
+.app-integrations-counter {
+  text-align: right;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #64748B;
+  margin-top: 22px;
+  letter-spacing: 0.01em;
+}
+
+/* Marquee Infinite Keyframes */
+/* Top Row: Left to Right */
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Bottom Row: Right to Left */
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .app-integrations-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .app-integrations-left-col {
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .app-integrations-subtitle {
+    max-width: 100%;
+  }
+
+  .app-integrations-counter {
+    text-align: left;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-integrations-section {
+    padding: 60px 0 50px;
+  }
+
+  .app-integrations-headline {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .app-integrations-subtitle {
+    font-size: 14px;
+  }
+
+  .app-icon-squircle {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .app-icon-squircle svg,
+  .app-icon-img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .app-integrations-track {
+    gap: 32px;
+  }
+}

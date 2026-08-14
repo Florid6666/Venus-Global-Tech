@@ -1,0 +1,722 @@
+/* Next Evolution of AI Automation Tools Section */
+.next-evo-section {
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 100px 0 110px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.next-evo-container {
+  max-width: 1560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 80px);
+  box-sizing: border-box;
+}
+
+/* Centered Header */
+.next-evo-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 64px;
+}
+
+.next-evo-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(36px, 3.8vw, 50px);
+  line-height: 1.15;
+  font-weight: 600;
+  color: #1E293B;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px 0;
+}
+
+.next-evo-subtitle {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Bento Grid System: 2 Asymmetric Rows */
+.next-evo-bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.bento-row {
+  display: grid;
+  gap: 32px;
+  width: 100%;
+}
+
+.bento-row-1 {
+  grid-template-columns: 1.62fr 1fr;
+}
+
+.bento-row-2 {
+  grid-template-columns: 1fr 1.35fr;
+}
+
+/* General Bento Card Styling */
+.bento-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 28px;
+  padding: 44px 44px 0 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: #CBD5E1;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+
+/* Card 1: Visual Builder / Flow Builder (Side-by-Side Internal Layout) */
+.bento-card-flow-builder {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: 48px;
+  min-height: 480px;
+}
+
+.bento-card-flow-builder .bento-card-text {
+  flex: 0 0 45%;
+  max-width: 360px;
+  margin-bottom: 0;
+}
+
+.bento-card-flow-builder .mockup-flow-image-wrap {
+  flex: 1;
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bento-card-flow-builder .flow-builder-image-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.bento-card-flow-builder .flow-builder-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Card 2: Intelligent Exception Engine (Stacked Layout) */
+.bento-card-exception {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 40px 0 40px;
+  min-height: 380px;
+}
+
+/* Card 3: Real-time ROI Tracking */
+.bento-card-roi {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 40px 0 40px;
+  min-height: 380px;
+}
+
+/* Card 4: Instant Solution Deployment */
+.bento-card-deployment {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 40px 0 40px;
+  min-height: 380px;
+}
+
+/* Text Container */
+.bento-card-text {
+  max-width: 480px;
+  margin-bottom: 12px;
+}
+
+/* Small Pill Badge */
+.bento-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #475569;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.bento-card-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.015em;
+}
+
+.bento-card-desc {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748B;
+  margin: 0 0 24px 0;
+}
+
+/* CTA Pill Button */
+.bento-cta-btn {
+  padding: 14px 28px;
+  background: #FFFFFF;
+  color: #0F172A;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.22s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.bento-cta-btn:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.bento-cta-btn .btn-arrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.bento-cta-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Mockup Frame General Styling */
+.bento-mockup-wrap {
+  width: 100%;
+  position: relative;
+  margin-top: auto;
+}
+
+/* Card 1 Flow Builder Image Wrap */
+.mockup-flow-image-wrap {
+  flex: 1;
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flow-builder-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flow-builder-img:hover {
+  transform: translateY(-4px);
+}
+
+/* Card 2 Exception Engine Image Wrap */
+.mockup-exception-image-wrap {
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.exception-engine-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exception-engine-img:hover {
+  transform: translateY(-4px);
+}
+
+/* Card 3 Real-time ROI Tracking Image Wrap */
+.mockup-roi-image-wrap {
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.roi-tracking-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roi-tracking-img:hover {
+  transform: translateY(-4px);
+}
+
+/* Card 4 Solution Deployment Image Wrap */
+.mockup-deployment-image-wrap {
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.deployment-img {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deployment-img:hover {
+  transform: translateY(-4px);
+}
+
+.browser-window-frame {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: none;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+}
+
+.browser-header-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: #F8FAFC;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.browser-header-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #CBD5E1;
+}
+
+.browser-header-dots .dot-red { background: #FF5F56; }
+.browser-header-dots .dot-yellow { background: #FFBD2E; }
+.browser-header-dots .dot-green { background: #27C93F; }
+
+.brand-logo-text {
+  margin-left: auto;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-oo {
+  color: #2563EB;
+  font-size: 16px;
+}
+
+/* Card 1 Flow Canvas Mockup */
+.mockup-flow-canvas {
+  position: relative;
+  padding-top: 40px;
+}
+
+.flow-floating-pill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: #FFFFFF;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0F172A;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.browser-canvas-body {
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  background: #FAFCFF;
+  min-height: 180px;
+}
+
+.canvas-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-box {
+  padding: 8px 16px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.sidebar-box.active {
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.canvas-diagram-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flow-node {
+  padding: 10px 14px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.node-icon-dot.blue-dot {
+  width: 8px;
+  height: 8px;
+  background: #2563EB;
+  border-radius: 50%;
+}
+
+.flow-node-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card 2 Exception Mockup */
+.mockup-exception {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.browser-code-body {
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 16px 20px 30px;
+  font-family: 'Fira Code', monospace, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  min-height: 160px;
+}
+
+.code-overview-bar {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+  margin-bottom: 12px;
+}
+
+.code-kw { color: #F472B6; }
+.code-fn { color: #60A5FA; }
+.code-cls { color: #38BDF8; }
+.code-cm { color: #64748B; }
+.code-var { color: #A7F3D0; }
+.code-str { color: #FDE047; }
+
+/* Floating Error Toast (Blue Accented) */
+.floating-toast-card {
+  position: absolute;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  z-index: 6;
+}
+
+.toast-error-blue {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-20%);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 240px;
+}
+
+.toast-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #EFF6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toast-title {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 4px;
+}
+
+.toast-bar-skeleton {
+  width: 80px;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+/* Card 3 ROI Chart Mockup */
+.mockup-roi-chart {
+  position: relative;
+}
+
+.chart-graph-area {
+  height: 120px;
+  background: #FAFCFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.roi-svg-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.toast-kpi {
+  left: 20px;
+  bottom: 24px;
+  border: 1px solid #E2E8F0;
+  padding: 14px 22px;
+}
+
+.kpi-subtext {
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.kpi-main-stat {
+  font-family: system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kpi-up-arrow {
+  color: #10B981;
+  font-size: 14px;
+}
+
+/* Card 4 Instant Deployment Mockup (Blue Replacement for Orange) */
+.mockup-deployment {
+  position: relative;
+}
+
+.deployment-header-action {
+  padding: 24px;
+  display: flex;
+  justify-content: flex-end;
+  background: #FAFCFF;
+  min-height: 120px;
+}
+
+/* Deploy Now Button - Converted Orange to Blue */
+.deploy-blue-btn {
+  padding: 10px 22px;
+  background: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.deploy-blue-btn:hover {
+  background: #1D4ED8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.toast-progress {
+  left: 20px;
+  bottom: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 14px 20px;
+  min-width: 200px;
+}
+
+.progress-title {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 10px;
+}
+
+.progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.green-dot {
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+}
+
+.blue-spinner {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #2563EB;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.item-skeleton {
+  width: 70px;
+  height: 5px;
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+.item-label {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .next-evo-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .bento-card {
+    padding: 32px 32px 0 32px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .next-evo-section {
+    padding: 60px 0 70px;
+  }
+
+  .bento-card {
+    padding: 24px 24px 0 24px;
+    border-radius: 20px;
+  }
+
+  .bento-card-title {
+    font-size: 22px;
+  }
+}

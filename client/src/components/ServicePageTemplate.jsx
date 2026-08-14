@@ -3,6 +3,7 @@ import Lottie from 'lottie-react';
 import FooterV2 from './homev2/FooterV2';
 import UpfooterOfficesV2 from './homev2/UpfooterOfficesV2';
 import RichText from './RichText';
+import AppIntegrationsMarquee from './AppIntegrationsMarquee';
 import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
 
@@ -28,7 +29,7 @@ const LOTTIE_BY_PREFIX = {
 // slice from content.services.<key>; the Lottie animation is hardcoded per
 // prefix above, and the static hero image (used only if there's no Lottie
 // entry for this prefix) lives on content.hero itself.
-const ServicePageTemplate = ({ pageClass, prefix, content }) => {
+const ServicePageTemplate = ({ pageClass, prefix, content, customHero, belowHero }) => {
   const [animationData, setAnimationData] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const { content: home } = useContent('home');
@@ -59,50 +60,57 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
   return (
     <div className={pageClass}>
       {/* Hero Section */}
-      <section className={`${prefix}-hero`}>
-        <div className={`${prefix}-hero-container`}>
-          <div className={`${prefix}-hero-content`}>
-            <div className={`${prefix}-hero-badge`}>
-              <RichText html={hero.badge} as="span" />
+      {customHero ? (
+        customHero
+      ) : (
+        <section className={`${prefix}-hero`}>
+          <div className={`${prefix}-hero-container`}>
+            <div className={`${prefix}-hero-content`}>
+              <div className={`${prefix}-hero-badge`}>
+                <RichText html={hero.badge} as="span" />
+              </div>
+              <h1 className={`${prefix}-hero-title`}>
+                <span className="title-line">{hero.titleLine1}</span>
+                <span className="title-line">{hero.titleLine2}</span>
+              </h1>
+              <RichText html={hero.description} as="p" className={`${prefix}-hero-description`} />
+              <div className={`${prefix}-hero-cta`}>
+                <button className={`${prefix}-hero-button`} onClick={() => window.location.href = '/contact'}>{hero.ctaButton}</button>
+              </div>
             </div>
-            <h1 className={`${prefix}-hero-title`}>
-              <span className="title-line">{hero.titleLine1}</span>
-              <span className="title-line">{hero.titleLine2}</span>
-            </h1>
-            <RichText html={hero.description} as="p" className={`${prefix}-hero-description`} />
-            <div className={`${prefix}-hero-cta`}>
-              <button className={`${prefix}-hero-button`} onClick={() => window.location.href = '/contact'}>{hero.ctaButton}</button>
-            </div>
-          </div>
-          {lottie ? (
-            <div className={`${prefix}-hero-lottie`}>
-              <div className={`${prefix}-lottie-container`}>
-                <Lottie
-                  animationData={animationData}
-                  loop
-                  autoplay
-                  style={{ width: '100%', height: '100%' }}
-                  rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
-                />
-                {!animationData && (
-                  <div className="lottie-placeholder">
-                    <div className="lottie-placeholder-content">
-                      <i className={iconClass(lottie.fallbackIcon)}></i>
-                      <p>Lottie Animation</p>
+            {lottie ? (
+              <div className={`${prefix}-hero-lottie`}>
+                <div className={`${prefix}-lottie-container`}>
+                  <Lottie
+                    animationData={animationData}
+                    loop
+                    autoplay
+                    style={{ width: '100%', height: '100%' }}
+                    rendererSettings={{ preserveAspectRatio: 'xMidYMid slice' }}
+                  />
+                  {!animationData && (
+                    <div className="lottie-placeholder">
+                      <div className="lottie-placeholder-content">
+                        <i className={iconClass(lottie.fallbackIcon)}></i>
+                        <p>Lottie Animation</p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
-          ) : hero.image ? (
-            <div className={`${prefix}-hero-image`}>
-              <div className={`${prefix}-image-container`}>
-                <img src={hero.image} alt={stripHtml(hero.badge)} className={`${prefix}-hero-img`} />
+            ) : hero.image ? (
+              <div className={`${prefix}-hero-image`}>
+                <div className={`${prefix}-image-container`}>
+                  <img src={hero.image} alt={stripHtml(hero.badge)} className={`${prefix}-hero-img`} />
+                </div>
               </div>
-            </div>
-          ) : null}
-        </div>
-      </section>
+            ) : null}
+          </div>
+        </section>
+      )}
+
+      {/* Dual-Row Infinite App Integration Carousel Section */}
+      {belowHero ? belowHero : prefix === 'agentic' ? <AppIntegrationsMarquee /> : null}
 
       {/* Benefits Section */}
       <section className={`${prefix}-benefits`}>
@@ -250,58 +258,60 @@ const ServicePageTemplate = ({ pageClass, prefix, content }) => {
       </section>
 
       {/* FAQ Section */}
-      <section className={`${prefix}-faq`}>
-        <div className={`${prefix}-faq-container`}>
-          <div className={`${prefix}-faq-header`}>
-            <div className={`${prefix}-faq-badge`}>
-              <i className="fas fa-cube"></i>
-              <RichText html={faq.badge} as="span" />
+      {prefix !== 'agentic' && (
+        <section className={`${prefix}-faq`}>
+          <div className={`${prefix}-faq-container`}>
+            <div className={`${prefix}-faq-header`}>
+              <div className={`${prefix}-faq-badge`}>
+                <i className="fas fa-cube"></i>
+                <RichText html={faq.badge} as="span" />
+              </div>
+              <h2 className={`${prefix}-faq-title`}>{faq.title}</h2>
+              {faq.description && (
+                <p className={`${prefix}-faq-description`}>
+                  {faq.description.split('\n').map((line, i) => (
+                    <React.Fragment key={i}>
+                      {i > 0 && <br />}
+                      {line}
+                    </React.Fragment>
+                  ))}
+                </p>
+              )}
             </div>
-            <h2 className={`${prefix}-faq-title`}>{faq.title}</h2>
-            {faq.description && (
-              <p className={`${prefix}-faq-description`}>
-                {faq.description.split('\n').map((line, i) => (
-                  <React.Fragment key={i}>
-                    {i > 0 && <br />}
-                    {line}
-                  </React.Fragment>
-                ))}
-              </p>
-            )}
-          </div>
 
-          <div className={`${prefix}-faq-content`}>
-            <div className={`${prefix}-faq-contact`}>
-              <div className={`${prefix}-faq-contact-card`}>
-                <h3 className={`${prefix}-faq-contact-title`}>{faq.contactCard?.title}</h3>
-                <div className={`${prefix}-faq-contact-divider`}></div>
-                <RichText html={faq.contactCard?.description} as="p" className={`${prefix}-faq-contact-description`} />
-                <button className={`${prefix}-faq-contact-button`} onClick={() => window.location.href = '/contact'}>{faq.contactCard?.buttonText}</button>
+            <div className={`${prefix}-faq-content`}>
+              <div className={`${prefix}-faq-contact`}>
+                <div className={`${prefix}-faq-contact-card`}>
+                  <h3 className={`${prefix}-faq-contact-title`}>{faq.contactCard?.title}</h3>
+                  <div className={`${prefix}-faq-contact-divider`}></div>
+                  <RichText html={faq.contactCard?.description} as="p" className={`${prefix}-faq-contact-description`} />
+                  <button className={`${prefix}-faq-contact-button`} onClick={() => window.location.href = '/contact'}>{faq.contactCard?.buttonText}</button>
+                </div>
+              </div>
+
+              <div className={`${prefix}-faq-list`}>
+                {faq.items?.map((item, index) => (
+                  <div
+                    className={`${prefix}-faq-item${openFaqIndex === index ? ' active' : ''}`}
+                    key={item.question}
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  >
+                    <div className={`${prefix}-faq-question`}>
+                      <h4>
+                        <RichText html={item.question} as="span" />
+                      </h4>
+                      <i className="fas fa-plus"></i>
+                    </div>
+                    <div className={`${prefix}-faq-answer`}>
+                      <RichText html={item.answer} as="p" />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className={`${prefix}-faq-list`}>
-              {faq.items?.map((item, index) => (
-                <div
-                  className={`${prefix}-faq-item${openFaqIndex === index ? ' active' : ''}`}
-                  key={item.question}
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                >
-                  <div className={`${prefix}-faq-question`}>
-                    <h4>
-                      <RichText html={item.question} as="span" />
-                    </h4>
-                    <i className="fas fa-plus"></i>
-                  </div>
-                  <div className={`${prefix}-faq-answer`}>
-                    <RichText html={item.answer} as="p" />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <UpfooterOfficesV2 offices={home?.offices} />
       <FooterV2 />
