@@ -49,19 +49,7 @@ const AgenticHero = () => {
         }}
       />
 
-      {/* Side Glow Accents with Parallax Inertia */}
-      <div
-        className="hero-side-accent side-accent-left"
-        style={{
-          transform: `translate3d(${mousePos.x * -42}px, ${mousePos.y * -32}px, 0)`,
-        }}
-      />
-      <div
-        className="hero-side-accent side-accent-right"
-        style={{
-          transform: `translate3d(${mousePos.x * 42}px, ${mousePos.y * 32}px, 0)`,
-        }}
-      />
+
 
       <div className="agentic-hero-new-container">
         {/* Main Title */}
