@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 75vh;
   padding: clamp(140px, 14vh, 180px) 24px clamp(80px, 8vh, 120px);
-  background-color: #FAFAF7;
+  background-color: #FFFFFF;
   position: relative;
   overflow: hidden;
   display: flex;
