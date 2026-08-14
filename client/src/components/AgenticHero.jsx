@@ -1,15 +1,67 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './AgenticHero.css';
 
 const AgenticHero = () => {
-  return (
-    <section className="agentic-hero-new">
-      {/* Grid Pattern with Dots */}
-      <div className="hero-grid-pattern" />
+  const heroRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [cursorAbsPos, setCursorAbsPos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
-      {/* Side Glow Accents */}
-      <div className="hero-side-accent side-accent-left" />
-      <div className="hero-side-accent side-accent-right" />
+  const handleMouseMove = (e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+
+    setMousePos({ x, y });
+    setCursorAbsPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <section
+      ref={heroRef}
+      className="agentic-hero-new"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setMousePos({ x: 0, y: 0 });
+      }}
+    >
+      {/* Interactive Cursor Light Spotlight */}
+      <div
+        className="hero-cursor-spotlight"
+        style={{
+          left: `${cursorAbsPos.x}px`,
+          top: `${cursorAbsPos.y}px`,
+          opacity: isHovered ? 1 : 0,
+        }}
+      />
+
+      {/* Grid Pattern with Dynamic Parallax Movement */}
+      <div
+        className="hero-grid-pattern"
+        style={{
+          transform: `translate3d(${mousePos.x * 28}px, ${mousePos.y * 28}px, 0)`,
+        }}
+      />
+
+      {/* Side Glow Accents with Parallax Inertia */}
+      <div
+        className="hero-side-accent side-accent-left"
+        style={{
+          transform: `translate3d(${mousePos.x * -42}px, ${mousePos.y * -32}px, 0)`,
+        }}
+      />
+      <div
+        className="hero-side-accent side-accent-right"
+        style={{
+          transform: `translate3d(${mousePos.x * 42}px, ${mousePos.y * 32}px, 0)`,
+        }}
+      />
 
       <div className="agentic-hero-new-container">
         {/* Main Title */}
