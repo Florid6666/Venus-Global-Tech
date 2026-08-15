@@ -1471,22 +1471,26 @@
           {
             "number": "01",
             "icon": "fa-search",
-            "title": "ESG Assessment &amp; Strategy"
+            "title": "ESG Assessment &amp; Strategy",
+            "description": "Evaluate your current ESG performance, identify key gaps, and build a practical sustainability strategy aligned with your business goals and industry requirements."
           },
           {
             "number": "02",
             "icon": "fa-project-diagram",
-            "title": "Framework Development"
+            "title": "Framework Development",
+            "description": "Develop structured ESG frameworks, policies, and measurable KPIs that help embed environmental, social, and governance principles across your organization."
           },
           {
             "number": "03",
             "icon": "fa-cogs",
-            "title": "Implementation &amp; Training"
+            "title": "Implementation &amp; Training",
+            "description": "Turn ESG strategies into action with implementation support, employee training, and clear processes that make sustainable practices part of everyday operations."
           },
           {
             "number": "04",
             "icon": "fa-chart-bar",
-            "title": "Monitoring &amp; Reporting"
+            "title": "Monitoring &amp; Reporting",
+            "description": "Track ESG performance through meaningful metrics, automated insights, and transparent reporting to continuously improve impact and stay accountable."
           }
         ]
       },

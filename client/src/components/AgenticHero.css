@@ -1,4 +1,4 @@
-/* New Agentic Hero Section */
+/* New Agentic Hero Section - Completely Static */
 .agentic-hero-new {
   width: 100%;
   min-height: 75vh;
@@ -12,23 +12,10 @@
   box-sizing: border-box;
 }
 
-/* Interactive Cursor Light Spotlight */
-.hero-cursor-spotlight {
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(147, 197, 253, 0.10) 45%, transparent 70%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 50%;
-  transition: opacity 0.3s ease;
-}
-
-/* Technical Grid Pattern with Intersecting Dots & Parallax Offset */
+/* Static Technical Grid Pattern with Intersecting Dots */
 .hero-grid-pattern {
   position: absolute;
-  inset: -50px;
+  inset: 0;
   background-image: 
     radial-gradient(circle at center, #64748B 1.5px, transparent 1.5px),
     linear-gradient(to right, rgba(203, 213, 225, 0.55) 1px, transparent 1px),
@@ -37,11 +24,7 @@
   background-position: -0.75px -0.75px, 0 0, 0 0;
   pointer-events: none;
   opacity: 0.85;
-  transition: transform 0.15s cubic-bezier(0.1, 0.8, 0.3, 1);
-  will-change: transform;
 }
-
-
 
 /* Container */
 .agentic-hero-new-container {
@@ -178,7 +161,6 @@
   background: #2563EB;
   color: #FFFFFF;
   border-color: #2563EB;
-  transform: translateY(-2px);
   box-shadow: none;
 }
 

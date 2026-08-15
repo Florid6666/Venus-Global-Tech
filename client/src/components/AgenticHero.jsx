@@ -1,55 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import './AgenticHero.css';
 
 const AgenticHero = () => {
-  const heroRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [cursorAbsPos, setCursorAbsPos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-
-    setMousePos({ x, y });
-    setCursorAbsPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   return (
-    <section
-      ref={heroRef}
-      className="agentic-hero-new"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setMousePos({ x: 0, y: 0 });
-      }}
-    >
-      {/* Interactive Cursor Light Spotlight */}
-      <div
-        className="hero-cursor-spotlight"
-        style={{
-          left: `${cursorAbsPos.x}px`,
-          top: `${cursorAbsPos.y}px`,
-          opacity: isHovered ? 1 : 0,
-        }}
-      />
-
-      {/* Grid Pattern with Dynamic Parallax Movement */}
-      <div
-        className="hero-grid-pattern"
-        style={{
-          transform: `translate3d(${mousePos.x * 28}px, ${mousePos.y * 28}px, 0)`,
-        }}
-      />
-
-
+    <section className="agentic-hero-new">
+      {/* Static Grid Pattern */}
+      <div className="hero-grid-pattern" />
 
       <div className="agentic-hero-new-container">
         {/* Main Title */}

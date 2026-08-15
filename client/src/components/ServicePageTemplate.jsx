@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Lottie from 'lottie-react';
 import FooterV2 from './homev2/FooterV2';
 import UpfooterOfficesV2 from './homev2/UpfooterOfficesV2';
+import FaqV2 from './homev2/FaqV2';
 import RichText from './RichText';
 import AppIntegrationsMarquee from './AppIntegrationsMarquee';
 import { useContent } from '../hooks/useContent';
@@ -178,19 +179,34 @@ const ServicePageTemplate = ({
               {process.steps?.map((step, index) => (
                 <React.Fragment key={step.number}>
                   {index > 0 && (
-                    <div className="process-arrow">
+                    <div className={`${prefix}-process-arrow process-arrow`}>
                       <i className="fas fa-arrow-right"></i>
                     </div>
                   )}
-                  <div className="process-step" data-step={index + 1}>
-                    <div className="process-step-content">
-                      <div className="process-step-number">{step.number}</div>
-                      <div className="process-step-icon">
+                  <div className={`${prefix}-process-step process-step`} data-step={index + 1}>
+                    <div className={`${prefix}-process-step-content process-step-content`}>
+                      <div className={`${prefix}-process-step-number process-step-number`}>{step.number}</div>
+                      <div className={`${prefix}-process-step-icon process-step-icon`}>
                         <i className={iconClass(step.icon)}></i>
                       </div>
-                      <h3 className="process-step-title">
+                      <h3 className={`${prefix}-process-step-title process-step-title`}>
                         <RichText html={step.title} as="span" />
                       </h3>
+                      {(step.description || (prefix === 'esg' && [
+                        "Evaluate your current ESG performance, identify key gaps, and build a practical sustainability strategy aligned with your business goals and industry requirements.",
+                        "Develop structured ESG frameworks, policies, and measurable KPIs that help embed environmental, social, and governance principles across your organization.",
+                        "Turn ESG strategies into action with implementation support, employee training, and clear processes that make sustainable practices part of everyday operations.",
+                        "Track ESG performance through meaningful metrics, automated insights, and transparent reporting to continuously improve impact and stay accountable."
+                      ][index])) && (
+                        <p className={`${prefix}-process-step-desc ${prefix}-process-step-description process-step-desc process-step-description`}>
+                          <RichText html={step.description || [
+                            "Evaluate your current ESG performance, identify key gaps, and build a practical sustainability strategy aligned with your business goals and industry requirements.",
+                            "Develop structured ESG frameworks, policies, and measurable KPIs that help embed environmental, social, and governance principles across your organization.",
+                            "Turn ESG strategies into action with implementation support, employee training, and clear processes that make sustainable practices part of everyday operations.",
+                            "Track ESG performance through meaningful metrics, automated insights, and transparent reporting to continuously improve impact and stay accountable."
+                          ][index]} as="span" />
+                        </p>
+                      )}
                     </div>
                   </div>
                 </React.Fragment>
@@ -277,7 +293,17 @@ const ServicePageTemplate = ({
       )}
 
       {/* FAQ Section */}
-      {prefix !== 'agentic' && (
+      {prefix === 'esg' ? (
+        <FaqV2
+          content={{
+            badge: 'FREQUENTLY ASKED QUESTIONS',
+            title: 'Answers to Your Questions About ESG Solutions',
+            description: 'Explore how our intelligent ESG platform drives sustainable operations, transparent reporting, responsible governance, and measurable impact across your enterprise.',
+            ctaButton: 'Schedule a Consultation',
+            items: faq?.items || []
+          }}
+        />
+      ) : prefix !== 'agentic' && (
         <section className={`${prefix}-faq`}>
           <div className={`${prefix}-faq-container`}>
             <div className={`${prefix}-faq-header`}>

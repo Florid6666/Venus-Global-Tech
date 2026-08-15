@@ -1,0 +1,262 @@
+/* ESG Custom Hero Section (Exact Match to Reference Design) */
+.esg-hero-custom {
+  position: relative;
+  width: 100%;
+  padding: 140px 0 110px 0;
+  background-color: #FAFCFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Blueprint Light Grid Background */
+.esg-hero-grid-bg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Center Radial Glow Layer */
+.esg-hero-radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(224, 242, 254, 0.7) 0%, rgba(250, 252, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(40px);
+}
+
+.esg-hero-custom-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Top Trust Pill Badge */
+.esg-trust-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px 6px 10px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  margin-bottom: 36px;
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.avatar-circle:first-child {
+  margin-left: 0;
+}
+
+.avatar-1 {
+  background: #475569;
+}
+
+.avatar-2 {
+  background: #0284C7;
+}
+
+.avatar-3 {
+  background: #10B981;
+}
+
+.trust-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.trust-text strong {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.trust-dot-indicator {
+  width: 6px;
+  height: 6px;
+  background: #38BDF8;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Inter:wght@200;300;400;500&display=swap');
+
+/* Hero Main Title Typography (Exact Match to Reference Design) */
+.esg-hero-main-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.038em !important;
+  font-size: clamp(48px, 6.5vw, 98px) !important;
+  font-weight: 300 !important;
+  line-height: 1.05 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 28px 0;
+  text-align: center;
+}
+
+.title-row-plain {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: 300 !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+  color: #1a202c !important;
+}
+
+.title-row-gradient {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: 300 !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 32%, #06b6d4 72%, #14b8a6 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin-top: 4px;
+}
+
+/* Subtitle Description (Exact Match to Reference Design) */
+.esg-hero-main-desc {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(20px, 1.8vw, 24px) !important;
+  line-height: 1.62 !important;
+  color: #4a5568 !important;
+  max-width: 920px;
+  margin: 0 0 44px 0;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em;
+}
+
+/* CTA Pill Buttons */
+.esg-hero-cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.esg-btn-primary {
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+  transition: all 0.22s ease;
+}
+
+.esg-btn-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #1D4ED8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.5);
+}
+
+.esg-btn-primary .btn-arrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.esg-btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.esg-btn-secondary {
+  padding: 16px 36px;
+  background: #F1F5F9;
+  color: #0284C7;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.22s ease;
+}
+
+.esg-btn-secondary:hover {
+  background: #E2E8F0;
+  color: #0369A1;
+  transform: translateY(-2px);
+}
+
+.play-icon-shape {
+  font-size: 11px;
+  color: #0284C7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .esg-hero-custom {
+    padding: 100px 0 70px 0;
+  }
+
+  .esg-hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .esg-btn-primary,
+  .esg-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .esg-hero-main-desc {
+    font-size: 16px;
+  }
+}

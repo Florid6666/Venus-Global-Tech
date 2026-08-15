@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/esg.css';
 import ServicePageTemplate from '../components/ServicePageTemplate';
+import EsgHero from '../components/EsgHero';
 import { useContent } from '../hooks/useContent';
 
 const ESG = () => {
@@ -15,6 +16,8 @@ const ESG = () => {
       pageClass="esg-page"
       prefix="esg"
       content={content.esg}
+      customHero={<EsgHero />}
+      hideTools={true}
     />
   );
 };
