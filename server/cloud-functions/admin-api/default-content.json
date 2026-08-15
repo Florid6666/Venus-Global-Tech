@@ -838,10 +838,10 @@
         "title": "How We Implement Your Cloud Solution",
         "description": "Our proven 4-step process ensures your cloud implementation is seamless, secure, and optimized for your business needs.",
         "steps": [
-          { "number": "01", "icon": "fa-search", "title": "Assessment &amp; Planning" },
-          { "number": "02", "icon": "fa-drafting-compass", "title": "Architecture Design" },
-          { "number": "03", "icon": "fa-rocket", "title": "Migration &amp; Deployment" },
-          { "number": "04", "icon": "fa-chart-line", "title": "Optimization &amp; Support" }
+          { "number": "01", "icon": "fa-search", "title": "Assessment &amp; Planning", "description": "Assess your existing infrastructure, workloads, and business requirements to create a secure, scalable, and cost-effective cloud strategy." },
+          { "number": "02", "icon": "fa-drafting-compass", "title": "Architecture Design", "description": "Design modern cloud architectures tailored to your needs, with a focus on performance, security, reliability, and seamless scalability." },
+          { "number": "03", "icon": "fa-rocket", "title": "Migration &amp; Deployment", "description": "Move applications, data, and workloads to the cloud with minimal disruption through structured migration, deployment, and integration processes." },
+          { "number": "04", "icon": "fa-chart-line", "title": "Optimization &amp; Support", "description": "Continuously optimize cloud performance, costs, and resources while providing ongoing monitoring, maintenance, and technical support." }
         ]
       },
       "tools": {

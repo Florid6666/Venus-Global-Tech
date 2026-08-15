@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/cloudservice.css';
 import ServicePageTemplate from '../components/ServicePageTemplate';
+import CloudHero from '../components/CloudHero';
 import { useContent } from '../hooks/useContent';
 
 const CloudService = () => {
@@ -15,6 +16,9 @@ const CloudService = () => {
       pageClass="cloud-page"
       prefix="cloud"
       content={content.cloudService}
+      customHero={<CloudHero />}
+      hideTools={true}
+      hideWhyChoose={true}
     />
   );
 };

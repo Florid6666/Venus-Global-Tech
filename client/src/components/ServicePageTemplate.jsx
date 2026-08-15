@@ -192,14 +192,24 @@ const ServicePageTemplate = ({
                       <h3 className={`${prefix}-process-step-title process-step-title`}>
                         <RichText html={step.title} as="span" />
                       </h3>
-                      {(step.description || (prefix === 'esg' && [
+                      {(step.description || (prefix === 'cloud' && [
+                        "Assess your existing infrastructure, workloads, and business requirements to create a secure, scalable, and cost-effective cloud strategy.",
+                        "Design modern cloud architectures tailored to your needs, with a focus on performance, security, reliability, and seamless scalability.",
+                        "Move applications, data, and workloads to the cloud with minimal disruption through structured migration, deployment, and integration processes.",
+                        "Continuously optimize cloud performance, costs, and resources while providing ongoing monitoring, maintenance, and technical support."
+                      ][index]) || (prefix === 'esg' && [
                         "Evaluate your current ESG performance, identify key gaps, and build a practical sustainability strategy aligned with your business goals and industry requirements.",
                         "Develop structured ESG frameworks, policies, and measurable KPIs that help embed environmental, social, and governance principles across your organization.",
                         "Turn ESG strategies into action with implementation support, employee training, and clear processes that make sustainable practices part of everyday operations.",
                         "Track ESG performance through meaningful metrics, automated insights, and transparent reporting to continuously improve impact and stay accountable."
                       ][index])) && (
                         <p className={`${prefix}-process-step-desc ${prefix}-process-step-description process-step-desc process-step-description`}>
-                          <RichText html={step.description || [
+                          <RichText html={step.description || (prefix === 'cloud' && [
+                            "Assess your existing infrastructure, workloads, and business requirements to create a secure, scalable, and cost-effective cloud strategy.",
+                            "Design modern cloud architectures tailored to your needs, with a focus on performance, security, reliability, and seamless scalability.",
+                            "Move applications, data, and workloads to the cloud with minimal disruption through structured migration, deployment, and integration processes.",
+                            "Continuously optimize cloud performance, costs, and resources while providing ongoing monitoring, maintenance, and technical support."
+                          ][index]) || [
                             "Evaluate your current ESG performance, identify key gaps, and build a practical sustainability strategy aligned with your business goals and industry requirements.",
                             "Develop structured ESG frameworks, policies, and measurable KPIs that help embed environmental, social, and governance principles across your organization.",
                             "Turn ESG strategies into action with implementation support, employee training, and clear processes that make sustainable practices part of everyday operations.",
@@ -293,12 +303,16 @@ const ServicePageTemplate = ({
       )}
 
       {/* FAQ Section */}
-      {prefix === 'esg' ? (
+      {(prefix === 'esg' || prefix === 'cloud') ? (
         <FaqV2
           content={{
             badge: 'FREQUENTLY ASKED QUESTIONS',
-            title: 'Answers to Your Questions About ESG Solutions',
-            description: 'Explore how our intelligent ESG platform drives sustainable operations, transparent reporting, responsible governance, and measurable impact across your enterprise.',
+            title: prefix === 'cloud' 
+              ? 'Answers to Your Questions About Cloud Services' 
+              : (faq?.title || 'Answers to Your Questions About ESG Solutions'),
+            description: prefix === 'cloud'
+              ? 'Explore how our enterprise cloud infrastructure services enable seamless migration, scalable architecture, automated security, and 24/7 high availability across your business operations.'
+              : 'Explore how our intelligent ESG platform drives sustainable operations, transparent reporting, responsible governance, and measurable impact across your enterprise.',
             ctaButton: 'Schedule a Consultation',
             items: faq?.items || []
           }}
