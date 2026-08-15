@@ -56,6 +56,7 @@ const AgenticAI = () => {
       prefix="agentic"
       content={content.agenticAI}
       customHero={<AgenticHero />}
+      hideStandardSections={true}
       belowHero={
         <>
           <AppIntegrationsMarquee />

@@ -29,7 +29,18 @@ const LOTTIE_BY_PREFIX = {
 // slice from content.services.<key>; the Lottie animation is hardcoded per
 // prefix above, and the static hero image (used only if there's no Lottie
 // entry for this prefix) lives on content.hero itself.
-const ServicePageTemplate = ({ pageClass, prefix, content, customHero, belowHero }) => {
+const ServicePageTemplate = ({
+  pageClass,
+  prefix,
+  content,
+  customHero,
+  belowHero,
+  hideBenefits = false,
+  hideProcess = false,
+  hideTools = false,
+  hideWhyChoose = false,
+  hideStandardSections = false,
+}) => {
   const [animationData, setAnimationData] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const { content: home } = useContent('home');
@@ -113,149 +124,157 @@ const ServicePageTemplate = ({ pageClass, prefix, content, customHero, belowHero
       {belowHero ? belowHero : prefix === 'agentic' ? <AppIntegrationsMarquee /> : null}
 
       {/* Benefits Section */}
-      <section className={`${prefix}-benefits`}>
-        <div className={`${prefix}-benefits-container`}>
-          <div className={`${prefix}-benefits-header`}>
-            <div className={`${prefix}-benefits-badge`}>
-              <i className="fas fa-star"></i>
-              <RichText html={benefits.badge} as="span" />
-            </div>
-            <h2 className={`${prefix}-benefits-title`}>{benefits.title}</h2>
-            <RichText html={benefits.description} as="p" className={`${prefix}-benefits-description`} />
-          </div>
-
-          <div className={`${prefix}-benefits-grid`}>
-            {benefits.items?.map((item) => (
-              <div className={`${prefix}-benefit-flip-card`} key={item.title}>
-                <div className={`${prefix}-benefit-flip-inner`}>
-                  <div className={`${prefix}-benefit-flip-front`}>
-                    <div className={`${prefix}-benefit-icon`}>
-                      <i className={iconClass(item.icon)}></i>
-                    </div>
-                    <h3 className={`${prefix}-benefit-title`}>
-                      <RichText html={item.title} as="span" />
-                    </h3>
-                  </div>
-                  <div className={`${prefix}-benefit-flip-back`}>
-                    <RichText html={item.description} as="p" className={`${prefix}-benefit-description`} />
-                  </div>
-                </div>
+      {!hideStandardSections && !hideBenefits && benefits?.title && (
+        <section className={`${prefix}-benefits`}>
+          <div className={`${prefix}-benefits-container`}>
+            <div className={`${prefix}-benefits-header`}>
+              <div className={`${prefix}-benefits-badge`}>
+                <i className="fas fa-star"></i>
+                <RichText html={benefits.badge} as="span" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className={`${prefix}-process`}>
-        <div className={`${prefix}-process-container`}>
-          <div className={`${prefix}-process-header`}>
-            <div className={`${prefix}-process-badge`}>
-              <i className="fas fa-cogs"></i>
-              <RichText html={process.badge} as="span" />
+              <h2 className={`${prefix}-benefits-title`}>{benefits.title}</h2>
+              <RichText html={benefits.description} as="p" className={`${prefix}-benefits-description`} />
             </div>
-            <h2 className={`${prefix}-process-title`}>{process.title}</h2>
-            {process.description && (
-              <RichText html={process.description} as="p" className={`${prefix}-process-description`} />
-            )}
-          </div>
 
-          <div className={`${prefix}-process-timeline`}>
-            {process.steps?.map((step, index) => (
-              <React.Fragment key={step.number}>
-                {index > 0 && (
-                  <div className="process-arrow">
-                    <i className="fas fa-arrow-right"></i>
-                  </div>
-                )}
-                <div className="process-step" data-step={index + 1}>
-                  <div className="process-step-content">
-                    <div className="process-step-number">{step.number}</div>
-                    <div className="process-step-icon">
-                      <i className={iconClass(step.icon)}></i>
-                    </div>
-                    <h3 className="process-step-title">
-                      <RichText html={step.title} as="span" />
-                    </h3>
-                  </div>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tools Section */}
-      <section className={`${prefix}-tools`}>
-        <div className={`${prefix}-tools-container`}>
-          <div className={`${prefix}-tools-header`}>
-            <div className={`${prefix}-tools-badge`}>
-              <i className="fas fa-cube"></i>
-              <RichText html={tools.badge} as="span" />
-            </div>
-            <h2 className={`${prefix}-tools-title`}>{tools.title}</h2>
-            {tools.description && (
-              <RichText html={tools.description} as="p" className={`${prefix}-tools-description`} />
-            )}
-          </div>
-
-          <div className={`${prefix}-tools-grid`}>
-            {toolRows.map((row, rowIndex) => (
-              <div className={`${prefix}-tools-row`} key={rowIndex}>
-                {row.map((tool) => (
-                  <div className={`${prefix}-tool-item`} key={tool.name}>
-                    <div className={`${prefix}-tool-icon`}>
-                      <i className={iconClass(tool.icon)}></i>
-                      <span className={`${prefix}-tool-name`}>{tool.name}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className={`${prefix}-why-choose`}>
-        <div className={`${prefix}-why-choose-container`}>
-          <div className={`${prefix}-why-choose-image`}>
-            <img src={whyChoose.image} alt="" />
-          </div>
-          <div className={`${prefix}-why-choose-content`}>
-            {whyChoose.badge && (
-              <div className={`${prefix}-why-choose-badge`}>
-                <i className="fas fa-cube"></i>
-                <RichText html={whyChoose.badge} as="span" />
-              </div>
-            )}
-            {whyChoose.title && <h2 className={`${prefix}-why-choose-title`}>{whyChoose.title}</h2>}
-            {whyChoose.description && (
-              <RichText html={whyChoose.description} as="p" className={`${prefix}-why-choose-description`} />
-            )}
-            <div className={`${prefix}-why-choose-divider`}></div>
-            <div className={`${prefix}-why-choose-benefits`}>
-              {whyChoose.items?.map((item) => (
-                <div className={`${prefix}-why-choose-benefit-flip-card`} key={item.title}>
-                  <div className={`${prefix}-why-choose-benefit-flip-inner`}>
-                    <div className={`${prefix}-why-choose-benefit-flip-front`}>
-                      <div className={`${prefix}-why-choose-benefit-icon`}>
+            <div className={`${prefix}-benefits-grid`}>
+              {benefits.items?.map((item) => (
+                <div className={`${prefix}-benefit-flip-card`} key={item.title}>
+                  <div className={`${prefix}-benefit-flip-inner`}>
+                    <div className={`${prefix}-benefit-flip-front`}>
+                      <div className={`${prefix}-benefit-icon`}>
                         <i className={iconClass(item.icon)}></i>
                       </div>
-                      <h3 className={`${prefix}-why-choose-benefit-title`}>
+                      <h3 className={`${prefix}-benefit-title`}>
                         <RichText html={item.title} as="span" />
                       </h3>
                     </div>
-                    <div className={`${prefix}-why-choose-benefit-flip-back`}>
-                      <RichText html={item.description} as="p" className={`${prefix}-why-choose-benefit-description`} />
+                    <div className={`${prefix}-benefit-flip-back`}>
+                      <RichText html={item.description} as="p" className={`${prefix}-benefit-description`} />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Process Section */}
+      {!hideStandardSections && !hideProcess && process?.title && (
+        <section className={`${prefix}-process`}>
+          <div className={`${prefix}-process-container`}>
+            <div className={`${prefix}-process-header`}>
+              <div className={`${prefix}-process-badge`}>
+                <i className="fas fa-cogs"></i>
+                <RichText html={process.badge} as="span" />
+              </div>
+              <h2 className={`${prefix}-process-title`}>{process.title}</h2>
+              {process.description && (
+                <RichText html={process.description} as="p" className={`${prefix}-process-description`} />
+              )}
+            </div>
+
+            <div className={`${prefix}-process-timeline`}>
+              {process.steps?.map((step, index) => (
+                <React.Fragment key={step.number}>
+                  {index > 0 && (
+                    <div className="process-arrow">
+                      <i className="fas fa-arrow-right"></i>
+                    </div>
+                  )}
+                  <div className="process-step" data-step={index + 1}>
+                    <div className="process-step-content">
+                      <div className="process-step-number">{step.number}</div>
+                      <div className="process-step-icon">
+                        <i className={iconClass(step.icon)}></i>
+                      </div>
+                      <h3 className="process-step-title">
+                        <RichText html={step.title} as="span" />
+                      </h3>
+                    </div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Tools Section */}
+      {!hideStandardSections && !hideTools && tools?.title && (
+        <section className={`${prefix}-tools`}>
+          <div className={`${prefix}-tools-container`}>
+            <div className={`${prefix}-tools-header`}>
+              <div className={`${prefix}-tools-badge`}>
+                <i className="fas fa-cube"></i>
+                <RichText html={tools.badge} as="span" />
+              </div>
+              <h2 className={`${prefix}-tools-title`}>{tools.title}</h2>
+              {tools.description && (
+                <RichText html={tools.description} as="p" className={`${prefix}-tools-description`} />
+              )}
+            </div>
+
+            <div className={`${prefix}-tools-grid`}>
+              {toolRows.map((row, rowIndex) => (
+                <div className={`${prefix}-tools-row`} key={rowIndex}>
+                  {row.map((tool) => (
+                    <div className={`${prefix}-tool-item`} key={tool.name}>
+                      <div className={`${prefix}-tool-icon`}>
+                        <i className={iconClass(tool.icon)}></i>
+                        <span className={`${prefix}-tool-name`}>{tool.name}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Why Choose Section */}
+      {!hideStandardSections && !hideWhyChoose && whyChoose?.title && (
+        <section className={`${prefix}-why-choose`}>
+          <div className={`${prefix}-why-choose-container`}>
+            <div className={`${prefix}-why-choose-image`}>
+              <img src={whyChoose.image} alt="" />
+            </div>
+            <div className={`${prefix}-why-choose-content`}>
+              {whyChoose.badge && (
+                <div className={`${prefix}-why-choose-badge`}>
+                  <i className="fas fa-cube"></i>
+                  <RichText html={whyChoose.badge} as="span" />
+                </div>
+              )}
+              {whyChoose.title && <h2 className={`${prefix}-why-choose-title`}>{whyChoose.title}</h2>}
+              {whyChoose.description && (
+                <RichText html={whyChoose.description} as="p" className={`${prefix}-why-choose-description`} />
+              )}
+              <div className={`${prefix}-why-choose-divider`}></div>
+              <div className={`${prefix}-why-choose-benefits`}>
+                {whyChoose.items?.map((item) => (
+                  <div className={`${prefix}-why-choose-benefit-flip-card`} key={item.title}>
+                    <div className={`${prefix}-why-choose-benefit-flip-inner`}>
+                      <div className={`${prefix}-why-choose-benefit-flip-front`}>
+                        <div className={`${prefix}-why-choose-benefit-icon`}>
+                          <i className={iconClass(item.icon)}></i>
+                        </div>
+                        <h3 className={`${prefix}-why-choose-benefit-title`}>
+                          <RichText html={item.title} as="span" />
+                        </h3>
+                      </div>
+                      <div className={`${prefix}-why-choose-benefit-flip-back`}>
+                        <RichText html={item.description} as="p" className={`${prefix}-why-choose-benefit-description`} />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ Section */}
       {prefix !== 'agentic' && (
