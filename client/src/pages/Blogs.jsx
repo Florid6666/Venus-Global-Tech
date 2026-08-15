@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import '../components/aboutus.css';
 import '../components/blogs.css';
 import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
@@ -49,12 +50,19 @@ const Blogs = () => {
   return (
     <div className="blogs-page">
       {/* Hero Section */}
-      <section className="blogs-hero-section">
-        <div className="blogs-hero-container">
-          <h1 className="blogs-hero-title">{content?.hero?.title}</h1>
-          <p className="blogs-hero-description">
-            {content?.hero?.description}
-          </p>
+      <section className="about-hero-section" style={{ backgroundImage: "url('/images/team/software_engineering.jpg')" }}>
+        <div className="about-hero-bg-overlay"></div>
+        
+        <div className="about-hero-container">
+          <div className="about-hero-content">
+            <h1 className="about-hero-title">Blogs</h1>
+            
+            <div className="about-hero-breadcrumb">
+              <Link to="/" className="breadcrumb-item breadcrumb-link">Home</Link>
+              <span className="breadcrumb-arrow">→</span>
+              <span className="breadcrumb-item breadcrumb-current">Blogs</span>
+            </div>
+          </div>
         </div>
       </section>
 
