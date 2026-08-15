@@ -7,7 +7,7 @@
   position: relative;
   background-color: #ffffff;
   padding: 100px 0 120px;
-  overflow: hidden;
+  overflow: visible;
   color: #0f172a;
 }
 
@@ -35,8 +35,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: -webkit-sticky;
   position: sticky;
-  top: 120px;
+  top: 100px;
+  align-self: flex-start;
+  z-index: 5;
 }
 
 .v2-faq-badge {

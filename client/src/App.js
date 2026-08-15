@@ -39,6 +39,8 @@ function AnimatedRoutes() {
     if (transitionStage === 'fadeOut') {
       setDisplayLocation(location);
       setTransitionStage('fadeIn');
+    } else if (transitionStage === 'fadeIn') {
+      setTransitionStage('');
     }
   };
 
