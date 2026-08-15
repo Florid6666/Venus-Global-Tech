@@ -38,7 +38,19 @@ const Blogs = () => {
     }
   };
 
-  const categories = content?.categories || ['All'];
+  const DEFAULT_CATEGORIES = [
+    'All',
+    'AI & Technology',
+    'Software & Data',
+    'Cloud Transformation',
+    'Automation & Security',
+    'Digital Reach',
+    'Trade & Strategy'
+  ];
+
+  const categoriesList = (content?.categories && content.categories.length > 0)
+    ? Array.from(new Set(['All', ...content.categories]))
+    : DEFAULT_CATEGORIES;
 
   const filteredBlogs = blogs.filter(blog => {
     const matchesSearch = stripHtml(blog.title).toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -66,92 +78,147 @@ const Blogs = () => {
         </div>
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="blogs-filter-section">
-        <div className="blogs-filter-container">
-          <div className="search-bar">
-            <i className="fas fa-search"></i>
-            <input
-              type="text"
-              placeholder="Search blogs..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <div className="category-filter">
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-            >
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </section>
-
-      {/* All Blogs Section */}
-      <section className="all-blogs-section">
-        <div className="all-blogs-container">
-          <h2 className="section-title">Our Blog Posts</h2>
-          {loading ? (
-            <div className="no-blogs">
-              <p>Loading blogs...</p>
-            </div>
-          ) : (
-            <>
-              <div className="blogs-grid">
-                {filteredBlogs.map(blog => (
-                  <Link key={blog.id} to={`/blog/${blog.slug}`} className="blog-card-link">
-                    <article className="blog-card">
-                      <div className="blog-image">
-                        <img src={blog.image || '/images/default-blog.jpg'} alt={stripHtml(blog.title)} />
-                        {blog.featured && <div className="featured-badge">Featured</div>}
+      {/* 2-Column Main Layout: Left Content + Right Sidebar */}
+      <section className="blogs-main-section">
+        <div className="blogs-main-container">
+          
+          {/* LEFT COLUMN: BLOG POSTS */}
+          <div className="blogs-content-left">
+            {loading ? (
+              <div className="no-blogs">
+                <p>Loading blogs...</p>
+              </div>
+            ) : filteredBlogs.length > 0 ? (
+              <>
+                {/* Featured / Hero Blog Post (First Post) */}
+                {filteredBlogs[0] && (
+                  <div className="blog-featured-hero-card">
+                    <Link to={`/blog/${filteredBlogs[0].slug}`} className="featured-hero-link">
+                      <div className="featured-hero-image-wrap">
+                        <img 
+                          src={filteredBlogs[0].image || '/images/default-blog.jpg'} 
+                          alt={stripHtml(filteredBlogs[0].title)} 
+                        />
+                        {filteredBlogs[0].featured && <span className="featured-pill-badge">Featured</span>}
                       </div>
-                      <div className="blog-content">
-                        <div className="blog-meta">
-                          <span className="blog-category">{blog.category}</span>
-                          <span className="blog-date">{blog.date}</span>
+                      <div className="featured-hero-body">
+                        <div className="blog-meta-row">
+                          <span className="blog-cat-badge">{filteredBlogs[0].category}</span>
+                          <span className="blog-date-text">{filteredBlogs[0].date}</span>
                         </div>
-                        <RichText html={blog.title} as="h3" className="blog-title" />
-                        {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
-                        <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
-                        <div className="blog-author">By {stripHtml(blog.author)}</div>
+                        <RichText html={filteredBlogs[0].title} as="h2" className="featured-hero-title" />
+                        {filteredBlogs[0].subtitle && (
+                          <RichText html={filteredBlogs[0].subtitle} as="p" className="featured-hero-subtitle" />
+                        )}
+                        <RichText html={filteredBlogs[0].excerpt} as="p" className="featured-hero-excerpt" />
+                        <div className="blog-author-line">By {stripHtml(filteredBlogs[0].author || 'Venus Tech Team')}</div>
                       </div>
-                    </article>
-                  </Link>
+                    </Link>
+                  </div>
+                )}
+
+                {/* Grid of Remaining Blog Cards */}
+                {filteredBlogs.length > 1 && (
+                  <div className="blogs-remaining-grid">
+                    {filteredBlogs.slice(1).map(blog => (
+                      <Link key={blog.id} to={`/blog/${blog.slug}`} className="blog-card-link">
+                        <article className="blog-card">
+                          <div className="blog-image">
+                            <img src={blog.image || '/images/default-blog.jpg'} alt={stripHtml(blog.title)} />
+                            {blog.featured && <div className="featured-badge">Featured</div>}
+                          </div>
+                          <div className="blog-content">
+                            <div className="blog-meta">
+                              <span className="blog-category">{blog.category}</span>
+                              <span className="blog-date">{blog.date}</span>
+                            </div>
+                            <RichText html={blog.title} as="h3" className="blog-title" />
+                            {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
+                            <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
+                            <div className="blog-author">By {stripHtml(blog.author)}</div>
+                          </div>
+                        </article>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="no-blogs">
+                <p>No blog posts found matching your criteria.</p>
+              </div>
+            )}
+          </div>
+
+          {/* RIGHT COLUMN: SIDEBAR */}
+          <aside className="blogs-sidebar-right">
+            {/* Search Widget */}
+            <div className="sidebar-widget search-widget">
+              <div className="sidebar-search-input-wrap">
+                <input
+                  type="text"
+                  placeholder="Search blogs..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <i className="fas fa-search search-icon"></i>
+              </div>
+            </div>
+
+            {/* Categories Widget */}
+            <div className="sidebar-widget categories-widget">
+              <h3 className="widget-title">
+                Categories
+                <span className="widget-title-underline"></span>
+              </h3>
+              <div className="categories-list">
+                {categoriesList.map(category => (
+                  <button
+                    key={category}
+                    className={`category-item-btn ${selectedCategory === category ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    <span className="category-name">{category}</span>
+                    <i className="fas fa-chevron-right arrow-icon"></i>
+                  </button>
                 ))}
               </div>
-              
-              {filteredBlogs.length === 0 && (
-                <div className="no-blogs">
-                  <p>No blog posts found matching your criteria.</p>
-                </div>
-              )}
-            </>
-          )}
+            </div>
+          </aside>
+
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Premium CTA Section */}
       <section className="blogs-cta-section">
+        <div className="blogs-cta-bg-glow"></div>
         <div className="blogs-cta-container">
-          <h2>{content?.cta?.title}</h2>
-          <p>{content?.cta?.description}</p>
-          <div className="cta-buttons">
-            <button
-              className="cta-button primary"
-              onClick={() => window.open(content?.cta?.whatsappLink, '_blank')}
-            >
-              {content?.cta?.primaryButton}
-            </button>
-            <button
-              className="cta-button secondary"
-              onClick={() => window.location.href = '/contact'}
-            >
-              {content?.cta?.secondaryButton}
-            </button>
+          <div className="blogs-cta-card">
+            <div className="blogs-cta-pattern-overlay"></div>
+            <div className="blogs-cta-content-wrap">
+              <div className="blogs-cta-badge">
+                <i className="fas fa-paper-plane"></i> LET'S CONNECT
+              </div>
+              <h2 className="blogs-cta-title">{content?.cta?.title || "Ready to Transform Your Business?"}</h2>
+              <p className="blogs-cta-desc">
+                {content?.cta?.description || "Let's discuss how our technology solutions can drive your success."}
+              </p>
+              <div className="cta-buttons">
+                <button
+                  className="cta-button primary-blue"
+                  onClick={() => window.open(content?.cta?.whatsappLink || 'https://wa.me/', '_blank')}
+                >
+                  {content?.cta?.primaryButton || "Get Free Consultation"}
+                  <span className="btn-icon">→</span>
+                </button>
+                <button
+                  className="cta-button secondary-blue"
+                  onClick={() => window.location.href = '/contact'}
+                >
+                  {content?.cta?.secondaryButton || "Contact Us"}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
