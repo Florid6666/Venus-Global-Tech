@@ -488,7 +488,7 @@
 /* Tools Section - Horizontal Ellipse/Pill Card Redesign & Panel */
 .iatf-tools {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: #ffffff !important;
 }
 
 .iatf-tools-container {

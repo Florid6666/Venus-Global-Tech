@@ -662,7 +662,7 @@
 /* Tools Section - Horizontal Ellipse/Pill Card Redesign */
 .esg-tools {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: #ffffff !important;
 }
 
 .esg-tools-container {

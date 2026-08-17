@@ -504,7 +504,7 @@
 /* Tools Section - Horizontal Ellipse/Pill Card Redesign & Panel */
 .cloud-tools {
   padding: 100px 0;
-  background: #f8f9fa;
+  background: #ffffff !important;
 }
 
 .cloud-tools-container {
