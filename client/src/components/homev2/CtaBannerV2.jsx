@@ -2,11 +2,11 @@ import React from 'react';
 import './CtaBannerV2.css';
 
 const CtaBannerV2 = ({ content }) => {
-  const badgeText = content?.badge || 'READY TO SCALE YOUR ENTERPRISE?';
+  const badgeText = content?.badge || 'HAVE A PROJECT IN MIND? JUST LET US KNOW!';
   const headingMain = content?.headingMain || 'Ready to Build the Future with';
   const headingHighlight = content?.headingHighlight || 'AI?';
   const paragraphText = content?.description || "Whether you're looking for an AI Development Company, Enterprise AI Solutions, Custom Software Development, or Digital Transformation Services, our experts are ready to help you turn ideas into intelligent digital products.";
-  const primaryBtnText = content?.primaryBtnText || 'Schedule Your Free Consultation';
+  const primaryBtnText = content?.primaryBtnText || 'Connect With Us';
   const secondaryBtnText = content?.secondaryBtnText || "Let's Discuss Your Project";
 
   return (

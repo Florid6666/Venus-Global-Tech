@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/aboutus.css';
 import '../components/blogs.css';
+import CtaBannerV2 from '../components/homev2/CtaBannerV2';
 import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import { getApiUrl } from '../config/api';
@@ -32,7 +33,6 @@ const Blogs = () => {
       setBlogs(data);
     } catch (error) {
       console.error('Failed to load blogs:', error);
-      // Keep empty array on error - user will see "No blogs found"
     } finally {
       setLoading(false);
     }
@@ -82,67 +82,38 @@ const Blogs = () => {
       <section className="blogs-main-section">
         <div className="blogs-main-container">
           
-          {/* LEFT COLUMN: BLOG POSTS */}
+          {/* LEFT COLUMN: UNIFORM BLOG POSTS */}
           <div className="blogs-content-left">
             {loading ? (
               <div className="no-blogs">
                 <p>Loading blogs...</p>
               </div>
             ) : filteredBlogs.length > 0 ? (
-              <>
-                {/* Featured / Hero Blog Post (First Post) */}
-                {filteredBlogs[0] && (
-                  <div className="blog-featured-hero-card">
-                    <Link to={`/blog/${filteredBlogs[0].slug}`} className="featured-hero-link">
-                      <div className="featured-hero-image-wrap">
+              <div className="blogs-grid-container">
+                {filteredBlogs.map(blog => (
+                  <Link key={blog.id || blog._id || blog.slug} to={`/blog/${blog.slug}`} className="blog-card-link">
+                    <article className="blog-card">
+                      <div className="blog-image">
                         <img 
-                          src={filteredBlogs[0].image || '/images/default-blog.jpg'} 
-                          alt={stripHtml(filteredBlogs[0].title)} 
+                          src={blog.image || '/images/default-blog.jpg'} 
+                          alt={stripHtml(blog.title)} 
                         />
-                        {filteredBlogs[0].featured && <span className="featured-pill-badge">Featured</span>}
+                        {blog.featured && <div className="featured-badge">Featured</div>}
                       </div>
-                      <div className="featured-hero-body">
-                        <div className="blog-meta-row">
-                          <span className="blog-cat-badge">{filteredBlogs[0].category}</span>
-                          <span className="blog-date-text">{filteredBlogs[0].date}</span>
+                      <div className="blog-content">
+                        <div className="blog-meta">
+                          <span className="blog-category">{blog.category}</span>
+                          <span className="blog-date">{blog.date}</span>
                         </div>
-                        <RichText html={filteredBlogs[0].title} as="h2" className="featured-hero-title" />
-                        {filteredBlogs[0].subtitle && (
-                          <RichText html={filteredBlogs[0].subtitle} as="p" className="featured-hero-subtitle" />
-                        )}
-                        <RichText html={filteredBlogs[0].excerpt} as="p" className="featured-hero-excerpt" />
-                        <div className="blog-author-line">By {stripHtml(filteredBlogs[0].author || 'Venus Tech Team')}</div>
+                        <RichText html={blog.title} as="h3" className="blog-title" />
+                        {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
+                        <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
+                        <div className="blog-author">By {stripHtml(blog.author || 'Venus Tech Team')}</div>
                       </div>
-                    </Link>
-                  </div>
-                )}
-
-                {/* Grid of Remaining Blog Cards */}
-                {filteredBlogs.length > 1 && (
-                  <div className="blogs-remaining-grid">
-                    {filteredBlogs.slice(1).map(blog => (
-                      <Link key={blog.id} to={`/blog/${blog.slug}`} className="blog-card-link">
-                        <article className="blog-card">
-                          <div className="blog-image">
-                            <img src={blog.image || '/images/default-blog.jpg'} alt={stripHtml(blog.title)} />
-                            {blog.featured && <div className="featured-badge">Featured</div>}
-                          </div>
-                          <div className="blog-content">
-                            <div className="blog-meta">
-                              <span className="blog-category">{blog.category}</span>
-                              <span className="blog-date">{blog.date}</span>
-                            </div>
-                            <RichText html={blog.title} as="h3" className="blog-title" />
-                            {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
-                            <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
-                            <div className="blog-author">By {stripHtml(blog.author)}</div>
-                          </div>
-                        </article>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </>
+                    </article>
+                  </Link>
+                ))}
+              </div>
             ) : (
               <div className="no-blogs">
                 <p>No blog posts found matching your criteria.</p>
@@ -189,39 +160,8 @@ const Blogs = () => {
         </div>
       </section>
 
-      {/* Premium CTA Section */}
-      <section className="blogs-cta-section">
-        <div className="blogs-cta-bg-glow"></div>
-        <div className="blogs-cta-container">
-          <div className="blogs-cta-card">
-            <div className="blogs-cta-pattern-overlay"></div>
-            <div className="blogs-cta-content-wrap">
-              <div className="blogs-cta-badge">
-                <i className="fas fa-paper-plane"></i> LET'S CONNECT
-              </div>
-              <h2 className="blogs-cta-title">{content?.cta?.title || "Ready to Transform Your Business?"}</h2>
-              <p className="blogs-cta-desc">
-                {content?.cta?.description || "Let's discuss how our technology solutions can drive your success."}
-              </p>
-              <div className="cta-buttons">
-                <button
-                  className="cta-button primary-blue"
-                  onClick={() => window.open(content?.cta?.whatsappLink || 'https://wa.me/', '_blank')}
-                >
-                  {content?.cta?.primaryButton || "Get Free Consultation"}
-                  <span className="btn-icon">→</span>
-                </button>
-                <button
-                  className="cta-button secondary-blue"
-                  onClick={() => window.location.href = '/contact'}
-                >
-                  {content?.cta?.secondaryButton || "Contact Us"}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Exact Home Page CTA Section */}
+      <CtaBannerV2 content={home?.ctaBanner} />
 
       <UpfooterOfficesV2 offices={home?.offices} />
       <FooterV2 />

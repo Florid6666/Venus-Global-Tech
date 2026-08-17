@@ -131,5 +131,42 @@
     "date": "2026-07-11",
     "createdAt": "2026-07-11T14:30:34.470Z",
     "updatedAt": "2026-07-11T14:30:34.470Z"
+  },
+  {
+    "id": "8615a82b-b8f9-4673-9ca2-09d6acec40d5",
+    "title": "<p>AI-Powered ERP: Transforming Modern Manufacturing Operations</p>",
+    "subtitle": "<p>How intelligent automation, real-time insights, and predictive analytics are reshaping the future of manufacturing.</p>",
+    "excerpt": "<p>Manufacturing is moving beyond traditional ERP systems toward intelligent, connected, and autonomous operations. AI-powered ERP platforms help businesses automate routine processes, optimize resources, predict demand, streamline procurement, and make faster data-driven decisions. Discover how AI is transforming modern manufacturing and creating more agile, efficient enterprises.</p>",
+    "content": "",
+    "contentBlocks": [
+      {
+        "type": "image",
+        "url": "https://www.top10erp.org/blog/ai-in-erp",
+        "caption": "",
+        "fit": "cover"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "<p>Introduction</p>"
+      },
+      {
+        "type": "paragraph",
+        "html": "<p>Manufacturing businesses are operating in an increasingly complex environment where speed, efficiency, and accurate decision-making are critical. Traditional ERP systems help manage core processes, but AI-powered ERP takes enterprise management a step further by turning business data into intelligent, actionable insights.</p><p>By combining automation, predictive analytics, and real-time data processing, AI-powered ERP enables manufacturers to operate smarter, respond faster, and continuously optimize their operations.</p>"
+      }
+    ],
+    "author": "Venus Tech Team",
+    "category": "AI & Technology",
+    "image": "https://www.top10erp.org/blog/ai-in-erp",
+    "imageFit": "cover",
+    "featured": false,
+    "metaTitle": "AI-Powered ERP for Modern Manufacturing | Intelligent ERP",
+    "metaDescription": "Discover how AI-powered ERP transforms manufacturing with automation, predictive analytics, real-time insights, smarter procurement, and operational efficiency.",
+    "faq": [],
+    "slug": "ai-powered-erp-transforming-modern-manufacturing-operations",
+    "readTime": "1 min read",
+    "date": "2026-08-17",
+    "createdAt": "2026-08-17T15:09:55.188Z",
+    "updatedAt": "2026-08-17T15:09:55.188Z"
   }
 ]
