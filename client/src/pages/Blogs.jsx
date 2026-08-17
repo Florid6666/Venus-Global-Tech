@@ -60,22 +60,23 @@ const Blogs = () => {
     : DEFAULT_CATEGORIES;
 
   const filteredBlogs = blogs.filter(blog => {
-    const matchesSearch = stripHtml(blog.title).toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         stripHtml(blog.excerpt).toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = stripHtml(blog.title || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         stripHtml(blog.excerpt || '').toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || blog.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
+  const featuredBlog = filteredBlogs.length > 0 ? filteredBlogs[0] : null;
+  const gridBlogs = selectedCategory === 'All' && !searchTerm ? filteredBlogs.slice(1) : filteredBlogs;
+
   return (
     <div className="blogs-page">
-      {/* Hero Section */}
+      {/* Page Header Hero */}
       <section className="about-hero-section" style={{ backgroundImage: "url('/images/team/software_engineering.jpg')" }}>
         <div className="about-hero-bg-overlay"></div>
-        
         <div className="about-hero-container">
           <div className="about-hero-content">
-            <h1 className="about-hero-title">Blogs</h1>
-            
+            <h1 className="about-hero-title">Blogs & Insights</h1>
             <div className="about-hero-breadcrumb">
               <Link to="/" className="breadcrumb-item breadcrumb-link">Home</Link>
               <span className="breadcrumb-arrow">→</span>
@@ -85,89 +86,125 @@ const Blogs = () => {
         </div>
       </section>
 
-      {/* 2-Column Main Layout: Left Content + Right Sidebar */}
+      {/* Main Section */}
       <section className="blogs-main-section">
-        <div className="blogs-main-container">
-          
-          {/* LEFT COLUMN: UNIFORM BLOG POSTS */}
-          <div className="blogs-content-left">
-            {loading ? (
-              <div className="no-blogs">
-                <p>Loading blogs...</p>
-              </div>
-            ) : filteredBlogs.length > 0 ? (
-              <div className="blogs-grid-container">
-                {filteredBlogs.map(blog => (
-                  <Link key={blog.id || blog._id || blog.slug} to={`/blog/${blog.slug}`} className="blog-card-link">
-                    <article className="blog-card">
-                      <div className="blog-image">
-                        <img 
-                          src={blog.image || '/images/default-blog.jpg'} 
-                          alt={stripHtml(blog.title)} 
-                        />
-                        {blog.featured && <div className="featured-badge">Featured</div>}
-                      </div>
-                      <div className="blog-content">
-                        <div className="blog-meta">
-                          <span className="blog-category">{blog.category}</span>
-                          <span className="blog-date">{blog.date}</span>
-                        </div>
-                        <RichText html={blog.title} as="h3" className="blog-title" />
-                        {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
-                        <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
-                        <div className="blog-author">By {stripHtml(blog.author || 'Venus Tech Team')}</div>
-                      </div>
-                    </article>
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <div className="no-blogs">
-                <p>No blog posts found matching your criteria.</p>
-              </div>
-            )}
-          </div>
+        <div className="blogs-main-container-stacked">
 
-          {/* RIGHT COLUMN: SIDEBAR */}
-          <aside className="blogs-sidebar-right">
-            {/* Search Widget */}
-            <div className="sidebar-widget search-widget">
-              <div className="sidebar-search-input-wrap">
+          {/* 1. TOP FEATURED BANNER CARD (Matches Reference Image) */}
+          {featuredBlog && selectedCategory === 'All' && !searchTerm && (
+            <div className="blog-top-featured-card">
+              <div className="featured-card-content">
+                <div className="featured-header-badge">Featured Article</div>
+                <Link to={`/blog/${featuredBlog.slug}`} className="featured-title-link">
+                  <RichText html={featuredBlog.title} as="h2" className="featured-card-title" />
+                </Link>
+                {featuredBlog.subtitle && (
+                  <RichText html={featuredBlog.subtitle} as="p" className="featured-card-subtitle" />
+                )}
+                <RichText html={featuredBlog.excerpt} as="p" className="featured-card-excerpt" />
+
+                <div className="featured-card-footer">
+                  <div className="featured-author-box">
+                    <div className="author-avatar-circle">
+                      <i className="fas fa-user-tie"></i>
+                    </div>
+                    <div className="author-info">
+                      <span className="author-name">{stripHtml(featuredBlog.author || 'Venus Tech Team')}</span>
+                      <span className="author-role">Author / Tech Specialist</span>
+                    </div>
+                  </div>
+
+                  <Link to={`/blog/${featuredBlog.slug}`} className="featured-read-btn">
+                    Read Full Article <i className="fas fa-arrow-right"></i>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 2. MIDDLE CATEGORY FILTER & HEADER BAR (Matches Reference Image) */}
+          <div className="blogs-filter-bar">
+            <div className="filter-bar-header">
+              <h3 className="latest-articles-heading">
+                Latest Articles <span className="articles-count">({filteredBlogs.length} Posts)</span>
+              </h3>
+
+              <div className="search-box-pill">
+                <i className="fas fa-search search-icon"></i>
                 <input
                   type="text"
-                  placeholder="Search blogs..."
+                  placeholder="Search articles..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <i className="fas fa-search search-icon"></i>
               </div>
             </div>
 
-            {/* Categories Widget */}
-            <div className="sidebar-widget categories-widget">
-              <h3 className="widget-title">
-                Categories
-                <span className="widget-title-underline"></span>
-              </h3>
-              <div className="categories-list">
-                {categoriesList.map(category => (
-                  <button
-                    key={category}
-                    className={`category-item-btn ${selectedCategory === category ? 'active' : ''}`}
-                    onClick={() => setSelectedCategory(category)}
-                  >
-                    <span className="category-name">{category}</span>
-                    <i className="fas fa-chevron-right arrow-icon"></i>
-                  </button>
-                ))}
-              </div>
+            <div className="category-pills-row">
+              {categoriesList.map(category => (
+                <button
+                  key={category}
+                  className={`category-pill-btn ${selectedCategory === category ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
-          </aside>
+          </div>
+
+          {/* 3. 2-COLUMN STACKED BLOG GRID (Matches Reference Image) */}
+          {loading ? (
+            <div className="no-blogs">
+              <p>Loading blogs...</p>
+            </div>
+          ) : gridBlogs.length > 0 ? (
+            <div className="blogs-two-column-grid">
+              {gridBlogs.map(blog => (
+                <Link key={blog.id || blog._id || blog.slug} to={`/blog/${blog.slug}`} className="two-col-card-link">
+                  <article className="two-col-blog-card">
+                    <div className="two-col-image-wrap">
+                      <img
+                        src={blog.image || '/images/default-blog.jpg'}
+                        alt={stripHtml(blog.title)}
+                      />
+                      {blog.category && (
+                        <div className="top-left-category-pill">
+                          {blog.category}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="two-col-card-body">
+                      <div className="two-col-meta">
+                        <span className="meta-item">
+                          <i className="far fa-calendar-alt meta-icon"></i>
+                          {blog.date}
+                        </span>
+                        <span className="meta-dot">•</span>
+                        <span className="meta-item">
+                          <i className="far fa-clock meta-icon"></i>
+                          {blog.readTime || '5 min read'}
+                        </span>
+                      </div>
+
+                      <RichText html={blog.title} as="h3" className="two-col-title" />
+                      <RichText html={blog.excerpt} as="p" className="two-col-excerpt" />
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="no-blogs">
+              <p>No blog posts found matching your criteria.</p>
+            </div>
+          )}
 
         </div>
       </section>
 
-      {/* Exact Home Page CTA Section */}
+      {/* Home Page CTA Section */}
       <CtaBannerV2 content={home?.ctaBanner} />
 
       <UpfooterOfficesV2 offices={home?.offices} />
