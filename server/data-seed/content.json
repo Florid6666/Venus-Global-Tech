@@ -1,4 +1,28 @@
 {
+  "navbar": {
+    "logo": "/images/02.png",
+    "logoAlt": "Venus Global Technology Logo",
+    "menuItems": [
+      { "label": "Home", "path": "/" },
+      { "label": "About Us", "path": "/about" },
+      {
+        "label": "Services",
+        "path": "#",
+        "submenu": [
+          { "label": "ERP AI", "path": "https://vgt-erp-ai-2.vercel.app/", "isExternal": true },
+          { "label": "Agentic AI", "path": "/agentic-ai" },
+          { "label": "ESG", "path": "/esg" },
+          { "label": "Cloud Service", "path": "/cloud-service" },
+          { "label": "IATF Auditing", "path": "/iatf-auditing" }
+        ]
+      },
+      { "label": "Contact Us", "path": "/contact" },
+      { "label": "Blogs", "path": "/blogs" }
+    ],
+    "callText": "Call Any Time",
+    "phoneNumber": "647-722-0837",
+    "whatsappLink": "https://wa.me/16477220837"
+  },
   "home": {
     "hero": {
       "badge": "AI Development Company",

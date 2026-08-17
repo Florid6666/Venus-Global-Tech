@@ -50,11 +50,13 @@ const Navbar = () => {
     setIsServicesOpen((prev) => !prev);
   };
 
-  if (!content) {
-    return <nav className="navbar" />;
-  }
-
-  const { logo, logoAlt, menuItems = [], callText, phoneNumber, whatsappLink } = content;
+  const defaultNav = defaultContent.navbar || {};
+  const logo = content?.logo || defaultNav.logo || "/images/02.png";
+  const logoAlt = content?.logoAlt || defaultNav.logoAlt || "Venus Global Tech";
+  const menuItems = (content?.menuItems && content.menuItems.length > 0) ? content.menuItems : (defaultNav.menuItems || []);
+  const callText = content?.callText || defaultNav.callText || "Call Any Time";
+  const phoneNumber = content?.phoneNumber || defaultNav.phoneNumber || "647-722-0837";
+  const whatsappLink = content?.whatsappLink || defaultNav.whatsappLink || "https://wa.me/16477220837";
 
   return (
     <nav className="navbar">
