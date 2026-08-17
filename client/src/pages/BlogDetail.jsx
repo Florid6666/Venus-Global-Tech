@@ -272,27 +272,6 @@ const BlogDetail = () => {
         </section>
       )}
 
-      {/* CTA Section */}
-      <section className="blog-cta-section">
-        <div className="blog-cta-container">
-          <h2>{content?.detailCta?.title}</h2>
-          <p>{content?.detailCta?.description}</p>
-          <div className="cta-buttons">
-            <button
-              className="cta-button primary"
-              onClick={() => window.open(content?.detailCta?.whatsappLink, '_blank')}
-            >
-              {content?.detailCta?.primaryButton}
-            </button>
-            <button
-              className="cta-button secondary"
-              onClick={() => window.location.href = '/contact'}
-            >
-              {content?.detailCta?.secondaryButton}
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Related Posts */}
       {relatedBlogs.length > 0 && (
