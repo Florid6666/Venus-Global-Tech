@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContent } from '../hooks/useContent';
+import defaultContent from '../data/defaultContent.json';
 import RichText from './RichText';
 import './navbar.css';
 
