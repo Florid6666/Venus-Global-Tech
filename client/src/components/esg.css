@@ -6,7 +6,7 @@
 }
 
 .esg-page,
-.esg-page *:not(i) {
+.esg-page *:not(i):not(.fas):not(.fab):not(.far):not(.fa) {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
@@ -659,59 +659,61 @@
   }
 }
 
-/* Tools Section */
+/* Tools Section - Horizontal Ellipse/Pill Card Redesign */
 .esg-tools {
-  padding: 120px 0;
+  padding: 100px 0;
   background: #f8f9fa;
 }
 
 .esg-tools-container {
-  max-width: 1400px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .esg-tools-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 56px;
 }
 
 .esg-tools-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #22c55e;
-  margin-bottom: 24px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 16px !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px solid rgba(37, 99, 235, 0.18) !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  margin-bottom: 20px !important;
+}
+
+.esg-tools-badge i {
+  font-size: 13px !important;
+  color: #2563eb !important;
 }
 
 .esg-tools-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #000000;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+  color: #0f172a !important;
 }
 
 .esg-tools-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  display: none !important;
 }
 
 .esg-tools-grid {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -719,84 +721,269 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   width: 100%;
 }
 
+@media (min-width: 992px) {
+  .esg-tools-row {
+    flex-wrap: nowrap !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .esg-tools-row {
+    flex-wrap: wrap !important;
+  }
+}
+
 .esg-tools-row:first-child {
-  justify-content: space-between;
-  max-width: 600px;
+  justify-content: center;
 }
 
 .esg-tools-row:last-child {
   justify-content: center;
-  max-width: 480px;
 }
 
 .esg-tool-item {
   position: relative;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* ALL 7 Pills start with White BG & Black Text at rest */
 .esg-tool-icon {
-  width: 120px;
-  height: 120px;
+  width: auto;
+  height: auto;
+  min-height: 52px;
   background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: all 0.3s ease;
+  gap: 12px;
+  padding: 12px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
 .esg-tool-icon::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: #000000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
-.esg-tool-item:hover .esg-tool-icon::before {
-  width: 120px;
-  height: 120px;
+  display: none;
 }
 
 .esg-tool-icon i {
-  font-size: 24px;
-  color: #22c55e;
-  transition: all 0.3s ease;
+  font-size: 18px;
+  color: #2563eb;
+  transition: color 0.3s ease, transform 0.3s ease;
   z-index: 2;
   position: relative;
+  flex-shrink: 0;
 }
 
 .esg-tool-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: #666666;
-  transition: all 0.3s ease;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  transition: color 0.3s ease;
   z-index: 2;
   position: relative;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+  max-width: none;
+}
+
+/* Hover, Active & Clicked State: Blue BG, White Text, White Icon & Blue Glow */
+.esg-tool-item:hover,
+.esg-tool-item:active,
+.esg-tool-item.active {
+  transform: translateY(-3px);
+}
+
+.esg-tool-item:hover .esg-tool-icon,
+.esg-tool-item:active .esg-tool-icon,
+.esg-tool-item.active .esg-tool-icon {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4), 0 0 18px rgba(37, 99, 235, 0.3) !important;
 }
 
 .esg-tool-item:hover .esg-tool-icon i,
-.esg-tool-item:hover .esg-tool-name {
-  color: #ffffff;
+.esg-tool-item:active .esg-tool-icon i,
+.esg-tool-item.active .esg-tool-icon i {
+  color: #ffffff !important;
+  transform: scale(1.1);
+}
+
+.esg-tool-item:hover .esg-tool-name,
+.esg-tool-item:active .esg-tool-name,
+.esg-tool-item.active .esg-tool-name {
+  color: #ffffff !important;
+}
+
+/* Dynamic Tool Detail Panel - Wider & Exact ESG Typography */
+.esg-tools-panel {
+  margin-top: 48px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.08);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 52px;
+  align-items: center;
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.esg-tools-panel-image-col {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.esg-tools-panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.5s ease;
+}
+
+.esg-tools-panel-image-col:hover .esg-tools-panel-img {
+  transform: scale(1.03);
+}
+
+.esg-tools-panel-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.esg-tools-panel-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.esg-tools-panel-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(26px, 2.6vw, 36px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.2 !important;
+  color: #0f172a !important;
+  margin: 0 0 14px 0 !important;
+}
+
+.esg-tools-panel-desc {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 0 24px 0 !important;
+}
+
+.esg-tools-panel-caps-header {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  color: #2563eb !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+
+.esg-tools-panel-caps-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 32px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.esg-tools-panel-caps-list li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  color: #334155 !important;
+  line-height: 1.5 !important;
+}
+
+.esg-tools-panel-caps-list li i {
+  color: #2563eb !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+.esg-tools-panel-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 14px 28px !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+}
+
+.esg-tools-panel-cta:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Tablet & Mobile Responsiveness for Panel */
+@media (max-width: 991px) {
+  .esg-tools-panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px;
+  }
+  
+  .esg-tools-panel-image-col {
+    height: 260px;
+  }
 }
 
 /* Why Choose ESG Section */
@@ -1151,13 +1338,13 @@
 /* Laptop View - 4-3 Layout */
 @media (min-width: 1025px) {
   .esg-tools-row:first-child {
-    justify-content: space-between;
-    max-width: 600px;
+    justify-content: center;
+    max-width: 760px;
   }
   
   .esg-tools-row:last-child {
     justify-content: center;
-    max-width: 480px;
+    max-width: 570px;
   }
 }
 
@@ -1287,44 +1474,20 @@
     max-width: 100%;
   }
   
-  .esg-tool-icon {
-    width: 100px;
-    height: 100px;
+  .esg-tools-row {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
-  .esg-tool-item:hover .esg-tool-icon::before {
-    width: 100px;
-    height: 100px;
-  }
-  
-  /* Remove hover effects on tablet and keep green colors */
-  .esg-tool-item:hover {
-    transform: none;
+  .esg-tools-row:first-child,
+  .esg-tools-row:last-child {
+    max-width: 100%;
   }
   
   .esg-tool-icon {
-    background: #ffffff !important;
-    border: 2px solid #e5e7eb !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-  }
-  
-  .esg-tool-item:hover .esg-tool-icon::before {
-    display: none !important;
-  }
-  
-  .esg-tool-icon i {
-    color: #22c55e !important;
-    font-size: 24px !important;
-    z-index: 2 !important;
-    position: relative !important;
-  }
-  
-  .esg-tool-item:hover .esg-tool-icon i {
-    color: #22c55e !important;
+    min-height: 48px;
+    padding: 10px 20px;
   }
   
   .esg-tool-name {
@@ -1502,64 +1665,14 @@
   }
   
   .esg-tool-icon {
-    width: 80px;
-    height: 80px;
+    min-height: 44px;
+    padding: 8px 16px;
+    gap: 10px;
+    border-radius: 12px;
   }
-  
-  .esg-tool-item:hover .esg-tool-icon::before {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .esg-tool-icon i {
-    font-size: 20px;
-  }
-  
+
   .esg-tool-name {
-    font-size: 10px;
-  }
-  
-  /* Remove hover effects on mobile and keep green colors */
-  .esg-tool-item:hover {
-    transform: none;
-  }
-  
-  .esg-tool-icon {
-    background: #ffffff !important;
-    border: 2px solid #e5e7eb !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-  }
-  
-  .esg-tool-item:hover .esg-tool-icon::before {
-    display: none !important;
-  }
-  
-  .esg-tool-icon i {
-    color: #22c55e !important;
-    font-size: 20px !important;
-    z-index: 2 !important;
-    position: relative !important;
-  }
-  
-  .esg-tool-item:hover .esg-tool-icon i {
-    color: #22c55e !important;
-  }
-  
-  .esg-tool-name {
-    color: #22c55e !important;
-    font-size: 10px !important;
-    font-weight: 600 !important;
-    z-index: 2 !important;
-    position: relative !important;
-    text-align: center !important;
-  }
-  
-  .esg-tool-item:hover .esg-tool-name {
-    color: #22c55e !important;
+    font-size: 13px;
   }
   
   .esg-why-choose-image {

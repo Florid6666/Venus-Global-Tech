@@ -36,7 +36,7 @@ const DEFAULT_FOOTER = {
     { label: 'Digital Marketing', url: '/digital-reach' },
     { label: 'ESG Solutions', url: '/esg' },
     { label: 'IATF Auditing', url: '/iatf-auditing' },
-    { label: 'ERP AI', url: '/erp-ai' }
+    { label: 'ERP AI', url: 'https://vgt-erp-ai-2.vercel.app/' }
   ],
   contact: {
     email: 'info@venusglobaltech.com',
@@ -138,13 +138,20 @@ const FooterV2 = () => {
           <div className="v2-footer-col">
             <h4 className="v2-footer-col-title">{footerContent?.services?.title || 'Solutions & Services'}</h4>
             <ul className="v2-footer-links-list">
-              {serviceLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.url}>
-                    <span>{link.label}</span>
-                  </a>
-                </li>
-              ))}
+              {serviceLinks.map((link, idx) => {
+                const isExternal = link.url?.startsWith('http');
+                return (
+                  <li key={idx}>
+                    <a
+                      href={link.url}
+                      target={isExternal ? '_blank' : '_self'}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                    >
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

@@ -1,1473 +1,821 @@
-/* IATF Auditing Page Styles */
+/* IATF Auditing Page Styles & Master Typography System (Exact Replica of ESG & Cloud Page Design) */
 .iatf-page {
   background-color: #ffffff;
   color: #000000;
   min-height: 100vh;
 }
 
-/* Hero Section */
-.iatf-hero {
-  padding: 120px 0;
-  background: #f9f9f9;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+.iatf-page,
+.iatf-page *:not(i):not(.fas):not(.fab):not(.far):not(.fa) {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-.iatf-hero-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+.iatf-page h1,
+.iatf-page h2,
+.iatf-page h3,
+.iatf-page h4,
+.iatf-page h5,
+.iatf-page h6,
+.iatf-page .iatf-benefits-title,
+.iatf-page .iatf-process-title,
+.iatf-page .iatf-why-choose-title,
+.iatf-page .v2-faq-heading {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.035em !important;
 }
 
-.iatf-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.iatf-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(220, 38, 127, 0.1);
-  border: 1px solid rgba(220, 38, 127, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #dc267f;
-  width: fit-content;
-}
-
-.iatf-hero-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.1;
-  margin: 0;
-  color: #000000;
-}
-
-.iatf-hero-title .title-line {
-  display: block;
-}
-
-.iatf-hero-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-}
-
-.iatf-hero-cta {
-  margin-top: 8px;
-}
-
-.iatf-hero-button {
-  padding: 16px 32px;
-  background: #dc267f;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Satoshi', Arial, sans-serif;
-}
-
-.iatf-hero-button:hover {
-  background: #be185d;
-  transform: translateY(-2px);
-}
-
-.iatf-hero-lottie {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.iatf-lottie-container {
-  width: 100%;
-  height: 500px;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lottie-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.lottie-placeholder-content {
-  text-align: center;
-  color: #6c757d;
-}
-
-.lottie-placeholder-content i {
-  font-size: 48px;
-  margin-bottom: 16px;
-  color: #dc267f;
-}
-
-.lottie-placeholder-content p {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-}
-
-.lottie-placeholder-content small {
-  font-size: 14px;
-  color: #adb5bd;
-}
-
-/* Benefits Section */
+/* Benefits Section - Modern Connected Grid Layout */
 .iatf-benefits {
-  padding: 120px 0;
-  background: #f8f9fa;
+  padding: 110px 0;
+  background: #FAFCFF;
 }
 
 .iatf-benefits-container {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .iatf-benefits-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
 }
 
 .iatf-benefits-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: rgba(220, 38, 127, 0.1);
-  border: 1px solid rgba(220, 38, 127, 0.2);
+  padding: 6px 16px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.18);
   border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #dc267f;
-  margin-bottom: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 20px;
 }
 
 .iatf-benefits-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #000000;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 16px 0;
+  color: #0f172a !important;
 }
 
 .iatf-benefits-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 auto;
+  max-width: 680px;
 }
 
+/* Single Outer White Card Grid Container */
 .iatf-benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  gap: 0;
 }
 
+/* Individual Cell Item with Dividers & Top Blue Line Hover Bar */
 .iatf-benefit-flip-card {
-  background-color: transparent;
+  position: relative;
+  background-color: #ffffff;
   width: 100%;
-  height: 250px;
-  perspective: 1000px;
+  height: auto;
+  perspective: none !important;
+  border-right: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  box-sizing: border-box;
+}
+
+.iatf-benefit-flip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 10;
+}
+
+.iatf-benefit-flip-card:hover::before {
+  opacity: 1;
+}
+
+.iatf-benefit-flip-card:nth-child(3n) {
+  border-right: none;
+}
+
+.iatf-benefit-flip-card:nth-child(n+4) {
+  border-bottom: none;
 }
 
 .iatf-benefit-flip-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  text-align: left;
+  transition: background-color 0.25s ease;
+  transform: none !important;
+  transform-style: flat !important;
+  padding: 44px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .iatf-benefit-flip-card:hover .iatf-benefit-flip-inner {
-  transform: rotateY(180deg);
-}
-
-.iatf-benefit-flip-front,
-.iatf-benefit-flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transform: none !important;
+  background-color: #fafcff;
 }
 
 .iatf-benefit-flip-front {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  backface-visibility: visible !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
 }
 
 .iatf-benefit-flip-back {
-  background: linear-gradient(135deg, #dc267f 0%, #b91c73 100%);
-  transform: rotateY(180deg);
-  color: #ffffff;
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  backface-visibility: visible !important;
+  border-radius: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  transform: none !important;
+  color: #64748b !important;
+  text-align: left !important;
+  margin-top: 10px !important;
 }
 
+/* Icon Box (Top-Left Rounded Square) */
 .iatf-benefit-icon {
-  width: 60px;
-  height: 60px;
-  background: #dc267f;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  background: #f0f9ff;
+  border: 1px solid #e0f2fe;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 12px rgba(220, 38, 127, 0.3);
+  margin: 0 0 20px 0;
+  box-shadow: none;
+  transition: all 0.25s ease;
 }
 
 .iatf-benefit-icon i {
-  font-size: 24px;
+  font-size: 18px;
+  color: #0284c7;
+  transition: color 0.25s ease;
+}
+
+.iatf-benefit-flip-card:hover .iatf-benefit-icon {
+  background: #0284c7;
+  border-color: #0284c7;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.4);
+}
+
+.iatf-benefit-flip-card:hover .iatf-benefit-icon i {
   color: #ffffff;
 }
 
 .iatf-benefit-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 20px;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 19px;
   font-weight: 700;
-  margin: 0 0 16px 0;
-  color: #000000;
+  margin: 0 0 0 0;
+  color: #0f172a;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-align: left;
+  transition: color 0.25s ease;
 }
 
-.iatf-benefit-flip-back .iatf-benefit-title {
-  color: #ffffff;
+.iatf-benefit-flip-card:hover .iatf-benefit-title {
+  color: #0284c7;
 }
 
 .iatf-benefit-description {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #555555;
-  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: #64748b !important;
+  margin: 0 !important;
+  text-align: left !important;
 }
 
-.iatf-benefit-flip-back .iatf-benefit-description {
-  color: #ffffff;
-}
-
-/* Process Section */
+/* Process Section - Linear Pipeline Replica */
 .iatf-process {
   padding: 120px 0;
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
-.iatf-process-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
+.iatf-page .iatf-process-container {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
 }
 
-.iatf-process-header {
-  text-align: center;
-  margin-bottom: 80px;
+.iatf-page .iatf-process-header {
+  text-align: center !important;
+  margin-bottom: 72px !important;
 }
 
-.iatf-process-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(220, 38, 127, 0.1);
-  border: 1px solid rgba(220, 38, 127, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #dc267f;
-  margin-bottom: 24px;
+.iatf-page .iatf-process-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 16px !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px solid rgba(37, 99, 235, 0.18) !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  margin-bottom: 20px !important;
 }
 
-.iatf-process-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #000000;
+.iatf-page .iatf-process-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 16px 0 !important;
+  color: #0f172a !important;
 }
 
-.iatf-process-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.iatf-page .iatf-process-description {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 auto !important;
+  max-width: 680px !important;
 }
 
-.iatf-process-timeline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 40px 0;
-  width: 100%;
-  flex-wrap: nowrap;
+/* Linear Horizontal Timeline Grid */
+.iatf-page .iatf-process-timeline {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  padding: 30px 0 !important;
+  width: 100% !important;
 }
 
-.iatf-process-step {
-  flex: 1;
-  max-width: 280px;
-  background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
+.iatf-page .process-step,
+.iatf-page .iatf-process-step {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  text-align: left !important;
+  transition: none !important;
+  max-width: none !important;
+  position: relative !important;
 }
 
-.iatf-process-step:hover {
-  border-color: #dc267f;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(220, 38, 127, 0.15);
+.iatf-page .process-step-content,
+.iatf-page .iatf-process-step-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  gap: 0 !important;
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: static !important;
+  border-radius: 0 !important;
+  width: 100% !important;
 }
 
-.iatf-process-step-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+/* 1. Top Blue Circular Icon Badge */
+.iatf-page .process-step-icon,
+.iatf-page .iatf-process-step-icon {
+  order: 1 !important;
+  width: 52px !important;
+  height: 52px !important;
+  background: #3b82f6 !important;
+  background-image: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 0 24px 0 !important;
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4) !important;
+  position: static !important;
 }
 
-.iatf-process-step-number {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: #dc267f;
-  background: rgba(220, 38, 127, 0.1);
-  padding: 4px 12px;
-  border-radius: 999px;
-  width: fit-content;
+.iatf-page .process-step-icon i,
+.iatf-page .iatf-process-step-icon i {
+  font-size: 20px !important;
+  color: #ffffff !important;
 }
 
-.iatf-process-step-icon {
-  width: 60px;
-  height: 60px;
-  background: #000000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+/* 2. Step Label Badge ("STEP 01", etc.) */
+.iatf-page .process-step-number,
+.iatf-page .iatf-process-step-number {
+  order: 2 !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #2563eb !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 0 12px 0 !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1 !important;
 }
 
-.iatf-process-step-icon i {
-  font-size: 24px;
-  color: #ffffff;
+.iatf-page .process-step-number::before,
+.iatf-page .iatf-process-step-number::before {
+  content: 'STEP ' !important;
 }
 
-.iatf-process-step-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
-  color: #000000;
-  line-height: 1.3;
+/* 3. Step Title Typography */
+.iatf-page .process-step-title,
+.iatf-page .iatf-process-step-title {
+  order: 3 !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  line-height: 1.3 !important;
+  margin: 0 0 10px 0 !important;
+  letter-spacing: -0.015em !important;
+  text-align: left !important;
 }
 
-.iatf-process-arrow {
-  flex: 0 0 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #dc267f;
-  font-size: 20px;
-  font-weight: 600;
+/* 4. Step Description Typography */
+.iatf-page .process-step-desc,
+.iatf-page .iatf-process-step-desc,
+.iatf-page .process-step-description,
+.iatf-page .iatf-process-step-description {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  order: 4 !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: #64748b !important;
+  margin: 4px 0 0 0 !important;
+  text-align: left !important;
+  width: 100% !important;
 }
 
-/* Tools Section */
+/* 5. Premium Long Connecting Arrow & Line Between Icons */
+.iatf-page .process-arrow,
+.iatf-page .iatf-process-arrow {
+  flex: 0 0 90px !important;
+  height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+.iatf-page .process-arrow::before,
+.iatf-page .iatf-process-arrow::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0.8) 100%) !important;
+  border-radius: 2px !important;
+  z-index: 1 !important;
+}
+
+.iatf-page .process-arrow i,
+.iatf-page .iatf-process-arrow i {
+  position: absolute !important;
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-size: 14px !important;
+  color: #2563eb !important;
+  z-index: 2 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.iatf-page .process-arrow:hover i,
+.iatf-page .iatf-process-arrow:hover i {
+  transform: translateY(-50%) translateX(3px) !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .iatf-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .iatf-page .iatf-process-timeline {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  .iatf-page .process-arrow,
+  .iatf-page .iatf-process-arrow {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .iatf-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tools Section - Horizontal Ellipse/Pill Card Redesign & Panel */
 .iatf-tools {
-  padding: 120px 0;
+  padding: 100px 0;
   background: #f8f9fa;
 }
 
 .iatf-tools-container {
-  max-width: 1400px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .iatf-tools-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 56px;
 }
 
 .iatf-tools-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(220, 38, 127, 0.1);
-  border: 1px solid rgba(220, 38, 127, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #dc267f;
-  margin-bottom: 24px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 16px !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px solid rgba(37, 99, 235, 0.18) !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  margin-bottom: 20px !important;
+}
+
+.iatf-tools-badge i {
+  font-size: 13px !important;
+  color: #2563eb !important;
 }
 
 .iatf-tools-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #000000;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 16px 0 !important;
+  color: #0f172a !important;
 }
 
 .iatf-tools-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 auto !important;
+  max-width: 680px !important;
 }
 
 .iatf-tools-grid {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
+  margin-top: 44px;
 }
 
 .iatf-tools-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   width: 100%;
 }
 
+@media (min-width: 992px) {
+  .iatf-tools-row {
+    flex-wrap: nowrap !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .iatf-tools-row {
+    flex-wrap: wrap !important;
+  }
+}
+
 .iatf-tools-row:first-child {
-  justify-content: space-between;
-  max-width: 600px;
+  justify-content: center;
 }
 
 .iatf-tools-row:last-child {
   justify-content: center;
-  max-width: 480px;
 }
 
 .iatf-tool-item {
   position: relative;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* ALL 7 Pills start with White BG & Black Text at rest */
 .iatf-tool-icon {
-  width: 120px;
-  height: 120px;
+  width: auto;
+  height: auto;
+  min-height: 52px;
   background: #ffffff;
-  border: 2px solid #e5e7eb;
-  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  transition: all 0.3s ease;
+  gap: 12px;
+  padding: 12px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
 .iatf-tool-icon::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: #000000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
-.iatf-tool-item:hover .iatf-tool-icon::before {
-  width: 120px;
-  height: 120px;
+  display: none;
 }
 
 .iatf-tool-icon i {
-  font-size: 24px;
-  color: #dc267f;
-  transition: all 0.3s ease;
+  font-size: 18px;
+  color: #2563eb;
+  transition: color 0.3s ease, transform 0.3s ease;
   z-index: 2;
   position: relative;
+  flex-shrink: 0;
 }
 
 .iatf-tool-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: #666666;
-  transition: all 0.3s ease;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  transition: color 0.3s ease;
   z-index: 2;
   position: relative;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+  max-width: none;
+}
+
+/* Hover, Active & Clicked State: Blue BG, White Text, White Icon & Blue Glow */
+.iatf-tool-item:hover,
+.iatf-tool-item:active,
+.iatf-tool-item.active {
+  transform: translateY(-3px);
+}
+
+.iatf-tool-item:hover .iatf-tool-icon,
+.iatf-tool-item:active .iatf-tool-icon,
+.iatf-tool-item.active .iatf-tool-icon {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4), 0 0 18px rgba(37, 99, 235, 0.3) !important;
 }
 
 .iatf-tool-item:hover .iatf-tool-icon i,
-.iatf-tool-item:hover .iatf-tool-name {
-  color: #ffffff;
+.iatf-tool-item:active .iatf-tool-icon i,
+.iatf-tool-item.active .iatf-tool-icon i {
+  color: #ffffff !important;
+  transform: scale(1.1);
 }
 
-/* Why Choose IATF Auditing Section */
-.iatf-why-choose {
-  padding: 0;
+.iatf-tool-item:hover .iatf-tool-name,
+.iatf-tool-item:active .iatf-tool-name,
+.iatf-tool-item.active .iatf-tool-name {
+  color: #ffffff !important;
+}
+
+/* Dynamic Tool Detail Panel - Wider & Exact IATF Typography */
+.iatf-tools-panel {
+  margin-top: 48px;
   background: #ffffff;
-}
-
-.iatf-why-choose-container {
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.08);
+  padding: 44px 48px;
   display: grid;
-  grid-template-columns: 45% 55%;
-  gap: 0;
-  align-items: stretch;
-  min-height: 600px;
-}
-
-.iatf-why-choose-image {
-  position: relative;
-  overflow: hidden;
-  display: flex;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 52px;
   align-items: center;
-  justify-content: center;
-}
-
-.iatf-why-choose-image img {
+  transition: all 0.4s ease;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.iatf-why-choose-content {
-  background: #1a1a1a;
-  padding: 60px 50px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.iatf-why-choose-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  color: #ffffff;
-  width: fit-content;
-}
-
-.iatf-why-choose-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-.iatf-why-choose-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #c9c9c9;
-  margin: 0 0 32px 0;
-}
-
-.iatf-why-choose-divider {
-  width: 100%;
-  height: 1px;
-  background: #333333;
-  margin: 32px 0;
-}
-
-.iatf-why-choose-benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.iatf-why-choose-benefit-flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 200px;
-  perspective: 1000px;
-}
-
-.iatf-why-choose-benefit-flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.iatf-why-choose-benefit-flip-card:hover .iatf-why-choose-benefit-flip-inner {
-  transform: rotateY(180deg);
-}
-
-.iatf-why-choose-benefit-flip-front,
-.iatf-why-choose-benefit-flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.iatf-why-choose-benefit-flip-front {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border: 1px solid rgba(220, 38, 127, 0.3);
-}
-
-.iatf-why-choose-benefit-flip-back {
-  background: linear-gradient(135deg, #dc267f 0%, #b91c73 100%);
-  transform: rotateY(180deg);
-  color: #ffffff;
-}
-
-.iatf-why-choose-benefit-icon {
-  width: 48px;
-  height: 48px;
-  background: #dc267f;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(220, 38, 127, 0.4);
-}
-
-.iatf-why-choose-benefit-icon i {
-  font-size: 20px;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.iatf-why-choose-benefit-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0;
-  color: #ffffff;
-}
-
-.iatf-why-choose-benefit-description {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #ffffff;
-  margin: 0;
-}
-
-/* FAQ Section */
-.iatf-faq {
-  padding: 120px 0;
-  background: #f8f9fa;
-}
-
-.iatf-faq-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.iatf-faq-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.iatf-faq-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(220, 38, 127, 0.1);
-  border: 1px solid rgba(220, 38, 127, 0.2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #dc267f;
-  margin-bottom: 24px;
-}
-
-.iatf-faq-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  color: #000000;
-}
-
-.iatf-faq-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-  max-width: 600px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.iatf-faq-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.iatf-faq-contact {
-  position: sticky;
-  top: 120px;
-}
-
-.iatf-faq-contact-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 40px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.iatf-faq-contact-title {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 16px 0;
-  color: #000000;
-}
-
-.iatf-faq-contact-divider {
-  width: 60px;
-  height: 2px;
-  background: #dc267f;
-  margin: 0 auto 24px;
-}
-
-.iatf-faq-contact-description {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0 0 32px 0;
-}
-
-.iatf-faq-contact-button {
-  padding: 16px 32px;
-  background: #dc267f;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Satoshi', Arial, sans-serif;
-}
-
-.iatf-faq-contact-button:hover {
-  background: #be185d;
-  transform: translateY(-2px);
-}
-
-.iatf-faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.iatf-faq-item {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+.iatf-tools-panel-image-col {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 18px;
   overflow: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.iatf-faq-item:hover {
-  border-color: #dc267f;
-  box-shadow: 0 4px 12px rgba(220, 38, 127, 0.1);
+.iatf-tools-panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.5s ease;
 }
 
-.iatf-faq-question {
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
+.iatf-tools-panel-image-col:hover .iatf-tools-panel-img {
+  transform: scale(1.03);
 }
 
-.iatf-faq-question h4 {
-  font-family: 'Satoshi', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  color: #000000;
+.iatf-tools-panel-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.iatf-faq-question i {
-  font-size: 16px;
-  color: #dc267f;
-  transition: all 0.3s ease;
-}
-
-.iatf-faq-item.active .iatf-faq-question i {
-  transform: rotate(45deg);
-}
-
-.iatf-faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.iatf-faq-item.active .iatf-faq-answer {
-  max-height: 200px;
-  padding: 0 24px 24px;
-}
-
-.iatf-faq-answer p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666666;
-  margin: 0;
-}
-
-/* Laptop View - 4-3 Layout */
-@media (min-width: 1025px) {
-  .iatf-tools-row:first-child {
-    justify-content: space-between;
-    max-width: 600px;
-  }
-  
-  .iatf-tools-row:last-child {
-    justify-content: center;
-    max-width: 480px;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .iatf-hero-container {
-    gap: 60px;
-  }
-  
-  .iatf-hero-title {
-    font-size: 48px;
-  }
-}
-
-@media (max-width: 992px) {
-  .iatf-hero-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-  
-  .iatf-hero-title {
-    font-size: 42px;
-  }
-  
-  .iatf-lottie-container {
-    height: 400px;
-  }
-  
-  .iatf-benefits-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-  
-  .iatf-why-choose-container {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  
-  .iatf-why-choose-image {
-    min-height: 400px;
-  }
-  
-  .iatf-why-choose-content {
-    padding: 50px 40px;
-  }
-  
-  .iatf-why-choose-title {
-    font-size: 36px;
-  }
-  
-  .iatf-faq-content {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-  
-  .iatf-faq-contact {
-    position: static;
-  }
-}
-
-@media (max-width: 768px) {
-  .iatf-hero {
-    padding: 80px 0;
-  }
-  
-  .iatf-hero-container {
-    padding: 0 20px;
-  }
-  
-  .iatf-hero-title {
-    font-size: 36px;
-  }
-  
-  .iatf-hero-description {
-    font-size: 16px;
-  }
-  
-  .iatf-benefits,
-  .iatf-process,
-  .iatf-tools,
-  .iatf-faq {
-    padding: 80px 0;
-  }
-  
-  .iatf-benefits-container,
-  .iatf-process-container,
-  .iatf-tools-container,
-  .iatf-faq-container {
-    padding: 0 20px;
-  }
-  
-  .iatf-benefits-title,
-  .iatf-process-title,
-  .iatf-tools-title,
-  .iatf-faq-title {
-    font-size: 36px;
-  }
-  
-  .iatf-benefits-description,
-  .iatf-process-description,
-  .iatf-tools-description,
-  .iatf-faq-description {
-    font-size: 16px;
-  }
-  
-  .iatf-benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .iatf-process-timeline {
-    gap: 30px;
-  }
-  
-  .iatf-process-step {
-    flex: 1;
-    max-width: 250px;
-    padding: 24px 20px;
-  }
-  
-  /* Change arrows to point downwards in tablet view when stacked */
-  .iatf-process-arrow {
-    transform: rotate(90deg);
-  }
-  
-  .iatf-tools-row {
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .iatf-tools-row:first-child {
-    max-width: 100%;
-  }
-  
-  .iatf-tools-row:last-child {
-    max-width: 100%;
-  }
-  
-  .iatf-tool-icon {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .iatf-tool-item:hover .iatf-tool-icon::before {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .iatf-why-choose-image {
-    min-height: 300px;
-  }
-  
-  .iatf-why-choose-content {
-    padding: 40px 30px;
-  }
-  
-  .iatf-why-choose-title {
-    font-size: 32px;
-  }
-  
-  .iatf-why-choose-description {
-    font-size: 16px;
-  }
-  
-  .iatf-why-choose-benefit-title {
-    font-size: 18px;
-  }
-  
-  .iatf-why-choose-benefit-description {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .iatf-hero {
-    padding: 60px 0;
-  }
-  
-  .iatf-hero-container {
-    padding: 0 16px;
-  }
-  
-  .iatf-hero-title {
-    font-size: 32px;
-  }
-  
-  .iatf-hero-description {
-    font-size: 15px;
-  }
-  
-  .iatf-hero-button {
-    padding: 14px 28px;
-    font-size: 15px;
-  }
-  
-  .iatf-benefits,
-  .iatf-process,
-  .iatf-tools,
-  .iatf-faq {
-    padding: 60px 0;
-  }
-  
-  .iatf-benefits-container,
-  .iatf-process-container,
-  .iatf-tools-container,
-  .iatf-faq-container {
-    padding: 0 16px;
-  }
-  
-  .iatf-benefits-title,
-  .iatf-process-title,
-  .iatf-tools-title,
-  .iatf-faq-title {
-    font-size: 32px;
-  }
-  
-  .iatf-benefits-description,
-  .iatf-process-description,
-  .iatf-tools-description,
-  .iatf-faq-description {
-    font-size: 15px;
-  }
-  
-  .iatf-benefit-flip-card {
-    height: 220px;
-  }
-  
-  .iatf-benefit-flip-front,
-  .iatf-benefit-flip-back {
-    padding: 24px 20px;
-  }
-  
-  .iatf-benefit-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .iatf-benefit-icon i {
-    font-size: 20px;
-  }
-  
-  .iatf-benefit-title {
-    font-size: 18px;
-  }
-  
-  .iatf-benefit-description {
-    font-size: 14px;
-  }
-  
-  .iatf-process-timeline {
-    gap: 20px;
-    flex-direction: column;
-  }
-  
-  .iatf-process-step {
-    flex: none;
-    max-width: 100%;
-    width: 100%;
-    padding: 20px 16px;
-  }
-  
-  /* Change arrows to point downwards in mobile view */
-  .iatf-process-arrow {
-    transform: rotate(90deg);
-  }
-  
-  .iatf-process-step-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .iatf-process-step-icon i {
-    font-size: 20px;
-  }
-  
-  .iatf-process-step-title {
-    font-size: 16px;
-  }
-  
-  .iatf-tools-row {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .iatf-tools-row:first-child {
-    max-width: 100%;
-  }
-  
-  .iatf-tools-row:last-child {
-    max-width: 100%;
-  }
-  
-  /* Create 2-2-2-1 layout by controlling item width */
-  .iatf-tool-item {
-    flex: 0 0 calc(50% - 8px);
-    max-width: calc(50% - 8px);
-  }
-  
-  /* For the 7th item (last one), center it */
-  .iatf-tool-item:nth-child(7) {
-    flex: 0 0 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .iatf-tool-icon {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .iatf-tool-item:hover .iatf-tool-icon::before {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .iatf-tool-icon i {
-    font-size: 20px;
-  }
-  
-  .iatf-tool-name {
-    font-size: 10px;
-  }
-  
-  .iatf-why-choose-image {
-    min-height: 250px;
-  }
-  
-  .iatf-why-choose-content {
-    padding: 30px 20px;
-  }
-  
-  .iatf-why-choose-title {
-    font-size: 28px;
-  }
-  
-  .iatf-why-choose-benefit-item {
-    gap: 12px;
-  }
-  
-  .iatf-why-choose-benefit-icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .iatf-why-choose-benefit-icon i {
-    font-size: 10px;
-  }
-  
-  .iatf-faq-contact-card {
-    padding: 30px 24px;
-  }
-  
-  .iatf-faq-contact-title {
-    font-size: 20px;
-  }
-  
-  .iatf-faq-contact-description {
-    font-size: 14px;
-  }
-  
-  .iatf-faq-contact-button {
-    padding: 14px 28px;
-    font-size: 15px;
-  }
-  
-  .iatf-faq-question {
-    padding: 20px;
-  }
-  
-  .iatf-faq-question h4 {
-    font-size: 16px;
-  }
-  
-  .iatf-faq-item.active .iatf-faq-answer {
-    padding: 0 20px 20px;
-  }
-  
-  .iatf-faq-answer p {
-    font-size: 14px;
-  }
-}
-
-/* Upper Footer Section */
-.upper-footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  padding: 80px 0;
-  color: #ffffff;
-}
-
-.upper-footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.upper-footer-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.upper-footer-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.upper-footer-header p {
-  font-size: 1.1rem;
-  color: #cccccc;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.offices-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.office-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 30px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.office-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.office-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.office-flag {
-  font-size: 2rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-}
-
-.office-header h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-}
-
-.office-details {
+.iatf-tools-panel-content-col {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.office-company {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #22c55e;
-  margin-bottom: 10px;
+.iatf-tools-panel-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(26px, 2.6vw, 36px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.2 !important;
+  color: #0f172a !important;
+  margin: 0 0 14px 0 !important;
 }
 
-.office-address,
-.office-phone {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #cccccc;
-  font-size: 0.95rem;
+.iatf-tools-panel-desc {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 0 24px 0 !important;
 }
 
-.office-address i,
-.office-phone i {
-  color: #22c55e;
-  width: 16px;
-  text-align: center;
+.iatf-tools-panel-caps-header {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  color: #2563eb !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
 }
 
-.office-phone a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.iatf-tools-panel-caps-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 32px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
 }
 
-.office-phone a:hover {
-  color: #22c55e;
+.iatf-tools-panel-caps-list li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  color: #334155 !important;
+  line-height: 1.5 !important;
 }
 
-.office-phones {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.iatf-tools-panel-caps-list li i {
+  color: #2563eb !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
 }
 
-/* Responsive Design for Upper Footer */
-@media (max-width: 768px) {
-  .upper-footer {
-    padding: 60px 0;
-  }
-  
-  .upper-footer-header h2 {
-    font-size: 2rem;
-  }
-  
-  .upper-footer-header p {
-    font-size: 1rem;
-  }
-  
-  .offices-grid {
+.iatf-tools-panel-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 14px 28px !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+}
+
+.iatf-tools-panel-cta:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Tablet & Mobile Responsiveness for Panel */
+@media (max-width: 991px) {
+  .iatf-tools-panel {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 32px;
+    padding: 28px;
   }
   
-  .office-card {
-    padding: 25px;
-  }
-  
-  .office-header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .office-flag {
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .upper-footer {
-    padding: 50px 0;
-  }
-  
-  .upper-footer-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .upper-footer-header p {
-    font-size: 0.9rem;
-  }
-  
-  .office-card {
-    padding: 20px;
-  }
-  
-  .office-header h3 {
-    font-size: 1.2rem;
-  }
-  
-  .office-company {
-    font-size: 1rem;
-  }
-  
-  .office-address,
-  .office-phone {
-    font-size: 0.9rem;
+  .iatf-tools-panel-image-col {
+    height: 260px;
   }
 }

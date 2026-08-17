@@ -1085,7 +1085,8 @@
         "submenu": [
           {
             "label": "ERP AI",
-            "path": "/erp-ai"
+            "path": "https://vgt-erp-ai-2.vercel.app/",
+            "isExternal": true
           },
           {
             "label": "Agentic AI",

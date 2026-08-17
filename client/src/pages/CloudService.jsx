@@ -17,7 +17,7 @@ const CloudService = () => {
       prefix="cloud"
       content={content.cloudService}
       customHero={<CloudHero />}
-      hideTools={true}
+      hideTools={false}
       hideWhyChoose={true}
     />
   );

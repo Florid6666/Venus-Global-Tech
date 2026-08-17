@@ -17,7 +17,7 @@ const ESG = () => {
       prefix="esg"
       content={content.esg}
       customHero={<EsgHero />}
-      hideTools={true}
+      hideTools={false}
     />
   );
 };

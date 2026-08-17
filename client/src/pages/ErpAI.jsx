@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../components/erpai.css';
 import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
@@ -8,12 +8,11 @@ import { stripHtml } from '../utils/stripHtml';
 
 const iconClass = (icon) => (icon && icon.includes(' ') ? icon : `fas ${icon || ''}`);
 
-// ERP AI gets a bespoke hero (styled after the home page's HeroV2: dark
-// background, spotlight glows, grid overlay, gradient title, pill CTA) and a
-// bespoke benefits grid (styled after the home page's feature/service card
-// grid) instead of the shared ServicePageTemplate look. Process/Tools/Why
-// Choose/FAQ stay on the same layout as the other service pages.
 const ErpAI = () => {
+  useEffect(() => {
+    window.location.replace('https://vgt-erp-ai-2.vercel.app/');
+  }, []);
+
   const { content } = useContent('services');
   const { content: home } = useContent('home');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);

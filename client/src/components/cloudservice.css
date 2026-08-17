@@ -6,7 +6,7 @@
 }
 
 .cloud-page,
-.cloud-page *:not(i) {
+.cloud-page *:not(i):not(.fas):not(.fab):not(.far):not(.fa) {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
@@ -498,5 +498,340 @@
   }
   .cloud-benefit-flip-card {
     border-right: none !important;
+  }
+}
+
+/* Tools Section - Horizontal Ellipse/Pill Card Redesign & Panel */
+.cloud-tools {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.cloud-tools-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cloud-tools-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.cloud-tools-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 16px !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px solid rgba(37, 99, 235, 0.18) !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  margin-bottom: 20px !important;
+}
+
+.cloud-tools-badge i {
+  font-size: 13px !important;
+  color: #2563eb !important;
+}
+
+.cloud-tools-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(34px, 3.8vw, 52px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 16px 0 !important;
+  color: #0f172a !important;
+}
+
+.cloud-tools-description {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 auto !important;
+  max-width: 680px !important;
+}
+
+.cloud-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 44px;
+}
+
+.cloud-tools-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .cloud-tools-row {
+    flex-wrap: nowrap !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .cloud-tools-row {
+    flex-wrap: wrap !important;
+  }
+}
+
+.cloud-tools-row:first-child {
+  justify-content: center;
+}
+
+.cloud-tools-row:last-child {
+  justify-content: center;
+}
+
+.cloud-tool-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ALL 7 Pills start with White BG & Black Text at rest */
+.cloud-tool-icon {
+  width: auto;
+  height: auto;
+  min-height: 52px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cloud-tool-icon::before {
+  display: none;
+}
+
+.cloud-tool-icon i {
+  font-size: 18px;
+  color: #2563eb;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cloud-tool-name {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  color: #0f172a !important;
+  transition: color 0.3s ease;
+  z-index: 2;
+  position: relative;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap;
+  max-width: none;
+}
+
+/* Hover, Active & Clicked State: Blue BG, White Text, White Icon & Blue Glow */
+.cloud-tool-item:hover,
+.cloud-tool-item:active,
+.cloud-tool-item.active {
+  transform: translateY(-3px);
+}
+
+.cloud-tool-item:hover .cloud-tool-icon,
+.cloud-tool-item:active .cloud-tool-icon,
+.cloud-tool-item.active .cloud-tool-icon {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4), 0 0 18px rgba(37, 99, 235, 0.3) !important;
+}
+
+.cloud-tool-item:hover .cloud-tool-icon i,
+.cloud-tool-item:active .cloud-tool-icon i,
+.cloud-tool-item.active .cloud-tool-icon i {
+  color: #ffffff !important;
+  transform: scale(1.1);
+}
+
+.cloud-tool-item:hover .cloud-tool-name,
+.cloud-tool-item:active .cloud-tool-name,
+.cloud-tool-item.active .cloud-tool-name {
+  color: #ffffff !important;
+}
+
+/* Dynamic Tool Detail Panel - Wider & Exact Cloud Typography */
+.cloud-tools-panel {
+  margin-top: 48px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.08);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 52px;
+  align-items: center;
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cloud-tools-panel-image-col {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.cloud-tools-panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.5s ease;
+}
+
+.cloud-tools-panel-image-col:hover .cloud-tools-panel-img {
+  transform: scale(1.03);
+}
+
+.cloud-tools-panel-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cloud-tools-panel-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cloud-tools-panel-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(26px, 2.6vw, 36px) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.2 !important;
+  color: #0f172a !important;
+  margin: 0 0 14px 0 !important;
+}
+
+.cloud-tools-panel-desc {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #64748b !important;
+  margin: 0 0 24px 0 !important;
+}
+
+.cloud-tools-panel-caps-header {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  color: #2563eb !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+
+.cloud-tools-panel-caps-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 32px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.cloud-tools-panel-caps-list li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  color: #334155 !important;
+  line-height: 1.5 !important;
+}
+
+.cloud-tools-panel-caps-list li i {
+  color: #2563eb !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+.cloud-tools-panel-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 14px 28px !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
+}
+
+.cloud-tools-panel-cta:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.4) !important;
+}
+
+/* Tablet & Mobile Responsiveness for Panel */
+@media (max-width: 991px) {
+  .cloud-tools-panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 28px;
+  }
+  
+  .cloud-tools-panel-image-col {
+    height: 260px;
   }
 }

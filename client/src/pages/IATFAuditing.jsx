@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/iatfauditing.css';
 import ServicePageTemplate from '../components/ServicePageTemplate';
+import IatfHero from '../components/IatfHero';
 import { useContent } from '../hooks/useContent';
 
 const IATFAuditing = () => {
@@ -15,6 +16,9 @@ const IATFAuditing = () => {
       pageClass="iatf-page"
       prefix="iatf"
       content={content.iatfAuditing}
+      customHero={<IatfHero />}
+      hideTools={false}
+      hideWhyChoose={true}
     />
   );
 };

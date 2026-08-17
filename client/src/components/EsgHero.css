@@ -1,4 +1,9 @@
 /* ESG Custom Hero Section (Exact Match to Reference Design) */
+.esg-hero-custom,
+.esg-hero-custom *:not(i):not(.fas):not(.fab):not(.far):not(.fa) {
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
 .esg-hero-custom {
   position: relative;
   width: 100%;
@@ -152,7 +157,9 @@
   font-size: inherit !important;
   font-weight: 300 !important;
   letter-spacing: inherit !important;
-  line-height: inherit !important;
+  line-height: 1.18 !important;
+  padding-bottom: 0.15em !important;
+  display: inline-block !important;
   background: linear-gradient(90deg, #3b82f6 0%, #2563eb 32%, #06b6d4 72%, #14b8a6 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;

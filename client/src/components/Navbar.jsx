@@ -74,30 +74,64 @@ const Navbar = () => {
               <li
                 key={item.label}
                 className={`nav-item ${item.submenu ? 'dropdown' : ''} ${location.pathname === item.path ? 'active' : ''}`}
-                {...(item.submenu
-                  ? {
-                      ...(supportsHover ? { onMouseEnter: openServicesMenu, onMouseLeave: closeServicesMenu } : {}),
-                      onClick: toggleServicesMenu,
-                    }
+                {...(item.submenu && supportsHover
+                  ? { onMouseEnter: openServicesMenu, onMouseLeave: closeServicesMenu }
                   : {})}
               >
                 {item.submenu ? (
                   <>
-                    <a href="#" className="nav-link">
+                    <a
+                      href="#"
+                      className="nav-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleServicesMenu();
+                      }}
+                    >
                       <RichText html={item.label} as="span" />
                       <i className="fas fa-chevron-down nav-chevron"></i>
                     </a>
                     <div className={`dropdown-menu ${isServicesOpen ? 'open' : ''}`}>
-                      {item.submenu.map((sub) => (
-                        <Link
-                          key={sub.label}
-                          to={sub.path}
-                          className="dropdown-item"
-                          onClick={handleLinkClick}
-                        >
-                          {sub.label}
-                        </Link>
-                      ))}
+                      {item.submenu.map((sub) => {
+                        const isErpAi = sub.label?.trim() === 'ERP AI' || sub.path === '/erp-ai' || sub.path === 'https://vgt-erp-ai-2.vercel.app/';
+                        const targetPath = isErpAi ? 'https://vgt-erp-ai-2.vercel.app/' : sub.path;
+                        const isExternal = isErpAi || sub.isExternal || targetPath?.startsWith('http');
+
+                        if (isExternal) {
+                          return (
+                            <a
+                              key={sub.label}
+                              href={targetPath}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="dropdown-item"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setIsServicesOpen(false);
+                                setIsMenuOpen(false);
+                                window.open(targetPath, '_blank', 'noopener,noreferrer');
+                              }}
+                            >
+                              {sub.label}
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={sub.label}
+                            to={sub.path}
+                            className="dropdown-item"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsServicesOpen(false);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            {sub.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </>
                 ) : (
