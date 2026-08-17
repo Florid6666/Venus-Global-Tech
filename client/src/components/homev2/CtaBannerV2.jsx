@@ -14,7 +14,7 @@ const CtaBannerV2 = ({ content }) => {
       <div className="v2-cta-banner-container">
         
         {/* DEEP COSMIC SPACE CONTAINER WITH STARRY GRID */}
-        <div className="v2-cta-card v2-reveal-on-scroll v2-reveal-up">
+        <div className="v2-cta-card">
           
           {/* Subtle Animated Star Particles / Dots Background */}
           <div className="v2-cta-stars-bg"></div>
