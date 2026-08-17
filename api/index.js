@@ -1,78 +1,73 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '50mb', strict: false }));
 
-// Read fallback JSON datasets
-const getContent = () => {
-  try {
-    const contentPath = path.join(__dirname, '..', 'server', 'data', 'content.json');
-    if (fs.existsSync(contentPath)) {
-      return JSON.parse(fs.readFileSync(contentPath, 'utf8'));
-    }
-    const seedPath = path.join(__dirname, '..', 'server', 'data-seed', 'content.json');
-    return JSON.parse(fs.readFileSync(seedPath, 'utf8'));
-  } catch (err) {
-    return {};
-  }
-};
+// Bundle content statically so Vercel includes them in the serverless bundle
+let contentData = {};
+let blogsData = [];
 
-const getBlogs = () => {
-  try {
-    const blogsPath = path.join(__dirname, '..', 'server', 'data', 'blogs.json');
-    if (fs.existsSync(blogsPath)) {
-      return JSON.parse(fs.readFileSync(blogsPath, 'utf8'));
-    }
-    const seedPath = path.join(__dirname, '..', 'server', 'data-seed', 'blogs.json');
-    return JSON.parse(fs.readFileSync(seedPath, 'utf8'));
-  } catch (err) {
-    return [];
+try {
+  contentData = require('../server/data-seed/content.json');
+} catch (err) {
+  contentData = {};
+}
+
+try {
+  blogsData = require('../server/data-seed/blogs.json');
+} catch (err) {
+  blogsData = [];
+}
+
+// Enable CORS and OPTIONS preflight response for all requests
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
-};
+  next();
+});
 
 // Admin login endpoint
 app.post('/api/admin/login', (req, res) => {
-  const { email, password } = req.body || {};
-  if (!email || !password) {
-    return res.status(400).json({ error: 'Email and password are required' });
+  try {
+    const { email, password } = req.body || {};
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
+
+    const inputEmail = String(email).toLowerCase().trim();
+    const inputPass = String(password).trim();
+
+    // Accept admin@venusglobaltech.com / AdminPass123! or admin123
+    if ((inputEmail === 'admin@venusglobaltech.com' || inputEmail.includes('admin')) &&
+        (inputPass === 'AdminPass123!' || inputPass === 'admin123' || inputPass === 'AdminPass123')) {
+      return res.status(200).json({
+        token: 'vercel-admin-jwt-token-venus-global-tech',
+        message: 'Login successful'
+      });
+    }
+
+    return res.status(401).json({ error: 'Invalid email or password' });
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal login error', message: error.message });
   }
-
-  const validEmail = 'admin@venusglobaltech.com';
-  const validPass = 'AdminPass123!';
-
-  if (email.toLowerCase().trim() === validEmail && password === validPass) {
-    return res.json({
-      token: 'vercel-admin-jwt-token-venus-global-tech',
-      message: 'Login successful'
-    });
-  }
-
-  // Fallback for default admin
-  if (password === 'AdminPass123!' || password === 'admin123') {
-    return res.json({
-      token: 'vercel-admin-jwt-token-venus-global-tech',
-      message: 'Login successful'
-    });
-  }
-
-  return res.status(401).json({ error: 'Invalid email or password' });
 });
 
 // Content API endpoints
 app.get('/api/content', (req, res) => {
-  res.json(getContent());
+  res.status(200).json(contentData);
 });
 
 app.get('/api/content/:section', (req, res) => {
-  const content = getContent();
   const section = req.params.section;
-  if (content[section]) {
-    res.json(content[section]);
+  if (contentData[section]) {
+    res.status(200).json(contentData[section]);
   } else {
     res.status(404).json({ error: 'Section not found' });
   }
@@ -80,28 +75,33 @@ app.get('/api/content/:section', (req, res) => {
 
 app.put('/api/content/:section', (req, res) => {
   const section = req.params.section;
-  res.json({ message: 'Content updated successfully', content: req.body });
+  if (req.body) {
+    contentData[section] = req.body;
+  }
+  res.status(200).json({ message: 'Content updated successfully', content: contentData[section] });
 });
 
 app.put('/api/content/:section/:subsection', (req, res) => {
   const section = req.params.section;
   const subsection = req.params.subsection;
-  res.json({ message: 'Content updated successfully', content: req.body });
+  if (!contentData[section]) contentData[section] = {};
+  if (req.body) {
+    contentData[section][subsection] = req.body;
+  }
+  res.status(200).json({ message: 'Content updated successfully', content: contentData[section][subsection] });
 });
 
 // Blog API endpoints
 app.get('/api/blogs', (req, res) => {
-  const blogs = getBlogs();
-  res.json(blogs);
+  res.status(200).json(blogsData);
 });
 
 app.get('/api/blogs/:id', (req, res) => {
-  const blogs = getBlogs();
-  const blog = blogs.find(b => b.id === req.params.id || b.slug === req.params.id);
+  const blog = blogsData.find(b => b.id === req.params.id || b.slug === req.params.id);
   if (!blog) {
     return res.status(404).json({ error: 'Blog not found' });
   }
-  res.json(blog);
+  res.status(200).json(blog);
 });
 
 app.post('/api/blogs', (req, res) => {
@@ -110,20 +110,31 @@ app.post('/api/blogs', (req, res) => {
     ...req.body,
     createdAt: new Date().toISOString()
   };
+  blogsData.unshift(newBlog);
   res.status(201).json({ message: 'Blog created successfully', id: newBlog.id, blog: newBlog });
 });
 
 app.put('/api/blogs/:id', (req, res) => {
-  res.json({ message: 'Blog updated successfully', id: req.params.id, blog: req.body });
+  const index = blogsData.findIndex(b => b.id === req.params.id || b.slug === req.params.id);
+  if (index !== -1 && req.body) {
+    blogsData[index] = { ...blogsData[index], ...req.body };
+  }
+  res.status(200).json({ message: 'Blog updated successfully', id: req.params.id, blog: req.body });
 });
 
 app.delete('/api/blogs/:id', (req, res) => {
-  res.json({ message: 'Blog deleted successfully', id: req.params.id });
+  blogsData = blogsData.filter(b => b.id !== req.params.id && b.slug !== req.params.id);
+  res.status(200).json({ message: 'Blog deleted successfully', id: req.params.id });
+});
+
+// Upload image mock
+app.post('/api/upload', (req, res) => {
+  res.status(201).json({ url: '/images/default-blog.jpg' });
 });
 
 // Contact endpoint
 app.post('/api/contact', (req, res) => {
-  res.json({ message: 'Contact form submitted successfully' });
+  res.status(200).json({ message: 'Contact form submitted successfully' });
 });
 
 module.exports = app;
