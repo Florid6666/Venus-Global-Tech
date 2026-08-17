@@ -47,16 +47,38 @@
 }
 
 .cloud-hero-custom-container {
-  max-width: 1280px;
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
+}
+
+/* Laptop: 1025px - 1600px */
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .cloud-hero-custom-container {
+    padding: 0 80px;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cloud-hero-custom-container {
+    padding: 0 30px;
+  }
+}
+
+/* Mobile: 0px - 767px */
+@media (max-width: 767px) {
+  .cloud-hero-custom-container {
+    padding: 0 20px;
+  }
 }
 
 /* Top Trust Pill Badge */

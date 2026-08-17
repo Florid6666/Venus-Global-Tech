@@ -17,9 +17,40 @@ html {
 }
 
 .blog-header-container {
-  max-width: 1250px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 120px;
+  box-sizing: border-box;
+}
+
+/* Laptop: 1025px - 1600px */
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .blog-header-container,
+  .blog-content-container,
+  .related-posts-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .blog-header-container,
+  .blog-content-container,
+  .related-posts-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Mobile: 0px - 767px */
+@media (max-width: 767px) {
+  .blog-header-container,
+  .blog-content-container,
+  .related-posts-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .blog-breadcrumb {

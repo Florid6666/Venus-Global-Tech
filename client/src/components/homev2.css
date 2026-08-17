@@ -37,21 +37,24 @@
   padding: 80px 120px;
 }
 
-@media (max-width: 1600px) {
+/* Laptop: 1025px - 1600px */
+@media (min-width: 1025px) and (max-width: 1600px) {
   .v2-section-container {
     padding: 80px 80px;
   }
 }
 
-@media (max-width: 1024px) {
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
   .v2-section-container {
     padding: 60px 30px;
   }
 }
 
+/* Mobile: 0px - 767px */
 @media (max-width: 767px) {
   .v2-section-container {
-    padding: 40px 18px;
+    padding: 40px 20px;
   }
 }
 

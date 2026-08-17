@@ -217,19 +217,31 @@
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
 
-@media (max-width: 1100px) {
+/* Laptop: 1025px - 1600px */
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .v2-cta-banner-container {
+    padding: 0 80px;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .v2-cta-banner-container {
+    padding: 0 30px;
+  }
   .v2-cta-card {
     padding: 70px 30px;
   }
 }
 
-@media (max-width: 640px) {
+/* Mobile: 0px - 767px */
+@media (max-width: 767px) {
   .v2-cta-banner-section {
     padding: 50px 0 70px;
   }
 
   .v2-cta-banner-container {
-    padding: 0 16px;
+    padding: 0 20px;
   }
 
   .v2-cta-card {
