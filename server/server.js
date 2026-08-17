@@ -27,6 +27,18 @@ const corsOptions = {
   origin: (origin, callback) => callback(null, origin || true),
   credentials: true,
 };
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  if (req.method === 'OPTIONS') {
+    return res.status(204).send('');
+  }
+  next();
+});
+
 app.use(cors(corsOptions));
 // strict: false allows a top-level JSON value that isn't an object/array —
 // several admin content fields (e.g. WholeImageEditor) PUT a bare string as

@@ -730,6 +730,17 @@ async function handleUploadImage(req, res) {
  * Handles all admin API routes
  */
 exports.adminApi = functions.https.onRequest(async (req, res) => {
+  // Set CORS headers for all origins to handle preflight OPTIONS requests cleanly
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.set('Access-Control-Allow-Credentials', 'true');
+
+  // Intercept HTTP OPTIONS preflight request immediately
+  if (req.method === 'OPTIONS') {
+    return res.status(204).send('');
+  }
+
   // Enable CORS for all requests
   cors(req, res, async () => {
     try {
