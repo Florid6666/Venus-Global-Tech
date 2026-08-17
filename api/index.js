@@ -6,22 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb', strict: false }));
 
-// Bundle content statically so Vercel includes them in the serverless bundle
-let contentData = {};
-let blogsData = [];
-
-try {
-  contentData = require('../server/data-seed/content.json');
-} catch (err) {
-  contentData = {};
-}
-
-try {
-  blogsData = require('../server/data-seed/blogs.json');
-} catch (err) {
-  blogsData = [];
-}
-
 // Enable CORS and OPTIONS preflight response for all requests
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -32,6 +16,22 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// Load bundled data directly from within api/ directory
+let contentData = {};
+let blogsData = [];
+
+try {
+  contentData = require('./data/content.json');
+} catch (err) {
+  contentData = {};
+}
+
+try {
+  blogsData = require('./data/blogs.json');
+} catch (err) {
+  blogsData = [];
+}
 
 // Admin login endpoint
 app.post('/api/admin/login', (req, res) => {
@@ -44,7 +44,7 @@ app.post('/api/admin/login', (req, res) => {
     const inputEmail = String(email).toLowerCase().trim();
     const inputPass = String(password).trim();
 
-    // Accept admin@venusglobaltech.com / AdminPass123! or admin123
+    // Accept admin credentials
     if ((inputEmail === 'admin@venusglobaltech.com' || inputEmail.includes('admin')) &&
         (inputPass === 'AdminPass123!' || inputPass === 'admin123' || inputPass === 'AdminPass123')) {
       return res.status(200).json({
@@ -66,7 +66,7 @@ app.get('/api/content', (req, res) => {
 
 app.get('/api/content/:section', (req, res) => {
   const section = req.params.section;
-  if (contentData[section]) {
+  if (contentData && contentData[section]) {
     res.status(200).json(contentData[section]);
   } else {
     res.status(404).json({ error: 'Section not found' });
@@ -97,7 +97,7 @@ app.get('/api/blogs', (req, res) => {
 });
 
 app.get('/api/blogs/:id', (req, res) => {
-  const blog = blogsData.find(b => b.id === req.params.id || b.slug === req.params.id);
+  const blog = (blogsData || []).find(b => b.id === req.params.id || b.slug === req.params.id);
   if (!blog) {
     return res.status(404).json({ error: 'Blog not found' });
   }
@@ -135,6 +135,12 @@ app.post('/api/upload', (req, res) => {
 // Contact endpoint
 app.post('/api/contact', (req, res) => {
   res.status(200).json({ message: 'Contact form submitted successfully' });
+});
+
+// Fallback error handler
+app.use((err, req, res, next) => {
+  console.error('Unhandled serverless API error:', err);
+  res.status(500).json({ error: 'Serverless execution error', message: err.message });
 });
 
 module.exports = app;
