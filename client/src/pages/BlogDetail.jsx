@@ -9,6 +9,7 @@ import { stripHtml } from '../utils/stripHtml';
 import RichText from '../components/RichText';
 import BlockRenderer from '../components/BlockRenderer';
 import TableOfContents from '../components/TableOfContents';
+import defaultBlogs from '../data/defaultBlogs.json';
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -115,30 +116,30 @@ const BlogDetail = () => {
   const loadBlog = async () => {
     setLoading(true);
     setError(null);
+    let allBlogs = defaultBlogs;
     try {
-      // First, get all blogs to find the one with matching slug
       const response = await fetch(getApiUrl('api/blogs'));
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const blogs = await response.json();
-      const foundBlog = blogs.find(b => b.slug === slug);
-
-      if (foundBlog) {
-        setBlog(foundBlog);
-        const others = blogs.filter(b => b.slug !== slug);
-        const sameCategory = others.filter(b => b.category === foundBlog.category);
-        const picks = (sameCategory.length > 0 ? sameCategory : others).slice(0, 2);
-        setRelatedBlogs(picks);
-      } else {
-        setError('Blog not found');
+      if (response.ok) {
+        const data = await response.json();
+        if (Array.isArray(data) && data.length > 0) {
+          allBlogs = data;
+        }
       }
     } catch (error) {
-      console.error('Failed to load blog:', error);
-      setError('Failed to load blog');
-    } finally {
-      setLoading(false);
+      console.error('Failed to load live blogs, falling back to default blogs:', error);
     }
+
+    const foundBlog = allBlogs.find(b => b.slug === slug || b.id === slug);
+    if (foundBlog) {
+      setBlog(foundBlog);
+      const others = allBlogs.filter(b => b.slug !== slug && b.id !== slug);
+      const sameCategory = others.filter(b => b.category === foundBlog.category);
+      const picks = (sameCategory.length > 0 ? sameCategory : others).slice(0, 2);
+      setRelatedBlogs(picks);
+    } else {
+      setError('Blog not found');
+    }
+    setLoading(false);
   };
 
   if (loading) {

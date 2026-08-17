@@ -10,10 +10,12 @@ import { useContent } from '../hooks/useContent';
 import { stripHtml } from '../utils/stripHtml';
 import RichText from '../components/RichText';
 
+import defaultBlogs from '../data/defaultBlogs.json';
+
 const Blogs = () => {
   const { content } = useContent('blogsPage');
   const { content: home } = useContent('home');
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(defaultBlogs);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -30,9 +32,14 @@ const Blogs = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      setBlogs(data);
+      if (Array.isArray(data) && data.length > 0) {
+        setBlogs(data);
+      } else {
+        setBlogs(defaultBlogs);
+      }
     } catch (error) {
-      console.error('Failed to load blogs:', error);
+      console.error('Failed to load blogs, falling back to default blogs:', error);
+      setBlogs(defaultBlogs);
     } finally {
       setLoading(false);
     }
