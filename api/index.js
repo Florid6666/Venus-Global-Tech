@@ -33,8 +33,8 @@ try {
   blogsData = [];
 }
 
-// Admin login endpoint
-app.post('/api/admin/login', (req, res) => {
+// Admin login endpoint (matches both /api/admin/login and /admin/login)
+app.post(['/api/admin/login', '/admin/login'], (req, res) => {
   try {
     const { email, password } = req.body || {};
     if (!email || !password) {
@@ -60,11 +60,11 @@ app.post('/api/admin/login', (req, res) => {
 });
 
 // Content API endpoints
-app.get('/api/content', (req, res) => {
+app.get(['/api/content', '/content'], (req, res) => {
   res.status(200).json(contentData);
 });
 
-app.get('/api/content/:section', (req, res) => {
+app.get(['/api/content/:section', '/content/:section'], (req, res) => {
   const section = req.params.section;
   if (contentData && contentData[section]) {
     res.status(200).json(contentData[section]);
@@ -73,7 +73,7 @@ app.get('/api/content/:section', (req, res) => {
   }
 });
 
-app.put('/api/content/:section', (req, res) => {
+app.put(['/api/content/:section', '/content/:section'], (req, res) => {
   const section = req.params.section;
   if (req.body) {
     contentData[section] = req.body;
@@ -81,7 +81,7 @@ app.put('/api/content/:section', (req, res) => {
   res.status(200).json({ message: 'Content updated successfully', content: contentData[section] });
 });
 
-app.put('/api/content/:section/:subsection', (req, res) => {
+app.put(['/api/content/:section/:subsection', '/content/:section/:subsection'], (req, res) => {
   const section = req.params.section;
   const subsection = req.params.subsection;
   if (!contentData[section]) contentData[section] = {};
@@ -92,11 +92,11 @@ app.put('/api/content/:section/:subsection', (req, res) => {
 });
 
 // Blog API endpoints
-app.get('/api/blogs', (req, res) => {
+app.get(['/api/blogs', '/blogs'], (req, res) => {
   res.status(200).json(blogsData);
 });
 
-app.get('/api/blogs/:id', (req, res) => {
+app.get(['/api/blogs/:id', '/blogs/:id'], (req, res) => {
   const blog = (blogsData || []).find(b => b.id === req.params.id || b.slug === req.params.id);
   if (!blog) {
     return res.status(404).json({ error: 'Blog not found' });
@@ -104,7 +104,7 @@ app.get('/api/blogs/:id', (req, res) => {
   res.status(200).json(blog);
 });
 
-app.post('/api/blogs', (req, res) => {
+app.post(['/api/blogs', '/blogs'], (req, res) => {
   const newBlog = {
     id: `blog-${Date.now()}`,
     ...req.body,
@@ -114,7 +114,7 @@ app.post('/api/blogs', (req, res) => {
   res.status(201).json({ message: 'Blog created successfully', id: newBlog.id, blog: newBlog });
 });
 
-app.put('/api/blogs/:id', (req, res) => {
+app.put(['/api/blogs/:id', '/blogs/:id'], (req, res) => {
   const index = blogsData.findIndex(b => b.id === req.params.id || b.slug === req.params.id);
   if (index !== -1 && req.body) {
     blogsData[index] = { ...blogsData[index], ...req.body };
@@ -122,25 +122,27 @@ app.put('/api/blogs/:id', (req, res) => {
   res.status(200).json({ message: 'Blog updated successfully', id: req.params.id, blog: req.body });
 });
 
-app.delete('/api/blogs/:id', (req, res) => {
+app.delete(['/api/blogs/:id', '/blogs/:id'], (req, res) => {
   blogsData = blogsData.filter(b => b.id !== req.params.id && b.slug !== req.params.id);
   res.status(200).json({ message: 'Blog deleted successfully', id: req.params.id });
 });
 
 // Upload image mock
-app.post('/api/upload', (req, res) => {
+app.post(['/api/upload', '/upload'], (req, res) => {
   res.status(201).json({ url: '/images/default-blog.jpg' });
 });
 
 // Contact endpoint
-app.post('/api/contact', (req, res) => {
+app.post(['/api/contact', '/contact'], (req, res) => {
   res.status(200).json({ message: 'Contact form submitted successfully' });
 });
 
-// Fallback error handler
-app.use((err, req, res, next) => {
-  console.error('Unhandled serverless API error:', err);
-  res.status(500).json({ error: 'Serverless execution error', message: err.message });
+// Catch-all 404 handler for API routes
+app.use((req, res) => {
+  res.status(404).json({ error: 'API route not found', path: req.url });
 });
 
-module.exports = app;
+// Standard Vercel Serverless Function export
+module.exports = (req, res) => {
+  return app(req, res);
+};
