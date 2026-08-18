@@ -78,9 +78,16 @@ module.exports = async (req, res) => {
       return res.end(JSON.stringify(blogsData));
     }
 
-    // Route: Content GET (/api/content)
+    // Route: Content GET (/api/content or /api/content/:section)
     if (url.includes('/content')) {
       res.statusCode = 200;
+      const cleanUrl = url.split('?')[0];
+      const parts = cleanUrl.split('/').filter(Boolean);
+      const contentIdx = parts.indexOf('content');
+      const section = contentIdx !== -1 && parts[contentIdx + 1] ? parts[contentIdx + 1] : null;
+      if (section && contentData[section]) {
+        return res.end(JSON.stringify(contentData[section]));
+      }
       return res.end(JSON.stringify(contentData));
     }
 

@@ -3,11 +3,13 @@ import '../components/cloudservice.css';
 import ServicePageTemplate from '../components/ServicePageTemplate';
 import CloudHero from '../components/CloudHero';
 import { useContent } from '../hooks/useContent';
+import defaultContent from '../data/defaultContent.json';
 
 const CloudService = () => {
   const { content } = useContent('services');
+  const cloudContent = content?.cloudService || content?.services?.cloudService || defaultContent.services?.cloudService;
 
-  if (!content) {
+  if (!cloudContent) {
     return <div className="cloud-page" />;
   }
 
@@ -15,7 +17,7 @@ const CloudService = () => {
     <ServicePageTemplate
       pageClass="cloud-page"
       prefix="cloud"
-      content={content.cloudService}
+      content={cloudContent}
       customHero={<CloudHero />}
       hideTools={false}
       hideWhyChoose={true}

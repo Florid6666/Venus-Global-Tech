@@ -22,7 +22,17 @@ export const useContent = (section = null) => {
         }
         const data = await response.json();
         console.log('[useContent] Successfully fetched data:', data);
-        setContent(data);
+        
+        // If a specific section was requested (e.g. 'services') but the server response
+        // is the root content object containing that section key, extract data[section].
+        let sectionData = data;
+        if (section && data && typeof data === 'object') {
+          if (data[section] !== undefined && !data.hero && !data.titleLine1 && !data.badge) {
+            sectionData = data[section];
+          }
+        }
+        
+        setContent(sectionData);
         setError(null);
       } catch (err) {
         console.warn('[useContent] Error fetching content, using fallback:', err);

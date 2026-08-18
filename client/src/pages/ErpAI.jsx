@@ -4,6 +4,7 @@ import FooterV2 from '../components/homev2/FooterV2';
 import UpfooterOfficesV2 from '../components/homev2/UpfooterOfficesV2';
 import RichText from '../components/RichText';
 import { useContent } from '../hooks/useContent';
+import defaultContent from '../data/defaultContent.json';
 import { stripHtml } from '../utils/stripHtml';
 
 const iconClass = (icon) => (icon && icon.includes(' ') ? icon : `fas ${icon || ''}`);
@@ -17,11 +18,13 @@ const ErpAI = () => {
   const { content: home } = useContent('home');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  if (!content) {
+  const erpContent = content?.erpAI || content?.services?.erpAI || defaultContent.services?.erpAI;
+
+  if (!erpContent) {
     return <div className="erp-page" />;
   }
 
-  const erp = content.erpAI || {};
+  const erp = erpContent || {};
   const hero = erp.hero || {};
   const benefits = erp.benefits || {};
   const process = erp.process || {};

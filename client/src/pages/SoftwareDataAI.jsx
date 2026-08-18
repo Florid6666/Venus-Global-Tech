@@ -2,11 +2,13 @@ import React from 'react';
 import '../components/softwaredataai.css';
 import ServicePageTemplate from '../components/ServicePageTemplate';
 import { useContent } from '../hooks/useContent';
+import defaultContent from '../data/defaultContent.json';
 
 const SoftwareDataAI = () => {
   const { content } = useContent('services');
+  const softwareContent = content?.softwareDataAI || content?.services?.softwareDataAI || defaultContent.services?.softwareDataAI;
 
-  if (!content) {
+  if (!softwareContent) {
     return <div className="software-data-page" />;
   }
 
@@ -14,7 +16,7 @@ const SoftwareDataAI = () => {
     <ServicePageTemplate
       pageClass="software-data-page"
       prefix="software-data"
-      content={content.softwareDataAI}
+      content={softwareContent}
     />
   );
 };

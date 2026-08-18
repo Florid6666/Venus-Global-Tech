@@ -8,6 +8,7 @@ import NextEvolutionSection from '../components/NextEvolutionSection';
 import DeploymentTemplatesSection from '../components/DeploymentTemplatesSection';
 import FaqV2 from '../components/homev2/FaqV2';
 import { useContent } from '../hooks/useContent';
+import defaultContent from '../data/defaultContent.json';
 
 const AGENTIC_AI_FAQS = {
   badge: 'FREQUENTLY ASKED QUESTIONS',
@@ -45,8 +46,9 @@ const AGENTIC_AI_FAQS = {
 
 const AgenticAI = () => {
   const { content } = useContent('services');
+  const agenticContent = content?.agenticAI || content?.services?.agenticAI || defaultContent.services?.agenticAI;
 
-  if (!content) {
+  if (!agenticContent) {
     return <div className="agentic-ai-page" />;
   }
 
@@ -54,7 +56,7 @@ const AgenticAI = () => {
     <ServicePageTemplate
       pageClass="agentic-ai-page"
       prefix="agentic"
-      content={content.agenticAI}
+      content={agenticContent}
       customHero={<AgenticHero />}
       hideStandardSections={true}
       belowHero={
