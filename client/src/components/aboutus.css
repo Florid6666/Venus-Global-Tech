@@ -109,26 +109,26 @@
   color: #ffffff !important;
 }
 
-.breadcrumb-link {
+.about-hero-breadcrumb .breadcrumb-link {
   color: #ffffff !important;
   text-decoration: none;
   transition: opacity 0.25s ease, color 0.25s ease;
   opacity: 0.9;
 }
 
-.breadcrumb-link:hover {
+.about-hero-breadcrumb .breadcrumb-link:hover {
   color: #60a5fa !important;
   opacity: 1;
   text-decoration: underline;
 }
 
-.breadcrumb-arrow {
+.about-hero-breadcrumb .breadcrumb-arrow {
   font-size: 1rem;
   color: #ffffff !important;
   opacity: 0.75;
 }
 
-.breadcrumb-current {
+.about-hero-breadcrumb .breadcrumb-current {
   color: #ffffff !important;
   font-weight: 700;
   opacity: 1;
