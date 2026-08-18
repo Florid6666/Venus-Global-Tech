@@ -786,7 +786,16 @@
   flex-shrink: 0;
 }
 
-.esg-tool-name {
+.esg-tool-name,
+.cloud-tool-name,
+.iatf-tool-name,
+.software-data-tool-name,
+.digital-tool-name,
+.esg-tool-name *,
+.cloud-tool-name *,
+.iatf-tool-name *,
+.software-data-tool-name *,
+.digital-tool-name * {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
   font-size: 15px !important;
   font-weight: 500 !important;
@@ -804,13 +813,25 @@
 /* Hover, Active & Clicked State: Blue BG, White Text, White Icon & Blue Glow */
 .esg-tool-item:hover,
 .esg-tool-item:active,
-.esg-tool-item.active {
+.esg-tool-item.active,
+.cloud-tool-item:hover,
+.cloud-tool-item:active,
+.cloud-tool-item.active,
+.iatf-tool-item:hover,
+.iatf-tool-item:active,
+.iatf-tool-item.active {
   transform: translateY(-3px);
 }
 
 .esg-tool-item:hover .esg-tool-icon,
 .esg-tool-item:active .esg-tool-icon,
-.esg-tool-item.active .esg-tool-icon {
+.esg-tool-item.active .esg-tool-icon,
+.cloud-tool-item:hover .cloud-tool-icon,
+.cloud-tool-item:active .cloud-tool-icon,
+.cloud-tool-item.active .cloud-tool-icon,
+.iatf-tool-item:hover .iatf-tool-icon,
+.iatf-tool-item:active .iatf-tool-icon,
+.iatf-tool-item.active .iatf-tool-icon {
   background: #2563eb !important;
   border-color: #2563eb !important;
   box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4), 0 0 18px rgba(37, 99, 235, 0.3) !important;
@@ -818,15 +839,161 @@
 
 .esg-tool-item:hover .esg-tool-icon i,
 .esg-tool-item:active .esg-tool-icon i,
-.esg-tool-item.active .esg-tool-icon i {
+.esg-tool-item.active .esg-tool-icon i,
+.cloud-tool-item:hover .cloud-tool-icon i,
+.cloud-tool-item:active .cloud-tool-icon i,
+.cloud-tool-item.active .cloud-tool-icon i,
+.iatf-tool-item:hover .iatf-tool-icon i,
+.iatf-tool-item:active .iatf-tool-icon i,
+.iatf-tool-item.active .iatf-tool-icon i {
   color: #ffffff !important;
   transform: scale(1.1);
 }
 
 .esg-tool-item:hover .esg-tool-name,
 .esg-tool-item:active .esg-tool-name,
-.esg-tool-item.active .esg-tool-name {
+.esg-tool-item.active .esg-tool-name,
+.esg-tool-item:hover .esg-tool-name *,
+.esg-tool-item:active .esg-tool-name *,
+.esg-tool-item.active .esg-tool-name *,
+.cloud-tool-item:hover .cloud-tool-name,
+.cloud-tool-item:active .cloud-tool-name,
+.cloud-tool-item.active .cloud-tool-name,
+.cloud-tool-item:hover .cloud-tool-name *,
+.cloud-tool-item:active .cloud-tool-name *,
+.cloud-tool-item.active .cloud-tool-name *,
+.iatf-tool-item:hover .iatf-tool-name,
+.iatf-tool-item:active .iatf-tool-name,
+.iatf-tool-item.active .iatf-tool-name,
+.iatf-tool-item:hover .iatf-tool-name *,
+.iatf-tool-item:active .iatf-tool-name *,
+.iatf-tool-item.active .iatf-tool-name * {
   color: #ffffff !important;
+}
+
+/* Mobile & Tablet Responsive Layout for Tools Section */
+@media (max-width: 767px) {
+  .esg-tools,
+  .cloud-tools,
+  .iatf-tools {
+    padding: 50px 0 !important;
+  }
+
+  .esg-tools-header,
+  .cloud-tools-header,
+  .iatf-tools-header {
+    margin-bottom: 28px !important;
+  }
+
+  .esg-tools-grid,
+  .cloud-tools-grid,
+  .iatf-tools-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  .esg-tools-row,
+  .cloud-tools-row,
+  .iatf-tools-row {
+    display: contents !important;
+  }
+
+  .esg-tool-item,
+  .cloud-tool-item,
+  .iatf-tool-item {
+    flex: 0 1 auto !important;
+    max-width: 100% !important;
+  }
+
+  .esg-tool-icon,
+  .cloud-tool-icon,
+  .iatf-tool-icon {
+    min-height: 44px !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    gap: 8px !important;
+  }
+
+  .esg-tool-icon i,
+  .cloud-tool-icon i,
+  .iatf-tool-icon i {
+    font-size: 15px !important;
+  }
+
+  .esg-tool-name,
+  .cloud-tool-name,
+  .iatf-tool-name,
+  .esg-tool-name *,
+  .cloud-tool-name *,
+  .iatf-tool-name * {
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+  }
+
+  .esg-tools-panel,
+  .cloud-tools-panel,
+  .iatf-tools-panel {
+    margin-top: 24px !important;
+    padding: 24px 20px !important;
+    border-radius: 20px !important;
+    gap: 24px !important;
+  }
+
+  .esg-tools-panel-image-col,
+  .cloud-tools-panel-image-col,
+  .iatf-tools-panel-image-col {
+    height: 200px !important;
+    border-radius: 14px !important;
+  }
+
+  .esg-tools-panel-title,
+  .cloud-tools-panel-title,
+  .iatf-tools-panel-title {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .esg-tools-panel-desc,
+  .cloud-tools-panel-desc,
+  .iatf-tools-panel-desc {
+    font-size: 14.5px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .esg-tools-panel-caps-header,
+  .cloud-tools-panel-caps-header,
+  .iatf-tools-panel-caps-header {
+    font-size: 11.5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .esg-tools-panel-caps-list,
+  .cloud-tools-panel-caps-list,
+  .iatf-tools-panel-caps-list {
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .esg-tools-panel-caps-list li,
+  .cloud-tools-panel-caps-list li,
+  .iatf-tools-panel-caps-list li {
+    font-size: 13.5px !important;
+    gap: 10px !important;
+  }
+
+  .esg-tools-panel-cta,
+  .cloud-tools-panel-cta,
+  .iatf-tools-panel-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
 }
 
 /* Dynamic Tool Detail Panel - Wider & Exact ESG Typography */
@@ -1490,17 +1657,23 @@
     padding: 10px 20px;
   }
   
-  .esg-tool-name {
-    color: #22c55e !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
+  .esg-tool-name,
+  .esg-tool-name * {
+    color: #0f172a !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
     z-index: 2 !important;
     position: relative !important;
     text-align: center !important;
   }
   
-  .esg-tool-item:hover .esg-tool-name {
-    color: #22c55e !important;
+  .esg-tool-item:hover .esg-tool-name,
+  .esg-tool-item:active .esg-tool-name,
+  .esg-tool-item.active .esg-tool-name,
+  .esg-tool-item:hover .esg-tool-name *,
+  .esg-tool-item:active .esg-tool-name *,
+  .esg-tool-item.active .esg-tool-name * {
+    color: #ffffff !important;
   }
   
   .esg-why-choose-image {

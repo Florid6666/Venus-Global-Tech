@@ -1,32 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import './CloudHero.css';
 
 const CloudHero = () => {
-  const heroRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-    setMousePos({ x, y });
-  };
-
   return (
-    <section 
-      ref={heroRef}
-      className="cloud-hero-custom" 
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setMousePos({ x: 0, y: 0 })}
-    >
+    <section className="cloud-hero-custom">
       {/* Background Blueprint Grid Pattern & Ambient Radial Glow */}
-      <div 
-        className="cloud-hero-grid-bg"
-        style={{
-          transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 12}px, 0)`
-        }}
-      />
+      <div className="cloud-hero-grid-bg" />
       <div className="cloud-hero-radial-glow" />
 
       <div className="cloud-hero-custom-container">

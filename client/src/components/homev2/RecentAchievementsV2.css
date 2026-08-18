@@ -326,6 +326,11 @@
 }
 
 @media (max-width: 767px) {
+  .achievements-v2-slider-viewport::before,
+  .achievements-v2-slider-viewport::after {
+    display: none !important;
+  }
+
   .achievements-v2-section {
     padding: 50px 0 60px;
   }
@@ -358,9 +363,9 @@
   }
 
   .achievements-v2-card {
-    flex: 0 0 250px;
-    width: 250px;
-    height: 350px;
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 400px;
   }
 
   .achievements-v2-title-badge {

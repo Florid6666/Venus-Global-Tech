@@ -75,7 +75,7 @@ const TOOL_PANEL_DATA = {
       "Automated gap analysis and policy enforcement across global subsidiaries"
     ],
     ctaText: "Request Compliance Spec Sheet →",
-    image: "/images/IATF.jpg"
+    image: "/images/esg-compliance.png"
   },
   "Stakeholder": {
     badge: "Stakeholder Hub",
@@ -101,7 +101,7 @@ const TOOL_PANEL_DATA = {
       "Enterprise-grade role-based access controls and encrypted storage"
     ],
     ctaText: "Request Data Management Spec Sheet →",
-    image: "/images/ai-cloud.jpg"
+    image: "/images/esg-data-lake.png"
   },
   "Automation": {
     badge: "Workflow Automation",
@@ -114,7 +114,7 @@ const TOOL_PANEL_DATA = {
       "End-to-end sustainability process automation across global facilities"
     ],
     ctaText: "Request Automation Spec Sheet →",
-    image: "/images/agentic-ai.jpg"
+    image: "/images/esg-automation.png"
   },
   "AWS": {
     badge: "AWS Certified",
@@ -127,7 +127,7 @@ const TOOL_PANEL_DATA = {
       "AWS Well-Architected Framework compliance & continuous cost optimization"
     ],
     ctaText: "Request AWS Cloud Spec Sheet →",
-    image: "/images/ai-cloud.jpg"
+    image: "/images/aws-cloud.png"
   },
   "Azure": {
     badge: "Azure Enterprise",
@@ -140,7 +140,7 @@ const TOOL_PANEL_DATA = {
       "Automated Sentinel SIEM threat detection & Azure Policy compliance"
     ],
     ctaText: "Request Azure Cloud Spec Sheet →",
-    image: "/images/AI & Cloud (1).jpg"
+    image: "/images/azure-cloud.png"
   },
   "Google Cloud": {
     badge: "GCP Infrastructure",
@@ -153,7 +153,7 @@ const TOOL_PANEL_DATA = {
       "Global VPC networking with private Cloud Interconnect links"
     ],
     ctaText: "Request GCP Cloud Spec Sheet →",
-    image: "/images/software-data.jpg"
+    image: "/images/gcp-cloud.jpg"
   },
   "Kubernetes": {
     badge: "K8s Orchestration",
@@ -166,7 +166,7 @@ const TOOL_PANEL_DATA = {
       "Zero-downtime rolling updates & multi-cloud cluster federation"
     ],
     ctaText: "Request Kubernetes Spec Sheet →",
-    image: "/images/agentic-ai.jpg"
+    image: "/images/kubernetes.png"
   },
   "Docker": {
     badge: "Containerized Apps",
@@ -179,7 +179,7 @@ const TOOL_PANEL_DATA = {
       "Development-to-production environment parity with Compose stacks"
     ],
     ctaText: "Request Docker Spec Sheet →",
-    image: "/images/03.jpg"
+    image: "/images/docker.png"
   },
   "Database": {
     badge: "Managed Databases",
@@ -192,7 +192,7 @@ const TOOL_PANEL_DATA = {
       "Automated continuous backups, point-in-time recovery & encryption"
     ],
     ctaText: "Request Database Spec Sheet →",
-    image: "/images/05.jpg"
+    image: "/images/database-cloud.jpg"
   },
   "Security": {
     badge: "Zero Trust Security",
@@ -205,7 +205,7 @@ const TOOL_PANEL_DATA = {
       "SOC2 Type II, ISO 27001, HIPAA & PCI-DSS automated audit logs"
     ],
     ctaText: "Request Cloud Security Spec Sheet →",
-    image: "/images/IATF.jpg"
+    image: "/images/cloud-security.png"
   },
   "Checklists": {
     badge: "Audit Checklists",
@@ -231,7 +231,7 @@ const TOOL_PANEL_DATA = {
       "Integrated control plan & Process Flow Diagram (PFD) synchronization"
     ],
     ctaText: "Request Risk Assessment Spec Sheet →",
-    image: "/images/05.jpg"
+    image: "/images/risk-matrix.jpg"
   },
   "Documentation": {
     badge: "QMS Documentation",
@@ -244,7 +244,7 @@ const TOOL_PANEL_DATA = {
       "Role-based access control and continuous audit-readiness archival"
     ],
     ctaText: "Request Documentation Spec Sheet →",
-    image: "/images/software-data.jpg"
+    image: "/images/qms-documentation.png"
   },
   "Interviews": {
     badge: "Auditor Portal",
@@ -270,7 +270,7 @@ const TOOL_PANEL_DATA = {
       "First-Time-Through (FTT) quality & SPC chart integration"
     ],
     ctaText: "Request Observation Spec Sheet →",
-    image: "/images/ai-cloud.jpg"
+    image: "/images/observation.png"
   },
   "Data Analysis": {
     badge: "Statistical Quality",
@@ -296,7 +296,7 @@ const TOOL_PANEL_DATA = {
       "Executive Management Review (MR) dashboards & ISO audit readiness package"
     ],
     ctaText: "Request Audit Reporting Spec Sheet →",
-    image: "/images/agentic-ai.jpg"
+    image: "/images/audit-reporting.png"
   }
 };
 

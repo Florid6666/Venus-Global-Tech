@@ -90,6 +90,8 @@ const WhyChooseUsSection = ({
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
         .why-choose-v2-container {
+          --visible-cards: 3;
+          --card-gap: 28px;
           font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           position: relative;
           width: 100%;
@@ -107,12 +109,16 @@ const WhyChooseUsSection = ({
 
         @media (max-width: 1024px) {
           .why-choose-v2-container {
+            --visible-cards: 2;
+            --card-gap: 28px;
             padding: 80px 30px 100px 30px;
           }
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
           .why-choose-v2-container {
+            --visible-cards: 1;
+            --card-gap: 20px;
             padding: 60px 18px 80px 18px;
           }
         }
@@ -207,7 +213,7 @@ const WhyChooseUsSection = ({
 
         .why-carousel-track {
           display: flex;
-          gap: 28px;
+          gap: var(--card-gap);
           width: 100%;
           will-change: transform;
         }
@@ -216,10 +222,10 @@ const WhyChooseUsSection = ({
           transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* CARD STYLE - EXACTLY 3 CARDS FIT IN THE WINDOW AT A TIME */
+        /* CARD STYLE - DYNAMIC VISIBLE CARDS */
         .why-card {
-          flex: 0 0 calc((100% - 56px) / 3);
-          width: calc((100% - 56px) / 3);
+          flex: 0 0 calc((100% - (var(--visible-cards) - 1) * var(--card-gap)) / var(--visible-cards));
+          width: calc((100% - (var(--visible-cards) - 1) * var(--card-gap)) / var(--visible-cards));
           background: #ffffff;
           border: 1px solid #e2e8f0;
           border-radius: 24px;
@@ -280,11 +286,6 @@ const WhyChooseUsSection = ({
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
-          .why-card {
-            flex: 0 0 calc((100% - 28px) / 2);
-            width: calc((100% - 28px) / 2);
-          }
-          
           .why-title {
             font-size: 36px;
           }
@@ -299,17 +300,11 @@ const WhyChooseUsSection = ({
             justify-content: flex-end;
           }
           
-          .why-choose-v2-container {
-            padding: 60px 16px;
-          }
-          
           .why-title {
             font-size: 28px;
           }
-          
+
           .why-card {
-            flex: 0 0 100%;
-            width: 100%;
             padding: 32px 24px;
           }
 
@@ -358,7 +353,7 @@ const WhyChooseUsSection = ({
           <div
             className={`why-carousel-track ${withTransition ? 'transition-enabled' : ''}`}
             style={{
-              transform: `translateX(calc(-${currentIndex} * (100% / 3 + 28px / 3)))`
+              transform: `translateX(calc(-${currentIndex} * (100% + var(--card-gap)) / var(--visible-cards)))`
             }}
           >
             {extendedCards.map((item, idx) => (

@@ -659,7 +659,7 @@
 
 .sidebar-search-input-wrap input {
   width: 100%;
-  padding: 14px 44px 14px 18px;
+  padding: 14px 90px 14px 18px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -676,14 +676,42 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.sidebar-search-input-wrap .search-icon {
+.search-input-actions {
   position: absolute;
-  right: 16px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input-actions .search-icon {
   color: #94a3b8;
   font-size: 15px;
   pointer-events: none;
+}
+
+.mobile-category-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-category-toggle-btn:hover,
+.mobile-category-toggle-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
 }
 
 /* Categories Widget Box */
@@ -764,27 +792,145 @@
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .blogs-main-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
     padding: 0 24px;
   }
 
   .blogs-sidebar-right {
     position: static;
+    order: 1; /* Appears first right below Hero section on mobile/tablet */
+    width: 100%;
+  }
+
+  .blogs-content-left {
+    order: 2; /* Appears second below search bar and category filter */
+    width: 100%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .mobile-category-toggle-btn {
+    display: flex !important;
+  }
+
+  .categories-widget {
+    display: none;
+    margin-top: 0;
+    animation: categoryFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .categories-widget.mobile-open {
+    display: block !important;
+  }
+
+  .blogs-content-left {
+    gap: 24px !important;
+  }
+
   .blogs-remaining-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Make first featured hero card match standard blog card dimensions on mobile */
+  .blog-featured-hero-card {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+    border: 1px solid #f1f5f9 !important;
   }
 
   .featured-hero-image-wrap {
-    height: 260px;
+    height: 200px !important;
+  }
+
+  .featured-hero-body {
+    padding: 20px !important;
+  }
+
+  .blog-meta-row {
+    margin-bottom: 10px !important;
+  }
+
+  .blog-meta-row .blog-category-badge {
+    padding: 4px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .blog-meta-row .blog-date-text,
+  .blog-meta-row .blog-read-time {
+    font-size: 12px !important;
   }
 
   .featured-hero-title {
-    font-size: 24px;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .featured-hero-subtitle {
+    display: none !important;
+  }
+
+  .featured-hero-excerpt {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    overflow: hidden !important;
+  }
+
+  .featured-hero-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .featured-hero-footer .blog-author-name {
+    font-size: 12px !important;
+  }
+
+  .featured-hero-footer .read-more-btn {
+    display: none !important;
+  }
+
+  /* Standard blog cards on mobile */
+  .blog-card .blog-image {
+    height: 200px !important;
+  }
+
+  .blog-card .blog-content {
+    padding: 20px !important;
+  }
+
+  .blog-card .blog-title {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  .blog-card .blog-subtitle {
+    display: none !important;
+  }
+
+  .blog-card .blog-excerpt {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+    -webkit-line-clamp: 2 !important;
+  }
+}
+
+@keyframes categoryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

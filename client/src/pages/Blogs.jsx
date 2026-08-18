@@ -19,6 +19,7 @@ const Blogs = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   useEffect(() => {
     loadBlogs();
@@ -177,12 +178,22 @@ const Blogs = () => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <i className="fas fa-search search-icon"></i>
+                <div className="search-input-actions">
+                  <i className="fas fa-search search-icon"></i>
+                  <button 
+                    type="button"
+                    className={`mobile-category-toggle-btn ${isCategoryOpen ? 'active' : ''}`}
+                    onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                    aria-label="Toggle Category Filter"
+                  >
+                    <i className="fas fa-bars"></i>
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Categories Widget */}
-            <div className="sidebar-widget categories-widget">
+            <div className={`sidebar-widget categories-widget ${isCategoryOpen ? 'mobile-open' : ''}`}>
               <h3 className="widget-title">
                 Categories
                 <span className="widget-title-underline"></span>
@@ -192,7 +203,10 @@ const Blogs = () => {
                   <button
                     key={category}
                     className={`category-item-btn ${selectedCategory === category ? 'active' : ''}`}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => {
+                      setSelectedCategory(category);
+                      setIsCategoryOpen(false);
+                    }}
                   >
                     <span className="category-name">{category}</span>
                     <i className="fas fa-chevron-right arrow-icon"></i>
