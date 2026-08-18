@@ -39,12 +39,30 @@
 
 /* Container */
 .v2-pipeline-container {
-  max-width: 1280px;
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .v2-pipeline-container {
+    padding: 0 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .v2-pipeline-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-pipeline-container {
+    padding: 0 20px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -289,10 +307,10 @@
    RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .v2-pipeline-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .v2-pipeline-track {
@@ -304,22 +322,11 @@
   }
 
   .v2-pipeline-heading {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .v2-pipeline-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .v2-pipeline-heading {
     font-size: 2.5rem;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 767px) {
   .v2-pipeline-section {
     padding: 60px 0 70px;
   }

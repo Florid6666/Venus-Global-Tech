@@ -48,13 +48,13 @@
   z-index: 1;
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
   .v2-orbit-container {
     padding: 0 80px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .v2-orbit-container {
     padding: 0 30px;
   }
@@ -62,7 +62,7 @@
 
 @media (max-width: 767px) {
   .v2-orbit-container {
-    padding: 0 18px;
+    padding: 0 20px;
   }
 }
 

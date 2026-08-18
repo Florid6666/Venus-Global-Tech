@@ -160,7 +160,7 @@
 
 @media (max-width: 767px) {
   .about-partner-section {
-    padding: 60px 18px;
+    padding: 60px 20px;
   }
 }
 
@@ -1955,7 +1955,7 @@
   transform: scale(1.03);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .service-item {
     grid-template-columns: 50px 1fr 50px;
     gap: 20px;

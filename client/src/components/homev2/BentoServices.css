@@ -9,13 +9,13 @@
   width: 100%;
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
   .bs-section {
     padding: 60px 80px 80px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .bs-section {
     padding: 50px 30px 60px;
   }
@@ -23,7 +23,7 @@
 
 @media (max-width: 767px) {
   .bs-section {
-    padding: 40px 18px 50px;
+    padding: 40px 20px 50px;
   }
 }
 
@@ -283,7 +283,7 @@
 /* ==============================================
    Responsive
    ============================================== */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .bs-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -297,10 +297,7 @@
   }
 }
 
-@media (max-width: 700px) {
-  .bs-section {
-    padding: 40px 20px 60px;
-  }
+@media (max-width: 767px) {
   .bs-grid {
     grid-template-columns: 1fr;
   }

@@ -19,13 +19,13 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
   .achievements-v2-container {
     padding: 0 80px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .achievements-v2-container {
     padding: 0 30px;
   }
@@ -33,7 +33,7 @@
 
 @media (max-width: 767px) {
   .achievements-v2-container {
-    padding: 0 18px;
+    padding: 0 20px;
   }
 }
 
@@ -287,7 +287,7 @@
 /* --------------------------------------------------------------------------
    Responsive Breakpoints
    -------------------------------------------------------------------------- */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .achievements-v2-section {
     padding: 65px 0 80px;
   }
@@ -325,7 +325,7 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 767px) {
   .achievements-v2-section {
     padding: 50px 0 60px;
   }

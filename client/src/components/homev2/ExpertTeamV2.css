@@ -4,16 +4,36 @@
 
 .expert-team-section {
   background-color: #ffffff;
-  padding: 96px 24px;
+  padding: 96px 0;
   position: relative;
   overflow: hidden;
   font-family: 'absans', 'AB Sans', 'ABSans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .expert-team-container {
-  max-width: 1200px;
+  max-width: 1540px;
   margin: 0 auto;
   width: 100%;
+  padding: 0 120px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .expert-team-container {
+    padding: 0 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .expert-team-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .expert-team-container {
+    padding: 0 20px;
+  }
 }
 
 /* 1. Header Architecture: Left Text & Right Button Split */
@@ -378,7 +398,7 @@
    Responsive Adaptations
    ========================================================================== */
 
-@media (max-width: 868px) {
+@media (max-width: 1024px) {
   .expert-team-header {
     flex-direction: column;
     align-items: flex-start;
@@ -403,7 +423,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .expert-team-section {
     padding: 64px 16px;
   }

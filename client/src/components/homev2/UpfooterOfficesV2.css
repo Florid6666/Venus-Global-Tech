@@ -5,37 +5,39 @@
 .v2-upfooter-section {
   background-color: #ffffff;
   color: #0f172a;
-  padding: 96px 120px;
+  padding: 96px 0;
   position: relative;
   overflow: hidden;
   font-family: inherit;
 }
 
+.v2-upfooter-container {
+  max-width: 1540px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 120px;
+  box-sizing: border-box;
+}
+
 /* Laptop: 1025px - 1600px */
 @media (min-width: 1025px) and (max-width: 1600px) {
-  .v2-upfooter-section {
-    padding: 80px 80px;
+  .v2-upfooter-container {
+    padding: 0 80px;
   }
 }
 
 /* Tablet: 768px - 1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .v2-upfooter-section {
-    padding: 64px 30px;
+  .v2-upfooter-container {
+    padding: 0 30px;
   }
 }
 
 /* Mobile: 0px - 767px */
 @media (max-width: 767px) {
-  .v2-upfooter-section {
-    padding: 48px 20px;
+  .v2-upfooter-container {
+    padding: 0 20px;
   }
-}
-
-.v2-upfooter-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 /* 1. Two-Column Split Grid Architecture */
@@ -447,14 +449,14 @@
    Responsive Adaptations
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .v2-upfooter-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .v2-upfooter-section {
     padding: 64px 16px;
   }

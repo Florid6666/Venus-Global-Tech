@@ -21,13 +21,13 @@
   box-sizing: border-box;
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 1025px) and (max-width: 1600px) {
   .industries-serve-container {
     padding: 0 80px;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .industries-serve-container {
     padding: 0 30px;
   }
@@ -35,7 +35,7 @@
 
 @media (max-width: 767px) {
   .industries-serve-container {
-    padding: 0 18px;
+    padding: 0 20px;
   }
 }
 
@@ -260,19 +260,13 @@
 /* --------------------------------------------------------------------------
    RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
-  .industries-card {
-    flex: 0 0 calc((100% - 48px) / 3);
-  }
-}
-
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .industries-card {
     flex: 0 0 calc((100% - 24px) / 2);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .industries-serve-section {
     padding: 70px 0 80px;
   }
@@ -288,7 +282,7 @@
   }
 
   .industries-card {
-    flex: 0 0 88%;
-    min-width: 270px;
+    flex: 0 0 100%;
+    min-width: 250px;
   }
 }

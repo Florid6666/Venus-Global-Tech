@@ -14,13 +14,31 @@
 }
 
 .portfolio-v2-container {
-  max-width: 1440px;
+  max-width: 1540px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
+}
+
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .portfolio-v2-container {
+    padding: 0 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .portfolio-v2-container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio-v2-container {
+    padding: 0 20px;
+  }
 }
 
 /* Giant Floating White Card Container */
@@ -499,7 +517,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .portfolio-floating-card {
     padding: 40px 24px 32px 24px;
     border-radius: 24px;
@@ -517,7 +535,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .portfolio-v2-section {
     padding: 40px 0 50px;
   }

@@ -31,10 +31,17 @@ html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select,
   box-sizing: border-box;
 }
 
+:root {
+  --page-padding-mobile: 20px;
+  --page-padding-tablet: 30px;
+  --page-padding-laptop: 80px;
+  --page-padding-desktop: 120px;
+}
+
 html {
   scroll-behavior: smooth;
   max-width: 100vw;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 body {
