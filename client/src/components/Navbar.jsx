@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContent } from '../hooks/useContent';
 import defaultContent from '../data/defaultContent.json';
@@ -22,13 +22,6 @@ const Navbar = () => {
   const location = useLocation();
   const closeTimeoutRef = useRef(null);
 
-  // Automatically open services dropdown on mobile when menu opens so sub-services are visible right away
-  useEffect(() => {
-    if (isMenuOpen && typeof window !== 'undefined' && window.innerWidth <= 1024) {
-      setIsServicesOpen(true);
-    }
-  }, [isMenuOpen]);
-
   const handleLinkClick = () => {
     setIsMenuOpen(false);
   };
@@ -48,14 +41,11 @@ const Navbar = () => {
     closeTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 250);
   };
 
-  // Tapping/clicking (mobile, or a deliberate desktop click) should toggle
-  // right away — only the passive mouseleave gets the forgiving delay above.
-  const toggleServicesMenu = () => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
+  const toggleMobileMenu = () => {
+    if (!isMenuOpen) {
+      setIsServicesOpen(true);
     }
-    setIsServicesOpen((prev) => !prev);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const defaultNav = defaultContent.navbar || {};
@@ -65,6 +55,22 @@ const Navbar = () => {
   const callText = content?.callText || defaultNav.callText || "Call Any Time";
   const phoneNumber = content?.phoneNumber || defaultNav.phoneNumber || "647-722-0837";
   const whatsappLink = content?.whatsappLink || defaultNav.whatsappLink || "https://wa.me/16477220837";
+
+  // Build flattened menu items array for mobile view (omitting parent "Services" item header)
+  const mobileMenuItems = [];
+  menuItems.forEach((item) => {
+    if (item.submenu && item.submenu.length > 0) {
+      item.submenu.forEach((sub) => {
+        mobileMenuItems.push({
+          label: sub.label,
+          path: sub.path,
+          isExternal: sub.isExternal
+        });
+      });
+    } else {
+      mobileMenuItems.push(item);
+    }
+  });
 
   return (
     <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
@@ -79,7 +85,9 @@ const Navbar = () => {
 
         {/* Center Navigation Menu */}
         <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
-          <ul className="nav-list">
+          
+          {/* Desktop Navigation List */}
+          <ul className="nav-list desktop-nav-list">
             {menuItems.map((item) => (
               <li
                 key={item.label}
@@ -92,7 +100,7 @@ const Navbar = () => {
                   <>
                     <a
                       href="#"
-                      className={`nav-link ${isServicesOpen ? 'has-open-dropdown' : ''}`}
+                      className="nav-link"
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
@@ -100,7 +108,7 @@ const Navbar = () => {
                       }}
                     >
                       <RichText html={item.label} as="span" />
-                      <i className={`fas fa-chevron-down nav-chevron ${isServicesOpen ? 'open' : ''}`}></i>
+                      <i className="fas fa-chevron-down nav-chevron"></i>
                     </a>
                     <div className={`dropdown-menu ${isServicesOpen ? 'open' : ''}`}>
                       {item.submenu.map((sub) => {
@@ -153,6 +161,43 @@ const Navbar = () => {
             ))}
           </ul>
 
+          {/* Mobile Navigation List (Flat top-level panels, Services parent omitted) */}
+          <ul className="nav-list mobile-nav-list">
+            {mobileMenuItems.map((item) => {
+              const isErpAi = item.label?.trim() === 'ERP AI' || item.path === 'https://vgt-erp-ai-2.vercel.app/';
+              const targetPath = isErpAi ? 'https://vgt-erp-ai-2.vercel.app/' : item.path;
+              const isExternal = isErpAi || item.isExternal || targetPath?.startsWith('http');
+              const isActive = location.pathname === item.path;
+
+              if (isExternal) {
+                return (
+                  <li key={item.label} className={`nav-item ${isActive ? 'active' : ''}`}>
+                    <a
+                      href={targetPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="nav-link"
+                      onClick={(e) => {
+                        handleLinkClick();
+                        window.open(targetPath, '_blank', 'noopener,noreferrer');
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={item.label} className={`nav-item ${isActive ? 'active' : ''}`}>
+                  <Link to={item.path} className="nav-link" onClick={handleLinkClick}>
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
           {/* Mobile-only CTA */}
           <div className="mobile-only">
             <div className="nav-mobile-cta">
@@ -203,7 +248,7 @@ const Navbar = () => {
         {/* Mobile Hamburger Toggle */}
         <button
           className={`nav-toggle ${isMenuOpen ? 'open' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={toggleMobileMenu}
           aria-label="Toggle Navigation"
         >
           <span className="nav-toggle-bar"></span>
