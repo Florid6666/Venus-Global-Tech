@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useContent } from '../hooks/useContent';
 import defaultContent from '../data/defaultContent.json';
@@ -21,6 +21,13 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const closeTimeoutRef = useRef(null);
+
+  // Automatically open services dropdown on mobile when menu opens so sub-services are visible right away
+  useEffect(() => {
+    if (isMenuOpen && typeof window !== 'undefined' && window.innerWidth <= 1024) {
+      setIsServicesOpen(true);
+    }
+  }, [isMenuOpen]);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -85,7 +92,7 @@ const Navbar = () => {
                   <>
                     <a
                       href="#"
-                      className="nav-link"
+                      className={`nav-link ${isServicesOpen ? 'has-open-dropdown' : ''}`}
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
@@ -93,7 +100,7 @@ const Navbar = () => {
                       }}
                     >
                       <RichText html={item.label} as="span" />
-                      <i className="fas fa-chevron-down nav-chevron"></i>
+                      <i className={`fas fa-chevron-down nav-chevron ${isServicesOpen ? 'open' : ''}`}></i>
                     </a>
                     <div className={`dropdown-menu ${isServicesOpen ? 'open' : ''}`}>
                       {item.submenu.map((sub) => {
