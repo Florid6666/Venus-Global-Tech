@@ -60,8 +60,8 @@ const Navbar = () => {
   const whatsappLink = content?.whatsappLink || defaultNav.whatsappLink || "https://wa.me/16477220837";
 
   return (
-    <nav className="navbar">
-      <div className="nav-container">
+    <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
+      <div className={`nav-container ${isMenuOpen ? 'menu-open' : ''}`}>
         
         {/* Left Side Logo */}
         <div className="nav-logo">

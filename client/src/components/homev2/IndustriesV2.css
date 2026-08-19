@@ -1,12 +1,12 @@
 /* ==========================================================================
-   INDUSTRIES WE SERVE SECTION (V2 Design System)
-   Deep Dark Theme (#0B0E14), Bright Coral Red (#FF3B30) Hover Title Transition
+   INDUSTRIES WE SERVE SECTION (V2 Light Theme)
+   Clean White Background (#FFFFFF), Royal Blue Accent (#2563EB)
    ========================================================================== */
 
 .industries-serve-section {
   position: relative;
-  background-color: #0b0e14;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0f172a;
   padding: 100px 0 110px;
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -52,7 +52,7 @@
   height: 520px;
   top: -120px;
   left: -140px;
-  background: radial-gradient(circle at 35% 35%, rgba(99, 102, 241, 0.22) 0%, rgba(56, 189, 248, 0.14) 45%, rgba(37, 99, 235, 0.06) 70%, transparent 85%);
+  background: radial-gradient(circle at 35% 35%, rgba(59, 130, 246, 0.08) 0%, rgba(99, 102, 241, 0.04) 45%, transparent 85%);
   filter: blur(75px);
 }
 
@@ -61,7 +61,7 @@
   height: 540px;
   bottom: -140px;
   right: -140px;
-  background: radial-gradient(circle at 65% 65%, rgba(37, 99, 235, 0.22) 0%, rgba(168, 85, 247, 0.14) 45%, rgba(56, 189, 248, 0.06) 70%, transparent 85%);
+  background: radial-gradient(circle at 65% 65%, rgba(37, 99, 235, 0.08) 0%, rgba(168, 85, 247, 0.04) 45%, transparent 85%);
   filter: blur(80px);
 }
 
@@ -85,7 +85,7 @@
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #3b82f6;
+  color: #2563eb;
   letter-spacing: 0.12em;
   margin-bottom: 14px;
 }
@@ -95,7 +95,7 @@
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   max-width: 840px;
 }
@@ -115,15 +115,15 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: #161b26;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.95rem;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -132,15 +132,15 @@
   border-color: #2563eb;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.25);
 }
 
 .industries-nav-btn.is-disabled {
   opacity: 0.35;
   cursor: not-allowed;
-  border-color: rgba(255, 255, 255, 0.06);
-  background-color: rgba(22, 27, 38, 0.5);
-  color: rgba(255, 255, 255, 0.4);
+  border-color: #e2e8f0;
+  background-color: #f1f5f9;
+  color: #94a3b8;
   box-shadow: none;
 }
 
@@ -151,6 +151,12 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.industries-slider-window:active {
+  cursor: grabbing;
 }
 
 .industries-slider-track {
@@ -162,29 +168,29 @@
 }
 
 .industries-slider-track.transition-enabled {
-  transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Individual Card (Vertical Stack inside card) */
+/* Individual Card (Vertical Stack inside card) - Dark Black Theme on White Section */
 .industries-card {
   flex: 0 0 calc((100% - 72px) / 4);
-  min-width: 280px;
-  background-color: #131720;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 0;
+  background-color: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.22);
 }
 
 .industries-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(37, 99, 235, 0.5);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 99, 235, 0.2);
+  border-color: #2563eb;
+  box-shadow: 0 22px 45px -10px rgba(15, 23, 42, 0.4), 0 0 25px rgba(37, 99, 235, 0.25);
 }
 
 /* 1. Top Image Container */
@@ -203,6 +209,8 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .industries-card:hover .industries-card-img {
@@ -215,10 +223,10 @@
   top: 12px;
   right: 12px;
   padding: 5px 14px;
-  background: rgba(11, 14, 20, 0.75);
+  background: rgba(11, 14, 20, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 9999px;
   font-size: 0.78rem;
   font-weight: 700;
@@ -235,7 +243,7 @@
   padding-top: 20px;
 }
 
-/* Title: Default White (#FFFFFF) -> Transitions to Electric Blue (#3B82F6) on Card Hover */
+/* Title: Default White (#FFFFFF) -> Transitions to Blue (#3B82F6) on Card Hover */
 .industries-card-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -249,7 +257,7 @@
   color: #3b82f6;
 }
 
-/* Description: Muted Light Gray (#94A3B8) */
+/* Description: Readable Muted Gray (#94A3B8) */
 .industries-card-desc {
   font-size: 0.9rem;
   line-height: 1.55;
@@ -263,6 +271,7 @@
 @media (max-width: 1024px) {
   .industries-card {
     flex: 0 0 calc((100% - 24px) / 2);
+    min-width: 0;
   }
 }
 
@@ -282,7 +291,9 @@
   }
 
   .industries-card {
-    flex: 0 0 100%;
-    min-width: 250px;
+    flex: 0 0 calc(100% - 20px);
+    min-width: 0;
   }
 }
+
+

@@ -362,6 +362,10 @@
     font-size: 0.95rem;
   }
 
+  .achievements-v2-slider-track {
+    animation: achievementsMobileStepMarquee 15.2s ease-in-out infinite;
+  }
+
   .achievements-v2-card {
     flex: 0 0 100vw;
     width: 100vw;
@@ -382,6 +386,36 @@
   .achievements-v2-badge-desc-text {
     font-size: 0.8rem;
     line-height: 1.4;
+  }
+}
+
+@keyframes achievementsMobileStepMarquee {
+  0%, 9.8% {
+    transform: translateX(0);
+  }
+  12.5%, 22.3% {
+    transform: translateX(-100vw);
+  }
+  25%, 34.8% {
+    transform: translateX(-200vw);
+  }
+  37.5%, 47.3% {
+    transform: translateX(-300vw);
+  }
+  50%, 59.8% {
+    transform: translateX(-400vw);
+  }
+  62.5%, 72.3% {
+    transform: translateX(-500vw);
+  }
+  75%, 84.8% {
+    transform: translateX(-600vw);
+  }
+  87.5%, 97.3% {
+    transform: translateX(-700vw);
+  }
+  100% {
+    transform: translateX(-800vw);
   }
 }
 

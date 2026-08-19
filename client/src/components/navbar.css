@@ -415,43 +415,76 @@
 
   .nav-toggle {
     display: flex;
+    z-index: 10000 !important;
+  }
+
+  .navbar.menu-open .nav-toggle {
+    position: fixed !important;
+    top: 18px !important;
+    right: 20px !important;
+    z-index: 10000 !important;
+  }
+
+  .navbar.menu-open .nav-logo {
+    position: fixed !important;
+    top: 18px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10000 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .navbar.menu-open .nav-logo .logo-img {
+    height: 38px !important;
+    width: auto !important;
   }
 
   .mobile-only {
     display: block;
     width: 100%;
-    margin-top: 16px;
+    max-width: 440px;
+    margin: 28px 0 0;
   }
 
   .full-width {
     width: 100%;
+    height: 50px;
+    font-size: 1.05rem;
+    border-radius: 9999px;
   }
 
   .nav-menu {
-    position: fixed;
-    top: 62px !important;
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
     right: 0 !important;
-    left: auto !important;
-    margin-right: 0 !important;
-    width: min(300px, 85vw) !important;
-    max-height: calc(100vh - 65px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background: #ffffff;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    background: #ffffff !important;
     border-radius: 0 !important;
-    box-shadow: -15px 20px 50px rgba(15, 23, 42, 0.25);
-    border: 1px solid rgba(226, 232, 240, 0.95);
-    border-right: none !important;
-    padding: 24px;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 95px 24px 40px !important;
+    box-sizing: border-box !important;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     display: flex;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateX(100%);
+    transform: translateY(-12px);
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
-    z-index: 999;
+    z-index: 9999 !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.open {
@@ -459,24 +492,46 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
   .nav-list {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    gap: 12px;
+    max-width: 440px;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
   }
 
   .nav-item {
     width: 100%;
+    text-align: left;
   }
 
   .nav-link {
     width: 100%;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 12px 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .nav-link:hover,
+  .nav-item.active .nav-link {
+    background-color: #f1f5f9;
+    color: #2563eb;
+  }
+
+  .nav-link .nav-chevron {
+    margin-left: 8px;
+    font-size: 0.85rem;
   }
 
   .dropdown-menu {
@@ -485,24 +540,37 @@
     box-shadow: none;
     border: none;
     background: #f8fafc;
+    border-radius: 12px;
     width: 100%;
+    max-width: 440px;
+    margin: 6px 0 0;
+    padding: 6px 8px;
     box-sizing: border-box;
-    margin-top: 6px;
-    /* Hover isn't in play on touch; visibility here is opacity-only so the
-       menu doesn't take up layout space (and misalign the bridge) while closed. */
     display: none;
   }
 
   .dropdown-menu.open {
-    display: block;
-    /* The desktop .dropdown-menu.open rule (two classes, higher specificity
-       than this file's own mobile .dropdown-menu reset) sets a translateX/Y
-       transform for its floating-popover position. Specificity wins over
-       source order and media-query scoping, so without redeclaring it here
-       — on the exact selector it's losing to — the open mobile menu still
-       got shifted sideways by that desktop transform instead of sitting
-       in its normal static-flow position. */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     transform: none;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #334155;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background: #e2e8f0;
+    color: #2563eb;
   }
 
   .dropdown-menu::before {
@@ -510,10 +578,6 @@
   }
 
   .nav-overlay {
-    /* Invisible tap-outside-to-close catcher only — no dim/blur effect. */
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 998;
+    display: none;
   }
 }

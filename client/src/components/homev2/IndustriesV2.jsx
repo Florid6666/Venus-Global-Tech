@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import './IndustriesV2.css';
 
 const DEFAULT_INDUSTRIES = [
@@ -6,66 +6,77 @@ const DEFAULT_INDUSTRIES = [
     id: '01',
     title: 'Aerospace',
     description: 'Cleared, certified, and compliance-ready aerospace design engineers, avionics, and flight systems talent.',
-    image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '02',
     title: 'AutoTech',
     description: 'Bridging software innovation with automotive hardware to build the connected vehicles of tomorrow.',
-    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '03',
     title: 'Customer Service & Tech Support',
     description: 'Tier 1-3 support specialists and customer success directors focused on retention and satisfaction.',
-    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '04',
     title: 'C-Suite & Executive',
     description: 'Retained and confidential executive search for visionary CEOs, CTOs, CFOs, and Board Directors.',
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '05',
     title: 'Clinical Research',
     description: 'Pharma, biotech, and clinical trial managers ensuring regulatory compliance and trial excellence.',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '06',
     title: 'E-commerce & Supply Chain',
     description: 'End-to-end logistics, warehouse automation, and omnichannel fulfillment operational experts.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '07',
     title: 'Manufacturing & Skilled Trade',
     description: 'Skilled tradespeople, millwrights, CNC programmers, and industrial plant operations leaders.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '08',
     title: 'Financial Services & Fintech',
     description: 'FinTech platforms, AI-powered risk analysis, automated fraud detection, and regulatory compliance.',
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '09',
     title: 'Healthcare & Life Sciences',
     description: 'Digital healthcare platforms, AI diagnostics, patient engagement, and HIPAA-compliant workflow automation.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   },
   {
     id: '10',
     title: 'Energy & CleanTech',
     description: 'IoT monitoring, predictive grid maintenance, sustainability analytics, and smart infrastructure.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
+    link: '/services'
   }
 ];
 
 const IndustriesV2 = ({ content }) => {
-  const headingText = content?.title || 'Industries We Serve';
+  const badgeText = content?.badge || 'INDUSTRIES WE EMPOWER';
+  const headingText = content?.title || 'Technology Solutions Built for Every Industry';
   const rawItems = content?.items || DEFAULT_INDUSTRIES;
   
   const baseIndustries = rawItems.map((item, idx) => ({
@@ -74,119 +85,209 @@ const IndustriesV2 = ({ content }) => {
   }));
   const cardsCount = baseIndustries.length;
 
-  // Tripled array for infinite seamless looping [Set 1, Set 2, Set 3]
+  // Tripled array for seamless infinite looping [Set 1, Set 2, Set 3]
   const extendedIndustries = [...baseIndustries, ...baseIndustries, ...baseIndustries];
 
-  // Start at middle group index (10)
+  // Start at middle group index (cardsCount)
   const [currentIndex, setCurrentIndex] = useState(cardsCount);
   const [withTransition, setWithTransition] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
+
+  // Mouse & Touch Drag Gesture Support state
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [hasDragged, setHasDragged] = useState(false);
 
   const trackRef = useRef(null);
-  const [stepWidth, setStepWidth] = useState(320);
+  const sliderWindowRef = useRef(null);
+  const [stepWidth, setStepWidth] = useState(304);
 
-  // Measure card width + gap for smooth sliding
-  const updateLayout = () => {
+  // Measure single step width (card width + gap)
+  const updateLayout = useCallback(() => {
     if (trackRef.current && trackRef.current.children.length > 0) {
       const firstChild = trackRef.current.children[0];
-      const gap = 24; // 1.5rem
-      setStepWidth(firstChild.offsetWidth + gap);
+      const cardWidth = firstChild.offsetWidth;
+      if (cardWidth > 0) {
+        // Read CSS gap or fallback to 24
+        const style = window.getComputedStyle(trackRef.current);
+        const gapStr = style.gap || style.columnGap || '24px';
+        const gap = parseFloat(gapStr) || 24;
+        setStepWidth(cardWidth + gap);
+      }
     }
-  };
-
-  useEffect(() => {
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
-    return () => window.removeEventListener('resize', updateLayout);
   }, []);
 
-  const handleNext = () => {
-    setWithTransition(true);
-    setCurrentIndex((prev) => prev + 1);
-  };
-
-  const handlePrev = () => {
-    setWithTransition(true);
-    setCurrentIndex((prev) => prev - 1);
-  };
-
-  // Seamless boundary wrap when passing set limits
+  // Update layout on mount, resize, and when baseIndustries change
   useEffect(() => {
-    if (currentIndex >= cardsCount * 2) {
-      const timer = setTimeout(() => {
-        setWithTransition(false);
-        setCurrentIndex(cardsCount);
-      }, 500);
-      return () => clearTimeout(timer);
-    } else if (currentIndex < cardsCount) {
-      const timer = setTimeout(() => {
-        setWithTransition(false);
-        setCurrentIndex(cardsCount * 2 - 1);
-      }, 500);
-      return () => clearTimeout(timer);
+    updateLayout();
+    
+    // Use ResizeObserver for responsive layout updates
+    let observer;
+    if (window.ResizeObserver && sliderWindowRef.current) {
+      observer = new ResizeObserver(() => {
+        updateLayout();
+      });
+      observer.observe(sliderWindowRef.current);
     }
-  }, [currentIndex, cardsCount]);
+    
+    window.addEventListener('resize', updateLayout);
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('resize', updateLayout);
+    };
+  }, [baseIndustries.length, updateLayout]);
 
-  // Autoplay slide right-to-left every 2.2 seconds (short time duration)
+  // Re-enable transition after boundary snap
   useEffect(() => {
-    if (isPaused) return;
+    if (!withTransition) {
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => {
+          setWithTransition(true);
+        });
+        return () => cancelAnimationFrame(raf2);
+      });
+      return () => cancelAnimationFrame(raf1);
+    }
+  }, [withTransition]);
+
+  // Navigation Handlers with safety bounds against hyper-fast clicking
+  const handleNext = useCallback(() => {
+    setWithTransition(true);
+    setCurrentIndex((prev) => {
+      if (prev >= cardsCount * 3 - 1) {
+        return cardsCount; // Reset to middle set
+      }
+      return prev + 1;
+    });
+  }, [cardsCount]);
+
+  const handlePrev = useCallback(() => {
+    setWithTransition(true);
+    setCurrentIndex((prev) => {
+      if (prev <= 0) {
+        return cardsCount * 2 - 1; // Reset to middle set
+      }
+      return prev - 1;
+    });
+  }, [cardsCount]);
+
+  // Seamless jump on transition completion
+  const handleTransitionEnd = (e) => {
+    if (e.target !== trackRef.current || e.propertyName !== 'transform') return;
+
+    if (currentIndex >= cardsCount * 2) {
+      setWithTransition(false);
+      setCurrentIndex((prev) => prev - cardsCount);
+    } else if (currentIndex < cardsCount) {
+      setWithTransition(false);
+      setCurrentIndex((prev) => prev + cardsCount);
+    }
+  };
+
+  // Autoplay functionality (slides every 1.5s)
+  useEffect(() => {
+    if (isDragging || cardsCount <= 1) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 2200);
+    }, 1500);
     return () => clearInterval(interval);
-  }, [currentIndex, isPaused, cardsCount]);
+  }, [handleNext, isDragging, cardsCount]);
+
+  // Mouse & Touch Drag Gesture Support
+
+  const handleDragStart = (clientX) => {
+    setIsDragging(true);
+    setStartX(clientX);
+    setDragOffset(0);
+    setHasDragged(false);
+  };
+
+  const handleDragMove = (clientX) => {
+    if (!isDragging) return;
+    const delta = clientX - startX;
+    setDragOffset(delta);
+    if (Math.abs(delta) > 8) {
+      setHasDragged(true);
+    }
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    if (dragOffset < -50) {
+      handleNext();
+    } else if (dragOffset > 50) {
+      handlePrev();
+    }
+    setDragOffset(0);
+  };
 
   return (
     <section className="industries-serve-section" id="industries-we-serve">
-      {/* Diagonal Ambient Light Glows (Top-Left & Bottom-Right) */}
+      {/* Diagonal Ambient Light Glows */}
       <div className="industries-ambient-glow glow-diagonal-left" aria-hidden="true"></div>
       <div className="industries-ambient-glow glow-diagonal-right" aria-hidden="true"></div>
 
       <div className="industries-serve-container">
         
-        {/* A. HEADER SECTION */}
+        {/* HEADER SECTION */}
         <div className="industries-serve-header">
           <div className="industries-serve-header-left">
-            <span className="industries-category-eyebrow">INDUSTRIES</span>
-            <h2 className="industries-serve-title">
-              Technology Solutions Built<br className="desktop-br" /> for Every Industry
-            </h2>
+            <span className="industries-category-eyebrow">{badgeText}</span>
+            <h2 className="industries-serve-title">{headingText}</h2>
           </div>
 
-          {/* TOP CAROUSEL NAVIGATION CONTROLS */}
+          {/* CAROUSEL NAVIGATION CONTROLS */}
           <div className="industries-nav-controls">
             <button
               className="industries-nav-btn"
               onClick={handlePrev}
-              aria-label="Previous Industries"
+              aria-label="Previous Industry"
             >
               <i className="fas fa-chevron-left"></i>
             </button>
             <button
               className="industries-nav-btn"
               onClick={handleNext}
-              aria-label="Next Industries"
+              aria-label="Next Industry"
             >
               <i className="fas fa-chevron-right"></i>
             </button>
           </div>
         </div>
 
-        {/* B. CAROUSEL CARD STRUCTURE */}
-        <div className="industries-slider-window">
+        {/* CAROUSEL WINDOW & TRACK */}
+        <div 
+          className="industries-slider-window"
+          ref={sliderWindowRef}
+          onMouseDown={(e) => handleDragStart(e.clientX)}
+          onMouseMove={(e) => handleDragMove(e.clientX)}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
+          onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
+          onTouchEnd={handleDragEnd}
+        >
           <div
-            className={`industries-slider-track ${withTransition ? 'transition-enabled' : ''}`}
+            className={`industries-slider-track ${withTransition && !isDragging ? 'transition-enabled' : ''}`}
             ref={trackRef}
-            style={{ transform: `translateX(-${currentIndex * stepWidth}px)` }}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            onTransitionEnd={handleTransitionEnd}
+            style={{ 
+              transform: `translateX(${-currentIndex * stepWidth + (isDragging ? dragOffset : 0)}px)` 
+            }}
           >
             {extendedIndustries.map((item, idx) => (
               <div
                 key={`${item.id || item.title}-${idx}`}
                 className="industries-card"
-                onClick={() => {
-                  window.location.href = '/services';
+                onClick={(e) => {
+                  if (hasDragged) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                  }
+                  window.location.href = item.link || '/services';
                 }}
               >
                 {/* 1. Top Image Container */}
@@ -196,8 +297,9 @@ const IndustriesV2 = ({ content }) => {
                     alt={item.title}
                     className="industries-card-img"
                     loading="lazy"
+                    onLoad={updateLayout}
+                    draggable="false"
                   />
-                  {/* Numbered Badge (Top Right of Image) */}
                   <div className="industries-card-badge">
                     {item.displayNum}
                   </div>
@@ -219,3 +321,4 @@ const IndustriesV2 = ({ content }) => {
 };
 
 export default IndustriesV2;
+
