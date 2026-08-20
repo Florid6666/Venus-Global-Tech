@@ -243,23 +243,27 @@ const HomeV2 = () => {
 
               <div className="v2-trust-grid">
                 <div className="v2-testimonial-card v2-reveal-on-scroll v2-reveal-left">
-                  <span className="v2-testimonial-badge">{trust.badge || "CEO's Words"}</span>
+                  <span className="v2-testimonial-badge">{trust.badge || "Why Venus Global Tech"}</span>
                   <p className="v2-testimonial-quote">
-                    {trust.quote || '"Working with you was seamless from start to finish. The final design exceeded our expectations. Your attention to detail and ability to adaptable was outstanding throughout the entire process to the world."'}
+                    {(trust.quote || "We build technology around your business goals, not the other way around. By pairing enterprise-grade AI, cloud, and ERP expertise with hands-on partnership from strategy through deployment, we make sure every engagement solves a real problem, not just ships a feature.").replace(/^["']/, '').replace(/["']$/, '')}
                   </p>
-                  <div className="v2-testimonial-footer">
-                    <div className="v2-testimonial-person">
-                      <img
-                        src={trust.avatar || '/images/homev2/68bc8ab3454cbbc5f39299c6_Avater.avif'}
-                        alt={trust.personName || 'Emily R'}
-                        className="v2-testimonial-avatar"
-                      />
-                      <div>
-                        <strong>{trust.personName || 'Emily R'}</strong>
-                        <span>{trust.personRole || 'Co Founder of Metrilo'}</span>
+                  {trust.personName && (
+                    <div className="v2-testimonial-footer">
+                      <div className="v2-testimonial-person">
+                        {trust.avatar && (
+                          <img
+                            src={trust.avatar}
+                            alt={trust.personName}
+                            className="v2-testimonial-avatar"
+                          />
+                        )}
+                        <div>
+                          <strong>{trust.personName}</strong>
+                          {trust.personRole && <span>{trust.personRole}</span>}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className="v2-trust-stat-col">

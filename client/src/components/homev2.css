@@ -637,6 +637,7 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .v2-testimonial-badge {
@@ -657,6 +658,10 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.82);
   margin-bottom: 32px;
+}
+
+.v2-testimonial-quote:last-child {
+  margin-bottom: 0;
 }
 
 .v2-testimonial-footer {
