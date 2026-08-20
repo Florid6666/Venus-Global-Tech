@@ -160,49 +160,6 @@ const servicePartsFor = (serviceContent) =>
 
 const buildTree = (content) => [
   {
-    key: 'home', label: 'Home Page', children: [
-      { key: 'hero', label: 'Hero Section' },
-      { key: 'bentoServices', label: 'Bento Cards (Top Grid)' },
-      { key: 'trustSection', label: 'Testimonial & Stats' },
-      { key: 'whyWeHelp', label: 'Why We Help / Impact' },
-      { key: 'services', label: 'Services Card Grid' },
-      { key: 'erpShowcase', label: 'Venus ERP Suite' },
-      { key: 'whyChooseUs', label: 'Why Choose Us' },
-      { key: 'aiExpertise', label: 'AI Solutions Grid' },
-      { key: 'industries', label: 'Industries We Serve' },
-      { key: 'technologies', label: 'Technologies Orbit' },
-      { key: 'workingProcess', label: 'Working Process' },
-      { key: 'consultingExpertise', label: 'Consulting Showcase' },
-      { key: 'esgCompliance', label: 'ESG & Compliance' },
-      { key: 'servingRegion', label: 'North America Reach' },
-      { key: 'faq', label: 'FAQ Accordion' },
-      { key: 'cta', label: 'Final CTA Banner' },
-      { key: 'offices', label: 'Office Locations' },
-      { key: 'skills', label: 'Skills Marquee' },
-    ]
-  },
-  {
-    key: 'about', label: 'About Page', children: [
-      { key: 'hero', label: 'Hero Section' },
-      { key: 'stats', label: 'Stats' },
-      { key: 'content', label: 'Content Section' },
-    ]
-  },
-  {
-    key: 'contact', label: 'Contact Page', children: [
-      { key: 'hero', label: 'Hero Section' },
-      { key: 'form', label: 'Form Section' },
-      { key: 'image', label: 'Side Image' },
-    ]
-  },
-  { key: 'navbar', label: 'Navigation' },
-  { key: 'footer', label: 'Footer' },
-  {
-    key: 'services', label: 'Service Pages', children: Object.keys(content?.services || {}).map((sk) => ({
-      key: sk, label: SERVICE_LABELS[sk] || sk, children: servicePartsFor(content.services[sk]),
-    }))
-  },
-  {
     key: 'blogsPage', label: 'Blogs Page', children: [
       { key: 'hero', label: 'Hero' },
       { key: 'categories', label: 'Category Filters' },
@@ -272,8 +229,8 @@ const Admin = () => {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(false);
   const [saveStatus, setSaveStatus] = useState('');
-  const [activePath, setActivePath] = useState(['home', 'hero']);
-  const [expanded, setExpanded] = useState(new Set(['home']));
+  const [activePath, setActivePath] = useState(['blogsPage', 'hero']);
+  const [expanded, setExpanded] = useState(new Set(['blogsPage']));
   const saveHandlerRef = useRef(null);
 
   useEffect(() => {

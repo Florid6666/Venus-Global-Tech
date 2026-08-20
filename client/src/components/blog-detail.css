@@ -599,8 +599,14 @@ html {
 
 .related-posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
+  justify-content: center;
+}
+
+.related-posts-grid.single-card {
+  display: flex;
+  justify-content: center;
 }
 
 .related-post-card {
@@ -611,6 +617,9 @@ html {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: inherit;
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .related-post-card:hover {

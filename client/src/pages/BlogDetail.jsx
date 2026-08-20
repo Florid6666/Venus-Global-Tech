@@ -278,7 +278,7 @@ const BlogDetail = () => {
         <section className="related-posts-section">
           <div className="related-posts-container">
             <h2>Related Articles</h2>
-            <div className="related-posts-grid">
+            <div className={`related-posts-grid${relatedBlogs.length === 1 ? ' single-card' : ''}`}>
               {relatedBlogs.map((related) => (
                 <Link key={related.id} to={`/blog/${related.slug}`} className="related-post-card">
                   <div className="related-post-image">
@@ -286,7 +286,7 @@ const BlogDetail = () => {
                   </div>
                   <div className="related-post-content">
                     <span className="related-post-category">{related.category}</span>
-                    <RichText html={related.title} as="h3" />
+                    <RichText html={stripHtml(related.title)} as="h3" />
                     <RichText html={related.excerpt} as="p" />
                   </div>
                 </Link>

@@ -1212,3 +1212,18 @@
     padding-right: 16px;
   }
 }
+
+/* Universal font inheritance safeguards for blog titles */
+.blog-title *,
+.featured-hero-title *,
+.blog-card .blog-title *,
+.related-post-content h3 * {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+}
+

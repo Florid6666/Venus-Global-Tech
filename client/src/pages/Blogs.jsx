@@ -117,7 +117,7 @@ const Blogs = () => {
                             <span className="blog-read-time">{filteredBlogs[0].readTime}</span>
                           )}
                         </div>
-                        <RichText html={filteredBlogs[0].title} as="h2" className="featured-hero-title" />
+                        <RichText html={stripHtml(filteredBlogs[0].title)} as="h2" className="featured-hero-title" />
                         {filteredBlogs[0].subtitle && (
                           <RichText html={filteredBlogs[0].subtitle} as="p" className="featured-hero-subtitle" />
                         )}
@@ -149,7 +149,7 @@ const Blogs = () => {
                               <span className="blog-category">{blog.category}</span>
                               <span className="blog-date">{blog.date}</span>
                             </div>
-                            <RichText html={blog.title} as="h3" className="blog-title" />
+                            <RichText html={stripHtml(blog.title)} as="h3" className="blog-title" />
                             {blog.subtitle && <RichText html={blog.subtitle} as="p" className="blog-subtitle" />}
                             <RichText html={blog.excerpt} as="p" className="blog-excerpt" />
                             <div className="blog-author">By {stripHtml(blog.author || 'Venus Tech Team')}</div>

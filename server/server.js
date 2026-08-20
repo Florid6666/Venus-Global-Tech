@@ -837,10 +837,12 @@ app.post('/api/contact', async (req, res) => {
     }
 
     const senderEmail = process.env.SMTP_USER || process.env.EMAIL_USER || 'no-reply@venusglobaltech.com';
-    const recipientEmail = process.env.RECIPIENT_EMAIL || senderEmail;
+    const recipientEmail = process.env.CONTACT_RECEIVER_EMAIL || process.env.RECIPIENT_EMAIL || senderEmail;
+
+    const activeTransporter = transporter || createEmailTransporter();
 
     // Check if email transporter is initialized
-    if (!transporter) {
+    if (!activeTransporter) {
       console.log('📬 Contact form submission received (Console Fallback):');
       console.log('--------------------------------------------------');
       console.log('Name:', name);
@@ -913,7 +915,7 @@ app.post('/api/contact', async (req, res) => {
     };
 
     // Send email via nodemailer
-    await transporter.sendMail(mailOptions);
+    await activeTransporter.sendMail(mailOptions);
 
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
