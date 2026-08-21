@@ -308,7 +308,7 @@ const HomeV2 = () => {
               description={homeContent.services.description}
             />
             <div className="v2-services-card-grid">
-              {homeContent.services.items?.map((item, index) => {
+              {homeContent.services.items?.slice(0, 6).map((item, index) => {
                 const meta = SERVICE_CARD_META[item.number] || {};
                 return (
                 <div
